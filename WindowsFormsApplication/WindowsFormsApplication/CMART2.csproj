@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8AE23C4-62FC-4860-A4C0-B31D0EDE31FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication</RootNamespace>
+    <AssemblyName>WindowsFormsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchImportBallot.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchImportBallotDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BranchImportBallot\BUS_BranchImportBallot.cs" />
+    <Compile Include="BranchImportBallot\GUI_BranchImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchImportBallot\GUI_BranchImportBallot.Designer.cs">
+      <DependentUpon>GUI_BranchImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchImportBallot\GUI_InsertBranchImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchImportBallot\GUI_InsertBranchImportBallot.Designer.cs">
+      <DependentUpon>GUI_InsertBranchImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchImportBallot\GUI_UpdateBranchImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchImportBallot\GUI_UpdateBranchImportBallot.Designer.cs">
+      <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form0.Designer.cs">
+      <DependentUpon>Form0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\BUS_HeadquarterImportBallot.cs" />
+    <Compile Include="HeadquarterImportBallot\GUI_HeadquarterImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\GUI_HeadquarterImportBallot.Designer.cs">
+      <DependentUpon>GUI_HeadquarterImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\GUI_InsertHeadquarterImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\GUI_InsertHeadquarterImportBallot.Designer.cs">
+      <DependentUpon>GUI_InsertHeadquarterImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\GUI_UpdateHeadquarterImportBallot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeadquarterImportBallot\GUI_UpdateHeadquarterImportBallot.Designer.cs">
+      <DependentUpon>GUI_UpdateHeadquarterImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeadquaterImportBallot.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HeadquaterImportBallotDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBill\BUS_ManageBill.cs" />
+    <Compile Include="ManageBill\GUI_InsertBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBill\GUI_InsertBill.Designer.cs">
+      <DependentUpon>GUI_InsertBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBill\GUI_ManageBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBill\GUI_ManageBill.Designer.cs">
+      <DependentUpon>GUI_ManageBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBill\GUI_UpdateBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBill\GUI_UpdateBill.Designer.cs">
+      <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
+    <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.Designer.cs">
+      <DependentUpon>GUI_InsertPriceHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePriceHistory\GUI_ManagePriceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePriceHistory\GUI_ManagePriceHistory.Designer.cs">
+      <DependentUpon>GUI_ManagePriceHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePriceHistory\GUI_UpdatePriceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePriceHistory\GUI_UpdatePriceHistory.Designer.cs">
+      <DependentUpon>GUI_UpdatePriceHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProduct\BUS_ManageProduct.cs" />
+    <Compile Include="ManageProduct\GUI_InsertProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProduct\GUI_InsertProduct.Designer.cs">
+      <DependentUpon>GUI_InsertProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProduct\GUI_ManageProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProduct\GUI_ManageProduct.Designer.cs">
+      <DependentUpon>GUI_ManageProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProduct\GUI_UpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProduct\GUI_UpdateProduct.Designer.cs">
+      <DependentUpon>GUI_UpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePromotion\BUS_ManagePromotion.cs" />
+    <Compile Include="ManagePromotion\GUI_InsertPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePromotion\GUI_InsertPromotion.Designer.cs">
+      <DependentUpon>GUI_InsertPromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePromotion\GUI_ManagePromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePromotion\GUI_ManagePromotion.Designer.cs">
+      <DependentUpon>GUI_ManagePromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePromotion\GUI_UpdatePromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePromotion\GUI_UpdatePromotion.Designer.cs">
+      <DependentUpon>GUI_UpdatePromotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="PromotionInformation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProposeBallot.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProposeBallotDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_AccountInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_AccountSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_AccountUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillDetailInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillDetailSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillDetailUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotDetailInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotDetailSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotDetailUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BranchImportBallotUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotDetailInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotDetailSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotDetailUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_HeadquaterImportBallotUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PriceHistoryInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PriceHistorySelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PriceHistoryUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductCategoriesInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductCategoriesSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductCategoriesUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProductUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PromotionInformationInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PromotionInformationSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PromotionInformationUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotDetailInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotDetailSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotDetailUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ProposeBallotUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SupplierInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SupplierSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SupplierUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form0.resx">
+      <DependentUpon>Form0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.Config" />
+    <None Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

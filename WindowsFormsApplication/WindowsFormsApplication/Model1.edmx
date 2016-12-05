@@ -1,0 +1,2590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CMART2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountCode" />
+          </Key>
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdentityCard" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Authorities" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="GuestMoney" Type="float" Nullable="false" />
+          <Property Name="ExcessCash" Type="float" Nullable="false" />
+          <Property Name="TotalNum" Type="int" Nullable="false" />
+          <Property Name="POS" Type="int" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UnitPrice" Type="float" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchImportBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="HeadquaterBallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InputDate" Type="datetime" Nullable="false" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchImportBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HeadquaterImportBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProposeBallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InputDate" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HeadquaterImportBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="InputPrice" Type="float" Nullable="false" />
+          <Property Name="EXP" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceHistory">
+          <Key>
+            <PropertyRef Name="MaSP" />
+            <PropertyRef Name="GiaBan" />
+            <PropertyRef Name="EffectiveDate" />
+          </Key>
+          <Property Name="MaSP" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="GiaBan" Type="float" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="20" />
+          <Property Name="TypeCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="TypeCode" />
+          </Key>
+          <Property Name="TypeCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromotionInformation">
+          <Key>
+            <PropertyRef Name="AccountCode" />
+          </Key>
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PricePromotion" Type="float" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Cont" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ProposeBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProposeDate" Type="datetime" Nullable="false" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProposeBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierCode" />
+          </Key>
+          <Property Name="SupplierCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Bill_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallot_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="BranchImportBallot" Type="Self.BranchImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="BranchImportBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallot_HeadquaterImportBallot">
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="1" />
+          <End Role="BranchImportBallot" Type="Self.BranchImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeadquaterImportBallot">
+              <PropertyRef Name="BallotNum" />
+            </Principal>
+            <Dependent Role="BranchImportBallot">
+              <PropertyRef Name="HeadquaterBallotNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BranchImportBallotDetail" Type="Self.BranchImportBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="BranchImportBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallot_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallot_ProposeBallot">
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="1" />
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProposeBallot">
+              <PropertyRef Name="BallotNum" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallot">
+              <PropertyRef Name="ProposeBallotNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="HeadquaterImportBallotDetail" Type="Self.HeadquaterImportBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceHistory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="PriceHistory" Type="Self.PriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="PriceHistory">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategories">
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="TypeCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromotionInformation_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="PromotionInformation" Type="Self.PromotionInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="PromotionInformation">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallot_Account1">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="ProposeBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallot_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierCode" />
+            </Principal>
+            <Dependent Role="ProposeBallot">
+              <PropertyRef Name="SupplierCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProposeBallotDetail" Type="Self.ProposeBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="ProposeBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SP_ACCOUNT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_ACCOUNT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_BILL_BALLOTNUM_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BALLOTNUM" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_BILL_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_BRANCHIMPORTBALLOT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BRACHBALLOT" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_BRANCHIMPORTBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BALLOTNUM" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_HEADQUATERIMPORTBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_PRODUCT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PRODUCT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_PRODUCTCATEGORIES_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PRODUCTCATEGORIES_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_PROMOTIONINFORMATION_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PROMOTIONINFORMATION_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_PROPOSEBALLOT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PROPOSEBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_SUPPLIER_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_SUPPLIER_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_AccountDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AccountInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdentityCard" Type="varchar" Mode="In" />
+          <Parameter Name="Account" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Authorities" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AccountSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AccountUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+          <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdentityCard" Type="varchar" Mode="In" />
+          <Parameter Name="Account" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Authorities" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillDetailDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillDetailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="UnitPrice" Type="float" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_BillDetailSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillDetailUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="UnitPrice" Type="float" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_BillInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Total" Type="float" Mode="In" />
+          <Parameter Name="GuestMoney" Type="float" Mode="In" />
+          <Parameter Name="ExcessCash" Type="float" Mode="In" />
+          <Parameter Name="TotalNum" Type="int" Mode="In" />
+          <Parameter Name="POS" Type="int" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BillUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Total" Type="float" Mode="In" />
+          <Parameter Name="GuestMoney" Type="float" Mode="In" />
+          <Parameter Name="ExcessCash" Type="float" Mode="In" />
+          <Parameter Name="TotalNum" Type="int" Mode="In" />
+          <Parameter Name="POS" Type="int" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotDetailDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotDetailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+          <Parameter Name="State" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotDetailSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotDetailUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+          <Parameter Name="State" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="HeadquaterBallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="InputDate" Type="datetime" Mode="In" />
+          <Parameter Name="Branch" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_BranchImportBallotUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="HeadquaterBallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="InputDate" Type="datetime" Mode="In" />
+          <Parameter Name="Branch" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotDetailDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotDetailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+          <Parameter Name="InputPrice" Type="float" Mode="In" />
+          <Parameter Name="EXP" Type="datetime" Mode="In" />
+          <Parameter Name="State" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotDetailSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotDetailUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+          <Parameter Name="InputPrice" Type="float" Mode="In" />
+          <Parameter Name="EXP" Type="datetime" Mode="In" />
+          <Parameter Name="State" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProposeBallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="InputDate" Type="datetime" Mode="In" />
+          <Parameter Name="Total" Type="float" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_HeadquaterImportBallotUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProposeBallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="InputDate" Type="datetime" Mode="In" />
+          <Parameter Name="Total" Type="float" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_PriceHistoryDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="varchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="float" Mode="In" />
+          <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_PriceHistoryInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="varchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="float" Mode="In" />
+          <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_PriceHistorySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="varchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="float" Mode="In" />
+          <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_PriceHistoryUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSP" Type="varchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="float" Mode="In" />
+          <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductCategoriesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductCategoriesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+          <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductNum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductCategoriesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductCategoriesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+          <Parameter Name="TypeName" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductNum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Image" Type="varchar" Mode="In" />
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProductUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Image" Type="varchar" Mode="In" />
+          <Parameter Name="TypeCode" Type="varchar" Mode="In" />
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_PromotionInformationDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_PromotionInformationInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="PricePromotion" Type="float" Mode="In" />
+          <Parameter Name="StartTime" Type="datetime" Mode="In" />
+          <Parameter Name="EndTime" Type="datetime" Mode="In" />
+          <Parameter Name="Cont" Type="nvarchar" Mode="In" />
+          <Parameter Name="Image" Type="binary" Mode="In" />
+        </Function>
+        <Function Name="usp_PromotionInformationSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_PromotionInformationUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="PricePromotion" Type="float" Mode="In" />
+          <Parameter Name="StartTime" Type="datetime" Mode="In" />
+          <Parameter Name="EndTime" Type="datetime" Mode="In" />
+          <Parameter Name="Cont" Type="nvarchar" Mode="In" />
+          <Parameter Name="Image" Type="binary" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotDetailDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotDetailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotDetailSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotDetailUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProductCode" Type="varchar" Mode="In" />
+          <Parameter Name="Number" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProposeDate" Type="datetime" Mode="In" />
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ProposeBallotUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BallotNum" Type="varchar" Mode="In" />
+          <Parameter Name="ProposeDate" Type="datetime" Mode="In" />
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SupplierDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SupplierInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+          <Parameter Name="SupplierName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SupplierSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SupplierUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
+          <Parameter Name="SupplierName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="CMART2ModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchImportBallot" EntityType="Self.BranchImportBallot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchImportBallotDetail" EntityType="Self.BranchImportBallotDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeadquaterImportBallot" EntityType="Self.HeadquaterImportBallot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeadquaterImportBallotDetail" EntityType="Self.HeadquaterImportBallotDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceHistory" EntityType="Self.PriceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromotionInformation" EntityType="Self.PromotionInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProposeBallot" EntityType="Self.ProposeBallot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProposeBallotDetail" EntityType="Self.ProposeBallotDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bill_Account" Association="Self.FK_Bill_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetail_Product" Association="Self.FK_BillDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BillDetail" EntitySet="BillDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallot_Account" Association="Self.FK_BranchImportBallot_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="BranchImportBallot" EntitySet="BranchImportBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallot_HeadquaterImportBallot" Association="Self.FK_BranchImportBallot_HeadquaterImportBallot">
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallot" />
+            <End Role="BranchImportBallot" EntitySet="BranchImportBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallotDetail_Product" Association="Self.FK_BranchImportBallotDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BranchImportBallotDetail" EntitySet="BranchImportBallotDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallot_Account" Association="Self.FK_HeadquaterImportBallot_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallot_ProposeBallot" Association="Self.FK_HeadquaterImportBallot_ProposeBallot">
+            <End Role="ProposeBallot" EntitySet="ProposeBallot" />
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallotDetail_Product" Association="Self.FK_HeadquaterImportBallotDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="HeadquaterImportBallotDetail" EntitySet="HeadquaterImportBallotDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceHistory_Product" Association="Self.FK_PriceHistory_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PriceHistory" EntitySet="PriceHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategories" Association="Self.FK_Product_ProductCategories">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromotionInformation_Product" Association="Self.FK_PromotionInformation_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PromotionInformation" EntitySet="PromotionInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallot_Account1" Association="Self.FK_ProposeBallot_Account1">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="ProposeBallot" EntitySet="ProposeBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallot_Supplier" Association="Self.FK_ProposeBallot_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="ProposeBallot" EntitySet="ProposeBallot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallotDetail_Product" Association="Self.FK_ProposeBallotDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProposeBallotDetail" EntitySet="ProposeBallotDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMART2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountCode" />
+          </Key>
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdentityCard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Account1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Authorities" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK_Bill_Account" FromRole="Account" ToRole="Bill" />
+          <NavigationProperty Name="BranchImportBallots" Relationship="Self.FK_BranchImportBallot_Account" FromRole="Account" ToRole="BranchImportBallot" />
+          <NavigationProperty Name="HeadquaterImportBallots" Relationship="Self.FK_HeadquaterImportBallot_Account" FromRole="Account" ToRole="HeadquaterImportBallot" />
+          <NavigationProperty Name="ProposeBallots" Relationship="Self.FK_ProposeBallot_Account1" FromRole="Account" ToRole="ProposeBallot" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="GuestMoney" Type="Double" Nullable="false" />
+          <Property Name="ExcessCash" Type="Double" Nullable="false" />
+          <Property Name="TotalNum" Type="Int32" Nullable="false" />
+          <Property Name="POS" Type="Int32" Nullable="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Bill_Account" FromRole="Bill" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitPrice" Type="Double" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_BillDetail_Product" FromRole="BillDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="BranchImportBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HeadquaterBallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_BranchImportBallot_Account" FromRole="BranchImportBallot" ToRole="Account" />
+          <NavigationProperty Name="HeadquaterImportBallot" Relationship="Self.FK_BranchImportBallot_HeadquaterImportBallot" FromRole="BranchImportBallot" ToRole="HeadquaterImportBallot" />
+        </EntityType>
+        <EntityType Name="BranchImportBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_BranchImportBallotDetail_Product" FromRole="BranchImportBallotDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="HeadquaterImportBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProposeBallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InputDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_HeadquaterImportBallot_Account" FromRole="HeadquaterImportBallot" ToRole="Account" />
+          <NavigationProperty Name="BranchImportBallots" Relationship="Self.FK_BranchImportBallot_HeadquaterImportBallot" FromRole="HeadquaterImportBallot" ToRole="BranchImportBallot" />
+          <NavigationProperty Name="ProposeBallot" Relationship="Self.FK_HeadquaterImportBallot_ProposeBallot" FromRole="HeadquaterImportBallot" ToRole="ProposeBallot" />
+        </EntityType>
+        <EntityType Name="HeadquaterImportBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="InputPrice" Type="Double" Nullable="false" />
+          <Property Name="EXP" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_HeadquaterImportBallotDetail_Product" FromRole="HeadquaterImportBallotDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="PriceHistory">
+          <Key>
+            <PropertyRef Name="MaSP" />
+            <PropertyRef Name="GiaBan" />
+            <PropertyRef Name="EffectiveDate" />
+          </Key>
+          <Property Name="MaSP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GiaBan" Type="Double" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_PriceHistory_Product" FromRole="PriceHistory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TypeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK_BillDetail_Product" FromRole="Product" ToRole="BillDetail" />
+          <NavigationProperty Name="BranchImportBallotDetails" Relationship="Self.FK_BranchImportBallotDetail_Product" FromRole="Product" ToRole="BranchImportBallotDetail" />
+          <NavigationProperty Name="HeadquaterImportBallotDetails" Relationship="Self.FK_HeadquaterImportBallotDetail_Product" FromRole="Product" ToRole="HeadquaterImportBallotDetail" />
+          <NavigationProperty Name="PriceHistories" Relationship="Self.FK_PriceHistory_Product" FromRole="Product" ToRole="PriceHistory" />
+          <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ProductCategories" FromRole="Product" ToRole="ProductCategories" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="PromotionInformations" Relationship="Self.FK_PromotionInformation_Product" FromRole="Product" ToRole="PromotionInformation" />
+          <NavigationProperty Name="ProposeBallotDetails" Relationship="Self.FK_ProposeBallotDetail_Product" FromRole="Product" ToRole="ProposeBallotDetail" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="TypeCode" />
+          </Key>
+          <Property Name="TypeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductCategories" FromRole="ProductCategories" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="PromotionInformation">
+          <Key>
+            <PropertyRef Name="AccountCode" />
+          </Key>
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PricePromotion" Type="Double" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cont" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_PromotionInformation_Product" FromRole="PromotionInformation" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProposeBallot">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProposeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SupplierCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_ProposeBallot_Account1" FromRole="ProposeBallot" ToRole="Account" />
+          <NavigationProperty Name="HeadquaterImportBallots" Relationship="Self.FK_HeadquaterImportBallot_ProposeBallot" FromRole="ProposeBallot" ToRole="HeadquaterImportBallot" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_ProposeBallot_Supplier" FromRole="ProposeBallot" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="ProposeBallotDetail">
+          <Key>
+            <PropertyRef Name="BallotNum" />
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProposeBallotDetail_Product" FromRole="ProposeBallotDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierCode" />
+          </Key>
+          <Property Name="SupplierCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+          <NavigationProperty Name="ProposeBallots" Relationship="Self.FK_ProposeBallot_Supplier" FromRole="Supplier" ToRole="ProposeBallot" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Bill_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallot_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="BranchImportBallot" Type="Self.BranchImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="BranchImportBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallot_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallot_Account1">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountCode" />
+            </Principal>
+            <Dependent Role="ProposeBallot">
+              <PropertyRef Name="AccountCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallot_HeadquaterImportBallot">
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="1" />
+          <End Role="BranchImportBallot" Type="Self.BranchImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HeadquaterImportBallot">
+              <PropertyRef Name="BallotNum" />
+            </Principal>
+            <Dependent Role="BranchImportBallot">
+              <PropertyRef Name="HeadquaterBallotNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchImportBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="BranchImportBallotDetail" Type="Self.BranchImportBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="BranchImportBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallot_ProposeBallot">
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="1" />
+          <End Role="HeadquaterImportBallot" Type="Self.HeadquaterImportBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProposeBallot">
+              <PropertyRef Name="BallotNum" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallot">
+              <PropertyRef Name="ProposeBallotNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadquaterImportBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="HeadquaterImportBallotDetail" Type="Self.HeadquaterImportBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="HeadquaterImportBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PriceHistory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="PriceHistory" Type="Self.PriceHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="PriceHistory">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategories">
+          <End Role="ProductCategories" Type="Self.ProductCategory" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="TypeCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierCode" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PromotionInformation_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="PromotionInformation" Type="Self.PromotionInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="PromotionInformation">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallotDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProposeBallotDetail" Type="Self.ProposeBallotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductCode" />
+            </Principal>
+            <Dependent Role="ProposeBallotDetail">
+              <PropertyRef Name="ProductCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProposeBallot_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="ProposeBallot" Type="Self.ProposeBallot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierCode" />
+            </Principal>
+            <Dependent Role="ProposeBallot">
+              <PropertyRef Name="SupplierCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMART2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
+          <EntitySet Name="BranchImportBallots" EntityType="Self.BranchImportBallot" />
+          <EntitySet Name="BranchImportBallotDetails" EntityType="Self.BranchImportBallotDetail" />
+          <EntitySet Name="HeadquaterImportBallots" EntityType="Self.HeadquaterImportBallot" />
+          <EntitySet Name="HeadquaterImportBallotDetails" EntityType="Self.HeadquaterImportBallotDetail" />
+          <EntitySet Name="PriceHistories" EntityType="Self.PriceHistory" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+          <EntitySet Name="PromotionInformations" EntityType="Self.PromotionInformation" />
+          <EntitySet Name="ProposeBallots" EntityType="Self.ProposeBallot" />
+          <EntitySet Name="ProposeBallotDetails" EntityType="Self.ProposeBallotDetail" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Bill_Account" Association="Self.FK_Bill_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallot_Account" Association="Self.FK_BranchImportBallot_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="BranchImportBallot" EntitySet="BranchImportBallots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallot_Account" Association="Self.FK_HeadquaterImportBallot_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallot_Account1" Association="Self.FK_ProposeBallot_Account1">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ProposeBallot" EntitySet="ProposeBallots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetail_Product" Association="Self.FK_BillDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallot_HeadquaterImportBallot" Association="Self.FK_BranchImportBallot_HeadquaterImportBallot">
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallots" />
+            <End Role="BranchImportBallot" EntitySet="BranchImportBallots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchImportBallotDetail_Product" Association="Self.FK_BranchImportBallotDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BranchImportBallotDetail" EntitySet="BranchImportBallotDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallot_ProposeBallot" Association="Self.FK_HeadquaterImportBallot_ProposeBallot">
+            <End Role="ProposeBallot" EntitySet="ProposeBallots" />
+            <End Role="HeadquaterImportBallot" EntitySet="HeadquaterImportBallots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadquaterImportBallotDetail_Product" Association="Self.FK_HeadquaterImportBallotDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="HeadquaterImportBallotDetail" EntitySet="HeadquaterImportBallotDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PriceHistory_Product" Association="Self.FK_PriceHistory_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PriceHistory" EntitySet="PriceHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategories" Association="Self.FK_Product_ProductCategories">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PromotionInformation_Product" Association="Self.FK_PromotionInformation_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PromotionInformation" EntitySet="PromotionInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallotDetail_Product" Association="Self.FK_ProposeBallotDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProposeBallotDetail" EntitySet="ProposeBallotDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProposeBallot_Supplier" Association="Self.FK_ProposeBallot_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="ProposeBallot" EntitySet="ProposeBallots" />
+          </AssociationSet>
+          <FunctionImport Name="SP_ACCOUNT_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ACCOUNT_INSERT" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BILL_BALLOTNUM_AUTO">
+            <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BILL_INSERT" />
+          <FunctionImport Name="SP_BRANCHIMPORTBALLOT_ID_AUTO">
+            <Parameter Name="BRACHBALLOT" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BRANCHIMPORTBALLOT_INSERT" />
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO">
+            <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_INSERT" />
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CMART2Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CMART2Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PRODUCT_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PRODUCT_INSERT" />
+          <FunctionImport Name="SP_PRODUCTCATEGORIES_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PRODUCTCATEGORIES_INSERT" />
+          <FunctionImport Name="SP_PROMOTIONINFORMATION_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PROMOTIONINFORMATION_INSERT" />
+          <FunctionImport Name="SP_PROPOSEBALLOT_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PROPOSEBALLOT_INSERT" />
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SUPPLIER_ID_AUTO">
+            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SUPPLIER_INSERT" />
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="usp_AccountDelete">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AccountInsert" ReturnType="Collection(CMART2Model.usp_AccountInsert_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="IdentityCard" Mode="In" Type="String" />
+            <Parameter Name="Account" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Authorities" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AccountSelect" ReturnType="Collection(CMART2Model.usp_AccountSelect_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AccountUpdate" ReturnType="Collection(CMART2Model.usp_AccountUpdate_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="IdentityCard" Mode="In" Type="String" />
+            <Parameter Name="Account" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Authorities" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillDetailDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillDetailInsert" ReturnType="Collection(CMART2Model.usp_BillDetailInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="UnitPrice" Mode="In" Type="Double" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillDetailSelect" ReturnType="Collection(CMART2Model.usp_BillDetailSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillDetailUpdate" ReturnType="Collection(CMART2Model.usp_BillDetailUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="UnitPrice" Mode="In" Type="Double" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillInsert" ReturnType="Collection(CMART2Model.usp_BillInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Total" Mode="In" Type="Double" />
+            <Parameter Name="GuestMoney" Mode="In" Type="Double" />
+            <Parameter Name="ExcessCash" Mode="In" Type="Double" />
+            <Parameter Name="TotalNum" Mode="In" Type="Int32" />
+            <Parameter Name="POS" Mode="In" Type="Int32" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillSelect" ReturnType="Collection(CMART2Model.usp_BillSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillUpdate" ReturnType="Collection(CMART2Model.usp_BillUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Total" Mode="In" Type="Double" />
+            <Parameter Name="GuestMoney" Mode="In" Type="Double" />
+            <Parameter Name="ExcessCash" Mode="In" Type="Double" />
+            <Parameter Name="TotalNum" Mode="In" Type="Int32" />
+            <Parameter Name="POS" Mode="In" Type="Int32" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotDetailDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotDetailInsert" ReturnType="Collection(CMART2Model.usp_BranchImportBallotDetailInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+            <Parameter Name="State" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotDetailSelect" ReturnType="Collection(CMART2Model.usp_BranchImportBallotDetailSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotDetailUpdate" ReturnType="Collection(CMART2Model.usp_BranchImportBallotDetailUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+            <Parameter Name="State" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotInsert" ReturnType="Collection(CMART2Model.usp_BranchImportBallotInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="HeadquaterBallotNum" Mode="In" Type="String" />
+            <Parameter Name="InputDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Branch" Mode="In" Type="String" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotSelect" ReturnType="Collection(CMART2Model.usp_BranchImportBallotSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotUpdate" ReturnType="Collection(CMART2Model.usp_BranchImportBallotUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="HeadquaterBallotNum" Mode="In" Type="String" />
+            <Parameter Name="InputDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Branch" Mode="In" Type="String" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotDetailDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotDetailInsert" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotDetailInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+            <Parameter Name="InputPrice" Mode="In" Type="Double" />
+            <Parameter Name="EXP" Mode="In" Type="DateTime" />
+            <Parameter Name="State" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotDetailSelect" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotDetailSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotDetailUpdate" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotDetailUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+            <Parameter Name="InputPrice" Mode="In" Type="Double" />
+            <Parameter Name="EXP" Mode="In" Type="DateTime" />
+            <Parameter Name="State" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotInsert" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProposeBallotNum" Mode="In" Type="String" />
+            <Parameter Name="InputDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Total" Mode="In" Type="Double" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotSelect" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_HeadquaterImportBallotUpdate" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProposeBallotNum" Mode="In" Type="String" />
+            <Parameter Name="InputDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Total" Mode="In" Type="Double" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PriceHistoryDelete">
+            <Parameter Name="MaSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Double" />
+            <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PriceHistoryInsert" ReturnType="Collection(CMART2Model.usp_PriceHistoryInsert_Result)">
+            <Parameter Name="MaSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Double" />
+            <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PriceHistorySelect" ReturnType="Collection(CMART2Model.usp_PriceHistorySelect_Result)">
+            <Parameter Name="MaSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Double" />
+            <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PriceHistoryUpdate" ReturnType="Collection(CMART2Model.usp_PriceHistoryUpdate_Result)">
+            <Parameter Name="MaSP" Mode="In" Type="String" />
+            <Parameter Name="GiaBan" Mode="In" Type="Double" />
+            <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductCategoriesDelete">
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductCategoriesInsert" ReturnType="Collection(CMART2Model.usp_ProductCategoriesInsert_Result)">
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+            <Parameter Name="TypeName" Mode="In" Type="String" />
+            <Parameter Name="ProductNum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductCategoriesSelect" ReturnType="Collection(CMART2Model.usp_ProductCategoriesSelect_Result)">
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductCategoriesUpdate" ReturnType="Collection(CMART2Model.usp_ProductCategoriesUpdate_Result)">
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+            <Parameter Name="TypeName" Mode="In" Type="String" />
+            <Parameter Name="ProductNum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductDelete">
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductInsert" ReturnType="Collection(CMART2Model.usp_ProductInsert_Result)">
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="String" />
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductSelect" ReturnType="Collection(CMART2Model.usp_ProductSelect_Result)">
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProductUpdate" ReturnType="Collection(CMART2Model.usp_ProductUpdate_Result)">
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="String" />
+            <Parameter Name="TypeCode" Mode="In" Type="String" />
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationDelete">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationInsert" ReturnType="Collection(CMART2Model.usp_PromotionInformationInsert_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="PricePromotion" Mode="In" Type="Double" />
+            <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+            <Parameter Name="Cont" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationSelect" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelect_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationUpdate" ReturnType="Collection(CMART2Model.usp_PromotionInformationUpdate_Result)">
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="PricePromotion" Mode="In" Type="Double" />
+            <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+            <Parameter Name="Cont" Mode="In" Type="String" />
+            <Parameter Name="Image" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotDetailDelete">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotDetailInsert" ReturnType="Collection(CMART2Model.usp_ProposeBallotDetailInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotDetailSelect" ReturnType="Collection(CMART2Model.usp_ProposeBallotDetailSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotDetailUpdate" ReturnType="Collection(CMART2Model.usp_ProposeBallotDetailUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProductCode" Mode="In" Type="String" />
+            <Parameter Name="Number" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotInsert" ReturnType="Collection(CMART2Model.usp_ProposeBallotInsert_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProposeDate" Mode="In" Type="DateTime" />
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotSelect" ReturnType="Collection(CMART2Model.usp_ProposeBallotSelect_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ProposeBallotUpdate" ReturnType="Collection(CMART2Model.usp_ProposeBallotUpdate_Result)">
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="ProposeDate" Mode="In" Type="DateTime" />
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SupplierDelete">
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SupplierInsert" ReturnType="Collection(CMART2Model.usp_SupplierInsert_Result)">
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+            <Parameter Name="SupplierName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SupplierSelect" ReturnType="Collection(CMART2Model.usp_SupplierSelect_Result)">
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SupplierUpdate" ReturnType="Collection(CMART2Model.usp_SupplierUpdate_Result)">
+            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+            <Parameter Name="SupplierName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_AccountInsert_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdentityCard" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Account" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Authorities" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_AccountSelect_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdentityCard" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Account" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Authorities" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_AccountUpdate_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdentityCard" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Account" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Authorities" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_BillDetailInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_BillDetailSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_BillDetailUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_BillInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Double" Name="GuestMoney" Nullable="false" />
+          <Property Type="Double" Name="ExcessCash" Nullable="false" />
+          <Property Type="Int32" Name="TotalNum" Nullable="false" />
+          <Property Type="Int32" Name="POS" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BillSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Double" Name="GuestMoney" Nullable="false" />
+          <Property Type="Double" Name="ExcessCash" Nullable="false" />
+          <Property Type="Int32" Name="TotalNum" Nullable="false" />
+          <Property Type="Int32" Name="POS" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BillUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Double" Name="GuestMoney" Nullable="false" />
+          <Property Type="Double" Name="ExcessCash" Nullable="false" />
+          <Property Type="Int32" Name="TotalNum" Nullable="false" />
+          <Property Type="Int32" Name="POS" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotDetailInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotDetailSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotDetailUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="HeadquaterBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Branch" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="HeadquaterBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Branch" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="HeadquaterBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Branch" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotDetailInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="InputPrice" Nullable="false" />
+          <Property Type="DateTime" Name="EXP" Nullable="false" Precision="23" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotDetailSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="InputPrice" Nullable="false" />
+          <Property Type="DateTime" Name="EXP" Nullable="false" Precision="23" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotDetailUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="InputPrice" Nullable="false" />
+          <Property Type="DateTime" Name="EXP" Nullable="false" Precision="23" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProposeBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProposeBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_HeadquaterImportBallotUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProposeBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_PriceHistoryInsert_Result">
+          <Property Type="String" Name="MaSP" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="GiaBan" Nullable="false" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_PriceHistorySelect_Result">
+          <Property Type="String" Name="MaSP" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="GiaBan" Nullable="false" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_PriceHistoryUpdate_Result">
+          <Property Type="String" Name="MaSP" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="GiaBan" Nullable="false" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductCategoriesInsert_Result">
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ProductNum" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductCategoriesSelect_Result">
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ProductNum" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductCategoriesUpdate_Result">
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ProductNum" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductInsert_Result">
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductSelect_Result">
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductUpdate_Result">
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_PromotionInformationInsert_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="PricePromotion" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_PromotionInformationSelect_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="PricePromotion" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_PromotionInformationUpdate_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="PricePromotion" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotDetailInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotDetailSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotDetailUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotInsert_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="ProposeDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotSelect_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="ProposeDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProposeBallotUpdate_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="ProposeDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_SupplierInsert_Result">
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_SupplierSelect_Result">
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_SupplierUpdate_Result">
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMART2ModelStoreContainer" CdmEntityContainer="CMART2Entities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="CMART2Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+                <ScalarProperty Name="Account1" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorities" ColumnName="Authorities" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="CMART2Model.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="GuestMoney" ColumnName="GuestMoney" />
+                <ScalarProperty Name="ExcessCash" ColumnName="ExcessCash" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillDetails">
+            <EntityTypeMapping TypeName="CMART2Model.BillDetail">
+              <MappingFragment StoreEntitySet="BillDetail">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchImportBallots">
+            <EntityTypeMapping TypeName="CMART2Model.BranchImportBallot">
+              <MappingFragment StoreEntitySet="BranchImportBallot">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="HeadquaterBallotNum" ColumnName="HeadquaterBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchImportBallotDetails">
+            <EntityTypeMapping TypeName="CMART2Model.BranchImportBallotDetail">
+              <MappingFragment StoreEntitySet="BranchImportBallotDetail">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadquaterImportBallots">
+            <EntityTypeMapping TypeName="CMART2Model.HeadquaterImportBallot">
+              <MappingFragment StoreEntitySet="HeadquaterImportBallot">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeBallotNum" ColumnName="ProposeBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadquaterImportBallotDetails">
+            <EntityTypeMapping TypeName="CMART2Model.HeadquaterImportBallotDetail">
+              <MappingFragment StoreEntitySet="HeadquaterImportBallotDetail">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="InputPrice" ColumnName="InputPrice" />
+                <ScalarProperty Name="EXP" ColumnName="EXP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceHistories">
+            <EntityTypeMapping TypeName="CMART2Model.PriceHistory">
+              <MappingFragment StoreEntitySet="PriceHistory">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="CMART2Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="CMART2Model.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategories">
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ProductNum" ColumnName="ProductNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromotionInformations">
+            <EntityTypeMapping TypeName="CMART2Model.PromotionInformation">
+              <MappingFragment StoreEntitySet="PromotionInformation">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProposeBallots">
+            <EntityTypeMapping TypeName="CMART2Model.ProposeBallot">
+              <MappingFragment StoreEntitySet="ProposeBallot">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeDate" ColumnName="ProposeDate" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProposeBallotDetails">
+            <EntityTypeMapping TypeName="CMART2Model.ProposeBallotDetail">
+              <MappingFragment StoreEntitySet="ProposeBallotDetail">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="CMART2Model.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CMART2Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ACCOUNT_ID_AUTO" FunctionName="CMART2Model.Store.SP_ACCOUNT_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_ACCOUNT_INSERT" FunctionName="CMART2Model.Store.SP_ACCOUNT_INSERT" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CMART2Model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="SP_BILL_BALLOTNUM_AUTO" FunctionName="CMART2Model.Store.SP_BILL_BALLOTNUM_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_BILL_INSERT" FunctionName="CMART2Model.Store.SP_BILL_INSERT" />
+          <FunctionImportMapping FunctionImportName="SP_BRANCHIMPORTBALLOT_ID_AUTO" FunctionName="CMART2Model.Store.SP_BRANCHIMPORTBALLOT_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_BRANCHIMPORTBALLOT_INSERT" FunctionName="CMART2Model.Store.SP_BRANCHIMPORTBALLOT_INSERT" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CMART2Model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CMART2Model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_INSERT" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_INSERT" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CMART2Model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CMART2Model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PRODUCT_ID_AUTO" FunctionName="CMART2Model.Store.SP_PRODUCT_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_PRODUCT_INSERT" FunctionName="CMART2Model.Store.SP_PRODUCT_INSERT" />
+          <FunctionImportMapping FunctionImportName="SP_PRODUCTCATEGORIES_ID_AUTO" FunctionName="CMART2Model.Store.SP_PRODUCTCATEGORIES_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_PRODUCTCATEGORIES_INSERT" FunctionName="CMART2Model.Store.SP_PRODUCTCATEGORIES_INSERT" />
+          <FunctionImportMapping FunctionImportName="SP_PROMOTIONINFORMATION_ID_AUTO" FunctionName="CMART2Model.Store.SP_PROMOTIONINFORMATION_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_PROMOTIONINFORMATION_INSERT" FunctionName="CMART2Model.Store.SP_PROMOTIONINFORMATION_INSERT" />
+          <FunctionImportMapping FunctionImportName="SP_PROPOSEBALLOT_ID_AUTO" FunctionName="CMART2Model.Store.SP_PROPOSEBALLOT_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_PROPOSEBALLOT_INSERT" FunctionName="CMART2Model.Store.SP_PROPOSEBALLOT_INSERT" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CMART2Model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SP_SUPPLIER_ID_AUTO" FunctionName="CMART2Model.Store.SP_SUPPLIER_ID_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_SUPPLIER_INSERT" FunctionName="CMART2Model.Store.SP_SUPPLIER_INSERT" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CMART2Model.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="usp_AccountDelete" FunctionName="CMART2Model.Store.usp_AccountDelete" />
+          <FunctionImportMapping FunctionImportName="usp_AccountInsert" FunctionName="CMART2Model.Store.usp_AccountInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_AccountInsert_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorities" ColumnName="Authorities" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AccountSelect" FunctionName="CMART2Model.Store.usp_AccountSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_AccountSelect_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorities" ColumnName="Authorities" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AccountUpdate" FunctionName="CMART2Model.Store.usp_AccountUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_AccountUpdate_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorities" ColumnName="Authorities" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillDelete" FunctionName="CMART2Model.Store.usp_BillDelete" />
+          <FunctionImportMapping FunctionImportName="usp_BillDetailDelete" FunctionName="CMART2Model.Store.usp_BillDetailDelete" />
+          <FunctionImportMapping FunctionImportName="usp_BillDetailInsert" FunctionName="CMART2Model.Store.usp_BillDetailInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillDetailInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillDetailSelect" FunctionName="CMART2Model.Store.usp_BillDetailSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillDetailSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillDetailUpdate" FunctionName="CMART2Model.Store.usp_BillDetailUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillDetailUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillInsert" FunctionName="CMART2Model.Store.usp_BillInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="GuestMoney" ColumnName="GuestMoney" />
+                <ScalarProperty Name="ExcessCash" ColumnName="ExcessCash" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillSelect" FunctionName="CMART2Model.Store.usp_BillSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="GuestMoney" ColumnName="GuestMoney" />
+                <ScalarProperty Name="ExcessCash" ColumnName="ExcessCash" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillUpdate" FunctionName="CMART2Model.Store.usp_BillUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="GuestMoney" ColumnName="GuestMoney" />
+                <ScalarProperty Name="ExcessCash" ColumnName="ExcessCash" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotDelete" FunctionName="CMART2Model.Store.usp_BranchImportBallotDelete" />
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotDetailDelete" FunctionName="CMART2Model.Store.usp_BranchImportBallotDetailDelete" />
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotDetailInsert" FunctionName="CMART2Model.Store.usp_BranchImportBallotDetailInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotDetailInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotDetailSelect" FunctionName="CMART2Model.Store.usp_BranchImportBallotDetailSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotDetailSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotDetailUpdate" FunctionName="CMART2Model.Store.usp_BranchImportBallotDetailUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotDetailUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotInsert" FunctionName="CMART2Model.Store.usp_BranchImportBallotInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="HeadquaterBallotNum" ColumnName="HeadquaterBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotSelect" FunctionName="CMART2Model.Store.usp_BranchImportBallotSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="HeadquaterBallotNum" ColumnName="HeadquaterBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotUpdate" FunctionName="CMART2Model.Store.usp_BranchImportBallotUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="HeadquaterBallotNum" ColumnName="HeadquaterBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotDelete" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotDelete" />
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotDetailDelete" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotDetailDelete" />
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotDetailInsert" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotDetailInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotDetailInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="InputPrice" ColumnName="InputPrice" />
+                <ScalarProperty Name="EXP" ColumnName="EXP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotDetailSelect" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotDetailSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotDetailSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="InputPrice" ColumnName="InputPrice" />
+                <ScalarProperty Name="EXP" ColumnName="EXP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotDetailUpdate" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotDetailUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotDetailUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="InputPrice" ColumnName="InputPrice" />
+                <ScalarProperty Name="EXP" ColumnName="EXP" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotInsert" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeBallotNum" ColumnName="ProposeBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotSelect" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeBallotNum" ColumnName="ProposeBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_HeadquaterImportBallotUpdate" FunctionName="CMART2Model.Store.usp_HeadquaterImportBallotUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_HeadquaterImportBallotUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeBallotNum" ColumnName="ProposeBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PriceHistoryDelete" FunctionName="CMART2Model.Store.usp_PriceHistoryDelete" />
+          <FunctionImportMapping FunctionImportName="usp_PriceHistoryInsert" FunctionName="CMART2Model.Store.usp_PriceHistoryInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PriceHistoryInsert_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PriceHistorySelect" FunctionName="CMART2Model.Store.usp_PriceHistorySelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PriceHistorySelect_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PriceHistoryUpdate" FunctionName="CMART2Model.Store.usp_PriceHistoryUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PriceHistoryUpdate_Result">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductCategoriesDelete" FunctionName="CMART2Model.Store.usp_ProductCategoriesDelete" />
+          <FunctionImportMapping FunctionImportName="usp_ProductCategoriesInsert" FunctionName="CMART2Model.Store.usp_ProductCategoriesInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductCategoriesInsert_Result">
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ProductNum" ColumnName="ProductNum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductCategoriesSelect" FunctionName="CMART2Model.Store.usp_ProductCategoriesSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductCategoriesSelect_Result">
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ProductNum" ColumnName="ProductNum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductCategoriesUpdate" FunctionName="CMART2Model.Store.usp_ProductCategoriesUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductCategoriesUpdate_Result">
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ProductNum" ColumnName="ProductNum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductDelete" FunctionName="CMART2Model.Store.usp_ProductDelete" />
+          <FunctionImportMapping FunctionImportName="usp_ProductInsert" FunctionName="CMART2Model.Store.usp_ProductInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductInsert_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductSelect" FunctionName="CMART2Model.Store.usp_ProductSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductSelect_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductUpdate" FunctionName="CMART2Model.Store.usp_ProductUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductUpdate_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationDelete" FunctionName="CMART2Model.Store.usp_PromotionInformationDelete" />
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationInsert" FunctionName="CMART2Model.Store.usp_PromotionInformationInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PromotionInformationInsert_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationSelect" FunctionName="CMART2Model.Store.usp_PromotionInformationSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PromotionInformationSelect_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationUpdate" FunctionName="CMART2Model.Store.usp_PromotionInformationUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PromotionInformationUpdate_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotDelete" FunctionName="CMART2Model.Store.usp_ProposeBallotDelete" />
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotDetailDelete" FunctionName="CMART2Model.Store.usp_ProposeBallotDetailDelete" />
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotDetailInsert" FunctionName="CMART2Model.Store.usp_ProposeBallotDetailInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotDetailInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotDetailSelect" FunctionName="CMART2Model.Store.usp_ProposeBallotDetailSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotDetailSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotDetailUpdate" FunctionName="CMART2Model.Store.usp_ProposeBallotDetailUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotDetailUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotInsert" FunctionName="CMART2Model.Store.usp_ProposeBallotInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotInsert_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeDate" ColumnName="ProposeDate" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotSelect" FunctionName="CMART2Model.Store.usp_ProposeBallotSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotSelect_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeDate" ColumnName="ProposeDate" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProposeBallotUpdate" FunctionName="CMART2Model.Store.usp_ProposeBallotUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProposeBallotUpdate_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="ProposeDate" ColumnName="ProposeDate" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_SupplierDelete" FunctionName="CMART2Model.Store.usp_SupplierDelete" />
+          <FunctionImportMapping FunctionImportName="usp_SupplierInsert" FunctionName="CMART2Model.Store.usp_SupplierInsert">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_SupplierInsert_Result">
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_SupplierSelect" FunctionName="CMART2Model.Store.usp_SupplierSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_SupplierSelect_Result">
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_SupplierUpdate" FunctionName="CMART2Model.Store.usp_SupplierUpdate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_SupplierUpdate_Result">
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
