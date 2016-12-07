@@ -30,7 +30,7 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboSupplier = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtImage = new System.Windows.Forms.TextBox();
@@ -38,35 +38,39 @@
             this.lblSupplier = new System.Windows.Forms.Label();
             this.lblImage = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
-            this.lblProductID = new System.Windows.Forms.Label();
+            this.lblProductCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.cboTypeCode = new System.Windows.Forms.ComboBox();
+            this.lblTypeCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(193, 216);
+            this.btnCancel.Location = new System.Drawing.Point(193, 254);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 60;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.clickCancel);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(110, 216);
+            this.btnUpdate.Location = new System.Drawing.Point(110, 254);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 59;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
-            // comboBox1
+            // cboSupplier
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 180);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 21);
-            this.comboBox1.TabIndex = 58;
+            this.cboSupplier.FormattingEnabled = true;
+            this.cboSupplier.Location = new System.Drawing.Point(110, 218);
+            this.cboSupplier.Name = "cboSupplier";
+            this.cboSupplier.Size = new System.Drawing.Size(158, 21);
+            this.cboSupplier.TabIndex = 58;
             // 
             // btnSelect
             // 
@@ -103,7 +107,7 @@
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Location = new System.Drawing.Point(16, 189);
+            this.lblSupplier.Location = new System.Drawing.Point(16, 221);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(78, 13);
             this.lblSupplier.TabIndex = 53;
@@ -112,7 +116,7 @@
             // lblImage
             // 
             this.lblImage.AutoSize = true;
-            this.lblImage.Location = new System.Drawing.Point(16, 152);
+            this.lblImage.Location = new System.Drawing.Point(16, 148);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(53, 13);
             this.lblImage.TabIndex = 52;
@@ -121,20 +125,20 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(16, 118);
+            this.lblProductName.Location = new System.Drawing.Point(16, 114);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(78, 13);
             this.lblProductName.TabIndex = 51;
             this.lblProductName.Text = "Tên sản phẩm:";
             // 
-            // lblProductID
+            // lblProductCode
             // 
-            this.lblProductID.AutoSize = true;
-            this.lblProductID.Location = new System.Drawing.Point(16, 80);
-            this.lblProductID.Name = "lblProductID";
-            this.lblProductID.Size = new System.Drawing.Size(74, 13);
-            this.lblProductID.TabIndex = 50;
-            this.lblProductID.Text = "Mã sản phẩm:";
+            this.lblProductCode.AutoSize = true;
+            this.lblProductCode.Location = new System.Drawing.Point(16, 76);
+            this.lblProductCode.Name = "lblProductCode";
+            this.lblProductCode.Size = new System.Drawing.Size(74, 13);
+            this.lblProductCode.TabIndex = 50;
+            this.lblProductCode.Text = "Mã sản phẩm:";
             // 
             // lblTitle
             // 
@@ -147,14 +151,33 @@
             this.lblTitle.TabIndex = 49;
             this.lblTitle.Text = "Cập nhật sản phẩm";
             // 
+            // cboTypeCode
+            // 
+            this.cboTypeCode.FormattingEnabled = true;
+            this.cboTypeCode.Location = new System.Drawing.Point(110, 181);
+            this.cboTypeCode.Name = "cboTypeCode";
+            this.cboTypeCode.Size = new System.Drawing.Size(158, 21);
+            this.cboTypeCode.TabIndex = 62;
+            // 
+            // lblTypeCode
+            // 
+            this.lblTypeCode.AutoSize = true;
+            this.lblTypeCode.Location = new System.Drawing.Point(16, 184);
+            this.lblTypeCode.Name = "lblTypeCode";
+            this.lblTypeCode.Size = new System.Drawing.Size(79, 13);
+            this.lblTypeCode.TabIndex = 61;
+            this.lblTypeCode.Text = "Loại sản phẩm:";
+            // 
             // GUI_UpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 290);
+            this.Controls.Add(this.cboTypeCode);
+            this.Controls.Add(this.lblTypeCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboSupplier);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtImage);
@@ -162,7 +185,7 @@
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblProductName);
-            this.Controls.Add(this.lblProductID);
+            this.Controls.Add(this.lblProductCode);
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_UpdateProduct";
             this.Text = "GUI_UpdateProduct";
@@ -175,7 +198,7 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboSupplier;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.TextBox txtImage;
@@ -183,7 +206,9 @@
         private System.Windows.Forms.Label lblSupplier;
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Label lblProductName;
-        private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cboTypeCode;
+        private System.Windows.Forms.Label lblTypeCode;
     }
 }

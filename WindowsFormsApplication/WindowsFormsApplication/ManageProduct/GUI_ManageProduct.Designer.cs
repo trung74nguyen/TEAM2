@@ -114,6 +114,7 @@
             this.lstManageProduct.Name = "lstManageProduct";
             this.lstManageProduct.Size = new System.Drawing.Size(653, 238);
             this.lstManageProduct.TabIndex = 27;
+            this.lstManageProduct.DoubleClick += new System.EventHandler(this.selectProductToUpdate);
             // 
             // txtSearch
             // 
@@ -142,6 +143,7 @@
             this.btnUpdate.TabIndex = 24;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
             // btnInsert
             // 
@@ -151,6 +153,7 @@
             this.btnInsert.TabIndex = 23;
             this.btnInsert.Text = "Thêm";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.clickInsert);
             // 
             // lblTitle
             // 
@@ -197,6 +200,7 @@
             this.Controls.Add(this.lblPosition);
             this.Name = "GUI_ManageProduct";
             this.Text = "GUI_ManageProduct";
+            this.Load += new System.EventHandler(this.showManageProductForm);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageProduct)).EndInit();
