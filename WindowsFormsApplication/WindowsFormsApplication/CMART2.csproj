@@ -375,6 +375,15 @@
     <EmbeddedResource Include="Form0.resx">
       <DependentUpon>Form0.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_InsertPriceHistory.resx">
+      <DependentUpon>GUI_InsertPriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_ManagePriceHistory.resx">
+      <DependentUpon>GUI_ManagePriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_UpdatePriceHistory.resx">
+      <DependentUpon>GUI_UpdatePriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
