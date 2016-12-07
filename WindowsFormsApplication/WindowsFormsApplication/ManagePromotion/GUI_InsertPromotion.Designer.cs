@@ -28,11 +28,170 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dtpEnDayIn = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDayIn = new System.Windows.Forms.DateTimePicker();
+            this.txtProContentIn = new System.Windows.Forms.TextBox();
+            this.txtProPriceIn = new System.Windows.Forms.TextBox();
+            this.txtProductCodeIn = new System.Windows.Forms.TextBox();
+            this.txtProCodeIn = new System.Windows.Forms.TextBox();
+            this.lblEnDay = new System.Windows.Forms.Label();
+            this.lblStartDay = new System.Windows.Forms.Label();
+            this.lblProContent = new System.Windows.Forms.Label();
+            this.lblProPrice = new System.Windows.Forms.Label();
+            this.lblProductCode = new System.Windows.Forms.Label();
+            this.lblProCode = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // dtpEnDayIn
+            // 
+            this.dtpEnDayIn.Location = new System.Drawing.Point(351, 183);
+            this.dtpEnDayIn.Name = "dtpEnDayIn";
+            this.dtpEnDayIn.Size = new System.Drawing.Size(200, 20);
+            this.dtpEnDayIn.TabIndex = 30;
+            // 
+            // dtpStartDayIn
+            // 
+            this.dtpStartDayIn.Location = new System.Drawing.Point(351, 109);
+            this.dtpStartDayIn.Name = "dtpStartDayIn";
+            this.dtpStartDayIn.Size = new System.Drawing.Size(200, 20);
+            this.dtpStartDayIn.TabIndex = 29;
+            // 
+            // txtProContentIn
+            // 
+            this.txtProContentIn.Location = new System.Drawing.Point(33, 216);
+            this.txtProContentIn.Multiline = true;
+            this.txtProContentIn.Name = "txtProContentIn";
+            this.txtProContentIn.Size = new System.Drawing.Size(249, 31);
+            this.txtProContentIn.TabIndex = 28;
+            // 
+            // txtProPriceIn
+            // 
+            this.txtProPriceIn.Location = new System.Drawing.Point(124, 146);
+            this.txtProPriceIn.Name = "txtProPriceIn";
+            this.txtProPriceIn.Size = new System.Drawing.Size(158, 20);
+            this.txtProPriceIn.TabIndex = 27;
+            // 
+            // txtProductCodeIn
+            // 
+            this.txtProductCodeIn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtProductCodeIn.Location = new System.Drawing.Point(124, 112);
+            this.txtProductCodeIn.Name = "txtProductCodeIn";
+            this.txtProductCodeIn.ReadOnly = true;
+            this.txtProductCodeIn.Size = new System.Drawing.Size(158, 20);
+            this.txtProductCodeIn.TabIndex = 26;
+            // 
+            // txtProCodeIn
+            // 
+            this.txtProCodeIn.Location = new System.Drawing.Point(124, 74);
+            this.txtProCodeIn.Name = "txtProCodeIn";
+            this.txtProCodeIn.Size = new System.Drawing.Size(158, 20);
+            this.txtProCodeIn.TabIndex = 25;
+            // 
+            // lblEnDay
+            // 
+            this.lblEnDay.AutoSize = true;
+            this.lblEnDay.Location = new System.Drawing.Point(348, 149);
+            this.lblEnDay.Name = "lblEnDay";
+            this.lblEnDay.Size = new System.Drawing.Size(96, 13);
+            this.lblEnDay.TabIndex = 24;
+            this.lblEnDay.Text = "Thời gian kết thúc:";
+            // 
+            // lblStartDay
+            // 
+            this.lblStartDay.AutoSize = true;
+            this.lblStartDay.Location = new System.Drawing.Point(348, 74);
+            this.lblStartDay.Name = "lblStartDay";
+            this.lblStartDay.Size = new System.Drawing.Size(94, 13);
+            this.lblStartDay.TabIndex = 23;
+            this.lblStartDay.Text = "Thời gian bắt đầu:";
+            // 
+            // lblProContent
+            // 
+            this.lblProContent.AutoSize = true;
+            this.lblProContent.Location = new System.Drawing.Point(30, 190);
+            this.lblProContent.Name = "lblProContent";
+            this.lblProContent.Size = new System.Drawing.Size(110, 13);
+            this.lblProContent.TabIndex = 22;
+            this.lblProContent.Text = "Nội dung khuyến mãi:";
+            // 
+            // lblProPrice
+            // 
+            this.lblProPrice.AutoSize = true;
+            this.lblProPrice.Location = new System.Drawing.Point(30, 153);
+            this.lblProPrice.Name = "lblProPrice";
+            this.lblProPrice.Size = new System.Drawing.Size(83, 13);
+            this.lblProPrice.TabIndex = 21;
+            this.lblProPrice.Text = "Giá khuyến mãi:";
+            // 
+            // lblProductCode
+            // 
+            this.lblProductCode.AutoSize = true;
+            this.lblProductCode.Location = new System.Drawing.Point(30, 119);
+            this.lblProductCode.Name = "lblProductCode";
+            this.lblProductCode.Size = new System.Drawing.Size(74, 13);
+            this.lblProductCode.TabIndex = 20;
+            this.lblProductCode.Text = "Mã sản phẩm:";
+            // 
+            // lblProCode
+            // 
+            this.lblProCode.AutoSize = true;
+            this.lblProCode.Location = new System.Drawing.Point(30, 81);
+            this.lblProCode.Name = "lblProCode";
+            this.lblProCode.Size = new System.Drawing.Size(82, 13);
+            this.lblProCode.TabIndex = 19;
+            this.lblProCode.Text = "Mã khuyến mãi:";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(131, 17);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(336, 31);
+            this.lblTitle.TabIndex = 18;
+            this.lblTitle.Text = "Thêm thông tin khuyến mãi";
+            // 
+            // GUI_InsertPromotion
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(580, 264);
+            this.Controls.Add(this.dtpEnDayIn);
+            this.Controls.Add(this.dtpStartDayIn);
+            this.Controls.Add(this.txtProContentIn);
+            this.Controls.Add(this.txtProPriceIn);
+            this.Controls.Add(this.txtProductCodeIn);
+            this.Controls.Add(this.txtProCodeIn);
+            this.Controls.Add(this.lblEnDay);
+            this.Controls.Add(this.lblStartDay);
+            this.Controls.Add(this.lblProContent);
+            this.Controls.Add(this.lblProPrice);
+            this.Controls.Add(this.lblProductCode);
+            this.Controls.Add(this.lblProCode);
+            this.Controls.Add(this.lblTitle);
+            this.Name = "GUI_InsertPromotion";
             this.Text = "GUI_InsertPromotion";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DateTimePicker dtpEnDayIn;
+        private System.Windows.Forms.DateTimePicker dtpStartDayIn;
+        private System.Windows.Forms.TextBox txtProContentIn;
+        private System.Windows.Forms.TextBox txtProPriceIn;
+        private System.Windows.Forms.TextBox txtProductCodeIn;
+        private System.Windows.Forms.TextBox txtProCodeIn;
+        private System.Windows.Forms.Label lblEnDay;
+        private System.Windows.Forms.Label lblStartDay;
+        private System.Windows.Forms.Label lblProContent;
+        private System.Windows.Forms.Label lblProPrice;
+        private System.Windows.Forms.Label lblProductCode;
+        private System.Windows.Forms.Label lblProCode;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

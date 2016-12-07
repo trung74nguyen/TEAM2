@@ -125,6 +125,12 @@
     <Compile Include="ManageBill\GUI_InsertBill.Designer.cs">
       <DependentUpon>GUI_InsertBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageBill\GUI_InsertBill_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBill\GUI_InsertBill_Update.Designer.cs">
+      <DependentUpon>GUI_InsertBill_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageBill\GUI_ManageBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     </Compile>
     <Compile Include="ManageBill\GUI_UpdateBill.Designer.cs">
       <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBill\GUI_UpdateBill_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBill\GUI_UpdateBill_Update.Designer.cs">
+      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
     <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
@@ -193,11 +205,6 @@
     </Compile>
     <Compile Include="ManagePromotion\GUI_UpdatePromotion.Designer.cs">
       <DependentUpon>GUI_UpdatePromotion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -384,6 +391,30 @@
     <EmbeddedResource Include="ManagePriceHistory\GUI_UpdatePriceHistory.resx">
       <DependentUpon>GUI_UpdatePriceHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageBill\GUI_InsertBill.resx">
+      <DependentUpon>GUI_InsertBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBill\GUI_InsertBill_Update.resx">
+      <DependentUpon>GUI_InsertBill_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBill\GUI_ManageBill.resx">
+      <DependentUpon>GUI_ManageBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBill\GUI_UpdateBill.resx">
+      <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBill\GUI_UpdateBill_Update.resx">
+      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePromotion\GUI_InsertPromotion.resx">
+      <DependentUpon>GUI_InsertPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePromotion\GUI_ManagePromotion.resx">
+      <DependentUpon>GUI_ManagePromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePromotion\GUI_UpdatePromotion.resx">
+      <DependentUpon>GUI_UpdatePromotion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -394,10 +425,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="App.Config" />
-    <None Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </None>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
