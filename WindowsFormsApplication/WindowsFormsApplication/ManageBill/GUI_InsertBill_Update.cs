@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication.ManagePriceHistory
+namespace WindowsFormsApplication.ManageBill
 {
-    public partial class GUI_UpdatePriceHistory : Form
+    public partial class GUI_InsertBill_Update : Form
     {
-        public GUI_UpdatePriceHistory()
+        public GUI_InsertBill_Update()
         {
             InitializeComponent();
         }
-
-       
     }
 }

@@ -1228,5 +1228,10 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_SupplierUpdate_Result>("usp_SupplierUpdate", supplierCodeParameter, supplierNameParameter, addressParameter, phoneParameter);
         }
+
+        internal object usp_PromotionInformationSelect()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
