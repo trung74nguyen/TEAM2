@@ -15,5 +15,10 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
         }
+
+        private void GUI_BranchImportBallot_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
