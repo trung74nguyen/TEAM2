@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CMART2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CMART2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountCode" />
@@ -118,8 +118,8 @@
           <Property Name="AccountCode" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="PricePromotion" Type="float" Nullable="false" />
-          <Property Name="StartTime" Type="datetime" Nullable="false" />
-          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="StartTime" Type="date" Nullable="false" />
+          <Property Name="EndTime" Type="date" Nullable="false" />
           <Property Name="Cont" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Image" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -774,8 +774,7 @@
             <End Role="ProposeBallotDetail" EntitySet="ProposeBallotDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CMART2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -915,8 +914,8 @@
           <Property Name="AccountCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PricePromotion" Type="Double" Nullable="false" />
-          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Cont" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_PromotionInformation_Product" FromRole="PromotionInformation" ToRole="Product" />
@@ -1221,7 +1220,7 @@
             <End Role="ProposeBallot" EntitySet="ProposeBallots" />
           </AssociationSet>
           <FunctionImport Name="SP_ACCOUNT_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_ACCOUNT_INSERT" />
           <FunctionImport Name="sp_alterdiagram">
@@ -1231,11 +1230,11 @@
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="SP_BILL_BALLOTNUM_AUTO">
-            <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
+          <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_BILL_INSERT" />
           <FunctionImport Name="SP_BRANCHIMPORTBALLOT_ID_AUTO">
-            <Parameter Name="BRACHBALLOT" Mode="InOut" Type="String" />
+          <Parameter Name="BRACHBALLOT" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_BRANCHIMPORTBALLOT_INSERT" />
           <FunctionImport Name="sp_creatediagram">
@@ -1249,7 +1248,7 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO">
-            <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
+          <Parameter Name="BALLOTNUM" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_INSERT" />
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CMART2Model.sp_helpdiagramdefinition_Result)">
@@ -1261,19 +1260,19 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_PRODUCT_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_PRODUCT_INSERT" />
           <FunctionImport Name="SP_PRODUCTCATEGORIES_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_PRODUCTCATEGORIES_INSERT" />
           <FunctionImport Name="SP_PROMOTIONINFORMATION_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_PROMOTIONINFORMATION_INSERT" />
           <FunctionImport Name="SP_PROPOSEBALLOT_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_PROPOSEBALLOT_INSERT" />
           <FunctionImport Name="sp_renamediagram">
@@ -1282,12 +1281,12 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_SUPPLIER_ID_AUTO">
-            <Parameter Name="CODE" Mode="InOut" Type="String" />
+          <Parameter Name="CODE" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_SUPPLIER_INSERT" />
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="usp_AccountDelete">
-            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_AccountInsert" ReturnType="Collection(CMART2Model.usp_AccountInsert_Result)">
             <Parameter Name="AccountCode" Mode="In" Type="String" />
@@ -1300,7 +1299,7 @@
             <Parameter Name="Authorities" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_AccountSelect" ReturnType="Collection(CMART2Model.usp_AccountSelect_Result)">
-            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_AccountUpdate" ReturnType="Collection(CMART2Model.usp_AccountUpdate_Result)">
             <Parameter Name="AccountCode" Mode="In" Type="String" />
@@ -1313,7 +1312,7 @@
             <Parameter Name="Authorities" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillDelete">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillDetailDelete">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1346,7 +1345,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillSelect" ReturnType="Collection(CMART2Model.usp_BillSelect_Result)">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillUpdate" ReturnType="Collection(CMART2Model.usp_BillUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1359,7 +1358,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BranchImportBallotDelete">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BranchImportBallotDetailDelete">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1389,7 +1388,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BranchImportBallotSelect" ReturnType="Collection(CMART2Model.usp_BranchImportBallotSelect_Result)">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BranchImportBallotUpdate" ReturnType="Collection(CMART2Model.usp_BranchImportBallotUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1399,7 +1398,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_HeadquaterImportBallotDelete">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_HeadquaterImportBallotDetailDelete">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1433,7 +1432,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_HeadquaterImportBallotSelect" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotSelect_Result)">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_HeadquaterImportBallotUpdate" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1463,7 +1462,7 @@
             <Parameter Name="EffectiveDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductCategoriesDelete">
-            <Parameter Name="TypeCode" Mode="In" Type="String" />
+          <Parameter Name="TypeCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductCategoriesInsert" ReturnType="Collection(CMART2Model.usp_ProductCategoriesInsert_Result)">
             <Parameter Name="TypeCode" Mode="In" Type="String" />
@@ -1471,7 +1470,7 @@
             <Parameter Name="ProductNum" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductCategoriesSelect" ReturnType="Collection(CMART2Model.usp_ProductCategoriesSelect_Result)">
-            <Parameter Name="TypeCode" Mode="In" Type="String" />
+          <Parameter Name="TypeCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductCategoriesUpdate" ReturnType="Collection(CMART2Model.usp_ProductCategoriesUpdate_Result)">
             <Parameter Name="TypeCode" Mode="In" Type="String" />
@@ -1479,7 +1478,7 @@
             <Parameter Name="ProductNum" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductDelete">
-            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          <Parameter Name="ProductCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductInsert" ReturnType="Collection(CMART2Model.usp_ProductInsert_Result)">
             <Parameter Name="ProductCode" Mode="In" Type="String" />
@@ -1489,7 +1488,7 @@
             <Parameter Name="SupplierCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductSelect" ReturnType="Collection(CMART2Model.usp_ProductSelect_Result)">
-            <Parameter Name="ProductCode" Mode="In" Type="String" />
+          <Parameter Name="ProductCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProductUpdate" ReturnType="Collection(CMART2Model.usp_ProductUpdate_Result)">
             <Parameter Name="ProductCode" Mode="In" Type="String" />
@@ -1499,7 +1498,7 @@
             <Parameter Name="SupplierCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationDelete">
-            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationInsert" ReturnType="Collection(CMART2Model.usp_PromotionInformationInsert_Result)">
             <Parameter Name="AccountCode" Mode="In" Type="String" />
@@ -1511,7 +1510,7 @@
             <Parameter Name="Image" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationSelect" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelect_Result)">
-            <Parameter Name="AccountCode" Mode="In" Type="String" />
+          <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationUpdate" ReturnType="Collection(CMART2Model.usp_PromotionInformationUpdate_Result)">
             <Parameter Name="AccountCode" Mode="In" Type="String" />
@@ -1523,7 +1522,7 @@
             <Parameter Name="Image" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="usp_ProposeBallotDelete">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProposeBallotDetailDelete">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1550,7 +1549,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProposeBallotSelect" ReturnType="Collection(CMART2Model.usp_ProposeBallotSelect_Result)">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ProposeBallotUpdate" ReturnType="Collection(CMART2Model.usp_ProposeBallotUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
@@ -1559,7 +1558,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_SupplierDelete">
-            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          <Parameter Name="SupplierCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_SupplierInsert" ReturnType="Collection(CMART2Model.usp_SupplierInsert_Result)">
             <Parameter Name="SupplierCode" Mode="In" Type="String" />
@@ -1568,7 +1567,7 @@
             <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_SupplierSelect" ReturnType="Collection(CMART2Model.usp_SupplierSelect_Result)">
-            <Parameter Name="SupplierCode" Mode="In" Type="String" />
+          <Parameter Name="SupplierCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_SupplierUpdate" ReturnType="Collection(CMART2Model.usp_SupplierUpdate_Result)">
             <Parameter Name="SupplierCode" Mode="In" Type="String" />

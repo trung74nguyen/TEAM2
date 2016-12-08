@@ -29,12 +29,40 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.Columns["EndTime"].HeaderText = "Thời gian kết thúc";
             lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung";
             lstManagePromotion.Columns["Image"].HeaderText = "Hình";
+            lstManagePromotion.Columns["Product"].Visible = false;
             
+        }
+        private bool checkSelectingPromotion()
+        {
+            return lstManagePromotion.SelectedRows.Count == 1;
         }
         private void showManagePromotionForm(object sender, EventArgs e)
         {
             var promotioninfo = bus.getAllListPromotion();
             showManagePromotionForm(promotioninfo);
         }
+
+        private void clickDelete(object sender, EventArgs e)
+        {
+            if (checkSelectingPromotion())
+                if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var pro = lstManagePromotion.SelectedRows[0].DataBoundItem as PromotionInformation;
+                    if (bus.deletePromotion((pro.AccountCode.ToString())))
+                    {
+                        showManagePromotionForm(null, null);
+                        MessageBox.Show("Xóa thành công !!");
+                    }
+                    else
+                        MessageBox.Show("Xóa không thành công, Tôi xin lỗi @@");
+                }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            GUI_InsertPromotion mn = new GUI_InsertPromotion();
+            mn.ShowDialog();
+        }
+
     }
 }
