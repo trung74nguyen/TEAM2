@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Print = new System.Windows.Forms.Button();
-            this.Update = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -44,53 +43,45 @@
             this.quảnLýDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lstBranchImportBallot = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstBranchImportBallot)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(1209, 201);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 35);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "Tìm kiếm";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(911, 207);
+            this.textBox1.Location = new System.Drawing.Point(1028, 207);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(265, 22);
             this.textBox1.TabIndex = 30;
+            this.textBox1.Text = "Tìm kiếm";
             // 
-            // Print
+            // btnPrint
             // 
-            this.Print.Location = new System.Drawing.Point(236, 201);
-            this.Print.Name = "Print";
-            this.Print.Size = new System.Drawing.Size(85, 35);
-            this.Print.TabIndex = 29;
-            this.Print.Text = "In";
-            this.Print.UseVisualStyleBackColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(236, 201);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(85, 35);
+            this.btnPrint.TabIndex = 29;
+            this.btnPrint.Text = "In";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
-            // Update
+            // btnUpdate
             // 
-            this.Update.Location = new System.Drawing.Point(127, 201);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(85, 35);
-            this.Update.TabIndex = 28;
-            this.Update.Text = "Cập nhật";
-            this.Update.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(127, 201);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(85, 35);
+            this.btnUpdate.TabIndex = 28;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // Add
+            // btnInsert
             // 
-            this.Add.Location = new System.Drawing.Point(21, 201);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(85, 35);
-            this.Add.TabIndex = 27;
-            this.Add.Text = "Thêm";
-            this.Add.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(21, 201);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(85, 35);
+            this.btnInsert.TabIndex = 27;
+            this.btnInsert.Text = "Thêm";
+            this.btnInsert.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -184,26 +175,25 @@
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // dataGridView1
+            // lstBranchImportBallot
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 254);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1269, 332);
-            this.dataGridView1.TabIndex = 32;
+            this.lstBranchImportBallot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstBranchImportBallot.Location = new System.Drawing.Point(21, 254);
+            this.lstBranchImportBallot.Name = "lstBranchImportBallot";
+            this.lstBranchImportBallot.RowTemplate.Height = 24;
+            this.lstBranchImportBallot.Size = new System.Drawing.Size(1269, 332);
+            this.lstBranchImportBallot.TabIndex = 32;
             // 
             // GUI_BranchImportBallot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 609);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.lstBranchImportBallot);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Print);
-            this.Controls.Add(this.Update);
-            this.Controls.Add(this.Add);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -211,10 +201,10 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "GUI_BranchImportBallot";
             this.Text = "GUI_BranchImportBallot";
-            this.Load += new System.EventHandler(this.GUI_BranchImportBallot_Load);
+            this.Load += new System.EventHandler(this.showBranchImportBallot);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstBranchImportBallot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,11 +212,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button Print;
-        private System.Windows.Forms.Button Update;
-        private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
@@ -238,6 +227,6 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýDanhMụcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView lstBranchImportBallot;
     }
 }
