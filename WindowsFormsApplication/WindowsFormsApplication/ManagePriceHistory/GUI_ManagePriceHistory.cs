@@ -18,6 +18,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.btnAddPriceHistory.Click += new EventHandler(btnAddPriceHistory_Click);
             this.btnUpdatePriceHistory.Click += new EventHandler(btnUpdatePriceHistory_Click);
             this.btnDeletePriceHistory.Click += new EventHandler(btnDeletePriceHistory_Click);
+            this.btnManageProduct.Click += new EventHandler(btnManageProduct_Click);
         }
         BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
         
@@ -72,6 +73,10 @@ namespace WindowsFormsApplication.ManagePriceHistory
                 MessageBox.Show("Bạn phải double click vào một lịch sử giá");
             }
 
+        }
+        private void btnManageProduct_Click(object sender, EventArgs e)
+        {
+           
         }
 
        

@@ -31,14 +31,26 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.dtpDate.Text = pricehistory.EffectiveDate.ToString();
         }
        
-
+        BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
         
         void btnSave_Click(object sender, EventArgs e)
         {
-            var giabanmoi = this.txtNewPrice.Text.Trim();
+            var masp = this.txtProductIDPriceHistory.Text.Trim();
+            string giabanmoi = this.txtNewPrice.Text.Trim();
             var inputData = insert.checkInputData(giabanmoi);
+            
+            
+            if (Bus_manage.updatePriceHistory(masp,giabanmoi))
+            {
+                
+                MessageBox.Show("Update SUPPLIER successfully. Thanks a lot.");
+            }
+            else{
+                MessageBox.Show("Cannot update SUPPLIER. I don't know why!?!?");
         }
-        void btnCancel_Click(object sender, EventArgs e)
+        }
+        
+           private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -14,12 +14,12 @@ namespace WindowsFormsApplication.ManagePriceHistory
             var db = new CMART2Entities();
                 return db.PriceHistories.ToList();
         }
-        private bool checkExistPriceHistory(string masp)
+        private bool checkExistPriceHistory(string masp) 
         {
             using (var db = new CMART2Entities())
                 return db.PriceHistories.Count(s => s.MaSP == masp) > 0;
         }
-        public bool updatePriceHistory(string masp, float giaban)
+        public bool updatePriceHistory(string masp, string giaban)
         {
             if (!checkExistPriceHistory(masp))
                 try
@@ -27,8 +27,8 @@ namespace WindowsFormsApplication.ManagePriceHistory
                     using (var db = new CMART2Entities())
                     {
                         var supplier = db.PriceHistories.Single(s => s.MaSP == masp);
-                        supplier.MaSP = masp;
-                        supplier.GiaBan = giaban;
+                        
+                        supplier.GiaBan = double.Parse(giaban);
                         //db.Entry(supplier).State = EntityState.Modified;
                         db.SaveChanges();
                         return true;
