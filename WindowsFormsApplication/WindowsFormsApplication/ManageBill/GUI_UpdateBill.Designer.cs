@@ -38,15 +38,17 @@
             this.lblTotalUp = new System.Windows.Forms.Label();
             this.lblUpUp = new System.Windows.Forms.LinkLabel();
             this.lstManageBillUp = new System.Windows.Forms.DataGridView();
-            this.txtHourUp = new System.Windows.Forms.TextBox();
-            this.lblHourUp = new System.Windows.Forms.Label();
-            this.txtDayUp = new System.Windows.Forms.TextBox();
             this.txtCodeUp = new System.Windows.Forms.TextBox();
             this.txtNameUp = new System.Windows.Forms.TextBox();
-            this.lblDayUp = new System.Windows.Forms.Label();
             this.lblCodeUp = new System.Windows.Forms.Label();
             this.lblNameUp = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.txtPOSUp = new System.Windows.Forms.TextBox();
+            this.lblPosUp = new System.Windows.Forms.Label();
+            this.txtHourUp = new System.Windows.Forms.TextBox();
+            this.lblHourUp = new System.Windows.Forms.Label();
+            this.txtDayUp = new System.Windows.Forms.TextBox();
+            this.lblDayUp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillUp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.btnSaveUp.TabIndex = 73;
             this.btnSaveUp.Text = "Lưu";
             this.btnSaveUp.UseVisualStyleBackColor = true;
+            this.btnSaveUp.Click += new System.EventHandler(this.btnSaveUp_Click);
             // 
             // btnCancelUp
             // 
@@ -92,7 +95,6 @@
             this.txtGuestMoneyUp.BackColor = System.Drawing.Color.White;
             this.txtGuestMoneyUp.Location = new System.Drawing.Point(471, 353);
             this.txtGuestMoneyUp.Name = "txtGuestMoneyUp";
-            this.txtGuestMoneyUp.ReadOnly = true;
             this.txtGuestMoneyUp.Size = new System.Drawing.Size(129, 20);
             this.txtGuestMoneyUp.TabIndex = 69;
             this.txtGuestMoneyUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -101,6 +103,7 @@
             // 
             this.txtTotalUp.Location = new System.Drawing.Point(471, 319);
             this.txtTotalUp.Name = "txtTotalUp";
+            this.txtTotalUp.ReadOnly = true;
             this.txtTotalUp.Size = new System.Drawing.Size(129, 20);
             this.txtTotalUp.TabIndex = 68;
             this.txtTotalUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -133,6 +136,7 @@
             this.lblUpUp.TabIndex = 65;
             this.lblUpUp.TabStop = true;
             this.lblUpUp.Text = "Sửa";
+            this.lblUpUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUpUp_LinkClicked);
             // 
             // lstManageBillUp
             // 
@@ -141,31 +145,6 @@
             this.lstManageBillUp.Name = "lstManageBillUp";
             this.lstManageBillUp.Size = new System.Drawing.Size(572, 150);
             this.lstManageBillUp.TabIndex = 64;
-            // 
-            // txtHourUp
-            // 
-            this.txtHourUp.Location = new System.Drawing.Point(521, 110);
-            this.txtHourUp.Name = "txtHourUp";
-            this.txtHourUp.Size = new System.Drawing.Size(137, 20);
-            this.txtHourUp.TabIndex = 63;
-            this.txtHourUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblHourUp
-            // 
-            this.lblHourUp.AutoSize = true;
-            this.lblHourUp.Location = new System.Drawing.Point(468, 116);
-            this.lblHourUp.Name = "lblHourUp";
-            this.lblHourUp.Size = new System.Drawing.Size(47, 13);
-            this.lblHourUp.TabIndex = 62;
-            this.lblHourUp.Text = "Giờ bán:";
-            // 
-            // txtDayUp
-            // 
-            this.txtDayUp.Location = new System.Drawing.Point(330, 110);
-            this.txtDayUp.Name = "txtDayUp";
-            this.txtDayUp.Size = new System.Drawing.Size(101, 20);
-            this.txtDayUp.TabIndex = 61;
-            this.txtDayUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtCodeUp
             // 
@@ -181,18 +160,10 @@
             // 
             this.txtNameUp.Location = new System.Drawing.Point(87, 68);
             this.txtNameUp.Name = "txtNameUp";
+            this.txtNameUp.ReadOnly = true;
             this.txtNameUp.Size = new System.Drawing.Size(158, 20);
             this.txtNameUp.TabIndex = 59;
             this.txtNameUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblDayUp
-            // 
-            this.lblDayUp.AutoSize = true;
-            this.lblDayUp.Location = new System.Drawing.Point(268, 113);
-            this.lblDayUp.Name = "lblDayUp";
-            this.lblDayUp.Size = new System.Drawing.Size(56, 13);
-            this.lblDayUp.TabIndex = 58;
-            this.lblDayUp.Text = "Ngày bán:";
             // 
             // lblCodeUp
             // 
@@ -223,11 +194,68 @@
             this.lblTitle.TabIndex = 55;
             this.lblTitle.Text = "Cập nhật hóa đơn";
             // 
+            // txtPOSUp
+            // 
+            this.txtPOSUp.Location = new System.Drawing.Point(612, 106);
+            this.txtPOSUp.Name = "txtPOSUp";
+            this.txtPOSUp.Size = new System.Drawing.Size(48, 20);
+            this.txtPOSUp.TabIndex = 79;
+            this.txtPOSUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblPosUp
+            // 
+            this.lblPosUp.AutoSize = true;
+            this.lblPosUp.Location = new System.Drawing.Point(574, 113);
+            this.lblPosUp.Name = "lblPosUp";
+            this.lblPosUp.Size = new System.Drawing.Size(32, 13);
+            this.lblPosUp.TabIndex = 78;
+            this.lblPosUp.Text = "POS:";
+            // 
+            // txtHourUp
+            // 
+            this.txtHourUp.Location = new System.Drawing.Point(490, 106);
+            this.txtHourUp.Name = "txtHourUp";
+            this.txtHourUp.Size = new System.Drawing.Size(66, 20);
+            this.txtHourUp.TabIndex = 77;
+            this.txtHourUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblHourUp
+            // 
+            this.lblHourUp.AutoSize = true;
+            this.lblHourUp.Location = new System.Drawing.Point(437, 113);
+            this.lblHourUp.Name = "lblHourUp";
+            this.lblHourUp.Size = new System.Drawing.Size(47, 13);
+            this.lblHourUp.TabIndex = 76;
+            this.lblHourUp.Text = "Giờ bán:";
+            // 
+            // txtDayUp
+            // 
+            this.txtDayUp.Location = new System.Drawing.Point(339, 106);
+            this.txtDayUp.Name = "txtDayUp";
+            this.txtDayUp.Size = new System.Drawing.Size(95, 20);
+            this.txtDayUp.TabIndex = 75;
+            this.txtDayUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblDayUp
+            // 
+            this.lblDayUp.AutoSize = true;
+            this.lblDayUp.Location = new System.Drawing.Point(274, 113);
+            this.lblDayUp.Name = "lblDayUp";
+            this.lblDayUp.Size = new System.Drawing.Size(56, 13);
+            this.lblDayUp.TabIndex = 74;
+            this.lblDayUp.Text = "Ngày bán:";
+            // 
             // GUI_UpdateBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 458);
+            this.Controls.Add(this.txtPOSUp);
+            this.Controls.Add(this.lblPosUp);
+            this.Controls.Add(this.txtHourUp);
+            this.Controls.Add(this.lblHourUp);
+            this.Controls.Add(this.txtDayUp);
+            this.Controls.Add(this.lblDayUp);
             this.Controls.Add(this.btnSaveUp);
             this.Controls.Add(this.btnCancelUp);
             this.Controls.Add(this.txtExcessCashUp);
@@ -238,12 +266,8 @@
             this.Controls.Add(this.lblTotalUp);
             this.Controls.Add(this.lblUpUp);
             this.Controls.Add(this.lstManageBillUp);
-            this.Controls.Add(this.txtHourUp);
-            this.Controls.Add(this.lblHourUp);
-            this.Controls.Add(this.txtDayUp);
             this.Controls.Add(this.txtCodeUp);
             this.Controls.Add(this.txtNameUp);
-            this.Controls.Add(this.lblDayUp);
             this.Controls.Add(this.lblCodeUp);
             this.Controls.Add(this.lblNameUp);
             this.Controls.Add(this.lblTitle);
@@ -267,14 +291,16 @@
         private System.Windows.Forms.Label lblTotalUp;
         private System.Windows.Forms.LinkLabel lblUpUp;
         private System.Windows.Forms.DataGridView lstManageBillUp;
-        private System.Windows.Forms.TextBox txtHourUp;
-        private System.Windows.Forms.Label lblHourUp;
-        private System.Windows.Forms.TextBox txtDayUp;
         private System.Windows.Forms.TextBox txtCodeUp;
         private System.Windows.Forms.TextBox txtNameUp;
-        private System.Windows.Forms.Label lblDayUp;
         private System.Windows.Forms.Label lblCodeUp;
         private System.Windows.Forms.Label lblNameUp;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TextBox txtPOSUp;
+        private System.Windows.Forms.Label lblPosUp;
+        private System.Windows.Forms.TextBox txtHourUp;
+        private System.Windows.Forms.Label lblHourUp;
+        private System.Windows.Forms.TextBox txtDayUp;
+        private System.Windows.Forms.Label lblDayUp;
     }
 }

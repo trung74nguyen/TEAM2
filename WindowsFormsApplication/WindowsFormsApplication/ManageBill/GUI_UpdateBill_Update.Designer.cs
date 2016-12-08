@@ -55,6 +55,7 @@
             // 
             this.txtTotal_BillUp.Location = new System.Drawing.Point(140, 188);
             this.txtTotal_BillUp.Name = "txtTotal_BillUp";
+            this.txtTotal_BillUp.ReadOnly = true;
             this.txtTotal_BillUp.Size = new System.Drawing.Size(143, 20);
             this.txtTotal_BillUp.TabIndex = 34;
             this.txtTotal_BillUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -72,6 +73,7 @@
             // 
             this.txtProductName_BillUp.Location = new System.Drawing.Point(140, 64);
             this.txtProductName_BillUp.Name = "txtProductName_BillUp";
+            this.txtProductName_BillUp.ReadOnly = true;
             this.txtProductName_BillUp.Size = new System.Drawing.Size(143, 20);
             this.txtProductName_BillUp.TabIndex = 32;
             this.txtProductName_BillUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -89,6 +91,7 @@
             // 
             this.txtUnitPrice_BillUp.Location = new System.Drawing.Point(140, 145);
             this.txtUnitPrice_BillUp.Name = "txtUnitPrice_BillUp";
+            this.txtUnitPrice_BillUp.ReadOnly = true;
             this.txtUnitPrice_BillUp.Size = new System.Drawing.Size(143, 20);
             this.txtUnitPrice_BillUp.TabIndex = 30;
             this.txtUnitPrice_BillUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -125,13 +128,15 @@
             this.btnSave_BillUp.Name = "btnSave_BillUp";
             this.btnSave_BillUp.Size = new System.Drawing.Size(75, 32);
             this.btnSave_BillUp.TabIndex = 26;
-            this.btnSave_BillUp.Text = "Save";
+            this.btnSave_BillUp.Text = "Lưu";
             this.btnSave_BillUp.UseVisualStyleBackColor = true;
+            this.btnSave_BillUp.Click += new System.EventHandler(this.btnSave_BillUp_Click);
             // 
             // txtProductCode_BillUp
             // 
             this.txtProductCode_BillUp.Location = new System.Drawing.Point(140, 19);
             this.txtProductCode_BillUp.Name = "txtProductCode_BillUp";
+            this.txtProductCode_BillUp.ReadOnly = true;
             this.txtProductCode_BillUp.Size = new System.Drawing.Size(143, 20);
             this.txtProductCode_BillUp.TabIndex = 25;
             this.txtProductCode_BillUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

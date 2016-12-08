@@ -125,12 +125,6 @@
     <Compile Include="ManageBill\GUI_InsertBill.Designer.cs">
       <DependentUpon>GUI_InsertBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBill\GUI_InsertBill_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManageBill\GUI_InsertBill_Update.Designer.cs">
-      <DependentUpon>GUI_InsertBill_Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManageBill\GUI_ManageBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +143,7 @@
     <Compile Include="ManageBill\GUI_UpdateBill_Update.Designer.cs">
       <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageBill\ValidationExtension1.cs" />
     <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
     <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
       <SubType>Form</SubType>
@@ -421,9 +416,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBill\GUI_InsertBill.resx">
       <DependentUpon>GUI_InsertBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManageBill\GUI_InsertBill_Update.resx">
-      <DependentUpon>GUI_InsertBill_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBill\GUI_ManageBill.resx">
       <DependentUpon>GUI_ManageBill.cs</DependentUpon>

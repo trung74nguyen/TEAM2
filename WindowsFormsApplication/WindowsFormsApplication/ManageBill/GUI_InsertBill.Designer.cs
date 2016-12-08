@@ -47,6 +47,8 @@
             this.lblCodeIn = new System.Windows.Forms.Label();
             this.lblNameIn = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblPos = new System.Windows.Forms.Label();
+            this.txtPOS = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillIn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@
             this.btnSaveIn.TabIndex = 54;
             this.btnSaveIn.Text = "Lưu";
             this.btnSaveIn.UseVisualStyleBackColor = true;
+            this.btnSaveIn.Click += new System.EventHandler(this.btnSaveIn_Click);
             // 
             // btnCancelIn
             // 
@@ -92,7 +95,6 @@
             this.txtGuestMoneyIn.BackColor = System.Drawing.Color.White;
             this.txtGuestMoneyIn.Location = new System.Drawing.Point(471, 353);
             this.txtGuestMoneyIn.Name = "txtGuestMoneyIn";
-            this.txtGuestMoneyIn.ReadOnly = true;
             this.txtGuestMoneyIn.Size = new System.Drawing.Size(129, 20);
             this.txtGuestMoneyIn.TabIndex = 50;
             this.txtGuestMoneyIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -101,6 +103,7 @@
             // 
             this.txtTotalIn.Location = new System.Drawing.Point(471, 319);
             this.txtTotalIn.Name = "txtTotalIn";
+            this.txtTotalIn.ReadOnly = true;
             this.txtTotalIn.Size = new System.Drawing.Size(129, 20);
             this.txtTotalIn.TabIndex = 49;
             this.txtTotalIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -133,6 +136,7 @@
             this.lblUpIn.TabIndex = 46;
             this.lblUpIn.TabStop = true;
             this.lblUpIn.Text = "Sửa";
+            this.lblUpIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUpIn_LinkClicked);
             // 
             // lstManageBillIn
             // 
@@ -144,16 +148,16 @@
             // 
             // txtHourIn
             // 
-            this.txtHourIn.Location = new System.Drawing.Point(521, 110);
+            this.txtHourIn.Location = new System.Drawing.Point(484, 106);
             this.txtHourIn.Name = "txtHourIn";
-            this.txtHourIn.Size = new System.Drawing.Size(137, 20);
+            this.txtHourIn.Size = new System.Drawing.Size(66, 20);
             this.txtHourIn.TabIndex = 44;
             this.txtHourIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblHourIn
             // 
             this.lblHourIn.AutoSize = true;
-            this.lblHourIn.Location = new System.Drawing.Point(468, 116);
+            this.lblHourIn.Location = new System.Drawing.Point(431, 113);
             this.lblHourIn.Name = "lblHourIn";
             this.lblHourIn.Size = new System.Drawing.Size(47, 13);
             this.lblHourIn.TabIndex = 43;
@@ -161,9 +165,9 @@
             // 
             // txtDayIn
             // 
-            this.txtDayIn.Location = new System.Drawing.Point(330, 110);
+            this.txtDayIn.Location = new System.Drawing.Point(330, 106);
             this.txtDayIn.Name = "txtDayIn";
-            this.txtDayIn.Size = new System.Drawing.Size(101, 20);
+            this.txtDayIn.Size = new System.Drawing.Size(95, 20);
             this.txtDayIn.TabIndex = 42;
             this.txtDayIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -181,6 +185,7 @@
             // 
             this.txtNameIn.Location = new System.Drawing.Point(87, 68);
             this.txtNameIn.Name = "txtNameIn";
+            this.txtNameIn.ReadOnly = true;
             this.txtNameIn.Size = new System.Drawing.Size(158, 20);
             this.txtNameIn.TabIndex = 40;
             this.txtNameIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -217,17 +222,36 @@
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(237, 12);
+            this.lblTitle.Location = new System.Drawing.Point(265, 25);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(183, 31);
             this.lblTitle.TabIndex = 36;
             this.lblTitle.Text = "Thêm hóa đơn";
+            // 
+            // lblPos
+            // 
+            this.lblPos.AutoSize = true;
+            this.lblPos.Location = new System.Drawing.Point(568, 113);
+            this.lblPos.Name = "lblPos";
+            this.lblPos.Size = new System.Drawing.Size(32, 13);
+            this.lblPos.TabIndex = 55;
+            this.lblPos.Text = "POS:";
+            // 
+            // txtPOS
+            // 
+            this.txtPOS.Location = new System.Drawing.Point(606, 106);
+            this.txtPOS.Name = "txtPOS";
+            this.txtPOS.Size = new System.Drawing.Size(48, 20);
+            this.txtPOS.TabIndex = 56;
+            this.txtPOS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // GUI_InsertBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 458);
+            this.Controls.Add(this.txtPOS);
+            this.Controls.Add(this.lblPos);
             this.Controls.Add(this.btnSaveIn);
             this.Controls.Add(this.btnCancelIn);
             this.Controls.Add(this.txtExcessCashIn);
@@ -276,5 +300,7 @@
         private System.Windows.Forms.Label lblCodeIn;
         private System.Windows.Forms.Label lblNameIn;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblPos;
+        private System.Windows.Forms.TextBox txtPOS;
     }
 }
