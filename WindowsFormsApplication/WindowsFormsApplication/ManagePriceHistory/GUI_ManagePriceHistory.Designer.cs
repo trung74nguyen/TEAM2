@@ -33,7 +33,7 @@
             this.btnUpdatePriceHistory = new System.Windows.Forms.Button();
             this.btnAddPriceHistory = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lstPriceHistory = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.quảnLýDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstPriceHistory)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,16 +95,17 @@
             this.lblTitle.TabIndex = 15;
             this.lblTitle.Text = "QUẢN LÝ LỊCH SỬ GIÁ";
             // 
-            // dataGridView1
+            // lstPriceHistory
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 115);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 252);
-            this.dataGridView1.TabIndex = 14;
+            this.lstPriceHistory.AllowUserToAddRows = false;
+            this.lstPriceHistory.AllowUserToDeleteRows = false;
+            this.lstPriceHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstPriceHistory.Location = new System.Drawing.Point(12, 115);
+            this.lstPriceHistory.Name = "lstPriceHistory";
+            this.lstPriceHistory.ReadOnly = true;
+            this.lstPriceHistory.Size = new System.Drawing.Size(796, 252);
+            this.lstPriceHistory.TabIndex = 14;
+            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.lstPriceHistory_DoubleClick);
             // 
             // lblName
             // 
@@ -202,14 +203,15 @@
             this.Controls.Add(this.btnUpdatePriceHistory);
             this.Controls.Add(this.btnAddPriceHistory);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lstPriceHistory);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.menuStrip1);
             this.Name = "GUI_ManagePriceHistory";
             this.Text = " PHẦM MỀM QUẢN LÝ CỬA HÀNG TIỆN LỢI";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.showManagePriceHistoryForm);
+            ((System.ComponentModel.ISupportInitialize)(this.lstPriceHistory)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -224,7 +226,7 @@
         private System.Windows.Forms.Button btnUpdatePriceHistory;
         private System.Windows.Forms.Button btnAddPriceHistory;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView lstPriceHistory;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Button btnLogout;

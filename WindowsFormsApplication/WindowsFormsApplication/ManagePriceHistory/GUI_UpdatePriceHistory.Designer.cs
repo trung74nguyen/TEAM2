@@ -34,11 +34,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.txtPriceHistory = new System.Windows.Forms.TextBox();
-            this.txtProductNamePriceHistory = new System.Windows.Forms.TextBox();
             this.txtProductIDPriceHistory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,7 +47,6 @@
             this.txtNewPrice.Name = "txtNewPrice";
             this.txtNewPrice.Size = new System.Drawing.Size(210, 20);
             this.txtNewPrice.TabIndex = 36;
-           
             // 
             // label6
             // 
@@ -80,6 +77,7 @@
             // 
             // dtpDate
             // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDate.Location = new System.Drawing.Point(93, 194);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(210, 20);
@@ -94,19 +92,10 @@
             this.txtPriceHistory.Size = new System.Drawing.Size(210, 20);
             this.txtPriceHistory.TabIndex = 31;
             // 
-            // txtProductNamePriceHistory
-            // 
-            this.txtProductNamePriceHistory.Enabled = false;
-            this.txtProductNamePriceHistory.Location = new System.Drawing.Point(93, 92);
-            this.txtProductNamePriceHistory.Name = "txtProductNamePriceHistory";
-            this.txtProductNamePriceHistory.ReadOnly = true;
-            this.txtProductNamePriceHistory.Size = new System.Drawing.Size(210, 20);
-            this.txtProductNamePriceHistory.TabIndex = 30;
-            // 
             // txtProductIDPriceHistory
             // 
             this.txtProductIDPriceHistory.Enabled = false;
-            this.txtProductIDPriceHistory.Location = new System.Drawing.Point(93, 54);
+            this.txtProductIDPriceHistory.Location = new System.Drawing.Point(93, 88);
             this.txtProductIDPriceHistory.Name = "txtProductIDPriceHistory";
             this.txtProductIDPriceHistory.ReadOnly = true;
             this.txtProductIDPriceHistory.Size = new System.Drawing.Size(210, 20);
@@ -130,19 +119,10 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Giá bán cũ :";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Tên sản phẩm:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 57);
+            this.label2.Location = new System.Drawing.Point(12, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 25;
@@ -152,7 +132,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 9);
+            this.label1.Location = new System.Drawing.Point(55, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 24);
             this.label1.TabIndex = 24;
@@ -169,11 +149,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtPriceHistory);
-            this.Controls.Add(this.txtProductNamePriceHistory);
             this.Controls.Add(this.txtProductIDPriceHistory);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "GUI_UpdatePriceHistory";
@@ -191,11 +169,9 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.TextBox txtPriceHistory;
-        private System.Windows.Forms.TextBox txtProductNamePriceHistory;
         private System.Windows.Forms.TextBox txtProductIDPriceHistory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }
