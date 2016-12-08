@@ -14,6 +14,23 @@ namespace WindowsFormsApplication.ManagePriceHistory
         public GUI_ManagePriceHistory()
         {
             InitializeComponent();
+            this.btnAddPriceHistory.Click += new EventHandler(btnAddPriceHistory_Click);
+            this.btnUpdatePriceHistory.Click += new EventHandler(btnUpdatePriceHistory_Click);
+            this.btnDeletePriceHistory.Click += new EventHandler(btnDeletePriceHistory_Click);
+        }
+        void btnAddPriceHistory_Click(object sender, EventArgs e)
+        {
+            GUI_InsertPriceHistory insert = new GUI_InsertPriceHistory();
+            insert.ShowDialog();
+        }
+        void btnUpdatePriceHistory_Click(object sender, EventArgs e)
+        {
+            GUI_UpdatePriceHistory update = new GUI_UpdatePriceHistory();
+            update.ShowDialog();
+        }
+        void btnDeletePriceHistory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

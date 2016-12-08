@@ -380,8 +380,44 @@
     <Compile Include="usp_SupplierUpdate_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BranchImportBallot\GUI_BranchImportBallot.resx">
+      <DependentUpon>GUI_BranchImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BranchImportBallot\GUI_InsertBranchImportBallot.resx">
+      <DependentUpon>GUI_InsertBranchImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BranchImportBallot\GUI_UpdateBranchImportBallot.resx">
+      <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form0.resx">
       <DependentUpon>Form0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeadquarterImportBallot\GUI_HeadquarterImportBallot.resx">
+      <DependentUpon>GUI_HeadquarterImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeadquarterImportBallot\GUI_InsertHeadquarterImportBallot.resx">
+      <DependentUpon>GUI_InsertHeadquarterImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeadquarterImportBallot\GUI_UpdateHeadquarterImportBallot.resx">
+      <DependentUpon>GUI_UpdateHeadquarterImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProduct\GUI_InsertProduct.resx">
+      <DependentUpon>GUI_InsertProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProduct\GUI_ManageProduct.resx">
+      <DependentUpon>GUI_ManageProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProduct\GUI_UpdateProduct.resx">
+      <DependentUpon>GUI_UpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_InsertPriceHistory.resx">
+      <DependentUpon>GUI_InsertPriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_ManagePriceHistory.resx">
+      <DependentUpon>GUI_ManagePriceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePriceHistory\GUI_UpdatePriceHistory.resx">
+      <DependentUpon>GUI_UpdatePriceHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBill\GUI_InsertBill.resx">
       <DependentUpon>GUI_InsertBill.cs</DependentUpon>
