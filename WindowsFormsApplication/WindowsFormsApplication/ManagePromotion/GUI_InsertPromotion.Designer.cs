@@ -32,7 +32,6 @@
             this.dtpStartDayIn = new System.Windows.Forms.DateTimePicker();
             this.txtProContentIn = new System.Windows.Forms.TextBox();
             this.txtProPriceIn = new System.Windows.Forms.TextBox();
-            this.txtProductCodeIn = new System.Windows.Forms.TextBox();
             this.txtProCodeIn = new System.Windows.Forms.TextBox();
             this.lblEnDay = new System.Windows.Forms.Label();
             this.lblStartDay = new System.Windows.Forms.Label();
@@ -41,6 +40,9 @@
             this.lblProductCode = new System.Windows.Forms.Label();
             this.lblProCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.cboProductCode = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dtpEnDayIn
@@ -71,15 +73,6 @@
             this.txtProPriceIn.Name = "txtProPriceIn";
             this.txtProPriceIn.Size = new System.Drawing.Size(158, 20);
             this.txtProPriceIn.TabIndex = 27;
-            // 
-            // txtProductCodeIn
-            // 
-            this.txtProductCodeIn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtProductCodeIn.Location = new System.Drawing.Point(124, 112);
-            this.txtProductCodeIn.Name = "txtProductCodeIn";
-            this.txtProductCodeIn.ReadOnly = true;
-            this.txtProductCodeIn.Size = new System.Drawing.Size(158, 20);
-            this.txtProductCodeIn.TabIndex = 26;
             // 
             // txtProCodeIn
             // 
@@ -153,16 +146,46 @@
             this.lblTitle.TabIndex = 18;
             this.lblTitle.Text = "Thêm thông tin khuyến mãi";
             // 
+            // cboProductCode
+            // 
+            this.cboProductCode.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cboProductCode.FormattingEnabled = true;
+            this.cboProductCode.Location = new System.Drawing.Point(124, 108);
+            this.cboProductCode.Name = "cboProductCode";
+            this.cboProductCode.Size = new System.Drawing.Size(158, 21);
+            this.cboProductCode.TabIndex = 31;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(475, 223);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(76, 29);
+            this.btnSave.TabIndex = 32;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.clickInsert);
+            // 
+            // btnCancle
+            // 
+            this.btnCancle.Location = new System.Drawing.Point(392, 224);
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Size = new System.Drawing.Size(77, 28);
+            this.btnCancle.TabIndex = 33;
+            this.btnCancle.Text = "Hủy";
+            this.btnCancle.UseVisualStyleBackColor = true;
+            // 
             // GUI_InsertPromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 264);
+            this.Controls.Add(this.btnCancle);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.cboProductCode);
             this.Controls.Add(this.dtpEnDayIn);
             this.Controls.Add(this.dtpStartDayIn);
             this.Controls.Add(this.txtProContentIn);
             this.Controls.Add(this.txtProPriceIn);
-            this.Controls.Add(this.txtProductCodeIn);
             this.Controls.Add(this.txtProCodeIn);
             this.Controls.Add(this.lblEnDay);
             this.Controls.Add(this.lblStartDay);
@@ -184,7 +207,6 @@
         private System.Windows.Forms.DateTimePicker dtpStartDayIn;
         private System.Windows.Forms.TextBox txtProContentIn;
         private System.Windows.Forms.TextBox txtProPriceIn;
-        private System.Windows.Forms.TextBox txtProductCodeIn;
         private System.Windows.Forms.TextBox txtProCodeIn;
         private System.Windows.Forms.Label lblEnDay;
         private System.Windows.Forms.Label lblStartDay;
@@ -193,5 +215,8 @@
         private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblProCode;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cboProductCode;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancle;
     }
 }

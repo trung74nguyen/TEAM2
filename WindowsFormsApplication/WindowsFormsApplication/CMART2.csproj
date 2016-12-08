@@ -206,6 +206,7 @@
     <Compile Include="ManagePromotion\GUI_UpdatePromotion.Designer.cs">
       <DependentUpon>GUI_UpdatePromotion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagePromotion\ValidationExtension.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

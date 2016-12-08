@@ -133,6 +133,7 @@
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.clickDelete);
             // 
             // btnUpdate
             // 
@@ -151,6 +152,7 @@
             this.btnInsert.TabIndex = 14;
             this.btnInsert.Text = "Thêm";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // lblTitle
             // 

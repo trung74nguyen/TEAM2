@@ -41,6 +41,8 @@
             this.lblProductCode = new System.Windows.Forms.Label();
             this.lblProCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCancle = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dtpEndDayUp
@@ -151,15 +153,35 @@
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(131, 17);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(336, 31);
+            this.lblTitle.Size = new System.Drawing.Size(378, 31);
             this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Thêm thông tin khuyến mãi";
+            this.lblTitle.Text = "Cập nhật thông tin khuyến mãi";
+            // 
+            // btnCancle
+            // 
+            this.btnCancle.Location = new System.Drawing.Point(392, 224);
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Size = new System.Drawing.Size(77, 28);
+            this.btnCancle.TabIndex = 45;
+            this.btnCancle.Text = "Hủy";
+            this.btnCancle.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(475, 223);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(76, 29);
+            this.btnSave.TabIndex = 44;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // GUI_UpdatePromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 264);
+            this.Controls.Add(this.btnCancle);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtpEndDayUp);
             this.Controls.Add(this.dtpStartDayUp);
             this.Controls.Add(this.txtProPriceUp);
@@ -195,5 +217,7 @@
         private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblProCode;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Button btnSave;
     }
 }
