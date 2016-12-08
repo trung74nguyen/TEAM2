@@ -26,7 +26,7 @@ namespace WindowsFormsApplication
             //Application.Run(new GUI_ManageBill());
             Application.Run(new GUI_ManagePriceHistory());
             //Application.Run(new GUI_ManageProduct());
-            //Application.Run(new GUI_ManagePromotion());
+           // Application.Run(new GUI_ManagePromotion());
         }
     }
 }
