@@ -41,9 +41,40 @@ namespace WindowsFormsApplication.ManagePromotion
             return false;
         }
 
-        public void inserNewPromotion(Double proprice, String procontent, DateTime startday, DateTime enddate)
+        public bool inserNewPromotion(string id,double proprice, string procontent, DateTime startday, DateTime enddate , string productcode)
         {
+            if (!checkExistPromotion(id))
+            {
+                try
+                {
+                    using(var db = new CMART2Entities())
+                    {
+                        var pro = new PromotionInformation
+                       {
+                           ProductCode = productcode,
+                           PricePromotion = proprice,
+                           Cont = procontent,
+                           StartTime = startday,
+                           EndTime = enddate
 
+                       };
+                        db.PromotionInformations.Add(pro);
+                        db.SaveChanges();
+                        return true;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+        public List<usp_PromotionInformationSearch_Result> searchAllListPromotion(string text)
+        {
+            var db = new CMART2Entities();
+            return db.usp_PromotionInformationSearch(text).ToList();
         }
        
     }

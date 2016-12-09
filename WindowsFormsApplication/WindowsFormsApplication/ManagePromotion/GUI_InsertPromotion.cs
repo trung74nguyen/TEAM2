@@ -38,20 +38,21 @@ namespace WindowsFormsApplication.ManagePromotion
 
             }
         }
-        //private bool checkDataInput(string proprice, string procontent)
-        //{
-        //    if ((proprice ?? "").Trim().Length == 0)
-        //    {
-        //        MessageBox.Show("Giá khuyến mãi không được bỏ trống!!");
-        //        return false;
-        //    }
-        //    if ((procontent ?? "").Trim().Length == 0)
-        //    {
-        //        MessageBox.Show("Địa chỉ không được bỏ trống!!");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        private bool checkDataInput(string proprice, string procontent)
+        {
+
+            if ((proprice ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Giá khuyến mãi không được bỏ trống!!");
+                return false;
+            }
+            if ((procontent ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Nội dung khuyến mãi không được bỏ trống");
+                return false;
+            }
+            return true;
+        }
 
     }
 }
