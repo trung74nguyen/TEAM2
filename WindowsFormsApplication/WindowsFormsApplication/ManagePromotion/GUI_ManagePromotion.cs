@@ -64,5 +64,15 @@ namespace WindowsFormsApplication.ManagePromotion
             mn.ShowDialog();
         }
 
+        private void clickSearch(object sender, EventArgs e)
+        {
+            lstManagePromotion.DataSource = bus.searchAllListPromotion(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
+        }
+
     }
 }
