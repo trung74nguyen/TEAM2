@@ -20,13 +20,13 @@ namespace WindowsFormsApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           Application.Run(new Form0());
+            Application.Run(new Form0());
             //Application.Run(new GUI_BranchImportBallot());
             //Application.Run(new GUI_HeadquarterImportBallot());
             //Application.Run(new GUI_ManageBill());
             //Application.Run(new GUI_ManagePriceHistory());
             //Application.Run(new GUI_ManageProduct());
-           // Application.Run(new GUI_ManagePromotion());
+            //Application.Run(new GUI_ManagePromotion());
         }
     }
 }

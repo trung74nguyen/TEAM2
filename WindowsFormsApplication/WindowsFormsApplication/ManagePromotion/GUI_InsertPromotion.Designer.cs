@@ -41,10 +41,13 @@
             this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
+            this.lblHinh = new System.Windows.Forms.Label();
+            this.cboImage = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dtpEnDayIn
             // 
+            this.dtpEnDayIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEnDayIn.Location = new System.Drawing.Point(351, 183);
             this.dtpEnDayIn.Name = "dtpEnDayIn";
             this.dtpEnDayIn.Size = new System.Drawing.Size(200, 20);
@@ -52,6 +55,7 @@
             // 
             // dtpStartDayIn
             // 
+            this.dtpStartDayIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpStartDayIn.Location = new System.Drawing.Point(351, 109);
             this.dtpStartDayIn.Name = "dtpStartDayIn";
             this.dtpStartDayIn.Size = new System.Drawing.Size(200, 20);
@@ -59,15 +63,15 @@
             // 
             // txtProContentIn
             // 
-            this.txtProContentIn.Location = new System.Drawing.Point(33, 184);
+            this.txtProContentIn.Location = new System.Drawing.Point(33, 212);
             this.txtProContentIn.Multiline = true;
             this.txtProContentIn.Name = "txtProContentIn";
-            this.txtProContentIn.Size = new System.Drawing.Size(249, 63);
+            this.txtProContentIn.Size = new System.Drawing.Size(249, 40);
             this.txtProContentIn.TabIndex = 28;
             // 
             // txtProPriceIn
             // 
-            this.txtProPriceIn.Location = new System.Drawing.Point(124, 125);
+            this.txtProPriceIn.Location = new System.Drawing.Point(124, 149);
             this.txtProPriceIn.Name = "txtProPriceIn";
             this.txtProPriceIn.Size = new System.Drawing.Size(158, 20);
             this.txtProPriceIn.TabIndex = 27;
@@ -93,7 +97,7 @@
             // lblProContent
             // 
             this.lblProContent.AutoSize = true;
-            this.lblProContent.Location = new System.Drawing.Point(30, 168);
+            this.lblProContent.Location = new System.Drawing.Point(30, 190);
             this.lblProContent.Name = "lblProContent";
             this.lblProContent.Size = new System.Drawing.Size(110, 13);
             this.lblProContent.TabIndex = 22;
@@ -102,7 +106,7 @@
             // lblProPrice
             // 
             this.lblProPrice.AutoSize = true;
-            this.lblProPrice.Location = new System.Drawing.Point(30, 132);
+            this.lblProPrice.Location = new System.Drawing.Point(30, 156);
             this.lblProPrice.Name = "lblProPrice";
             this.lblProPrice.Size = new System.Drawing.Size(83, 13);
             this.lblProPrice.TabIndex = 21;
@@ -111,7 +115,7 @@
             // lblProductCode
             // 
             this.lblProductCode.AutoSize = true;
-            this.lblProductCode.Location = new System.Drawing.Point(30, 84);
+            this.lblProductCode.Location = new System.Drawing.Point(30, 74);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(74, 13);
             this.lblProductCode.TabIndex = 20;
@@ -132,7 +136,7 @@
             // 
             this.cboProductCode.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.cboProductCode.FormattingEnabled = true;
-            this.cboProductCode.Location = new System.Drawing.Point(124, 76);
+            this.cboProductCode.Location = new System.Drawing.Point(124, 66);
             this.cboProductCode.Name = "cboProductCode";
             this.cboProductCode.Size = new System.Drawing.Size(158, 21);
             this.cboProductCode.TabIndex = 31;
@@ -155,12 +159,33 @@
             this.btnCancle.TabIndex = 33;
             this.btnCancle.Text = "Hủy";
             this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            // 
+            // lblHinh
+            // 
+            this.lblHinh.AutoSize = true;
+            this.lblHinh.Location = new System.Drawing.Point(30, 115);
+            this.lblHinh.Name = "lblHinh";
+            this.lblHinh.Size = new System.Drawing.Size(32, 13);
+            this.lblHinh.TabIndex = 34;
+            this.lblHinh.Text = "Hình:";
+            // 
+            // cboImage
+            // 
+            this.cboImage.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cboImage.FormattingEnabled = true;
+            this.cboImage.Location = new System.Drawing.Point(124, 107);
+            this.cboImage.Name = "cboImage";
+            this.cboImage.Size = new System.Drawing.Size(158, 21);
+            this.cboImage.TabIndex = 35;
             // 
             // GUI_InsertPromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 264);
+            this.Controls.Add(this.cboImage);
+            this.Controls.Add(this.lblHinh);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboProductCode);
@@ -196,5 +221,7 @@
         private System.Windows.Forms.ComboBox cboProductCode;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Label lblHinh;
+        private System.Windows.Forms.ComboBox cboImage;
     }
 }

@@ -15,5 +15,17 @@ namespace WindowsFormsApplication.ManagePromotion
         {
             InitializeComponent();
         }
+        private void loadDataPromotionOnForm(string procode, string productcode, float proprice, DateTime starttime, DateTime endtime, string procontent, string image)
+        {
+            txtProCodeUp.Text = procode;
+            txtProductCodeUp.Text = productcode;
+            txtProPriceUpd.Text = proprice.ToString();
+            dtpStartDayUp.Text = starttime.ToString();
+            dtpEndDayUp.Text = endtime.ToString();
+            txtProConUp.Text = procontent;
+            txtImage.Text = image;
+        }
+        private string promotionId = "";
+
     }
 }

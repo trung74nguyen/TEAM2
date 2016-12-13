@@ -30,7 +30,7 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung";
             lstManagePromotion.Columns["Image"].HeaderText = "Hình";
             lstManagePromotion.Columns["Product"].Visible = false;
-            
+            lstManagePromotion.Columns["Image"].Visible = false;
         }
         private bool checkSelectingPromotion()
         {
@@ -62,6 +62,7 @@ namespace WindowsFormsApplication.ManagePromotion
         {
             GUI_InsertPromotion mn = new GUI_InsertPromotion();
             mn.ShowDialog();
+            showManagePromotionForm(null, null);
         }
 
         private void clickSearch(object sender, EventArgs e)
