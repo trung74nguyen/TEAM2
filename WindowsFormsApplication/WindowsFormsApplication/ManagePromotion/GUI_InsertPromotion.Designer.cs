@@ -32,13 +32,11 @@
             this.dtpStartDayIn = new System.Windows.Forms.DateTimePicker();
             this.txtProContentIn = new System.Windows.Forms.TextBox();
             this.txtProPriceIn = new System.Windows.Forms.TextBox();
-            this.txtProCodeIn = new System.Windows.Forms.TextBox();
             this.lblEnDay = new System.Windows.Forms.Label();
             this.lblStartDay = new System.Windows.Forms.Label();
             this.lblProContent = new System.Windows.Forms.Label();
             this.lblProPrice = new System.Windows.Forms.Label();
             this.lblProductCode = new System.Windows.Forms.Label();
-            this.lblProCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -61,25 +59,18 @@
             // 
             // txtProContentIn
             // 
-            this.txtProContentIn.Location = new System.Drawing.Point(33, 216);
+            this.txtProContentIn.Location = new System.Drawing.Point(33, 184);
             this.txtProContentIn.Multiline = true;
             this.txtProContentIn.Name = "txtProContentIn";
-            this.txtProContentIn.Size = new System.Drawing.Size(249, 31);
+            this.txtProContentIn.Size = new System.Drawing.Size(249, 63);
             this.txtProContentIn.TabIndex = 28;
             // 
             // txtProPriceIn
             // 
-            this.txtProPriceIn.Location = new System.Drawing.Point(124, 146);
+            this.txtProPriceIn.Location = new System.Drawing.Point(124, 125);
             this.txtProPriceIn.Name = "txtProPriceIn";
             this.txtProPriceIn.Size = new System.Drawing.Size(158, 20);
             this.txtProPriceIn.TabIndex = 27;
-            // 
-            // txtProCodeIn
-            // 
-            this.txtProCodeIn.Location = new System.Drawing.Point(124, 74);
-            this.txtProCodeIn.Name = "txtProCodeIn";
-            this.txtProCodeIn.Size = new System.Drawing.Size(158, 20);
-            this.txtProCodeIn.TabIndex = 25;
             // 
             // lblEnDay
             // 
@@ -102,7 +93,7 @@
             // lblProContent
             // 
             this.lblProContent.AutoSize = true;
-            this.lblProContent.Location = new System.Drawing.Point(30, 190);
+            this.lblProContent.Location = new System.Drawing.Point(30, 168);
             this.lblProContent.Name = "lblProContent";
             this.lblProContent.Size = new System.Drawing.Size(110, 13);
             this.lblProContent.TabIndex = 22;
@@ -111,7 +102,7 @@
             // lblProPrice
             // 
             this.lblProPrice.AutoSize = true;
-            this.lblProPrice.Location = new System.Drawing.Point(30, 153);
+            this.lblProPrice.Location = new System.Drawing.Point(30, 132);
             this.lblProPrice.Name = "lblProPrice";
             this.lblProPrice.Size = new System.Drawing.Size(83, 13);
             this.lblProPrice.TabIndex = 21;
@@ -120,20 +111,11 @@
             // lblProductCode
             // 
             this.lblProductCode.AutoSize = true;
-            this.lblProductCode.Location = new System.Drawing.Point(30, 119);
+            this.lblProductCode.Location = new System.Drawing.Point(30, 84);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(74, 13);
             this.lblProductCode.TabIndex = 20;
             this.lblProductCode.Text = "Mã sản phẩm:";
-            // 
-            // lblProCode
-            // 
-            this.lblProCode.AutoSize = true;
-            this.lblProCode.Location = new System.Drawing.Point(30, 81);
-            this.lblProCode.Name = "lblProCode";
-            this.lblProCode.Size = new System.Drawing.Size(82, 13);
-            this.lblProCode.TabIndex = 19;
-            this.lblProCode.Text = "Mã khuyến mãi:";
             // 
             // lblTitle
             // 
@@ -150,7 +132,7 @@
             // 
             this.cboProductCode.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.cboProductCode.FormattingEnabled = true;
-            this.cboProductCode.Location = new System.Drawing.Point(124, 108);
+            this.cboProductCode.Location = new System.Drawing.Point(124, 76);
             this.cboProductCode.Name = "cboProductCode";
             this.cboProductCode.Size = new System.Drawing.Size(158, 21);
             this.cboProductCode.TabIndex = 31;
@@ -186,13 +168,11 @@
             this.Controls.Add(this.dtpStartDayIn);
             this.Controls.Add(this.txtProContentIn);
             this.Controls.Add(this.txtProPriceIn);
-            this.Controls.Add(this.txtProCodeIn);
             this.Controls.Add(this.lblEnDay);
             this.Controls.Add(this.lblStartDay);
             this.Controls.Add(this.lblProContent);
             this.Controls.Add(this.lblProPrice);
             this.Controls.Add(this.lblProductCode);
-            this.Controls.Add(this.lblProCode);
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_InsertPromotion";
             this.Text = "GUI_InsertPromotion";
@@ -207,13 +187,11 @@
         private System.Windows.Forms.DateTimePicker dtpStartDayIn;
         private System.Windows.Forms.TextBox txtProContentIn;
         private System.Windows.Forms.TextBox txtProPriceIn;
-        private System.Windows.Forms.TextBox txtProCodeIn;
         private System.Windows.Forms.Label lblEnDay;
         private System.Windows.Forms.Label lblStartDay;
         private System.Windows.Forms.Label lblProContent;
         private System.Windows.Forms.Label lblProPrice;
         private System.Windows.Forms.Label lblProductCode;
-        private System.Windows.Forms.Label lblProCode;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ComboBox cboProductCode;
         private System.Windows.Forms.Button btnSave;

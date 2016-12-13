@@ -623,7 +623,6 @@
           <Parameter Name="AccountCode" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_PromotionInformationInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="AccountCode" Type="varchar" Mode="In" />
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
           <Parameter Name="PricePromotion" Type="float" Mode="In" />
           <Parameter Name="StartTime" Type="datetime" Mode="In" />
@@ -631,9 +630,13 @@
           <Parameter Name="Cont" Type="nvarchar" Mode="In" />
           <Parameter Name="Image" Type="binary" Mode="In" />
         </Function>
+        <Function Name="usp_PromotionInformationSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_PromotionInformationSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AccountCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_PromotionInformationSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_PromotionInformationUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AccountCode" Type="varchar" Mode="In" />
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
@@ -1501,7 +1504,6 @@
           <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationInsert" ReturnType="Collection(CMART2Model.usp_PromotionInformationInsert_Result)">
-            <Parameter Name="AccountCode" Mode="In" Type="String" />
             <Parameter Name="ProductCode" Mode="In" Type="String" />
             <Parameter Name="PricePromotion" Mode="In" Type="Double" />
             <Parameter Name="StartTime" Mode="In" Type="DateTime" />
@@ -1575,6 +1577,10 @@
             <Parameter Name="Address" Mode="In" Type="String" />
             <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationSearch" ReturnType="Collection(CMART2Model.usp_PromotionInformationSearch_Result)">
+          <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PromotionInformationSelectAll" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelectAll_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1877,6 +1883,23 @@
           <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_PromotionInformationSearch_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="PricePromotion" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_PromotionInformationSelectAll_Result">
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="PricePromotion" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2560,6 +2583,31 @@
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationSearch" FunctionName="CMART2Model.Store.usp_PromotionInformationSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PromotionInformationSearch_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PromotionInformationSelectAll" FunctionName="CMART2Model.Store.usp_PromotionInformationSelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PromotionInformationSelectAll_Result">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="PricePromotion" ColumnName="PricePromotion" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Cont" ColumnName="Cont" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -974,12 +974,8 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PromotionInformationDelete", accountCodeParameter);
         }
     
-        public virtual ObjectResult<usp_PromotionInformationInsert_Result> usp_PromotionInformationInsert(string accountCode, string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, byte[] image)
+        public virtual ObjectResult<usp_PromotionInformationInsert_Result> usp_PromotionInformationInsert(string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, byte[] image)
         {
-            var accountCodeParameter = accountCode != null ?
-                new ObjectParameter("AccountCode", accountCode) :
-                new ObjectParameter("AccountCode", typeof(string));
-    
             var productCodeParameter = productCode != null ?
                 new ObjectParameter("ProductCode", productCode) :
                 new ObjectParameter("ProductCode", typeof(string));
@@ -1004,7 +1000,7 @@ namespace WindowsFormsApplication
                 new ObjectParameter("Image", image) :
                 new ObjectParameter("Image", typeof(byte[]));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationInsert_Result>("usp_PromotionInformationInsert", accountCodeParameter, productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationInsert_Result>("usp_PromotionInformationInsert", productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
         }
     
         public virtual ObjectResult<usp_PromotionInformationSelect_Result> usp_PromotionInformationSelect(string accountCode)
@@ -1227,6 +1223,20 @@ namespace WindowsFormsApplication
                 new ObjectParameter("Phone", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_SupplierUpdate_Result>("usp_SupplierUpdate", supplierCodeParameter, supplierNameParameter, addressParameter, phoneParameter);
+        }
+    
+        public virtual ObjectResult<usp_PromotionInformationSearch_Result> usp_PromotionInformationSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSearch_Result>("usp_PromotionInformationSearch", tEXTSEARCHParameter);
+        }
+    
+        public virtual ObjectResult<usp_PromotionInformationSelectAll_Result> usp_PromotionInformationSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelectAll_Result>("usp_PromotionInformationSelectAll");
         }
     }
 }

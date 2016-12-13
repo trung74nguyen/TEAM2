@@ -342,6 +342,12 @@
     <Compile Include="usp_PromotionInformationInsert_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_PromotionInformationSearch_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_PromotionInformationSelectAll_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_PromotionInformationSelect_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -105,7 +105,8 @@
             this.lstPriceHistory.ReadOnly = true;
             this.lstPriceHistory.Size = new System.Drawing.Size(796, 252);
             this.lstPriceHistory.TabIndex = 14;
-            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.lstPriceHistory_DoubleClick);
+            this.lstPriceHistory.Click += new System.EventHandler(this.lstPriceHistory_Click);
+            
             // 
             // lblName
             // 

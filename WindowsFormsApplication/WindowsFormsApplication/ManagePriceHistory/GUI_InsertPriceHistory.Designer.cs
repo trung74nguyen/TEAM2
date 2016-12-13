@@ -32,11 +32,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.txtPriceHistory = new System.Windows.Forms.TextBox();
-            this.txtProductIDPriceHistory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cboProductID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -71,14 +71,6 @@
             this.txtPriceHistory.Name = "txtPriceHistory";
             this.txtPriceHistory.Size = new System.Drawing.Size(210, 20);
             this.txtPriceHistory.TabIndex = 16;
-            // 
-            // txtProductIDPriceHistory
-            // 
-            this.txtProductIDPriceHistory.Location = new System.Drawing.Point(87, 82);
-            this.txtProductIDPriceHistory.Name = "txtProductIDPriceHistory";
-            this.txtProductIDPriceHistory.ReadOnly = true;
-            this.txtProductIDPriceHistory.Size = new System.Drawing.Size(210, 20);
-            this.txtProductIDPriceHistory.TabIndex = 15;
             // 
             // label5
             // 
@@ -117,16 +109,24 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "THÊM LỊCH SỬ GIÁ";
             // 
+            // cboProductID
+            // 
+            this.cboProductID.FormattingEnabled = true;
+            this.cboProductID.Location = new System.Drawing.Point(88, 82);
+            this.cboProductID.Name = "cboProductID";
+            this.cboProductID.Size = new System.Drawing.Size(207, 21);
+            this.cboProductID.TabIndex = 20;
+            // 
             // GUI_InsertPriceHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 258);
+            this.Controls.Add(this.cboProductID);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtPriceHistory);
-            this.Controls.Add(this.txtProductIDPriceHistory);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -144,10 +144,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.TextBox txtPriceHistory;
-        private System.Windows.Forms.TextBox txtProductIDPriceHistory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboProductID;
     }
 }

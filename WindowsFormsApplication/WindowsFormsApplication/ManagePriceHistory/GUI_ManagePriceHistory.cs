@@ -47,20 +47,37 @@ namespace WindowsFormsApplication.ManagePriceHistory
         {
             GUI_InsertPriceHistory insert = new GUI_InsertPriceHistory();
             insert.ShowDialog();
+            this.showManagePriceHistoryForm(null, null);
+            
         }
        
-        void btnDeletePriceHistory_Click(object sender, EventArgs e)
+      void btnDeletePriceHistory_Click(object sender, EventArgs e)
         {
-
+           if (lstPriceHistory.SelectedRows.Count == 1) // if select only one student
+        {
+            var row = lstPriceHistory.SelectedRows[0]; // get the selected row
+            var cell = row.Cells["MaSP"]; // get the cell contain id information
+            var id = cell.Value; // get the id value of selected student
+            CMART2Entities db = new CMART2Entities(); // connect to database
+            PriceHistory price = db.PriceHistories.Single(st => st.MaSP == id); // select the student that matches the id
+            db.PriceHistories.Remove(price); // delete the selected student
+            db.SaveChanges(); // commit the command
+            this.showManagePriceHistoryForm(null, null); // refresh the students list
+        }
+        else
+        {
+            MessageBox.Show("Bạn phải chọn lịch sử giá!");
+        }
+          
         }
 
 
         private string supplierId = "";
-        private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
+    /*    private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
         {
             var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
             supplierId = supplier.MaSP;
-        }
+        } */
         private void btnUpdatePriceHistory_Click(object sender, EventArgs e)
         {
             if (lstPriceHistory.SelectedRows.Count == 1)
@@ -74,9 +91,16 @@ namespace WindowsFormsApplication.ManagePriceHistory
             }
 
         }
+
         private void btnManageProduct_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void lstPriceHistory_Click(object sender, EventArgs e)
+        {
+            var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+            supplierId = supplier.MaSP;
         }
 
        
