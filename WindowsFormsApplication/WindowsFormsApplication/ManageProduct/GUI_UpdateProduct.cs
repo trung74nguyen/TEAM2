@@ -11,11 +11,11 @@ namespace WindowsFormsApplication.ManageProduct
 {
     public partial class GUI_UpdateProduct : Form
     {
-        public GUI_UpdateProduct(string productId)
+        public GUI_UpdateProduct(string productCode)
         {
             InitializeComponent();
             db = new CMART2Entities();
-            product = db.Products.Single(p => p.ProductCode == productId); //load product object that matches the id
+            product = db.Products.Single(p => p.ProductCode == productCode); //load product object that matches the id
         }
 
         CMART2Entities db;
@@ -25,26 +25,21 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void showUpdateProductForm(object sender, EventArgs e)
         {
-            CMART2Entities db = new CMART2Entities();
             this.cboTypeCode.DataSource = db.ProductCategories.ToList();
             this.cboTypeCode.ValueMember = "TypeCode"; // set the value member
-            this.cboTypeCode.DisplayMember = "TypeName"; // set the display member
-            this.cboTypeCode.SelectedValue = product.TypeCode;
-            
-            this.cboSupplier.DataSource = db.Suppliers.ToList();
-            this.cboSupplier.ValueMember = "SupplierCode"; // set the value member
-            this.cboSupplier.DisplayMember = "SupplierName"; // set the display member
-            this.cboSupplier.SelectedValue = product.SupplierCode;
-
-            this.loadDataProduct(product.ProductName, product.Image);
+            this.cboTypeCode.DisplayMember = "TypeName"; // set the display member   
+            this.cboSupplierCode.DataSource = db.Suppliers.ToList();
+            this.cboSupplierCode.ValueMember = "SupplierCode"; // set the value member
+            this.cboSupplierCode.DisplayMember = "SupplierName"; // set the display member
+            this.loadDataProduct();
         }
 
-        private void loadDataProduct(string name, string image)
+        private void loadDataProduct()
         {
-            txtProductName.Text = name;
-            txtImage.Text = image;
-            //cboTypeCode.Text = type;
-            //cboSupplier.Text = supplier;
+            this.txtProductName.Text = product.ProductName;
+            this.txtImage.Text = product.Image;
+            this.cboTypeCode.SelectedValue = product.TypeCode;
+            this.cboSupplierCode.SelectedValue = product.SupplierCode;
         }
 
         private bool checkDataInput(string name, string image, string type, string supplier)
@@ -74,17 +69,15 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickUpdate(object sender, EventArgs e)
         {
-            var name = txtProductName.Text.Trim();
+            var productName = txtProductName.Text.Trim();
             var image = txtImage.Text.Trim();
-            var type = cboTypeCode.Text;
-            var supplier = cboSupplier.Text;
-
-            var inputData = checkDataInput(name, image, type, supplier);
+            var typeCode = cboTypeCode.SelectedValue.ToString();
+            var supplierCode = cboSupplierCode.SelectedValue.ToString();
+            var inputData = checkDataInput(productName, image, typeCode, supplierCode);
             if (inputData == true)
             {
-                if (bus.updateNewProduct(product.ProductCode, name, image, type, supplier))
+                if (bus.updateNewProduct(product.ProductCode, productName, image, typeCode, supplierCode))
                 {
-                    txtProductName.Text = txtImage.Text = "";
                     MessageBox.Show("Cập nhật thành công!");
                     this.Close();
                 }
@@ -95,7 +88,10 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickCancel(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
 

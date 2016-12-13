@@ -974,7 +974,7 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PromotionInformationDelete", accountCodeParameter);
         }
     
-        public virtual ObjectResult<usp_PromotionInformationInsert_Result> usp_PromotionInformationInsert(string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, byte[] image)
+        public virtual ObjectResult<usp_PromotionInformationInsert_Result> usp_PromotionInformationInsert(string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, string image)
         {
             var productCodeParameter = productCode != null ?
                 new ObjectParameter("ProductCode", productCode) :
@@ -998,7 +998,7 @@ namespace WindowsFormsApplication
     
             var imageParameter = image != null ?
                 new ObjectParameter("Image", image) :
-                new ObjectParameter("Image", typeof(byte[]));
+                new ObjectParameter("Image", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationInsert_Result>("usp_PromotionInformationInsert", productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
         }
@@ -1237,6 +1237,15 @@ namespace WindowsFormsApplication
         public virtual ObjectResult<usp_PromotionInformationSelectAll_Result> usp_PromotionInformationSelectAll()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelectAll_Result>("usp_PromotionInformationSelectAll");
+        }
+    
+        public virtual ObjectResult<usp_ProductSearch_Result> usp_ProductSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSearch_Result>("usp_ProductSearch", tEXTSEARCHParameter);
         }
     }
 }

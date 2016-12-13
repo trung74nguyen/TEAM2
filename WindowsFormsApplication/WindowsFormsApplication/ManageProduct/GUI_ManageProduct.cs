@@ -17,9 +17,8 @@ namespace WindowsFormsApplication.ManageProduct
         }
 
         BUS_ManageProduct bus = new BUS_ManageProduct();
-        GUI_InsertProduct insert = new GUI_InsertProduct();
         
-
+        
         private void showManageProductForm(List<Product> products)
         {
             lstManageProduct.DataSource = products;
@@ -49,25 +48,29 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickInsert(object sender, EventArgs e)
         {
-            insert.ShowDialog();
+            GUI_InsertProduct gui_Insert = new GUI_InsertProduct();
+            gui_Insert.ShowDialog();
             showManageProductForm(null, null);
         }
 
-        private string productId = "";
+        private string productCode = "";
+
         private void selectProductToUpdate(object sender, EventArgs e)
         {
             if (lstManageProduct.SelectedRows.Count == 1)
             {
                 var product = lstManageProduct.SelectedRows[0].DataBoundItem as Product;
-                productId = product.ProductCode;
+                productCode = product.ProductCode; //Sometime get error in this line!!!
                 btnUpdate.Enabled = true;
             }
         }
 
         private void clickUpdate(object sender, EventArgs e)
         {
-            GUI_UpdateProduct update = new GUI_UpdateProduct(productId);
-            update.ShowDialog();
+            GUI_UpdateProduct gui_Update = new GUI_UpdateProduct(productCode);
+            gui_Update.ShowDialog();
+            var index = lstManageProduct.SelectedRows[0].Index;
+            lstManageProduct.Rows[index].Selected = true;
             showManageProductForm(null, null);
         }
 
@@ -79,7 +82,7 @@ namespace WindowsFormsApplication.ManageProduct
         private void clickDelete(object sender, EventArgs e)
         {
             if (checkSelectingProduct())
-                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var product = lstManageProduct.SelectedRows[0].DataBoundItem as Product;
                     if (bus.deleteProduct(product.ProductCode))
@@ -92,6 +95,25 @@ namespace WindowsFormsApplication.ManageProduct
                 }
         }
 
+        private bool checkDataInput(string text)
+        {
+            if ((text ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Vui lòng nhập nội dung tìm kiếm!");
+                return false;
+            }
+            return true;
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            lstManageProduct.DataSource = bus.searchListProduct(txtSearch.Text);
+        }
 
     }
 }
