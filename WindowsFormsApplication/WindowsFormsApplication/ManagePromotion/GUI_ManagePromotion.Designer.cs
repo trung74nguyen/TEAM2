@@ -115,6 +115,7 @@
             this.lstManagePromotion.Name = "lstManagePromotion";
             this.lstManagePromotion.Size = new System.Drawing.Size(653, 238);
             this.lstManagePromotion.TabIndex = 18;
+            this.lstManagePromotion.DoubleClick += new System.EventHandler(this.selectPromotionToUpdate);
             // 
             // txtSearch
             // 
@@ -146,6 +147,7 @@
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
             // btnInsert
             // 

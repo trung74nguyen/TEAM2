@@ -612,6 +612,7 @@
         <Function Name="usp_ProductSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_ProductSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ProductUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
           <Parameter Name="ProductName" Type="nvarchar" Mode="In" />
@@ -628,7 +629,7 @@
           <Parameter Name="StartTime" Type="datetime" Mode="In" />
           <Parameter Name="EndTime" Type="datetime" Mode="In" />
           <Parameter Name="Cont" Type="nvarchar" Mode="In" />
-          <Parameter Name="Image" Type="binary" Mode="In" />
+          <Parameter Name="Image" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_PromotionInformationSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
@@ -1509,7 +1510,7 @@
             <Parameter Name="StartTime" Mode="In" Type="DateTime" />
             <Parameter Name="EndTime" Mode="In" Type="DateTime" />
             <Parameter Name="Cont" Mode="In" Type="String" />
-            <Parameter Name="Image" Mode="In" Type="Binary" />
+            <Parameter Name="Image" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationSelect" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelect_Result)">
           <Parameter Name="AccountCode" Mode="In" Type="String" />
@@ -1581,6 +1582,7 @@
           <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationSelectAll" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelectAll_Result)" />
+          <FunctionImport Name="usp_ProductSelectAll" ReturnType="Collection(CMART2Model.usp_ProductSelectAll_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1900,6 +1902,13 @@
           <Property Type="DateTime" Name="EndTime" Nullable="false" />
           <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ProductSelectAll_Result">
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TypeCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SupplierCode" Nullable="false" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2608,6 +2617,17 @@
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="Cont" ColumnName="Cont" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ProductSelectAll" FunctionName="CMART2Model.Store.usp_ProductSelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductSelectAll_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

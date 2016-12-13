@@ -333,6 +333,9 @@
     <Compile Include="usp_ProductInsert_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ProductSelectAll_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ProductSelect_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

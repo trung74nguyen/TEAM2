@@ -25,11 +25,18 @@ namespace WindowsFormsApplication.ManagePromotion
         public bool IsNumber(TextBox t)
         {
             string a = t.Text.ToString();
-            int n = -1;
+            int n = 0;
             try
             {
                 n = int.Parse(a);
-                return true;
+                if (n >= 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (FormatException)
             {
