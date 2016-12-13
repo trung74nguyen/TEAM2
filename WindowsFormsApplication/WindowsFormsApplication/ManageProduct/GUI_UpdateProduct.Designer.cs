@@ -34,11 +34,9 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtImage = new System.Windows.Forms.TextBox();
-            this.txtProductID = new System.Windows.Forms.TextBox();
             this.lblSupplier = new System.Windows.Forms.Label();
             this.lblImage = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
-            this.lblProductCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.cboTypeCode = new System.Windows.Forms.ComboBox();
             this.lblTypeCode = new System.Windows.Forms.Label();
@@ -46,7 +44,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(193, 254);
+            this.btnCancel.Location = new System.Drawing.Point(197, 212);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 60;
@@ -56,7 +54,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(110, 254);
+            this.btnUpdate.Location = new System.Drawing.Point(114, 212);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 59;
@@ -67,14 +65,14 @@
             // cboSupplier
             // 
             this.cboSupplier.FormattingEnabled = true;
-            this.cboSupplier.Location = new System.Drawing.Point(110, 218);
+            this.cboSupplier.Location = new System.Drawing.Point(114, 176);
             this.cboSupplier.Name = "cboSupplier";
             this.cboSupplier.Size = new System.Drawing.Size(158, 21);
             this.cboSupplier.TabIndex = 58;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(227, 143);
+            this.btnSelect.Location = new System.Drawing.Point(231, 101);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(41, 23);
             this.btnSelect.TabIndex = 57;
@@ -83,31 +81,22 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(110, 111);
+            this.txtProductName.Location = new System.Drawing.Point(114, 69);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(158, 20);
             this.txtProductName.TabIndex = 56;
             // 
             // txtImage
             // 
-            this.txtImage.Location = new System.Drawing.Point(110, 145);
+            this.txtImage.Location = new System.Drawing.Point(114, 103);
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(111, 20);
             this.txtImage.TabIndex = 55;
             // 
-            // txtProductID
-            // 
-            this.txtProductID.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtProductID.Location = new System.Drawing.Point(110, 73);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(158, 20);
-            this.txtProductID.TabIndex = 54;
-            // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Location = new System.Drawing.Point(16, 221);
+            this.lblSupplier.Location = new System.Drawing.Point(20, 179);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(78, 13);
             this.lblSupplier.TabIndex = 53;
@@ -116,7 +105,7 @@
             // lblImage
             // 
             this.lblImage.AutoSize = true;
-            this.lblImage.Location = new System.Drawing.Point(16, 148);
+            this.lblImage.Location = new System.Drawing.Point(20, 106);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(53, 13);
             this.lblImage.TabIndex = 52;
@@ -125,20 +114,11 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(16, 114);
+            this.lblProductName.Location = new System.Drawing.Point(20, 72);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(78, 13);
             this.lblProductName.TabIndex = 51;
             this.lblProductName.Text = "Tên sản phẩm:";
-            // 
-            // lblProductCode
-            // 
-            this.lblProductCode.AutoSize = true;
-            this.lblProductCode.Location = new System.Drawing.Point(16, 76);
-            this.lblProductCode.Name = "lblProductCode";
-            this.lblProductCode.Size = new System.Drawing.Size(74, 13);
-            this.lblProductCode.TabIndex = 50;
-            this.lblProductCode.Text = "Mã sản phẩm:";
             // 
             // lblTitle
             // 
@@ -154,7 +134,7 @@
             // cboTypeCode
             // 
             this.cboTypeCode.FormattingEnabled = true;
-            this.cboTypeCode.Location = new System.Drawing.Point(110, 181);
+            this.cboTypeCode.Location = new System.Drawing.Point(114, 139);
             this.cboTypeCode.Name = "cboTypeCode";
             this.cboTypeCode.Size = new System.Drawing.Size(158, 21);
             this.cboTypeCode.TabIndex = 62;
@@ -162,7 +142,7 @@
             // lblTypeCode
             // 
             this.lblTypeCode.AutoSize = true;
-            this.lblTypeCode.Location = new System.Drawing.Point(16, 184);
+            this.lblTypeCode.Location = new System.Drawing.Point(20, 142);
             this.lblTypeCode.Name = "lblTypeCode";
             this.lblTypeCode.Size = new System.Drawing.Size(79, 13);
             this.lblTypeCode.TabIndex = 61;
@@ -172,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 290);
+            this.ClientSize = new System.Drawing.Size(284, 243);
             this.Controls.Add(this.cboTypeCode);
             this.Controls.Add(this.lblTypeCode);
             this.Controls.Add(this.btnCancel);
@@ -181,14 +161,13 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtImage);
-            this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblProductName);
-            this.Controls.Add(this.lblProductCode);
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_UpdateProduct";
             this.Text = "GUI_UpdateProduct";
+            this.Load += new System.EventHandler(this.showUpdateProductForm);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,11 +181,9 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.TextBox txtImage;
-        private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.Label lblSupplier;
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Label lblProductName;
-        private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ComboBox cboTypeCode;
         private System.Windows.Forms.Label lblTypeCode;

@@ -30,6 +30,14 @@ namespace WindowsFormsApplication.ManageProduct
             lstManageProduct.Columns["Image"].HeaderText = "Hình ảnh";
             lstManageProduct.Columns["TypeCode"].HeaderText = "Mã loại";
             lstManageProduct.Columns["SupplierCode"].HeaderText = "Mã nhà cung cấp";
+            lstManageProduct.Columns["BillDetails"].Visible = false;
+            lstManageProduct.Columns["BranchImportBallotDetails"].Visible = false;
+            lstManageProduct.Columns["HeadquaterImportBallotDetails"].Visible = false;
+            lstManageProduct.Columns["PriceHistories"].Visible = false;
+            lstManageProduct.Columns["ProductCategory"].Visible = false;
+            lstManageProduct.Columns["Supplier"].Visible = false;
+            lstManageProduct.Columns["PromotionInformations"].Visible = false;
+            lstManageProduct.Columns["ProposeBallotDetails"].Visible = false;
             btnUpdate.Enabled = false;
         }
 
@@ -62,5 +70,28 @@ namespace WindowsFormsApplication.ManageProduct
             update.ShowDialog();
             showManageProductForm(null, null);
         }
+
+        private bool checkSelectingProduct()
+        {
+            return lstManageProduct.SelectedRows.Count == 1;
+        }
+
+        private void clickDelete(object sender, EventArgs e)
+        {
+            if (checkSelectingProduct())
+                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var product = lstManageProduct.SelectedRows[0].DataBoundItem as Product;
+                    if (bus.deleteProduct(product.ProductCode))
+                    {
+                        showManageProductForm(null, null);
+                        MessageBox.Show("Xóa thành công!");
+                    }
+                    else
+                        MessageBox.Show("Xóa không thành công!");
+                }
+        }
+
+
     }
 }
