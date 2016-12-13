@@ -42,7 +42,7 @@ namespace WindowsFormsApplication.ManagePromotion
                 }
             return false;
         }
-        public bool inserNewPromotion(string productcode, float proprice, DateTime starttime, DateTime endtime, string procontent, string image)
+        public bool inserNewPromotion(string productcode, double proprice, DateTime starttime, DateTime endtime, string procontent, string image)
         {    
                 try
                 {
@@ -72,7 +72,7 @@ namespace WindowsFormsApplication.ManagePromotion
                     return false;
                 } 
         }
-        public bool updatePromotion(string procode,string productcode, float proprice, DateTime starttime, DateTime endtime, string procontent, string image)
+        public bool updatePromotion(string procode,string productcode, double proprice, DateTime starttime, DateTime endtime, string procontent, string image)
         {
             if (!checkExistPromotion(procode))
                 try

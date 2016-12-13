@@ -30,7 +30,8 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung";
             lstManagePromotion.Columns["Image"].HeaderText = "Hình";
             lstManagePromotion.Columns["Product"].Visible = false;
-            lstManagePromotion.Columns["Image"].Visible = false;
+           // lstManagePromotion.Columns["Image"].Visible = false;
+            btnUpdate.Enabled = false;
         }
         private bool checkSelectingPromotion()
         {
@@ -73,6 +74,23 @@ namespace WindowsFormsApplication.ManagePromotion
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
             txtSearch.Text = "";
+        }
+        private string promotionId = "";
+        private void selectPromotionToUpdate(object sender, EventArgs e)
+        {
+            if (lstManagePromotion.SelectedRows.Count == 1)
+            {
+                var pro = lstManagePromotion.SelectedRows[0].DataBoundItem as PromotionInformation;
+                promotionId = pro.AccountCode;
+                btnUpdate.Enabled = true;
+            }
+        }
+
+        private void clickUpdate(object sender, EventArgs e)
+        {
+            GUI_UpdatePromotion update = new GUI_UpdatePromotion(promotionId);
+            update.ShowDialog();
+            showManagePromotionForm(null, null);
         }
 
     }

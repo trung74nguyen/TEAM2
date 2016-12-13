@@ -167,6 +167,7 @@
             this.btnCancle.TabIndex = 45;
             this.btnCancle.Text = "Hủy";
             this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // btnSave
             // 
@@ -176,6 +177,7 @@
             this.btnSave.TabIndex = 44;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.clickUpdate);
             // 
             // txtImage
             // 
@@ -219,6 +221,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_UpdatePromotion";
             this.Text = "GUI_UpdatePromotion";
+            this.Load += new System.EventHandler(this.showUpdatePromotionForm);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,7 +38,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
             }
             
-            float price =float.Parse(txtProPriceIn.Text.ToString().Trim());
+            double price =double.Parse(txtProPriceIn.Text.ToString());
             string content = txtProContentIn.Text;
             string product = cboProductCode.SelectedValue.ToString();
             DateTime start = DateTime.Parse(dtpStartDayIn.Text);
