@@ -615,6 +615,7 @@
         <Function Name="usp_ProductSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_ProductSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ProductUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
           <Parameter Name="ProductName" Type="nvarchar" Mode="In" />

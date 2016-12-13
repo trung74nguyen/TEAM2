@@ -39,9 +39,9 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.quảnLýHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýNhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýThôngTinKhuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnManagePromotion = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýLịchSửGiáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnManageProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -105,7 +105,8 @@
             this.lstPriceHistory.ReadOnly = true;
             this.lstPriceHistory.Size = new System.Drawing.Size(796, 252);
             this.lstPriceHistory.TabIndex = 14;
-            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.lstPriceHistory_DoubleClick);
+            this.lstPriceHistory.Click += new System.EventHandler(this.lstPriceHistory_Click);
+            
             // 
             // lblName
             // 
@@ -146,11 +147,11 @@
             this.quảnLýNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.quảnLýNhậpHàngToolStripMenuItem.Text = "Quản lý nhập hàng";
             // 
-            // quảnLýThôngTinKhuyếnMãiToolStripMenuItem
+            // btnManagePromotion
             // 
-            this.quảnLýThôngTinKhuyếnMãiToolStripMenuItem.Name = "quảnLýThôngTinKhuyếnMãiToolStripMenuItem";
-            this.quảnLýThôngTinKhuyếnMãiToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.quảnLýThôngTinKhuyếnMãiToolStripMenuItem.Text = "Quản lý thông tin khuyến mãi";
+            this.btnManagePromotion.Name = "btnManagePromotion";
+            this.btnManagePromotion.Size = new System.Drawing.Size(232, 22);
+            this.btnManagePromotion.Text = "Quản lý thông tin khuyến mãi";
             // 
             // quảnLýLịchSửGiáToolStripMenuItem
             // 
@@ -158,18 +159,18 @@
             this.quảnLýLịchSửGiáToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.quảnLýLịchSửGiáToolStripMenuItem.Text = "Quản lý lịch sử giá";
             // 
-            // quảnLýSảnPhẩmToolStripMenuItem
+            // btnManageProduct
             // 
-            this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
+            this.btnManageProduct.Name = "btnManageProduct";
+            this.btnManageProduct.Size = new System.Drawing.Size(232, 22);
+            this.btnManageProduct.Text = "Quản lý sản phẩm";
             // 
             // quảnLýDanhMụcToolStripMenuItem
             // 
             this.quảnLýDanhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýSảnPhẩmToolStripMenuItem,
+            this.btnManageProduct,
             this.quảnLýLịchSửGiáToolStripMenuItem,
-            this.quảnLýThôngTinKhuyếnMãiToolStripMenuItem});
+            this.btnManagePromotion});
             this.quảnLýDanhMụcToolStripMenuItem.Name = "quảnLýDanhMụcToolStripMenuItem";
             this.quảnLýDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.quảnLýDanhMụcToolStripMenuItem.Text = "Quản lý danh mục";
@@ -232,9 +233,9 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ToolStripMenuItem quảnLýHóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhậpHàngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýThôngTinKhuyếnMãiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnManagePromotion;
         private System.Windows.Forms.ToolStripMenuItem quảnLýLịchSửGiáToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnManageProduct;
         private System.Windows.Forms.ToolStripMenuItem quảnLýDanhMụcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
