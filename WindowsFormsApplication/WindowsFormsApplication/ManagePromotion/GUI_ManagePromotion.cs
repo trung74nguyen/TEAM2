@@ -16,7 +16,9 @@ namespace WindowsFormsApplication.ManagePromotion
         {
             InitializeComponent();
         }
+
         BUS_ManagePromotion bus = new BUS_ManagePromotion();
+
         private void showManagePromotionForm(List<PromotionInformation> promotions)
         {
             lstManagePromotion.DataSource = promotions;
@@ -30,17 +32,18 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung";
             lstManagePromotion.Columns["Image"].HeaderText = "Hình";
             lstManagePromotion.Columns["Product"].Visible = false;
-           // lstManagePromotion.Columns["Image"].Visible = false;
             btnUpdate.Enabled = false;
         }
-        private bool checkSelectingPromotion()
-        {
-            return lstManagePromotion.SelectedRows.Count == 1;
-        }
+
         private void showManagePromotionForm(object sender, EventArgs e)
         {
             var promotioninfo = bus.getAllListPromotion();
             showManagePromotionForm(promotioninfo);
+        }
+
+        private bool checkSelectingPromotion()
+        {
+            return lstManagePromotion.SelectedRows.Count == 1;
         }
 
         private void clickDelete(object sender, EventArgs e)
@@ -52,17 +55,17 @@ namespace WindowsFormsApplication.ManagePromotion
                     if (bus.deletePromotion((pro.AccountCode.ToString())))
                     {
                         showManagePromotionForm(null, null);
-                        MessageBox.Show("Xóa thành công !!");
+                        MessageBox.Show("Xóa thành công!");
                     }
                     else
-                        MessageBox.Show("Xóa không thành công, Tôi xin lỗi @@");
+                        MessageBox.Show("Xóa không thành công!");
                 }
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void clickInsert(object sender, EventArgs e)
         {
-            GUI_InsertPromotion mn = new GUI_InsertPromotion();
-            mn.ShowDialog();
+            GUI_InsertPromotion gui_Insert = new GUI_InsertPromotion();
+            gui_Insert.ShowDialog();
             showManagePromotionForm(null, null);
         }
 
@@ -70,26 +73,29 @@ namespace WindowsFormsApplication.ManagePromotion
         {
             lstManagePromotion.DataSource = bus.searchAllListPromotion(txtSearch.Text);
         }
-
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
             txtSearch.Text = "";
         }
-        private string promotionId = "";
+
+        private string promotionCode = "";
+
         private void selectPromotionToUpdate(object sender, EventArgs e)
         {
             if (lstManagePromotion.SelectedRows.Count == 1)
             {
                 var pro = lstManagePromotion.SelectedRows[0].DataBoundItem as PromotionInformation;
-                promotionId = pro.AccountCode;
+                promotionCode = pro.AccountCode;
                 btnUpdate.Enabled = true;
             }
         }
 
         private void clickUpdate(object sender, EventArgs e)
         {
-            GUI_UpdatePromotion update = new GUI_UpdatePromotion(promotionId);
-            update.ShowDialog();
+            GUI_UpdatePromotion gui_Update = new GUI_UpdatePromotion(promotionCode);
+            gui_Update.ShowDialog();
+            var index = lstManagePromotion.SelectedRows[0].Index;
+            lstManagePromotion.Rows[index].Selected = true;
             showManagePromotionForm(null, null);
         }
 

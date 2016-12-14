@@ -95,8 +95,6 @@ namespace WindowsFormsApplication.ManageProduct
             return false;
         }
 
-
-
         private bool checkExistProductCode(string productCode)
         {
             using (var db = new CMART2Entities())

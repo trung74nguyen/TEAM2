@@ -157,7 +157,7 @@
             this.btnInsert.TabIndex = 14;
             this.btnInsert.Text = "Thêm";
             this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.btnInsert.Click += new System.EventHandler(this.clickInsert);
             // 
             // lblTitle
             // 

@@ -11,8 +11,6 @@ namespace WindowsFormsApplication.ManagePromotion
 {
     class BUS_ManagePromotion
     {
-
-       
         public List<PromotionInformation> getAllListPromotion()
         {
             var db = new CMART2Entities();
@@ -42,51 +40,69 @@ namespace WindowsFormsApplication.ManagePromotion
                 }
             return false;
         }
-        public bool inserNewPromotion(string productcode, double proprice, DateTime starttime, DateTime endtime, string procontent, string image)
-        {    
-                try
-                {
-                    using (var db = new CMART2Entities())
-                    {
-                        ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
-                        db.SP_PROMOTIONINFORMATION_ID_AUTO(idoutput);
-                        var id = idoutput.Value.ToString(); 
-                        var pro = new PromotionInformation
-                       {
-                           AccountCode = id,
-                           ProductCode = productcode,
-                           PricePromotion = proprice,
-                           Cont = procontent,
-                           StartTime = starttime,
-                           EndTime = endtime
-
-                       };
-                        db.PromotionInformations.Add(pro);
-                        db.SaveChanges();
-                        return true;
-                    }
-
-                }
-                catch (Exception)
-                {
-                    return false;
-                } 
-        }
-        public bool updatePromotion(string procode,string productcode, double proprice, DateTime starttime, DateTime endtime, string procontent, string image)
+        public bool insertNewPromotion(string productCode, float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
         {
-            if (!checkExistPromotion(procode))
+            try
+            {
+                using (var db = new CMART2Entities())
+                {
+                    ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
+                    db.SP_PROMOTIONINFORMATION_ID_AUTO(idoutput);
+                    var id_auto = idoutput.Value.ToString(); 
+
+                    var promotion = new PromotionInformation
+                    {
+                        AccountCode = id_auto,
+                        ProductCode = productCode,
+                        PricePromotion = promotionPrice,
+                        StartTime = startTime,
+                        EndTime = endTime,
+                        Cont = promotionContent,
+                        Image = promotionImage
+                    };
+                    db.PromotionInformations.Add(promotion);
+                    db.SaveChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private bool checkExistPromotion(float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
+        {
+            using (var db = new CMART2Entities())
+            {
+                if (db.PromotionInformations.Count(s => s.PricePromotion == promotionPrice
+                                                    && s.StartTime == startTime
+                                                    && s.EndTime == endTime
+                                                    && s.Cont == promotionContent
+                                                    && s.Image == promotionImage ) > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public bool updatePromotion(string promotionCode, string productCode, float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
+        {
+            if (!checkExistPromotion(promotionPrice, startTime, endTime, promotionContent, promotionImage))
                 try
                 {
                     using (var db = new CMART2Entities())
                     {
-                        var pro = db.PromotionInformations.Single(s => s.AccountCode == procode);
-                        pro.ProductCode = productcode;
-                        pro.PricePromotion = proprice;
-                        pro.StartTime = starttime;
-                        pro.EndTime = endtime;
-                        pro.Cont = procontent;
-                        pro.Image = image;
-                        db.Entry(pro).State = EntityState.Modified;
+                        var promotion = db.PromotionInformations.Single(s => s.AccountCode == promotionCode);
+                        promotion.ProductCode = productCode;
+                        promotion.PricePromotion = promotionPrice;
+                        promotion.StartTime = startTime;
+                        promotion.EndTime = endTime;
+                        promotion.Cont = promotionContent;
+                        promotion.Image = promotionImage;
+                        db.Entry(promotion).State = EntityState.Modified;
                         db.SaveChanges();
                         return true;
                     }

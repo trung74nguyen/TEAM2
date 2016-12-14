@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpEndDayUp = new System.Windows.Forms.DateTimePicker();
-            this.dtpStartDayUp = new System.Windows.Forms.DateTimePicker();
-            this.txtProConUp = new System.Windows.Forms.TextBox();
-            this.txtProPriceUpd = new System.Windows.Forms.TextBox();
-            this.txtProductCodeUp = new System.Windows.Forms.TextBox();
-            this.txtProCodeUp = new System.Windows.Forms.TextBox();
+            this.dtpEndDay = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDay = new System.Windows.Forms.DateTimePicker();
+            this.txtPromotionContent = new System.Windows.Forms.TextBox();
+            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
+            this.txtPromotionCode = new System.Windows.Forms.TextBox();
             this.lblEnDay = new System.Windows.Forms.Label();
             this.lblStartDay = new System.Windows.Forms.Label();
             this.lblProContent = new System.Windows.Forms.Label();
@@ -41,58 +41,59 @@
             this.lblProductCode = new System.Windows.Forms.Label();
             this.lblProCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnCancle = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtImage = new System.Windows.Forms.TextBox();
             this.lblImage = new System.Windows.Forms.Label();
+            this.txtPromotionImage = new System.Windows.Forms.TextBox();
+            this.btnChoose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dtpEndDayUp
+            // dtpEndDay
             // 
-            this.dtpEndDayUp.Location = new System.Drawing.Point(351, 183);
-            this.dtpEndDayUp.Name = "dtpEndDayUp";
-            this.dtpEndDayUp.Size = new System.Drawing.Size(200, 20);
-            this.dtpEndDayUp.TabIndex = 43;
+            this.dtpEndDay.Location = new System.Drawing.Point(351, 183);
+            this.dtpEndDay.Name = "dtpEndDay";
+            this.dtpEndDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpEndDay.TabIndex = 43;
             // 
-            // dtpStartDayUp
+            // dtpStartDay
             // 
-            this.dtpStartDayUp.Location = new System.Drawing.Point(351, 109);
-            this.dtpStartDayUp.Name = "dtpStartDayUp";
-            this.dtpStartDayUp.Size = new System.Drawing.Size(200, 20);
-            this.dtpStartDayUp.TabIndex = 42;
+            this.dtpStartDay.Location = new System.Drawing.Point(351, 109);
+            this.dtpStartDay.Name = "dtpStartDay";
+            this.dtpStartDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpStartDay.TabIndex = 42;
             // 
-            // txtProConUp
+            // txtPromotionContent
             // 
-            this.txtProConUp.Location = new System.Drawing.Point(33, 232);
-            this.txtProConUp.Multiline = true;
-            this.txtProConUp.Name = "txtProConUp";
-            this.txtProConUp.Size = new System.Drawing.Size(249, 31);
-            this.txtProConUp.TabIndex = 41;
+            this.txtPromotionContent.Location = new System.Drawing.Point(33, 232);
+            this.txtPromotionContent.Multiline = true;
+            this.txtPromotionContent.Name = "txtPromotionContent";
+            this.txtPromotionContent.Size = new System.Drawing.Size(249, 31);
+            this.txtPromotionContent.TabIndex = 41;
             // 
-            // txtProPriceUpd
+            // txtPromotionPrice
             // 
-            this.txtProPriceUpd.Location = new System.Drawing.Point(124, 176);
-            this.txtProPriceUpd.Name = "txtProPriceUpd";
-            this.txtProPriceUpd.Size = new System.Drawing.Size(158, 20);
-            this.txtProPriceUpd.TabIndex = 40;
+            this.txtPromotionPrice.Location = new System.Drawing.Point(124, 176);
+            this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.Size = new System.Drawing.Size(158, 20);
+            this.txtPromotionPrice.TabIndex = 40;
             // 
-            // txtProductCodeUp
+            // txtProductCode
             // 
-            this.txtProductCodeUp.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtProductCodeUp.Location = new System.Drawing.Point(124, 109);
-            this.txtProductCodeUp.Name = "txtProductCodeUp";
-            this.txtProductCodeUp.ReadOnly = true;
-            this.txtProductCodeUp.Size = new System.Drawing.Size(158, 20);
-            this.txtProductCodeUp.TabIndex = 39;
+            this.txtProductCode.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtProductCode.Location = new System.Drawing.Point(124, 109);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.ReadOnly = true;
+            this.txtProductCode.Size = new System.Drawing.Size(158, 20);
+            this.txtProductCode.TabIndex = 39;
             // 
-            // txtProCodeUp
+            // txtPromotionCode
             // 
-            this.txtProCodeUp.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtProCodeUp.Location = new System.Drawing.Point(124, 74);
-            this.txtProCodeUp.Name = "txtProCodeUp";
-            this.txtProCodeUp.ReadOnly = true;
-            this.txtProCodeUp.Size = new System.Drawing.Size(158, 20);
-            this.txtProCodeUp.TabIndex = 38;
+            this.txtPromotionCode.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPromotionCode.Location = new System.Drawing.Point(124, 74);
+            this.txtPromotionCode.Name = "txtPromotionCode";
+            this.txtPromotionCode.ReadOnly = true;
+            this.txtPromotionCode.Size = new System.Drawing.Size(158, 20);
+            this.txtPromotionCode.TabIndex = 38;
             // 
             // lblEnDay
             // 
@@ -159,15 +160,15 @@
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Cập nhật thông tin khuyến mãi";
             // 
-            // btnCancle
+            // btnCancel
             // 
-            this.btnCancle.Location = new System.Drawing.Point(392, 224);
-            this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(77, 28);
-            this.btnCancle.TabIndex = 45;
-            this.btnCancle.Text = "Hủy";
-            this.btnCancle.UseVisualStyleBackColor = true;
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            this.btnCancel.Location = new System.Drawing.Point(392, 224);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(77, 28);
+            this.btnCancel.TabIndex = 45;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // btnSave
             // 
@@ -179,15 +180,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.clickUpdate);
             // 
-            // txtImage
-            // 
-            this.txtImage.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtImage.Location = new System.Drawing.Point(124, 142);
-            this.txtImage.Name = "txtImage";
-            this.txtImage.ReadOnly = true;
-            this.txtImage.Size = new System.Drawing.Size(158, 20);
-            this.txtImage.TabIndex = 47;
-            // 
             // lblImage
             // 
             this.lblImage.AutoSize = true;
@@ -197,21 +189,38 @@
             this.lblImage.TabIndex = 46;
             this.lblImage.Text = "Hình";
             // 
+            // txtPromotionImage
+            // 
+            this.txtPromotionImage.Location = new System.Drawing.Point(124, 142);
+            this.txtPromotionImage.Name = "txtPromotionImage";
+            this.txtPromotionImage.Size = new System.Drawing.Size(105, 20);
+            this.txtPromotionImage.TabIndex = 47;
+            // 
+            // btnChoose
+            // 
+            this.btnChoose.Location = new System.Drawing.Point(227, 140);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(55, 23);
+            this.btnChoose.TabIndex = 48;
+            this.btnChoose.Text = "Chọn";
+            this.btnChoose.UseVisualStyleBackColor = true;
+            // 
             // GUI_UpdatePromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 275);
-            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.btnChoose);
+            this.Controls.Add(this.txtPromotionImage);
             this.Controls.Add(this.lblImage);
-            this.Controls.Add(this.btnCancle);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dtpEndDayUp);
-            this.Controls.Add(this.dtpStartDayUp);
-            this.Controls.Add(this.txtProConUp);
-            this.Controls.Add(this.txtProPriceUpd);
-            this.Controls.Add(this.txtProductCodeUp);
-            this.Controls.Add(this.txtProCodeUp);
+            this.Controls.Add(this.dtpEndDay);
+            this.Controls.Add(this.dtpStartDay);
+            this.Controls.Add(this.txtPromotionContent);
+            this.Controls.Add(this.txtPromotionPrice);
+            this.Controls.Add(this.txtProductCode);
+            this.Controls.Add(this.txtPromotionCode);
             this.Controls.Add(this.lblEnDay);
             this.Controls.Add(this.lblStartDay);
             this.Controls.Add(this.lblProContent);
@@ -221,7 +230,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_UpdatePromotion";
             this.Text = "GUI_UpdatePromotion";
-            this.Load += new System.EventHandler(this.showUpdatePromotionForm);
+            this.Load += new System.EventHandler(this.loadDataPromotionToForm);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,12 +238,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtpEndDayUp;
-        private System.Windows.Forms.DateTimePicker dtpStartDayUp;
-        private System.Windows.Forms.TextBox txtProConUp;
-        private System.Windows.Forms.TextBox txtProPriceUpd;
-        private System.Windows.Forms.TextBox txtProductCodeUp;
-        private System.Windows.Forms.TextBox txtProCodeUp;
+        private System.Windows.Forms.DateTimePicker dtpEndDay;
+        private System.Windows.Forms.DateTimePicker dtpStartDay;
+        private System.Windows.Forms.TextBox txtPromotionContent;
+        private System.Windows.Forms.TextBox txtPromotionPrice;
+        private System.Windows.Forms.TextBox txtProductCode;
+        private System.Windows.Forms.TextBox txtPromotionCode;
         private System.Windows.Forms.Label lblEnDay;
         private System.Windows.Forms.Label lblStartDay;
         private System.Windows.Forms.Label lblProContent;
@@ -242,9 +251,10 @@
         private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblProCode;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.Label lblImage;
+        private System.Windows.Forms.TextBox txtPromotionImage;
+        private System.Windows.Forms.Button btnChoose;
     }
 }
