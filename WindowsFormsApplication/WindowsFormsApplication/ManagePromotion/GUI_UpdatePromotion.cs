@@ -11,76 +11,91 @@ namespace WindowsFormsApplication.ManagePromotion
 {
     public partial class GUI_UpdatePromotion : Form
     {
-        ValidationExtension v;
-        public GUI_UpdatePromotion(string promotionId)
+        public GUI_UpdatePromotion(string promotionCode)
         {
-            v = new ValidationExtension();
             InitializeComponent();
             db = new CMART2Entities();
-            pro = db.PromotionInformations.Single(p => p.AccountCode == promotionId); //load product object that matches the id
+            promotion = db.PromotionInformations.Single(p => p.AccountCode == promotionCode); //load product object that matches the id
         }
+
         CMART2Entities db;
-        private PromotionInformation pro;
+        private PromotionInformation promotion;
 
         BUS_ManagePromotion bus = new BUS_ManagePromotion();
-        private void loadDataPromotionOnForm(string procode, string productcode, double proprice, DateTime starttime, DateTime endtime, string procontent, string image)
-        {
-            txtProCodeUp.Text = procode;
-            txtProductCodeUp.Text = productcode;
-            txtProPriceUpd.Text = proprice.ToString();
-            dtpStartDayUp.Text = starttime.ToString();
-            dtpEndDayUp.Text = endtime.ToString();
-            txtProConUp.Text = procontent;
-            txtImage.Text = image;
-        }
-        private void showUpdatePromotionForm(object sender, EventArgs e)
-        {
 
-            this.loadDataPromotionOnForm(pro.AccountCode,pro.ProductCode,pro.PricePromotion,pro.StartTime,pro.EndTime,pro.Cont,pro.Image);
+        private void loadDataPromotionToForm(object sender, EventArgs e)
+        {
+            txtPromotionCode.Text = promotion.AccountCode;
+            txtProductCode.Text = promotion.ProductCode;
+            txtPromotionPrice.Text = promotion.PricePromotion.ToString();
+            dtpStartDay.Text = promotion.StartTime.ToString();
+            dtpEndDay.Text = promotion.EndTime.ToString();
+            txtPromotionContent.Text = promotion.Cont;
+            txtPromotionImage.Text = promotion.Image;
+        }
+        private bool checkDataInput(string sPromotionPrice, string promotionContent)
+        {
+            if ((sPromotionPrice ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Giá khuyến mãi là bắt buộc!");
+                return false;
+            }
+            if ((sPromotionPrice ?? "").Trim().Length > 0)
+            {
+                try
+                {
+                    float n = float.Parse(sPromotionPrice);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Giá khuyến mãi phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Giá khuyến mãi phải là số!");
+                    return false;
+                }
+            }
+            if ((promotionContent ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Nội dung khuyến mãi là bắt buộc!");
+                return false;
+            }
+            return true;
         }
 
         private void clickUpdate(object sender, EventArgs e)
         {
-            if (!v.Required(txtProPriceUpd))
-            {
-                MessageBox.Show("Giá khuyến mãi không được bỏ trống");
+            string productCode = txtProductCode.Text;
+            string sPromotionPrice = txtPromotionPrice.Text.Trim(); //Must be checkDataInput first
+            //float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
+            DateTime startTime = dtpStartDay.Value;
+            DateTime endTime = dtpEndDay.Value;
+            string promotionContent = txtPromotionContent.Text.Trim();
+            string promotionImage = txtPromotionImage.Text.Trim();
 
-            }
-            else if (!v.IsNumber(txtProPriceUpd))
+            var inputData = checkDataInput(sPromotionPrice, promotionContent);
+            if (inputData == true)
             {
-                MessageBox.Show("Giá khuyến mãi vui lòng nhập số hoặc không âm");
-
-            }
-            if (!v.Required(txtProConUp))
-            {
-                MessageBox.Show("Nội dung khuyến mãi không được bỏ trống");
-
-            }
-
-            double price = double.Parse(txtProPriceUpd.Text);
-            string content = txtProConUp.Text;
-            string product = txtProductCodeUp.Text;
-            DateTime start = DateTime.Parse(dtpStartDayUp.Text);
-            DateTime end = DateTime.Parse(dtpEndDayUp.Text);
-            string image = txtImage.Text.ToString().Trim();
-            if (bus.updatePromotion(pro.AccountCode,product, price, start, end, content, image))
-            {
-                txtProConUp.Text = txtProPriceUpd.Text = "";
-                MessageBox.Show("Cập nhật thành công!!");
-            }
-            else
-            {
-                txtProConUp.Text = txtProPriceUpd.Text = "";
-                MessageBox.Show("Cập nhật không thành công!!");
+                float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
+                if (bus.updatePromotion(promotion.AccountCode, productCode, promotionPrice, startTime, endTime, promotionContent, promotionImage))
+                {
+                    txtPromotionImage.Text = txtPromotionContent.Text = txtPromotionPrice.Text = "";
+                    MessageBox.Show("Cập nhật thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Cập nhật không thành công!!");
             }
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "ManagePromotion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 this.Close();
+            }
         }
-
     }
 }

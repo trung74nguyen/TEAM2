@@ -1239,9 +1239,13 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelectAll_Result>("usp_PromotionInformationSelectAll");
         }
     
-        public virtual ObjectResult<usp_ProductSelectAll_Result> usp_ProductSelectAll()
+        public virtual ObjectResult<usp_ProductSearch_Result> usp_ProductSearch(string tEXTSEARCH)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSelectAll_Result>("usp_ProductSelectAll");
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSearch_Result>("usp_ProductSearch", tEXTSEARCHParameter);
         }
     }
 }

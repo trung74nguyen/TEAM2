@@ -28,53 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpEnDayIn = new System.Windows.Forms.DateTimePicker();
-            this.dtpStartDayIn = new System.Windows.Forms.DateTimePicker();
-            this.txtProContentIn = new System.Windows.Forms.TextBox();
-            this.txtProPriceIn = new System.Windows.Forms.TextBox();
+            this.dtpEndDay = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDay = new System.Windows.Forms.DateTimePicker();
+            this.txtPromotionContent = new System.Windows.Forms.TextBox();
+            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.lblEnDay = new System.Windows.Forms.Label();
             this.lblStartDay = new System.Windows.Forms.Label();
             this.lblProContent = new System.Windows.Forms.Label();
             this.lblProPrice = new System.Windows.Forms.Label();
             this.lblProductCode = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
             this.lblHinh = new System.Windows.Forms.Label();
-            this.cboImage = new System.Windows.Forms.ComboBox();
+            this.txtPromotionImage = new System.Windows.Forms.TextBox();
+            this.btnChoose = new System.Windows.Forms.Button();
+            this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // dtpEnDayIn
+            // dtpEndDay
             // 
-            this.dtpEnDayIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnDayIn.Location = new System.Drawing.Point(351, 183);
-            this.dtpEnDayIn.Name = "dtpEnDayIn";
-            this.dtpEnDayIn.Size = new System.Drawing.Size(200, 20);
-            this.dtpEnDayIn.TabIndex = 30;
+            this.dtpEndDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDay.Location = new System.Drawing.Point(351, 183);
+            this.dtpEndDay.Name = "dtpEndDay";
+            this.dtpEndDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpEndDay.TabIndex = 30;
             // 
-            // dtpStartDayIn
+            // dtpStartDay
             // 
-            this.dtpStartDayIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDayIn.Location = new System.Drawing.Point(351, 109);
-            this.dtpStartDayIn.Name = "dtpStartDayIn";
-            this.dtpStartDayIn.Size = new System.Drawing.Size(200, 20);
-            this.dtpStartDayIn.TabIndex = 29;
+            this.dtpStartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDay.Location = new System.Drawing.Point(351, 109);
+            this.dtpStartDay.Name = "dtpStartDay";
+            this.dtpStartDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpStartDay.TabIndex = 29;
             // 
-            // txtProContentIn
+            // txtPromotionContent
             // 
-            this.txtProContentIn.Location = new System.Drawing.Point(33, 212);
-            this.txtProContentIn.Multiline = true;
-            this.txtProContentIn.Name = "txtProContentIn";
-            this.txtProContentIn.Size = new System.Drawing.Size(249, 40);
-            this.txtProContentIn.TabIndex = 28;
+            this.txtPromotionContent.Location = new System.Drawing.Point(33, 212);
+            this.txtPromotionContent.Multiline = true;
+            this.txtPromotionContent.Name = "txtPromotionContent";
+            this.txtPromotionContent.Size = new System.Drawing.Size(249, 40);
+            this.txtPromotionContent.TabIndex = 28;
             // 
-            // txtProPriceIn
+            // txtPromotionPrice
             // 
-            this.txtProPriceIn.Location = new System.Drawing.Point(124, 149);
-            this.txtProPriceIn.Name = "txtProPriceIn";
-            this.txtProPriceIn.Size = new System.Drawing.Size(158, 20);
-            this.txtProPriceIn.TabIndex = 27;
+            this.txtPromotionPrice.Location = new System.Drawing.Point(124, 149);
+            this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.Size = new System.Drawing.Size(158, 20);
+            this.txtPromotionPrice.TabIndex = 27;
             // 
             // lblEnDay
             // 
@@ -132,15 +133,6 @@
             this.lblTitle.TabIndex = 18;
             this.lblTitle.Text = "Thêm thông tin khuyến mãi";
             // 
-            // cboProductCode
-            // 
-            this.cboProductCode.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cboProductCode.FormattingEnabled = true;
-            this.cboProductCode.Location = new System.Drawing.Point(124, 66);
-            this.cboProductCode.Name = "cboProductCode";
-            this.cboProductCode.Size = new System.Drawing.Size(158, 21);
-            this.cboProductCode.TabIndex = 31;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(475, 223);
@@ -149,7 +141,7 @@
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.clickInsert);
+            this.btnSave.Click += new System.EventHandler(this.clickSave);
             // 
             // btnCancle
             // 
@@ -170,29 +162,45 @@
             this.lblHinh.TabIndex = 34;
             this.lblHinh.Text = "Hình:";
             // 
-            // cboImage
+            // txtPromotionImage
             // 
-            this.cboImage.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cboImage.FormattingEnabled = true;
-            this.cboImage.Location = new System.Drawing.Point(124, 107);
-            this.cboImage.Name = "cboImage";
-            this.cboImage.Size = new System.Drawing.Size(158, 21);
-            this.cboImage.TabIndex = 35;
+            this.txtPromotionImage.Location = new System.Drawing.Point(124, 109);
+            this.txtPromotionImage.Name = "txtPromotionImage";
+            this.txtPromotionImage.Size = new System.Drawing.Size(104, 20);
+            this.txtPromotionImage.TabIndex = 35;
+            // 
+            // btnChoose
+            // 
+            this.btnChoose.Location = new System.Drawing.Point(227, 107);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(55, 23);
+            this.btnChoose.TabIndex = 36;
+            this.btnChoose.Text = "Chọn";
+            this.btnChoose.UseVisualStyleBackColor = true;
+            // 
+            // cboProductCode
+            // 
+            this.cboProductCode.FormattingEnabled = true;
+            this.cboProductCode.Location = new System.Drawing.Point(124, 71);
+            this.cboProductCode.Name = "cboProductCode";
+            this.cboProductCode.Size = new System.Drawing.Size(158, 21);
+            this.cboProductCode.TabIndex = 37;
             // 
             // GUI_InsertPromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 264);
-            this.Controls.Add(this.cboImage);
+            this.Controls.Add(this.cboProductCode);
+            this.Controls.Add(this.btnChoose);
+            this.Controls.Add(this.txtPromotionImage);
             this.Controls.Add(this.lblHinh);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cboProductCode);
-            this.Controls.Add(this.dtpEnDayIn);
-            this.Controls.Add(this.dtpStartDayIn);
-            this.Controls.Add(this.txtProContentIn);
-            this.Controls.Add(this.txtProPriceIn);
+            this.Controls.Add(this.dtpEndDay);
+            this.Controls.Add(this.dtpStartDay);
+            this.Controls.Add(this.txtPromotionContent);
+            this.Controls.Add(this.txtPromotionPrice);
             this.Controls.Add(this.lblEnDay);
             this.Controls.Add(this.lblStartDay);
             this.Controls.Add(this.lblProContent);
@@ -208,20 +216,21 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtpEnDayIn;
-        private System.Windows.Forms.DateTimePicker dtpStartDayIn;
-        private System.Windows.Forms.TextBox txtProContentIn;
-        private System.Windows.Forms.TextBox txtProPriceIn;
+        private System.Windows.Forms.DateTimePicker dtpEndDay;
+        private System.Windows.Forms.DateTimePicker dtpStartDay;
+        private System.Windows.Forms.TextBox txtPromotionContent;
+        private System.Windows.Forms.TextBox txtPromotionPrice;
         private System.Windows.Forms.Label lblEnDay;
         private System.Windows.Forms.Label lblStartDay;
         private System.Windows.Forms.Label lblProContent;
         private System.Windows.Forms.Label lblProPrice;
         private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox cboProductCode;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancle;
         private System.Windows.Forms.Label lblHinh;
-        private System.Windows.Forms.ComboBox cboImage;
+        private System.Windows.Forms.TextBox txtPromotionImage;
+        private System.Windows.Forms.Button btnChoose;
+        private System.Windows.Forms.ComboBox cboProductCode;
     }
 }

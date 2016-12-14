@@ -11,101 +11,90 @@ namespace WindowsFormsApplication.ManagePromotion
 {
     public partial class GUI_InsertPromotion : Form
     {
-        ValidationExtension v;
-        BUS_ManagePromotion bus = new BUS_ManagePromotion();
+
         public GUI_InsertPromotion()
         {
-            v = new ValidationExtension();
-            InitializeComponent();
-            loadListProduct();
-        }
-
-        private void clickInsert(object sender, EventArgs e)
-        {
-            if (!v.Required(txtProPriceIn))
-            {
-                MessageBox.Show("Giá khuyến mãi không được bỏ trống");
-
-            }
-            else if (!v.IsNumber(txtProPriceIn))
-            {
-                MessageBox.Show("Giá khuyến mãi vui lòng nhập số hoặc không âm");
-
-            }
-            if (!v.Required(txtProContentIn))
-            {
-                MessageBox.Show("Nội dung khuyến mãi không được bỏ trống");
-
-            }
-            
-            double price =double.Parse(txtProPriceIn.Text.ToString());
-            string content = txtProContentIn.Text;
-            string product = cboProductCode.SelectedValue.ToString();
-            DateTime start = DateTime.Parse(dtpStartDayIn.Text);
-            DateTime end = DateTime.Parse(dtpEnDayIn.Text);
-            string image = cboImage.SelectedValue.ToString();
            
-            //var inputData = checkDataInput(price.ToString(), content);
-            //if (inputData == true)
-            //{
-                if (bus.inserNewPromotion(product, price, start, end, content, image))
-                {
-                    txtProContentIn.Text = txtProPriceIn.Text = "";
-                    MessageBox.Show("Thêm thành công!!");
-                }
-                else
-                {
-                    txtProContentIn.Text = txtProPriceIn.Text = "";
-                    MessageBox.Show("Thêm không thành công!!");
-                }
-            //}
+            InitializeComponent();
+            loadInsertPromotionForm();
+            v = new ValidationExtension();
         }
-        //private bool checkDataInput(string proprice, string procontent)
-        //{
-        //    int n = -1;
 
-        //    if ((proprice ?? "").Trim().Length == 0)
-        //    {
-        //        MessageBox.Show("Giá khuyến mãi không được bỏ trống!!");
-        //        return false;
-        //    }
-        //    else if (n != int.Parse(proprice))
-        //    {
-        //        MessageBox.Show("Nội dung khuyến mãi không được bỏ trống");
-        //        return false;
-        //    }
-        //    if ((procontent ?? "").Trim().Length == 0)
-        //    {
-        //        MessageBox.Show("Nội dung khuyến mãi không được bỏ trống");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        ValidationExtension v;
+        BUS_ManagePromotion bus = new BUS_ManagePromotion();
 
-        public void loadListProduct()
+        public void loadInsertPromotionForm()
         {
             CMART2Entities db = new CMART2Entities();
             cboProductCode.DataSource = db.Products.ToList();
-            cboProductCode.DisplayMember = "ProductName";
             cboProductCode.ValueMember = "ProductCode";
-            cboImage.DataSource = db.Products.ToList();
-            cboImage.DisplayMember = "Image";
-            cboImage.ValueMember = "Image";
-            
+            cboProductCode.DisplayMember = "ProductName";
+
+        }
+        private bool checkDataInput(string sPromotionPrice, string promotionContent)
+        {        
+            if ((sPromotionPrice ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Giá khuyến mãi là bắt buộc!");
+                return false;
+            }
+
+            if ((sPromotionPrice ?? "").Trim().Length > 0)
+            {
+                try
+                {
+                    float n = float.Parse(sPromotionPrice);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Giá khuyến mãi phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Giá khuyến mãi phải là số!");
+                    return false;
+                }
+            }
+
+            if ((promotionContent ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Nội dung khuyến mãi là bắt buộc!");
+                return false;
+            }
+            return true;
         }
 
+        private void clickSave(object sender, EventArgs e)
+        {
+            string productCode = cboProductCode.SelectedValue.ToString();
+            string sPromotionPrice = txtPromotionPrice.Text.Trim(); //Must be checkDataInput first
+            //float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
+            DateTime startTime = dtpStartDay.Value;
+            DateTime endTime = dtpEndDay.Value;
+            string promotionContent = txtPromotionContent.Text.Trim();
+            string promotionImage = txtPromotionImage.Text.Trim();
+           
+            var inputData = checkDataInput(sPromotionPrice, promotionContent);
+            if (inputData == true)
+            {
+                float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
+                if (bus.insertNewPromotion(productCode, promotionPrice, startTime, endTime, promotionContent, promotionImage))
+                {
+                    txtPromotionImage.Text = txtPromotionContent.Text = txtPromotionPrice.Text = "";
+                    MessageBox.Show("Thêm thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Thêm không thành công!");
+            }
+        }
         private void btnCancle_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "ManagePromotion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 this.Close();
-
+            }
         }
-
-       
-
-        
-        
-      
     }
 }

@@ -24,10 +24,9 @@ namespace WindowsFormsApplication.ManageProduct
             this.cboTypeCode.DataSource = db.ProductCategories.ToList();
             this.cboTypeCode.ValueMember = "TypeCode"; // set the value member
             this.cboTypeCode.DisplayMember = "TypeName"; // set the display member
-
-            this.cboSupplier.DataSource = db.Suppliers.ToList();
-            this.cboSupplier.ValueMember = "SupplierCode"; // set the value member
-            this.cboSupplier.DisplayMember = "SupplierName"; // set the display member
+            this.cboSupplierCode.DataSource = db.Suppliers.ToList();
+            this.cboSupplierCode.ValueMember = "SupplierCode"; // set the value member
+            this.cboSupplierCode.DisplayMember = "SupplierName"; // set the display member
         }
 
         private bool checkDataInput(string name, string image, string type, string supplier)
@@ -57,15 +56,15 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickSave(object sender, EventArgs e)
         {
-            var name = txtProductName.Text.Trim();
+            var productName = txtProductName.Text.Trim();
             var image = txtImage.Text.Trim();
-            var type = cboTypeCode.SelectedValue.ToString();
-            var supplier = cboSupplier.SelectedValue.ToString();
+            var typeCode = cboTypeCode.SelectedValue.ToString();
+            var supplierCode = cboSupplierCode.SelectedValue.ToString();
 
-            var inputData = checkDataInput(name, image, type, supplier);
+            var inputData = checkDataInput(productName, image, typeCode, supplierCode);
             if (inputData == true)
             {
-                if (bus.insertNewProduct(name, image, type, supplier))
+                if (bus.insertNewProduct(productName, image, typeCode, supplierCode))
                 {
                     txtProductName.Text = txtImage.Text = "";
                     MessageBox.Show("Thêm thành công!");
@@ -78,7 +77,10 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickCancel(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
 

@@ -609,6 +609,9 @@
           <Parameter Name="TypeCode" Type="varchar" Mode="In" />
           <Parameter Name="SupplierCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_ProductSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_ProductSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
         </Function>
@@ -1582,7 +1585,9 @@
           <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PromotionInformationSelectAll" ReturnType="Collection(CMART2Model.usp_PromotionInformationSelectAll_Result)" />
-          <FunctionImport Name="usp_ProductSelectAll" ReturnType="Collection(CMART2Model.usp_ProductSelectAll_Result)" />
+          <FunctionImport Name="usp_ProductSearch" ReturnType="Collection(CMART2Model.usp_ProductSearch_Result)">
+            <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1903,7 +1908,7 @@
           <Property Type="String" Name="Cont" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
         </ComplexType>
-        <ComplexType Name="usp_ProductSelectAll_Result">
+        <ComplexType Name="usp_ProductSearch_Result">
           <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Image" Nullable="true" MaxLength="20" />
@@ -2620,9 +2625,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_ProductSelectAll" FunctionName="CMART2Model.Store.usp_ProductSelectAll">
+          <FunctionImportMapping FunctionImportName="usp_ProductSearch" FunctionName="CMART2Model.Store.usp_ProductSearch">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductSelectAll_Result">
+              <ComplexTypeMapping TypeName="CMART2Model.usp_ProductSearch_Result">
                 <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Image" ColumnName="Image" />

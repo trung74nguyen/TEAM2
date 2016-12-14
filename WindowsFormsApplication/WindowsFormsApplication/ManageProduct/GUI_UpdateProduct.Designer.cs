@@ -30,7 +30,7 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.cboSupplier = new System.Windows.Forms.ComboBox();
+            this.cboSupplierCode = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtImage = new System.Windows.Forms.TextBox();
@@ -62,13 +62,13 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
-            // cboSupplier
+            // cboSupplierCode
             // 
-            this.cboSupplier.FormattingEnabled = true;
-            this.cboSupplier.Location = new System.Drawing.Point(114, 176);
-            this.cboSupplier.Name = "cboSupplier";
-            this.cboSupplier.Size = new System.Drawing.Size(158, 21);
-            this.cboSupplier.TabIndex = 58;
+            this.cboSupplierCode.FormattingEnabled = true;
+            this.cboSupplierCode.Location = new System.Drawing.Point(114, 176);
+            this.cboSupplierCode.Name = "cboSupplierCode";
+            this.cboSupplierCode.Size = new System.Drawing.Size(158, 21);
+            this.cboSupplierCode.TabIndex = 58;
             // 
             // btnSelect
             // 
@@ -157,7 +157,7 @@
             this.Controls.Add(this.lblTypeCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.cboSupplier);
+            this.Controls.Add(this.cboSupplierCode);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtImage);
@@ -177,7 +177,7 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.ComboBox cboSupplier;
+        private System.Windows.Forms.ComboBox cboSupplierCode;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.TextBox txtImage;

@@ -38,7 +38,7 @@
             this.lblImage = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.cboSupplier = new System.Windows.Forms.ComboBox();
+            this.cboSupplierCode = new System.Windows.Forms.ComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -131,13 +131,13 @@
             this.lblTitle.TabIndex = 61;
             this.lblTitle.Text = "Thêm sản phẩm";
             // 
-            // cboSupplier
+            // cboSupplierCode
             // 
-            this.cboSupplier.FormattingEnabled = true;
-            this.cboSupplier.Location = new System.Drawing.Point(114, 159);
-            this.cboSupplier.Name = "cboSupplier";
-            this.cboSupplier.Size = new System.Drawing.Size(158, 21);
-            this.cboSupplier.TabIndex = 74;
+            this.cboSupplierCode.FormattingEnabled = true;
+            this.cboSupplierCode.Location = new System.Drawing.Point(114, 159);
+            this.cboSupplierCode.Name = "cboSupplierCode";
+            this.cboSupplierCode.Size = new System.Drawing.Size(158, 21);
+            this.cboSupplierCode.TabIndex = 74;
             // 
             // lblSupplier
             // 
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 233);
-            this.Controls.Add(this.cboSupplier);
+            this.Controls.Add(this.cboSupplierCode);
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Label lblImage;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox cboSupplier;
+        private System.Windows.Forms.ComboBox cboSupplierCode;
         private System.Windows.Forms.Label lblSupplier;
     }
 }
