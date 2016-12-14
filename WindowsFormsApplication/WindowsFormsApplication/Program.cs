@@ -7,6 +7,7 @@ using WindowsFormsApplication.ManageBill;
 using WindowsFormsApplication.ManagePriceHistory;
 using WindowsFormsApplication.ManageProduct;
 using WindowsFormsApplication.ManagePromotion;
+using WindowsFormsApplication.Statistics_and_Report;
 
 namespace WindowsFormsApplication
 {
@@ -35,6 +36,7 @@ namespace WindowsFormsApplication
             //Application.Run(new GUI_ManagePriceHistory());
             //Application.Run(new GUI_ManageProduct());
             //Application.Run(new GUI_ManagePromotion());
+            //Application.Run(new GUI_ManageSalesStatistics());
         }
     }
 }

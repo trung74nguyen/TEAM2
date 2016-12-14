@@ -35,8 +35,8 @@ namespace WindowsFormsApplication.ManagePriceHistory
         }
         private void showManagePriceHistoryForm(object sender, EventArgs e)
         {
-            var suppliers = Bus_manage.loadAllListPriceHistory();
-            showManagePriceHistoryForm(suppliers);
+            var price = Bus_manage.loadAllListPriceHistory();
+            showManagePriceHistoryForm(price);
         }
        
       
@@ -50,45 +50,43 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.showManagePriceHistoryForm(null, null);
             
         }
-       
+        private bool checkSelectingProduct()
+        {
+            return lstPriceHistory.SelectedRows.Count == 1;
+        }
       void btnDeletePriceHistory_Click(object sender, EventArgs e)
         {
-           if (lstPriceHistory.SelectedRows.Count == 1) // if select only one student
-        {
-            var row = lstPriceHistory.SelectedRows[0]; // get the selected row
-            var cell = row.Cells["MaSP"]; // get the cell contain id information
-            var id = cell.Value; // get the id value of selected student
-            CMART2Entities db = new CMART2Entities(); // connect to database
-            PriceHistory price = db.PriceHistories.Single(st => st.MaSP == id); // select the student that matches the id
-            db.PriceHistories.Remove(price); // delete the selected student
-            db.SaveChanges(); // commit the command
-            this.showManagePriceHistoryForm(null, null); // refresh the students list
-        }
-        else
-        {
-            MessageBox.Show("Bạn phải chọn lịch sử giá!");
-        }
-          
+            if (checkSelectingProduct())
+                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var price = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+                   
+                    if(Bus_manage.deletePriceHistory(price.MaSP))
+                    {
+                        this.showManagePriceHistoryForm(null, null); 
+                        MessageBox.Show("Xóa thành công!");
+                    }
+                    else
+                        MessageBox.Show("Xóa không thành công!");
+                }
         }
 
 
-        private string supplierId = "";
-    /*    private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
-        {
-            var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
-            supplierId = supplier.MaSP;
-        } */
-        private void btnUpdatePriceHistory_Click(object sender, EventArgs e)
+        private string priceId = "";
+      private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
         {
             if (lstPriceHistory.SelectedRows.Count == 1)
             {
-                GUI_UpdatePriceHistory Gui_update = new GUI_UpdatePriceHistory(supplierId);
-                Gui_update.ShowDialog();
+                var price = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+                priceId = price.MaSP;
+                this.btnUpdatePriceHistory.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show("Bạn phải double click vào một lịch sử giá");
-            }
+        } 
+        private void btnUpdatePriceHistory_Click(object sender, EventArgs e)
+        {
+            GUI_UpdatePriceHistory update = new GUI_UpdatePriceHistory(priceId);
+            update.ShowDialog();
+            this.showManagePriceHistoryForm(null, null); 
 
         }
 
@@ -97,13 +95,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
            
         }
 
-        private void lstPriceHistory_Click(object sender, EventArgs e)
-        {
-            var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
-            supplierId = supplier.MaSP;
-        }
-
-       
+    
 
        
     }

@@ -11,6 +11,8 @@ namespace WindowsFormsApplication.ManagePriceHistory
 {
     public partial class GUI_InsertPriceHistory : Form
     {
+        ManagePromotion.ValidationExtension v = new ManagePromotion.ValidationExtension();
+        BUS_ManagePriceHistory bus = new BUS_ManagePriceHistory();
         public GUI_InsertPriceHistory()
         {
             InitializeComponent();
@@ -29,14 +31,13 @@ namespace WindowsFormsApplication.ManagePriceHistory
         {
             if ((giaban ?? "").Trim().Length == 0)
             {
-                MessageBox.Show("Giá bán bị bỏ trống vui lòng nhập lại!");
+                MessageBox.Show("Trường giá bán là bắt buộc!");
                 return false;
             }
-            int n=0;
-            
+            double n=0;
             try
             {
-                n = int.Parse(giaban);
+                n = double.Parse(giaban);
                 if (n <= 0)
                 {
                     MessageBox.Show("Giá bán không được là số âm");
@@ -48,26 +49,25 @@ namespace WindowsFormsApplication.ManagePriceHistory
                 MessageBox.Show("Giá bán không thể là chữ! Phải là số nha!");
                 return false;
             }
-
             return true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var priceID = this.cboProductID.SelectedValue;
-            var giaban = txtPriceHistory.Text.Trim();
-            var date = dtpDate.Text.Trim();
+            string masp = cboProductID.SelectedValue.ToString();
+            string giaban =txtPriceHistory.Text.ToString();
+            DateTime date = DateTime.Parse(dtpDate.Text.ToString());
+
             var inputData = checkInputData(giaban);
             if (inputData == true)
             {
-                CMART2Entities db = new CMART2Entities();
-                PriceHistory price = new PriceHistory();
-                price.MaSP = priceID.ToString();
-                price.GiaBan = double.Parse(giaban);
-                price.EffectiveDate = DateTime.Parse(date);
-                db.PriceHistories.Add(price);
-                db.SaveChanges();
-                this.Close();
-                MessageBox.Show("Thêm lịch sử giá thành công!");
+                if (bus.insertNewPriceHistory(masp, giaban, date))
+                {
+                   this.txtPriceHistory.Text = "";
+                    MessageBox.Show("Thêm thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Thêm không thành công!");
             }
           
             
