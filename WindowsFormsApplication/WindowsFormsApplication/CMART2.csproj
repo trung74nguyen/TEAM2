@@ -261,6 +261,9 @@
     <Compile Include="usp_BillDetailInsert_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_BillDetailSelectAll_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_BillDetailSelect_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -268,6 +271,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_BillInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillSelectAll_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_BillSelect_Result.cs">
@@ -336,6 +342,9 @@
     <Compile Include="usp_ProductSearch_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ProductSelectAll_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ProductSelect_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -349,12 +358,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_PromotionInformationSelectAll_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usp_PromotionInformationSelect_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usp_PromotionInformationUpdate_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ProposeBallotDetailInsert_Result.cs">

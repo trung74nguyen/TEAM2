@@ -11,7 +11,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
     {
         public List<HeadquaterImportBallot> getAllListHeadquarterImportBallot()
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.HeadquaterImportBallots.ToList();
         }
     }

@@ -13,22 +13,22 @@ namespace WindowsFormsApplication.ManagePromotion
     {
         public List<PromotionInformation> getAllListPromotion()
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.PromotionInformations.ToList();
         }
         private bool checkExistPromotion(string id)
         {
-            var db = new CMART2Entities();
-                return db.PromotionInformations.Count(s => s.AccountCode.Equals(id)) == 1;
+            var db = new CMART2Entities1();
+                return db.PromotionInformations.Count(s => s.PromotionCode.Equals(id)) == 1;
         }
         public bool deletePromotion(string id)
         {
             if (checkExistPromotion(id))
                 try
                 {
-                    var db = new CMART2Entities();
+                    var db = new CMART2Entities1();
                     {
-                        var pro = db.PromotionInformations.Single(s => s.AccountCode.Equals(id));
+                        var pro = db.PromotionInformations.Single(s => s.PromotionCode.Equals(id));
                         db.PromotionInformations.Remove(pro);
                         db.SaveChanges();
                         return true;
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication.ManagePromotion
         {
             try
             {
-                using (var db = new CMART2Entities())
+                using (var db = new CMART2Entities1())
                 {
                     ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
                     db.SP_PROMOTIONINFORMATION_ID_AUTO(idoutput);
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
                     var promotion = new PromotionInformation
                     {
-                        AccountCode = id_auto,
+                        PromotionCode = id_auto,
                         ProductCode = productCode,
                         PricePromotion = promotionPrice,
                         StartTime = startTime,
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
         private bool checkExistPromotion(float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
         {
-            using (var db = new CMART2Entities())
+            using (var db = new CMART2Entities1())
             {
                 if (db.PromotionInformations.Count(s => s.PricePromotion == promotionPrice
                                                     && s.StartTime == startTime
@@ -93,9 +93,9 @@ namespace WindowsFormsApplication.ManagePromotion
             if (!checkExistPromotion(promotionPrice, startTime, endTime, promotionContent, promotionImage))
                 try
                 {
-                    using (var db = new CMART2Entities())
+                    using (var db = new CMART2Entities1())
                     {
-                        var promotion = db.PromotionInformations.Single(s => s.AccountCode == promotionCode);
+                        var promotion = db.PromotionInformations.Single(s => s.PromotionCode == promotionCode);
                         promotion.ProductCode = productCode;
                         promotion.PricePromotion = promotionPrice;
                         promotion.StartTime = startTime;
@@ -116,7 +116,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
         public List<usp_PromotionInformationSearch_Result> searchAllListPromotion(string text)
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.usp_PromotionInformationSearch(text).ToList();
         }
        

@@ -17,6 +17,7 @@ namespace WindowsFormsApplication
         public ProposeBallot()
         {
             this.HeadquaterImportBallots = new HashSet<HeadquaterImportBallot>();
+            this.ProposeBallotDetails = new HashSet<ProposeBallotDetail>();
         }
     
         public string BallotNum { get; set; }
@@ -27,5 +28,6 @@ namespace WindowsFormsApplication
         public virtual Account Account { get; set; }
         public virtual ICollection<HeadquaterImportBallot> HeadquaterImportBallots { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual ICollection<ProposeBallotDetail> ProposeBallotDetails { get; set; }
     }
 }

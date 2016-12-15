@@ -18,16 +18,16 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.btnSave.Click += new EventHandler(btnSave_Click);
             this.btnCancel.Click += new EventHandler(btnCancel_Click);
             this.Load += new EventHandler(frmEdit_Load);
-            db = new CMART2Entities();
-            pricehistory = db.PriceHistories.Single(st => st.MaSP == masp);
+            db = new CMART2Entities1();
+            pricehistory = db.PriceHistories.Single(st => st.ProductCode == masp);
         }
 
-        CMART2Entities db;
+        CMART2Entities1 db;
         private PriceHistory pricehistory;
         void frmEdit_Load(object sender, EventArgs e)
         {
-            this.txtProductIDPriceHistory.Text = pricehistory.MaSP;
-            this.txtPriceHistory.Text = pricehistory.GiaBan.ToString();
+            this.txtProductIDPriceHistory.Text = pricehistory.ProductCode;
+            this.txtPriceHistory.Text = pricehistory.Price.ToString();
             this.dtpDate.Text = pricehistory.EffectiveDate.ToString();
         }
        

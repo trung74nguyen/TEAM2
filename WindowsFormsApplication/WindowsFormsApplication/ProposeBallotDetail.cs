@@ -19,5 +19,6 @@ namespace WindowsFormsApplication
         public int Number { get; set; }
     
         public virtual Product Product { get; set; }
+        public virtual ProposeBallot ProposeBallot { get; set; }
     }
 }

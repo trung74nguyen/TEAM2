@@ -20,7 +20,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
         }
         void GUI_InsertPriceHistory_Load(object sender, EventArgs e)
         {
-            CMART2Entities db = new CMART2Entities();
+            CMART2Entities1 db = new CMART2Entities1();
             this.cboProductID.DataSource = db.PriceHistories.ToList();
             this.cboProductID.ValueMember = "MaSP";
             this.cboProductID.DisplayMember = "MaSP";
@@ -59,10 +59,10 @@ namespace WindowsFormsApplication.ManagePriceHistory
             var inputData = checkInputData(giaban);
             if (inputData == true)
             {
-                CMART2Entities db = new CMART2Entities();
+                CMART2Entities1 db = new CMART2Entities1();
                 PriceHistory price = new PriceHistory();
-                price.MaSP = priceID.ToString();
-                price.GiaBan = double.Parse(giaban);
+                price.ProductCode = priceID.ToString();
+                price.Price = double.Parse(giaban);
                 price.EffectiveDate = DateTime.Parse(date);
                 db.PriceHistories.Add(price);
                 db.SaveChanges();

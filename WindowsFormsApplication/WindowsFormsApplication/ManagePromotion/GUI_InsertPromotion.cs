@@ -25,7 +25,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
         public void loadInsertPromotionForm()
         {
-            CMART2Entities db = new CMART2Entities();
+            CMART2Entities1 db = new CMART2Entities1();
             cboProductCode.DataSource = db.Products.ToList();
             cboProductCode.ValueMember = "ProductCode";
             cboProductCode.DisplayMember = "ProductName";

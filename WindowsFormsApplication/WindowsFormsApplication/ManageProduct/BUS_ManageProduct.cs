@@ -9,17 +9,17 @@ namespace WindowsFormsApplication.ManageProduct
 {
     class BUS_ManageProduct
     {
-        CMART2Entities db = new CMART2Entities();
+        CMART2Entities1 db = new CMART2Entities1();
 
         public List<Product> loadAllListProduct()
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.Products.ToList();
         }
 
         private bool checkExistProduct(string productName)
         {
-            using (var db = new CMART2Entities())
+            using (var db = new CMART2Entities1())
                 return db.Products.Count(s => s.ProductName == productName) > 0;
         }
 
@@ -28,7 +28,7 @@ namespace WindowsFormsApplication.ManageProduct
             if (!checkExistProduct(productName))
                 try
                 {
-                    using (var db = new CMART2Entities())
+                    using (var db = new CMART2Entities1())
                     {
           
                         ObjectParameter Output = new ObjectParameter("CODE", typeof(String));
@@ -57,7 +57,7 @@ namespace WindowsFormsApplication.ManageProduct
 
         private bool checkExistProduct(string productName, string image, string typeCode, string supplierCode)
         {
-            using (var db = new CMART2Entities())
+            using (var db = new CMART2Entities1())
             {
                 if (db.Products.Count(s => s.ProductName == productName 
                                         && s.Image == image
@@ -76,7 +76,7 @@ namespace WindowsFormsApplication.ManageProduct
             if (!checkExistProduct(productName, image, typeCode, supplierCode))
                 try
                 {
-                    using (var db = new CMART2Entities())
+                    using (var db = new CMART2Entities1())
                     {
                         var product = db.Products.Single(p => p.ProductCode == productCode);
                         product.ProductName = productName;
@@ -97,7 +97,7 @@ namespace WindowsFormsApplication.ManageProduct
 
         private bool checkExistProductCode(string productCode)
         {
-            using (var db = new CMART2Entities())
+            using (var db = new CMART2Entities1())
                 return db.Products.Count(s => s.ProductCode == productCode) == 1;
         }
 
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication.ManageProduct
             if (checkExistProductCode(productCode))
                 try
                 {
-                    using (var db = new CMART2Entities())
+                    using (var db = new CMART2Entities1())
                     {
                         var product = db.Products.Single(s => s.ProductCode == productCode);
                         db.Products.Remove(product);
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication.ManageProduct
 
         public List<usp_ProductSearch_Result> searchListProduct(string text)
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.usp_ProductSearch(text).ToList();
         }
     }

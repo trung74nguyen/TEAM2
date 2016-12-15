@@ -14,18 +14,18 @@ namespace WindowsFormsApplication.ManagePromotion
         public GUI_UpdatePromotion(string promotionCode)
         {
             InitializeComponent();
-            db = new CMART2Entities();
-            promotion = db.PromotionInformations.Single(p => p.AccountCode == promotionCode); //load product object that matches the id
+            db = new CMART2Entities1();
+            promotion = db.PromotionInformations.Single(p => p.PromotionCode == promotionCode); //load product object that matches the id
         }
 
-        CMART2Entities db;
+        CMART2Entities1 db;
         private PromotionInformation promotion;
 
         BUS_ManagePromotion bus = new BUS_ManagePromotion();
 
         private void loadDataPromotionToForm(object sender, EventArgs e)
         {
-            txtPromotionCode.Text = promotion.AccountCode;
+            txtPromotionCode.Text = promotion.PromotionCode;
             txtProductCode.Text = promotion.ProductCode;
             txtPromotionPrice.Text = promotion.PricePromotion.ToString();
             dtpStartDay.Text = promotion.StartTime.ToString();
@@ -79,7 +79,7 @@ namespace WindowsFormsApplication.ManagePromotion
             if (inputData == true)
             {
                 float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
-                if (bus.updatePromotion(promotion.AccountCode, productCode, promotionPrice, startTime, endTime, promotionContent, promotionImage))
+                if (bus.updatePromotion(promotion.PromotionCode, productCode, promotionPrice, startTime, endTime, promotionContent, promotionImage))
                 {
                     txtPromotionImage.Text = txtPromotionContent.Text = txtPromotionPrice.Text = "";
                     MessageBox.Show("Cập nhật thành công!");

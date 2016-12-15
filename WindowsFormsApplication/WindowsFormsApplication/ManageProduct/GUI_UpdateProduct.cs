@@ -14,11 +14,11 @@ namespace WindowsFormsApplication.ManageProduct
         public GUI_UpdateProduct(string productCode)
         {
             InitializeComponent();
-            db = new CMART2Entities();
+            db = new CMART2Entities1();
             product = db.Products.Single(p => p.ProductCode == productCode); //load product object that matches the id
         }
 
-        CMART2Entities db;
+        CMART2Entities1 db;
         private Product product;
 
         BUS_ManageProduct bus = new BUS_ManageProduct();

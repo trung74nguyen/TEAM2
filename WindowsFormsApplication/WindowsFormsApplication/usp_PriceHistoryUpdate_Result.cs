@@ -13,8 +13,8 @@ namespace WindowsFormsApplication
     
     public partial class usp_PriceHistoryUpdate_Result
     {
-        public string MaSP { get; set; }
-        public double GiaBan { get; set; }
+        public string ProductCode { get; set; }
+        public double Price { get; set; }
         public System.DateTime EffectiveDate { get; set; }
     }
 }

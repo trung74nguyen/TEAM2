@@ -16,10 +16,10 @@ namespace WindowsFormsApplication
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class CMART2Entities : DbContext
+    public partial class CMART2Entities1 : DbContext
     {
-        public CMART2Entities()
-            : base("name=CMART2Entities")
+        public CMART2Entities1()
+            : base("name=CMART2Entities1")
         {
         }
     
@@ -52,6 +52,15 @@ namespace WindowsFormsApplication
         public virtual int SP_ACCOUNT_INSERT()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACCOUNT_INSERT");
+        }
+    
+        public virtual ObjectResult<string> SP_AccountName(string accountID)
+        {
+            var accountIDParameter = accountID != null ?
+                new ObjectParameter("AccountID", accountID) :
+                new ObjectParameter("AccountID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_AccountName", accountIDParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -232,6 +241,19 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_SUPPLIER_INSERT");
         }
     
+        public virtual int SP_THONGKEDOANHTHU(Nullable<int> tHANG, Nullable<int> nAM)
+        {
+            var tHANGParameter = tHANG.HasValue ?
+                new ObjectParameter("THANG", tHANG) :
+                new ObjectParameter("THANG", typeof(int));
+    
+            var nAMParameter = nAM.HasValue ?
+                new ObjectParameter("NAM", nAM) :
+                new ObjectParameter("NAM", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_THONGKEDOANHTHU", tHANGParameter, nAMParameter);
+        }
+    
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
@@ -385,6 +407,11 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BillDetailSelect_Result>("usp_BillDetailSelect", ballotNumParameter, productCodeParameter);
         }
     
+        public virtual ObjectResult<usp_BillDetailSelectAll_Result> usp_BillDetailSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BillDetailSelectAll_Result>("usp_BillDetailSelectAll");
+        }
+    
         public virtual ObjectResult<usp_BillDetailUpdate_Result> usp_BillDetailUpdate(string ballotNum, string productCode, Nullable<double> unitPrice, Nullable<int> number)
         {
             var ballotNumParameter = ballotNum != null ?
@@ -450,6 +477,11 @@ namespace WindowsFormsApplication
                 new ObjectParameter("BallotNum", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BillSelect_Result>("usp_BillSelect", ballotNumParameter);
+        }
+    
+        public virtual ObjectResult<usp_BillSelectAll_Result> usp_BillSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BillSelectAll_Result>("usp_BillSelectAll");
         }
     
         public virtual ObjectResult<usp_BillUpdate_Result> usp_BillUpdate(string ballotNum, Nullable<System.DateTime> date, Nullable<double> total, Nullable<double> guestMoney, Nullable<double> excessCash, Nullable<int> totalNum, Nullable<int> pOS, string accountCode)
@@ -777,72 +809,72 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_HeadquaterImportBallotUpdate_Result>("usp_HeadquaterImportBallotUpdate", ballotNumParameter, proposeBallotNumParameter, inputDateParameter, totalParameter, accountCodeParameter);
         }
     
-        public virtual int usp_PriceHistoryDelete(string maSP, Nullable<double> giaBan, Nullable<System.DateTime> effectiveDate)
+        public virtual int usp_PriceHistoryDelete(string productCode, Nullable<double> price, Nullable<System.DateTime> effectiveDate)
         {
-            var maSPParameter = maSP != null ?
-                new ObjectParameter("MaSP", maSP) :
-                new ObjectParameter("MaSP", typeof(string));
+            var productCodeParameter = productCode != null ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(string));
     
-            var giaBanParameter = giaBan.HasValue ?
-                new ObjectParameter("GiaBan", giaBan) :
-                new ObjectParameter("GiaBan", typeof(double));
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
     
             var effectiveDateParameter = effectiveDate.HasValue ?
                 new ObjectParameter("EffectiveDate", effectiveDate) :
                 new ObjectParameter("EffectiveDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PriceHistoryDelete", maSPParameter, giaBanParameter, effectiveDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PriceHistoryDelete", productCodeParameter, priceParameter, effectiveDateParameter);
         }
     
-        public virtual ObjectResult<usp_PriceHistoryInsert_Result> usp_PriceHistoryInsert(string maSP, Nullable<double> giaBan, Nullable<System.DateTime> effectiveDate)
+        public virtual ObjectResult<usp_PriceHistoryInsert_Result> usp_PriceHistoryInsert(string productCode, Nullable<double> price, Nullable<System.DateTime> effectiveDate)
         {
-            var maSPParameter = maSP != null ?
-                new ObjectParameter("MaSP", maSP) :
-                new ObjectParameter("MaSP", typeof(string));
+            var productCodeParameter = productCode != null ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(string));
     
-            var giaBanParameter = giaBan.HasValue ?
-                new ObjectParameter("GiaBan", giaBan) :
-                new ObjectParameter("GiaBan", typeof(double));
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
     
             var effectiveDateParameter = effectiveDate.HasValue ?
                 new ObjectParameter("EffectiveDate", effectiveDate) :
                 new ObjectParameter("EffectiveDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistoryInsert_Result>("usp_PriceHistoryInsert", maSPParameter, giaBanParameter, effectiveDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistoryInsert_Result>("usp_PriceHistoryInsert", productCodeParameter, priceParameter, effectiveDateParameter);
         }
     
-        public virtual ObjectResult<usp_PriceHistorySelect_Result> usp_PriceHistorySelect(string maSP, Nullable<double> giaBan, Nullable<System.DateTime> effectiveDate)
+        public virtual ObjectResult<usp_PriceHistorySelect_Result> usp_PriceHistorySelect(string productCode, Nullable<double> price, Nullable<System.DateTime> effectiveDate)
         {
-            var maSPParameter = maSP != null ?
-                new ObjectParameter("MaSP", maSP) :
-                new ObjectParameter("MaSP", typeof(string));
+            var productCodeParameter = productCode != null ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(string));
     
-            var giaBanParameter = giaBan.HasValue ?
-                new ObjectParameter("GiaBan", giaBan) :
-                new ObjectParameter("GiaBan", typeof(double));
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
     
             var effectiveDateParameter = effectiveDate.HasValue ?
                 new ObjectParameter("EffectiveDate", effectiveDate) :
                 new ObjectParameter("EffectiveDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistorySelect_Result>("usp_PriceHistorySelect", maSPParameter, giaBanParameter, effectiveDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistorySelect_Result>("usp_PriceHistorySelect", productCodeParameter, priceParameter, effectiveDateParameter);
         }
     
-        public virtual ObjectResult<usp_PriceHistoryUpdate_Result> usp_PriceHistoryUpdate(string maSP, Nullable<double> giaBan, Nullable<System.DateTime> effectiveDate)
+        public virtual ObjectResult<usp_PriceHistoryUpdate_Result> usp_PriceHistoryUpdate(string productCode, Nullable<double> price, Nullable<System.DateTime> effectiveDate)
         {
-            var maSPParameter = maSP != null ?
-                new ObjectParameter("MaSP", maSP) :
-                new ObjectParameter("MaSP", typeof(string));
+            var productCodeParameter = productCode != null ?
+                new ObjectParameter("ProductCode", productCode) :
+                new ObjectParameter("ProductCode", typeof(string));
     
-            var giaBanParameter = giaBan.HasValue ?
-                new ObjectParameter("GiaBan", giaBan) :
-                new ObjectParameter("GiaBan", typeof(double));
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(double));
     
             var effectiveDateParameter = effectiveDate.HasValue ?
                 new ObjectParameter("EffectiveDate", effectiveDate) :
                 new ObjectParameter("EffectiveDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistoryUpdate_Result>("usp_PriceHistoryUpdate", maSPParameter, giaBanParameter, effectiveDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistoryUpdate_Result>("usp_PriceHistoryUpdate", productCodeParameter, priceParameter, effectiveDateParameter);
         }
     
         public virtual int usp_ProductCategoriesDelete(string typeCode)
@@ -931,6 +963,15 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductInsert_Result>("usp_ProductInsert", productCodeParameter, productNameParameter, imageParameter, typeCodeParameter, supplierCodeParameter);
         }
     
+        public virtual ObjectResult<usp_ProductSearch_Result> usp_ProductSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSearch_Result>("usp_ProductSearch", tEXTSEARCHParameter);
+        }
+    
         public virtual ObjectResult<usp_ProductSelect_Result> usp_ProductSelect(string productCode)
         {
             var productCodeParameter = productCode != null ?
@@ -938,6 +979,11 @@ namespace WindowsFormsApplication
                 new ObjectParameter("ProductCode", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSelect_Result>("usp_ProductSelect", productCodeParameter);
+        }
+    
+        public virtual ObjectResult<usp_ProductSelectAll_Result> usp_ProductSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSelectAll_Result>("usp_ProductSelectAll");
         }
     
         public virtual ObjectResult<usp_ProductUpdate_Result> usp_ProductUpdate(string productCode, string productName, string image, string typeCode, string supplierCode)
@@ -1003,16 +1049,30 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationInsert_Result>("usp_PromotionInformationInsert", productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
         }
     
-        public virtual ObjectResult<usp_PromotionInformationSelect_Result> usp_PromotionInformationSelect(string accountCode)
+        public virtual ObjectResult<usp_PromotionInformationSearch_Result> usp_PromotionInformationSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSearch_Result>("usp_PromotionInformationSearch", tEXTSEARCHParameter);
+        }
+    
+        public virtual int usp_PromotionInformationSelect(string accountCode)
         {
             var accountCodeParameter = accountCode != null ?
                 new ObjectParameter("AccountCode", accountCode) :
                 new ObjectParameter("AccountCode", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelect_Result>("usp_PromotionInformationSelect", accountCodeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PromotionInformationSelect", accountCodeParameter);
         }
     
-        public virtual ObjectResult<usp_PromotionInformationUpdate_Result> usp_PromotionInformationUpdate(string accountCode, string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, byte[] image)
+        public virtual ObjectResult<usp_PromotionInformationSelectAll_Result> usp_PromotionInformationSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelectAll_Result>("usp_PromotionInformationSelectAll");
+        }
+    
+        public virtual int usp_PromotionInformationUpdate(string accountCode, string productCode, Nullable<double> pricePromotion, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string cont, byte[] image)
         {
             var accountCodeParameter = accountCode != null ?
                 new ObjectParameter("AccountCode", accountCode) :
@@ -1042,7 +1102,7 @@ namespace WindowsFormsApplication
                 new ObjectParameter("Image", image) :
                 new ObjectParameter("Image", typeof(byte[]));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationUpdate_Result>("usp_PromotionInformationUpdate", accountCodeParameter, productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_PromotionInformationUpdate", accountCodeParameter, productCodeParameter, pricePromotionParameter, startTimeParameter, endTimeParameter, contParameter, imageParameter);
         }
     
         public virtual int usp_ProposeBallotDelete(string ballotNum)
@@ -1223,29 +1283,6 @@ namespace WindowsFormsApplication
                 new ObjectParameter("Phone", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_SupplierUpdate_Result>("usp_SupplierUpdate", supplierCodeParameter, supplierNameParameter, addressParameter, phoneParameter);
-        }
-    
-        public virtual ObjectResult<usp_PromotionInformationSearch_Result> usp_PromotionInformationSearch(string tEXTSEARCH)
-        {
-            var tEXTSEARCHParameter = tEXTSEARCH != null ?
-                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
-                new ObjectParameter("TEXTSEARCH", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSearch_Result>("usp_PromotionInformationSearch", tEXTSEARCHParameter);
-        }
-    
-        public virtual ObjectResult<usp_PromotionInformationSelectAll_Result> usp_PromotionInformationSelectAll()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PromotionInformationSelectAll_Result>("usp_PromotionInformationSelectAll");
-        }
-    
-        public virtual ObjectResult<usp_ProductSearch_Result> usp_ProductSearch(string tEXTSEARCH)
-        {
-            var tEXTSEARCHParameter = tEXTSEARCH != null ?
-                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
-                new ObjectParameter("TEXTSEARCH", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ProductSearch_Result>("usp_ProductSearch", tEXTSEARCHParameter);
         }
     }
 }
