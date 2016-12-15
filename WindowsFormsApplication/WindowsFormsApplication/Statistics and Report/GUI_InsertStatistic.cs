@@ -14,8 +14,17 @@ namespace WindowsFormsApplication.Statistics_and_Report
         public GUI_InsertStatistic()
         {
             InitializeComponent();
+            this.Load += new EventHandler(GUI_InsertStatistic_Load);
         }
 
-        
+        public void loadMonthYear()
+        {
+            this.cboMonth.DataSource = Enumerable.Range(1, 12).ToList();
+            this.cboYear.DataSource = Enumerable.Range(DateTime.Now.Year - 20, 60).ToList();
+        }
+        private void GUI_InsertStatistic_Load(object sender, EventArgs e)
+        {
+            loadMonthYear();
+        }
     }
 }

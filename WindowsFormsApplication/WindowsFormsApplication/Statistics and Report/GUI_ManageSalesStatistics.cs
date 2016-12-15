@@ -32,6 +32,12 @@ namespace WindowsFormsApplication.Statistics_and_Report
             var statistic = bus.loadAllListProduct();
             showManagePriceHistoryForm(statistic);
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            GUI_InsertStatistic insert = new GUI_InsertStatistic();
+            insert.ShowDialog();
+        }
        
     }
 }
