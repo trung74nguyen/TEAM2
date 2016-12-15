@@ -21,6 +21,7 @@ namespace WindowsFormsApplication
         public System.DateTime EXP { get; set; }
         public string State { get; set; }
     
+        public virtual HeadquaterImportBallot HeadquaterImportBallot { get; set; }
         public virtual Product Product { get; set; }
     }
 }

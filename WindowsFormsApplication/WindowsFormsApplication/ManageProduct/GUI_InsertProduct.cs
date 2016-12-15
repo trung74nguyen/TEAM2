@@ -20,7 +20,7 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void showInsertProductForm(object sender, EventArgs e)
         {
-            CMART2Entities db = new CMART2Entities();
+            CMART2Entities1 db = new CMART2Entities1();
             this.cboTypeCode.DataSource = db.ProductCategories.ToList();
             this.cboTypeCode.ValueMember = "TypeCode"; // set the value member
             this.cboTypeCode.DisplayMember = "TypeName"; // set the display member

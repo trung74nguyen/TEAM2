@@ -14,6 +14,11 @@ namespace WindowsFormsApplication
     
     public partial class BranchImportBallot
     {
+        public BranchImportBallot()
+        {
+            this.BranchImportBallotDetails = new HashSet<BranchImportBallotDetail>();
+        }
+    
         public string BallotNum { get; set; }
         public string HeadquaterBallotNum { get; set; }
         public System.DateTime InputDate { get; set; }
@@ -22,5 +27,6 @@ namespace WindowsFormsApplication
     
         public virtual Account Account { get; set; }
         public virtual HeadquaterImportBallot HeadquaterImportBallot { get; set; }
+        public virtual ICollection<BranchImportBallotDetail> BranchImportBallotDetails { get; set; }
     }
 }

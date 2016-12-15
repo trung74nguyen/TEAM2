@@ -4,37 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b6e5d6eaaf24eb0ba22cedaf89d8d3a" Name="Diagram1">
-        <EntityTypeShape EntityType="CMART2Model.Account" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.Bill" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.BillDetail" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.BranchImportBallot" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.BranchImportBallotDetail" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.HeadquaterImportBallot" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.HeadquaterImportBallotDetail" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.PriceHistory" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.Product" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.ProductCategory" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.PromotionInformation" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.ProposeBallot" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.ProposeBallotDetail" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.Supplier" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMART2Model.sysdiagram" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+      <Diagram DiagramId="74c4ce2f156d462fb3df70e57f8ec6d9" Name="Diagram1">
+        <EntityTypeShape EntityType="CMART2Model.Account" Width="1.5" PointX="9" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.Bill" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.BillDetail" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.BranchImportBallot" Width="1.5" PointX="13.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.BranchImportBallotDetail" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.HeadquaterImportBallot" Width="1.5" PointX="11.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.HeadquaterImportBallotDetail" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.PriceHistory" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.Product" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.ProductCategory" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.PromotionInformation" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.ProposeBallot" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.ProposeBallotDetail" Width="1.5" PointX="8.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.Supplier" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMART2Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="CMART2Model.FK_Bill_Account" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_BranchImportBallot_Account" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_HeadquaterImportBallot_Account" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_ProposeBallot_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART2Model.FK_BillDetail_Bill" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_BillDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_BranchImportBallot_HeadquaterImportBallot" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART2Model.FK_BranchImportBallotDetail_BranchImportBallot" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_BranchImportBallotDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_HeadquaterImportBallot_ProposeBallot" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART2Model.FK_HeadquaterImportBallotDetail_HeadquaterImportBallot" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_HeadquaterImportBallotDetail_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="CMART2Model.FK_PriceHistory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART2Model.FK_PriceHistory_Product1" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_Product_ProductCategories" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_Product_Supplier" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_PromotionInformation_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_ProposeBallotDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMART2Model.FK_ProposeBallot_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="CMART2Model.FK_ProposeBallotDetail_ProposeBallot" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

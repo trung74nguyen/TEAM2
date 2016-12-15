@@ -16,16 +16,16 @@ namespace WindowsFormsApplication.ManagePriceHistory
         public GUI_InsertPriceHistory()
         {
             InitializeComponent();
-            this.btnSave.Click += new EventHandler(btnSave_Click);
+            //this.btnSave.Click += new EventHandler(btnSave_Click);
             this.btnCancel.Click += new EventHandler(btnCancel_Click);
             this.Load += new EventHandler(GUI_InsertPriceHistory_Load);
         }
         void GUI_InsertPriceHistory_Load(object sender, EventArgs e)
         {
-            CMART2Entities db = new CMART2Entities();
+            CMART2Entities1 db = new CMART2Entities1();
             this.cboProductID.DataSource = db.PriceHistories.ToList();
-            this.cboProductID.ValueMember = "MaSP";
-            this.cboProductID.DisplayMember = "MaSP";
+            this.cboProductID.ValueMember = "ProductCode";
+            this.cboProductID.DisplayMember = "ProductCode";
         }
         public bool checkInputData(string giaban)
         {
@@ -51,27 +51,39 @@ namespace WindowsFormsApplication.ManagePriceHistory
             }
             return true;
         }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string masp = cboProductID.SelectedValue.ToString();
-            string giaban =txtPriceHistory.Text.ToString();
-            DateTime date = DateTime.Parse(dtpDate.Text.ToString());
+        //private void btnSave_Click(object sender, EventArgs e)
+        //{
+        //    string masp = cboProductID.SelectedValue.ToString();
+        //    string giaban =txtPriceHistory.Text.ToString();
+        //    DateTime date = DateTime.Parse(dtpDate.Text.ToString());
 
-            var inputData = checkInputData(giaban);
-            if (inputData == true)
-            {
-                if (bus.insertNewPriceHistory(masp, giaban, date))
-                {
-                   this.txtPriceHistory.Text = "";
-                    MessageBox.Show("Thêm thành công!");
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Thêm không thành công!");
-            }
+        //    var inputData = checkInputData(giaban);
+        //    if (inputData == true)
+        //    {
+
+        //        CMART2Entities1 db = new CMART2Entities1();
+        //        PriceHistory price = new PriceHistory();
+        //        price.ProductCode = priceID.ToString();
+        //        price.Price = double.Parse(giaban);
+        //        price.EffectiveDate = DateTime.Parse(date);
+        //        db.PriceHistories.Add(price);
+        //        db.SaveChanges();
+        //        this.Close();
+        //        MessageBox.Show("Thêm lịch sử giá thành công!");
+
+        //        if (bus.insertNewPriceHistory(masp, giaban, date))
+        //        {
+        //           this.txtPriceHistory.Text = "";
+        //            MessageBox.Show("Thêm thành công!");
+        //            this.Close();
+        //        }
+        //        else
+        //            MessageBox.Show("Thêm không thành công!");
+
+        //    }
           
             
-        }
+        //}
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

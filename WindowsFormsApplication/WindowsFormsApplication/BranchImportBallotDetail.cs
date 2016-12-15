@@ -19,6 +19,7 @@ namespace WindowsFormsApplication
         public int Number { get; set; }
         public string State { get; set; }
     
+        public virtual BranchImportBallot BranchImportBallot { get; set; }
         public virtual Product Product { get; set; }
     }
 }

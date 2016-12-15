@@ -24,7 +24,7 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.DataSource = promotions;
             foreach (DataGridViewColumn column in lstManagePromotion.Columns)
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            lstManagePromotion.Columns["AccountCode"].HeaderText = "Mã khuyến mãi";
+            lstManagePromotion.Columns["PromotionCode"].HeaderText = "Mã khuyến mãi";
             lstManagePromotion.Columns["ProductCode"].HeaderText = "Mã sản phẩm";
             lstManagePromotion.Columns["PricePromotion"].HeaderText = "Giá khuyến mãi";
             lstManagePromotion.Columns["StartTime"].HeaderText = "Thời gian bắt đầu";
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication.ManagePromotion
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var pro = lstManagePromotion.SelectedRows[0].DataBoundItem as PromotionInformation;
-                    if (bus.deletePromotion((pro.AccountCode.ToString())))
+                    if (bus.deletePromotion((pro.PromotionCode.ToString())))
                     {
                         showManagePromotionForm(null, null);
                         MessageBox.Show("Xóa thành công!");
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication.ManagePromotion
             if (lstManagePromotion.SelectedRows.Count == 1)
             {
                 var pro = lstManagePromotion.SelectedRows[0].DataBoundItem as PromotionInformation;
-                promotionCode = pro.AccountCode;
+                promotionCode = pro.PromotionCode;
                 btnUpdate.Enabled = true;
             }
         }

@@ -11,14 +11,9 @@ namespace WindowsFormsApplication
 {
     using System;
     
-    public partial class usp_PromotionInformationSelect_Result
+    public partial class usp_BillSelectAll_Result
     {
-        public string AccountCode { get; set; }
-        public string ProductCode { get; set; }
-        public double PricePromotion { get; set; }
-        public System.DateTime StartTime { get; set; }
-        public System.DateTime EndTime { get; set; }
-        public string Cont { get; set; }
-        public string Image { get; set; }
+        public string BallotNUm { get; set; }
+        public string FullName { get; set; }
     }
 }

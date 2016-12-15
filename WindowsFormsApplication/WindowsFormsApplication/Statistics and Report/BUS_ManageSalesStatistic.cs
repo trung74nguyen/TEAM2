@@ -9,7 +9,7 @@ namespace WindowsFormsApplication.Statistics_and_Report
     {
         public List<Product> loadAllListProduct()
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.Products.ToList();
         }
     }

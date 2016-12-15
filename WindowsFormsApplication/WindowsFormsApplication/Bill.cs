@@ -14,6 +14,11 @@ namespace WindowsFormsApplication
     
     public partial class Bill
     {
+        public Bill()
+        {
+            this.BillDetails = new HashSet<BillDetail>();
+        }
+    
         public string BallotNum { get; set; }
         public System.DateTime Date { get; set; }
         public double Total { get; set; }
@@ -24,5 +29,6 @@ namespace WindowsFormsApplication
         public string AccountCode { get; set; }
     
         public virtual Account Account { get; set; }
+        public virtual ICollection<BillDetail> BillDetails { get; set; }
     }
 }

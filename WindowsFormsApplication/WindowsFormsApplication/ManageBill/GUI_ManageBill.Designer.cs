@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstPromotion = new System.Windows.Forms.DataGridView();
-            this.lstManagePromotion = new System.Windows.Forms.DataGridView();
+            this.lstManageBill = new System.Windows.Forms.DataGridView();
+            this.lstManageBillDetail = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -45,26 +45,27 @@
             this.btnQLDM = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTKe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.lstPromotion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lstManagePromotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstManageBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstManageBillDetail)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lstPromotion
+            // lstManageBill
             // 
-            this.lstPromotion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstPromotion.Location = new System.Drawing.Point(12, 159);
-            this.lstPromotion.Name = "lstPromotion";
-            this.lstPromotion.Size = new System.Drawing.Size(218, 238);
-            this.lstPromotion.TabIndex = 25;
+            this.lstManageBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstManageBill.Location = new System.Drawing.Point(12, 159);
+            this.lstManageBill.Name = "lstManageBill";
+            this.lstManageBill.Size = new System.Drawing.Size(218, 238);
+            this.lstManageBill.TabIndex = 25;
+            this.lstManageBill.DoubleClick += new System.EventHandler(this.lstManageBill_DoubleClick);
             // 
-            // lstManagePromotion
+            // lstManageBillDetail
             // 
-            this.lstManagePromotion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstManagePromotion.Location = new System.Drawing.Point(236, 159);
-            this.lstManagePromotion.Name = "lstManagePromotion";
-            this.lstManagePromotion.Size = new System.Drawing.Size(429, 238);
-            this.lstManagePromotion.TabIndex = 24;
+            this.lstManageBillDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstManageBillDetail.Location = new System.Drawing.Point(236, 159);
+            this.lstManageBillDetail.Name = "lstManageBillDetail";
+            this.lstManageBillDetail.Size = new System.Drawing.Size(429, 238);
+            this.lstManageBillDetail.TabIndex = 24;
             // 
             // txtSearch
             // 
@@ -198,8 +199,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 403);
-            this.Controls.Add(this.lstPromotion);
-            this.Controls.Add(this.lstManagePromotion);
+            this.Controls.Add(this.lstManageBill);
+            this.Controls.Add(this.lstManageBillDetail);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnUpdate);
@@ -210,8 +211,9 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "GUI_ManageBill";
             this.Text = "GUI_ManageBill";
-            ((System.ComponentModel.ISupportInitialize)(this.lstPromotion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lstManagePromotion)).EndInit();
+            this.Load += new System.EventHandler(this.showManageBillForm);
+            ((System.ComponentModel.ISupportInitialize)(this.lstManageBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstManageBillDetail)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -221,8 +223,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView lstPromotion;
-        private System.Windows.Forms.DataGridView lstManagePromotion;
+        private System.Windows.Forms.DataGridView lstManageBill;
+        private System.Windows.Forms.DataGridView lstManageBillDetail;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnUpdate;

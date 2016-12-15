@@ -13,7 +13,7 @@ namespace WindowsFormsApplication
     
     public partial class usp_PromotionInformationSearch_Result
     {
-        public string AccountCode { get; set; }
+        public string PromotionCode { get; set; }
         public string ProductCode { get; set; }
         public double PricePromotion { get; set; }
         public System.DateTime StartTime { get; set; }

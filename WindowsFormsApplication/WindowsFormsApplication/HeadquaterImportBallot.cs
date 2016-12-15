@@ -17,6 +17,7 @@ namespace WindowsFormsApplication
         public HeadquaterImportBallot()
         {
             this.BranchImportBallots = new HashSet<BranchImportBallot>();
+            this.HeadquaterImportBallotDetails = new HashSet<HeadquaterImportBallotDetail>();
         }
     
         public string BallotNum { get; set; }
@@ -28,5 +29,6 @@ namespace WindowsFormsApplication
         public virtual Account Account { get; set; }
         public virtual ICollection<BranchImportBallot> BranchImportBallots { get; set; }
         public virtual ProposeBallot ProposeBallot { get; set; }
+        public virtual ICollection<HeadquaterImportBallotDetail> HeadquaterImportBallotDetails { get; set; }
     }
 }

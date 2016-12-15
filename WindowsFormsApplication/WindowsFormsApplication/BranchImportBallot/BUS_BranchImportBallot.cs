@@ -9,7 +9,7 @@ namespace WindowsFormsApplication
     {
         public List<BranchImportBallot> getAllListBranchImportBallot()
         {
-            var db = new CMART2Entities();
+            var db = new CMART2Entities1();
             return db.BranchImportBallots.ToList();
         }
     }
