@@ -69,6 +69,7 @@
             // 
             // btnUpdatePriceHistory
             // 
+            this.btnUpdatePriceHistory.Enabled = false;
             this.btnUpdatePriceHistory.Location = new System.Drawing.Point(89, 86);
             this.btnUpdatePriceHistory.Name = "btnUpdatePriceHistory";
             this.btnUpdatePriceHistory.Size = new System.Drawing.Size(71, 23);
@@ -105,8 +106,7 @@
             this.lstPriceHistory.ReadOnly = true;
             this.lstPriceHistory.Size = new System.Drawing.Size(796, 252);
             this.lstPriceHistory.TabIndex = 14;
-            this.lstPriceHistory.Click += new System.EventHandler(this.lstPriceHistory_Click);
-            
+            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.lstPriceHistory_DoubleClick);
             // 
             // lblName
             // 

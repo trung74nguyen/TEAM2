@@ -32,22 +32,53 @@ namespace WindowsFormsApplication.ManagePriceHistory
         }
        
         BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
-        
+        public bool checkInputData(string giabanmoi)
+        {
+            if ((giabanmoi ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Trường giá bán là bắt buộc!");
+                return false;
+            }
+
+
+            double n = 0;
+
+            try
+            {
+                n = double.Parse(giabanmoi);
+                if (n <= 0)
+                {
+                    MessageBox.Show("Giá bán không được là số âm");
+                    return false;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Giá bán không thể là chữ! Phải là số nha!");
+                return false;
+            }
+
+            return true;
+        }
         void btnSave_Click(object sender, EventArgs e)
         {
-            var masp = this.txtProductIDPriceHistory.Text.Trim();
-            string giabanmoi = this.txtNewPrice.Text.Trim();
-            var inputData = insert.checkInputData(giabanmoi);
-            
-            
-            if (Bus_manage.updatePriceHistory(masp,giabanmoi))
+            string masp = txtProductIDPriceHistory.Text.Trim();
+            string giabanmoi = txtNewPrice.Text.Trim();
+            DateTime date = DateTime.Parse(dtpDate.Text);
+           
+
+            var inputData = checkInputData(giabanmoi);
+            if (inputData == true)
             {
-                
-                MessageBox.Show("Update SUPPLIER successfully. Thanks a lot.");
+                if (Bus_manage.updatePriceHistory(masp, giabanmoi, date))
+                {
+                    this.txtNewPrice.Text = "";
+                    MessageBox.Show("Cập nhật thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Cập nhật không thành công!");
             }
-            else{
-                MessageBox.Show("Cannot update SUPPLIER. I don't know why!?!?");
-        }
         }
         
            private void btnCancel_Click(object sender, EventArgs e)

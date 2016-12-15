@@ -16,7 +16,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
         {
             InitializeComponent();
             this.btnAddPriceHistory.Click += new EventHandler(btnAddPriceHistory_Click);
-            this.btnUpdatePriceHistory.Click += new EventHandler(btnUpdatePriceHistory_Click);
+            //this.btnUpdatePriceHistory.Click += new EventHandler(btnUpdatePriceHistory_Click);
             //this.btnDeletePriceHistory.Click += new EventHandler(btnDeletePriceHistory_Click);
             this.btnManageProduct.Click += new EventHandler(btnManageProduct_Click);
         }
@@ -35,8 +35,8 @@ namespace WindowsFormsApplication.ManagePriceHistory
         }
         private void showManagePriceHistoryForm(object sender, EventArgs e)
         {
-            var suppliers = Bus_manage.loadAllListPriceHistory();
-            showManagePriceHistoryForm(suppliers);
+            var price = Bus_manage.loadAllListPriceHistory();
+            showManagePriceHistoryForm(price);
         }
        
       
@@ -50,7 +50,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.showManagePriceHistoryForm(null, null);
             
         }
-       
+
       //void btnDeletePriceHistory_Click(object sender, EventArgs e)
       //  {
       //     if (lstPriceHistory.SelectedRows.Count == 1) // if select only one student
@@ -71,40 +71,56 @@ namespace WindowsFormsApplication.ManagePriceHistory
           
       //  }
 
-
-        private string supplierId = "";
-    /*    private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
+        private bool checkSelectingProduct()
         {
-            var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
-            supplierId = supplier.MaSP;
-        } */
-        private void btnUpdatePriceHistory_Click(object sender, EventArgs e)
+            return lstPriceHistory.SelectedRows.Count == 1;
+        }
+      void btnDeletePriceHistory_Click(object sender, EventArgs e)
+        {
+            if (checkSelectingProduct())
+                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var price = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+                   
+                    if(Bus_manage.deletePriceHistory(price.ProductCode))
+                    {
+                        this.showManagePriceHistoryForm(null, null); 
+                        MessageBox.Show("Xóa thành công!");
+                    }
+                    else
+                        MessageBox.Show("Xóa không thành công!");
+                }
+        }
+
+
+        private string priceId = "";
+      private void lstPriceHistory_DoubleClick(object sender, EventArgs e)
         {
             if (lstPriceHistory.SelectedRows.Count == 1)
             {
-                GUI_UpdatePriceHistory Gui_update = new GUI_UpdatePriceHistory(supplierId);
-                Gui_update.ShowDialog();
+                var price = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+                priceId = price.ProductCode;
+                this.btnUpdatePriceHistory.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show("Bạn phải double click vào một lịch sử giá");
-            }
+        } 
+        //private void btnUpdatePriceHistory_Click(object sender, EventArgs e)
+        //{
+        //    GUI_UpdatePriceHistory update = new GUI_UpdatePriceHistory(priceId);
+        //    update.ShowDialog();
+        //    this.showManagePriceHistoryForm(null, null); 
 
-        }
+        //}
 
         private void btnManageProduct_Click(object sender, EventArgs e)
         {
            
         }
 
+
         private void lstPriceHistory_Click(object sender, EventArgs e)
         {
             var supplier = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
-            supplierId = supplier.ProductCode;
-        }
-
-       
-
-       
+            priceId = supplier.ProductCode;
+        }      
     }
 }
