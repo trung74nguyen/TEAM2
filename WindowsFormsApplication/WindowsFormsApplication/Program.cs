@@ -32,8 +32,6 @@ namespace WindowsFormsApplication
             //Application.Run(new GUI_ManageProduct());
             //Application.Run(new GUI_ManagePromotion());
             //Application.Run(new GUI_ManageSalesStatistics());
-
-
         }
     }
 }
