@@ -630,6 +630,9 @@
           <Parameter Name="Price" Type="float" Mode="In" />
           <Parameter Name="EffectiveDate" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="usp_PriceHistorySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_PriceHistorySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProductCode" Type="varchar" Mode="In" />
           <Parameter Name="Price" Type="float" Mode="In" />
@@ -1505,10 +1508,14 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillSelect" ReturnType="Collection(CMART2Model.usp_BillSelect_Result)">
-          <Parameter Name="BallotNum" Mode="In" Type="String" />
+            <Parameter Name="BallotNum" Mode="In" Type="String" />
+            
           </FunctionImport>
+          
           <FunctionImport Name="usp_BillSelectAll" ReturnType="Collection(CMART2Model.usp_BillSelectAll_Result)" >
+
           </FunctionImport>
+          
           <FunctionImport Name="usp_BillUpdate" ReturnType="Collection(CMART2Model.usp_BillUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
             <Parameter Name="Date" Mode="In" Type="DateTime" />
@@ -1743,6 +1750,9 @@
             <Parameter Name="SupplierName" Mode="In" Type="String" />
             <Parameter Name="Address" Mode="In" Type="String" />
             <Parameter Name="Phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PriceHistorySearch" ReturnType="Collection(CMART2Model.usp_PriceHistorySearch_Result)">
+            <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -2070,6 +2080,11 @@
           <Property Type="String" Name="SupplierName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_PriceHistorySearch_Result">
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <Property Type="DateTime" Name="EffectiveDate" Nullable="false" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2797,6 +2812,15 @@
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PriceHistorySearch" FunctionName="CMART2Model.Store.usp_PriceHistorySearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_PriceHistorySearch_Result">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

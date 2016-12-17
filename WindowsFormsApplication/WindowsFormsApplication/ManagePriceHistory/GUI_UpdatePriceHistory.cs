@@ -11,66 +11,72 @@ namespace WindowsFormsApplication.ManagePriceHistory
 {
     public partial class GUI_UpdatePriceHistory : Form
     {
-        GUI_InsertPriceHistory insert = new GUI_InsertPriceHistory();
-        public GUI_UpdatePriceHistory(string masp)
+        public GUI_UpdatePriceHistory(string productCode, double price, DateTime effectiveDate)
         {
             InitializeComponent();
-            this.btnSave.Click += new EventHandler(btnSave_Click);
-            this.btnCancel.Click += new EventHandler(btnCancel_Click);
-            this.Load += new EventHandler(frmEdit_Load);
+            this.btnSave.Click += new EventHandler(clickUpdate);
+            this.btnCancel.Click += new EventHandler(clickCancel);
+            this.Load += new EventHandler(showUpdatePriceHistoryForm);
             db = new CMART2Entities1();
-            pricehistory = db.PriceHistories.Single(st => st.ProductCode == masp);
+            pricehistory = db.PriceHistories.Single(s => s.ProductCode == productCode
+                                                        && s.Price == price
+                                                        && s.EffectiveDate == effectiveDate);
         }
 
         CMART2Entities1 db;
         private PriceHistory pricehistory;
-        void frmEdit_Load(object sender, EventArgs e)
+        BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
+
+        private void showUpdatePriceHistoryForm(object sender, EventArgs e)
+        {
+            loadDataPriceHistory();
+        }
+       
+        private void loadDataPriceHistory()
         {
             this.txtProductIDPriceHistory.Text = pricehistory.ProductCode;
             this.txtPriceHistory.Text = pricehistory.Price.ToString();
             this.dtpDate.Text = pricehistory.EffectiveDate.ToString();
         }
-       
-        BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
-        public bool checkInputData(string giabanmoi)
+
+        public bool checkInputData(string sNewPrice)
         {
-            if ((giabanmoi ?? "").Trim().Length == 0)
+            if ((sNewPrice ?? "").Trim().Length == 0)
             {
-                MessageBox.Show("Trường giá bán là bắt buộc!");
+                MessageBox.Show("Giá bán mới là bắt buộc!");
                 return false;
             }
 
-
-            double n = 0;
-
-            try
+            if ((sNewPrice ?? "").Trim().Length > 0)
             {
-                n = double.Parse(giabanmoi);
-                if (n <= 0)
+                try
                 {
-                    MessageBox.Show("Giá bán không được là số âm");
+                    float n = float.Parse(sNewPrice);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Giá bán mới phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Giá bán mới phải là số!");
                     return false;
                 }
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Giá bán không thể là chữ! Phải là số nha!");
-                return false;
-            }
-
             return true;
         }
-        void btnSave_Click(object sender, EventArgs e)
-        {
-            string masp = txtProductIDPriceHistory.Text.Trim();
-            string giabanmoi = txtNewPrice.Text.Trim();
-            DateTime date = DateTime.Parse(dtpDate.Text);
-           
 
-            var inputData = checkInputData(giabanmoi);
+        private void clickUpdate(object sender, EventArgs e)
+        {
+            //string productCode = txtProductIDPriceHistory.Text.Trim();
+            string sNewPrice= txtNewPrice.Text.Trim();
+            //DateTime date = DateTime.Parse(dtpDate.Text);
+            var inputData = checkInputData(sNewPrice);
             if (inputData == true)
             {
-                if (Bus_manage.updatePriceHistory(masp, giabanmoi, date))
+                float price = float.Parse(sNewPrice);
+                if (Bus_manage.updatePriceHistory(pricehistory.ProductCode, price, pricehistory.EffectiveDate))
                 {
                     this.txtNewPrice.Text = "";
                     MessageBox.Show("Cập nhật thành công!");
@@ -81,9 +87,12 @@ namespace WindowsFormsApplication.ManagePriceHistory
             }
         }
         
-           private void btnCancel_Click(object sender, EventArgs e)
+        private void clickCancel(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
 

@@ -85,17 +85,6 @@ namespace WindowsFormsApplication.ManageBill
             GUI_UpdateBill_Update gui = new GUI_UpdateBill_Update();
             gui.ShowDialog();
         }
-        //private void showManageBillDetailForm(List<usp_BillDetailSelectAll_Result> billdetail)
-        //{
-           
-        //    for (int i = 0; i < billdetail.Count; i++)
-        //    {
-        //        int sl = billdetail[i].Number;
-        //        double dongia = billdetail[i].UnitPrice;
-        //        double thanhtien = (double)(dongia * sl);
-        //        lstManageBillIn.Rows.Add(billdetail[i].BallotNUm, billdetail[i].ProductCode, billdetail[i].ProductName, billdetail[i].UnitPrice, billdetail[i].Number, thanhtien);
-        //    }
-        //}
         private void GUI_InsertBill_Load(object sender, EventArgs e)
         {
             string str = DateTime.Now.ToString().Trim();
@@ -114,11 +103,7 @@ namespace WindowsFormsApplication.ManageBill
                 string str_ = hour + ":" + minute + ":" + second+" PM";
                 txtHourIn.Text = str_;
             }
-            //var billDetailInfo = bus.getAllListBillDetail();
-            //showManageBillDetailForm(billDetailInfo);
-            //string name = "";
-            //var tr = db.Bills.Single(i => i.BallotNum.Equals(name));
-            //txtNameIn.Text = tr.Account.ToString();
+          
 
         }
 

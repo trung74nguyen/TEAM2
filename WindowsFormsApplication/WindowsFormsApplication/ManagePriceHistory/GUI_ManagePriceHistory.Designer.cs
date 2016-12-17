@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDeletePriceHistory = new System.Windows.Forms.Button();
             this.btnUpdatePriceHistory = new System.Windows.Forms.Button();
             this.btnAddPriceHistory = new System.Windows.Forms.Button();
@@ -49,14 +49,15 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(645, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
-            this.textBox1.TabIndex = 19;
-            this.textBox1.Text = "Tìm kiếm...";
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSearch.Location = new System.Drawing.Point(645, 88);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(163, 20);
+            this.txtSearch.TabIndex = 19;
+            this.txtSearch.Text = "Tìm kiếm...";
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
             // 
             // btnDeletePriceHistory
             // 
@@ -106,7 +107,7 @@
             this.lstPriceHistory.ReadOnly = true;
             this.lstPriceHistory.Size = new System.Drawing.Size(796, 252);
             this.lstPriceHistory.TabIndex = 14;
-            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.lstPriceHistory_DoubleClick);
+            this.lstPriceHistory.DoubleClick += new System.EventHandler(this.selectPriceHistoryToUpdate);
             // 
             // lblName
             // 
@@ -199,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 380);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDeletePriceHistory);
             this.Controls.Add(this.btnUpdatePriceHistory);
             this.Controls.Add(this.btnAddPriceHistory);
@@ -222,7 +223,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnDeletePriceHistory;
         private System.Windows.Forms.Button btnUpdatePriceHistory;
         private System.Windows.Forms.Button btnAddPriceHistory;

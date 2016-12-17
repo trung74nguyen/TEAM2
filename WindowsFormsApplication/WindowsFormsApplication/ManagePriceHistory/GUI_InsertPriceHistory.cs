@@ -11,82 +11,78 @@ namespace WindowsFormsApplication.ManagePriceHistory
 {
     public partial class GUI_InsertPriceHistory : Form
     {
-        ManagePromotion.ValidationExtension v = new ManagePromotion.ValidationExtension();
         BUS_ManagePriceHistory bus = new BUS_ManagePriceHistory();
+
         public GUI_InsertPriceHistory()
         {
             InitializeComponent();
-            //this.btnSave.Click += new EventHandler(btnSave_Click);
-            this.btnCancel.Click += new EventHandler(btnCancel_Click);
-            this.Load += new EventHandler(GUI_InsertPriceHistory_Load);
+            this.btnSave.Click += new EventHandler(clickSave);
+            this.btnCancel.Click += new EventHandler(clickCancel);
+            this.Load += new EventHandler(showInserPriceHistoryForm);
         }
-        void GUI_InsertPriceHistory_Load(object sender, EventArgs e)
+
+        private void showInserPriceHistoryForm(object sender, EventArgs e)
         {
             CMART2Entities1 db = new CMART2Entities1();
-            this.cboProductID.DataSource = db.PriceHistories.ToList();
+            this.cboProductID.DataSource = db.Products.ToList();
             this.cboProductID.ValueMember = "ProductCode";
-            this.cboProductID.DisplayMember = "ProductCode";
+            this.cboProductID.DisplayMember = "ProductName";
         }
-        public bool checkInputData(string giaban)
+
+        public bool checkDataInput(string sPrice)
         {
-            if ((giaban ?? "").Trim().Length == 0)
+            if ((sPrice ?? "").Trim().Length == 0)
             {
-                MessageBox.Show("Trường giá bán là bắt buộc!");
+                MessageBox.Show("Giá bán là bắt buộc!");
                 return false;
             }
-            double n=0;
-            try
+
+            if ((sPrice ?? "").Trim().Length > 0)
             {
-                n = double.Parse(giaban);
-                if (n <= 0)
+                try
                 {
-                    MessageBox.Show("Giá bán không được là số âm");
+                    float n = float.Parse(sPrice);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Giá bán phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Giá bán phải là số!");
                     return false;
                 }
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Giá bán không thể là chữ! Phải là số nha!");
-                return false;
-            }
             return true;
         }
-        //private void btnSave_Click(object sender, EventArgs e)
-        //{
-        //    string masp = cboProductID.SelectedValue.ToString();
-        //    string giaban =txtPriceHistory.Text.ToString();
-        //    DateTime date = DateTime.Parse(dtpDate.Text.ToString());
 
-        //    var inputData = checkInputData(giaban);
-        //    if (inputData == true)
-        //    {
-
-        //        CMART2Entities1 db = new CMART2Entities1();
-        //        PriceHistory price = new PriceHistory();
-        //        price.ProductCode = priceID.ToString();
-        //        price.Price = double.Parse(giaban);
-        //        price.EffectiveDate = DateTime.Parse(date);
-        //        db.PriceHistories.Add(price);
-        //        db.SaveChanges();
-        //        this.Close();
-        //        MessageBox.Show("Thêm lịch sử giá thành công!");
-
-        //        if (bus.insertNewPriceHistory(masp, giaban, date))
-        //        {
-        //           this.txtPriceHistory.Text = "";
-        //            MessageBox.Show("Thêm thành công!");
-        //            this.Close();
-        //        }
-        //        else
-        //            MessageBox.Show("Thêm không thành công!");
-
-        //    }
-          
-            
-        //}
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void clickSave(object sender, EventArgs e)
         {
-            this.Close();
+            string productCode = cboProductID.SelectedValue.ToString();
+            string sPrice = txtPriceHistory.Text.Trim();
+            DateTime effectiveDate = dtpDate.Value;
+            var inputData = checkDataInput(sPrice);
+            if (inputData == true)
+            {
+                float price = float.Parse(sPrice);
+                if (bus.insertNewPriceHistory(productCode, price, effectiveDate))
+                {
+                    txtPriceHistory.Text = "";
+                    MessageBox.Show("Thêm thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Thêm không thành công!");
+            }
+        }
+
+        private void clickCancel(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -15,85 +15,95 @@ namespace WindowsFormsApplication.ManagePriceHistory
             var db = new CMART2Entities1();
                 return db.PriceHistories.ToList();
         }
-        private bool checkExistPriceHistory(string masp) 
+
+        private bool checkExistPriceHistory(string productCode, float price, DateTime effectiveDate) 
         {
             using (var db = new CMART2Entities1())
-                return db.PriceHistories.Count(s => s.ProductCode == masp) > 0;
+                return db.PriceHistories.Count(s => s.ProductCode == productCode
+                                                && s.Price == price
+                                                && s.EffectiveDate == effectiveDate) > 0;
         }
-        public bool insertNewPriceHistory(string masp, string giaban, DateTime date)
+
+        public bool insertNewPriceHistory(string productCode, float price, DateTime effectiveDate)
         {
-          //  if (!checkExistPriceHistory(masp))
+            if (!checkExistPriceHistory(productCode, price, effectiveDate))
                 try
                 {
                     using (var db = new CMART2Entities1())
                     {
-                        
-                        var price = new PriceHistory
+                        var priceHistory = new PriceHistory
                         {
-                            ProductCode = masp,
-                            Price = double.Parse(giaban),
-                            EffectiveDate = date,
-                           
+                            ProductCode = productCode,
+                            Price = price,
+                            EffectiveDate = effectiveDate
                         };
-                        db.PriceHistories.Add(price);
+                        db.PriceHistories.Add(priceHistory);
                         db.SaveChanges();
                         return true;
                     }
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-           // return false;
-        }
-        public bool updatePriceHistory(string masp, string giaban, DateTime date)
-        {
-            //if (!checkExistPriceHistory(masp))
-                try
-                {
-                    using (var db = new CMART2Entities1())
-                    {
 
-                        var supplier = db.PriceHistories.Single(s => s.ProductCode == masp);
-                        
-                        supplier.Price = double.Parse(giaban);
-                        //db.Entry(supplier).State = EntityState.Modified;
-
-                        var price = db.PriceHistories.Single(p => p.ProductCode == masp);
-                        price.ProductCode = masp;
-                        price.Price = double.Parse(giaban);
-                        price.EffectiveDate = date;
-                        
-                        db.Entry(price).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-           // return false;
-        }
-        public bool deletePriceHistory(string id)
-        {
-            if (checkExistPriceHistory(id))
-                try
-                {
-                    using (var db = new CMART2Entities1())
-                    {
-                        var price = db.PriceHistories.Single(s => s.ProductCode == id);
-                        db.PriceHistories.Remove(price);
-
-                        db.SaveChanges();
-                        return true;
-                    }
                 }
                 catch (Exception)
                 {
                     return false;
                 }
             return false;
+        }
+
+        public bool updatePriceHistory(string productCode, float price, DateTime effectiveDate)
+        {
+            if (!checkExistPriceHistory(productCode, price, effectiveDate))
+                try
+                {
+                    using (var db = new CMART2Entities1())
+                    {
+
+                        //var priceHistory = db.PriceHistories.Single(s => s.ProductCode == productCode);
+                        var priceHistory = new PriceHistory
+                        {
+                            ProductCode = productCode,
+                            Price = price,
+                            EffectiveDate = effectiveDate
+                        };
+                        //db.Entry(priceHistory).State = EntityState.Modified;
+                        db.PriceHistories.Add(priceHistory);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+           return false;
+        }
+
+        public bool deletePriceHistory(string productCode, double price, DateTime effectiveDate)
+        {
+            //if (checkExistPriceHistory(productCode, price, effectiveDate))
+                try
+                {
+                    using (var db = new CMART2Entities1())
+                    {
+                        var priceHistory = db.PriceHistories.Single(s => s.ProductCode == productCode
+                                                                        && s.Price == price
+                                                                        && s.EffectiveDate == effectiveDate);
+                        db.PriceHistories.Remove(priceHistory);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            //return false;
+        }
+
+        public List<usp_PriceHistorySearch_Result> searchListPriceHistory(string text)
+        {
+            var db = new CMART2Entities1();
+            return db.usp_PriceHistorySearch(text).ToList();
         }
     }
 }
