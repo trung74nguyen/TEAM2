@@ -16,9 +16,9 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             InitializeComponent();
         }
         BUS_HeadquarterImportBallot bus = new BUS_HeadquarterImportBallot();
-        private void showHeadquarterImportBallot(List<HeadquaterImportBallot> headquarterimportballot)
+        private void showHeadquarterImportBallotForm(List<HeadquaterImportBallot> ballot)
         {
-            lstHeadquarterImportBallot.DataSource = headquarterimportballot;
+            lstHeadquarterImportBallot.DataSource = ballot;
             foreach (DataGridViewColumn column in lstHeadquarterImportBallot.Columns)
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             lstHeadquarterImportBallot.Columns["BallotNum"].HeaderText = "Số phiếu";
@@ -32,8 +32,8 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
         }
         private void showHeadquarterImportBallot(object sender, EventArgs e)
         {
-            var headquarterImportBallotForm = bus.getAllListHeadquarterImportBallot();
-            showHeadquarterImportBallot(headquarterImportBallotForm);
+            var ballot = bus.getAllListHeadquarterImportBallot();
+            showHeadquarterImportBallotForm(ballot);
         }
     }
 }
