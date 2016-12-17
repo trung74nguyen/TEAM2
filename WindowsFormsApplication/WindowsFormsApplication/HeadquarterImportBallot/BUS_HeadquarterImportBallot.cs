@@ -14,5 +14,11 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             var db = new CMART2Entities1();
             return db.HeadquaterImportBallots.ToList();
         }
+
+        public List<HeadquaterImportBallotDetail> getAllListHeadquarterImportBallotDetail(string ballotNum)
+        {
+            var db = new CMART2Entities1();
+            return db.HeadquaterImportBallotDetails.Where(s => s.BallotNum == ballotNum).ToList();
+        }
     }
 }
