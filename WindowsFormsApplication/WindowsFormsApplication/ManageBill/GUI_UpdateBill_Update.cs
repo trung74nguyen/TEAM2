@@ -11,25 +11,23 @@ namespace WindowsFormsApplication.ManageBill
 {
     public partial class GUI_UpdateBill_Update : Form
     {
-        ValidationExtension1 v;
         public GUI_UpdateBill_Update()
         {
-            v = new ValidationExtension1();
             InitializeComponent();
         }
 
         private void btnSave_BillUp_Click(object sender, EventArgs e)
         {
-            if (!v.Required(txtNum_BillUp))
-            {
-                MessageBox.Show("Số lượng không được bỏ trống");
+            //if (!v.Required(txtNum_BillUp))
+            //{
+            //    MessageBox.Show("Số lượng không được bỏ trống");
 
-            }
-            else if (!v.IsNumber(txtNum_BillUp))
-            {
-                MessageBox.Show("Số lượng vui lòng nhập số ");
+            //}
+            //else if (!v.IsNumber(txtNum_BillUp))
+            //{
+            //    MessageBox.Show("Số lượng vui lòng nhập số ");
 
-            }
+            //}
         }
     }
 }

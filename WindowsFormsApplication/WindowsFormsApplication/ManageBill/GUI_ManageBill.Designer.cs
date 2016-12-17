@@ -45,6 +45,12 @@
             this.btnQLDM = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTKe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.BallotNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillDetail)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,6 +68,13 @@
             // lstManageBillDetail
             // 
             this.lstManageBillDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstManageBillDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BallotNum,
+            this.ProductCode,
+            this.ProductName,
+            this.UnitPrice,
+            this.Number,
+            this.Total});
             this.lstManageBillDetail.Location = new System.Drawing.Point(236, 159);
             this.lstManageBillDetail.Name = "lstManageBillDetail";
             this.lstManageBillDetail.Size = new System.Drawing.Size(429, 238);
@@ -194,6 +207,42 @@
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // BallotNum
+            // 
+            this.BallotNum.DataPropertyName = "BallotNum";
+            this.BallotNum.HeaderText = "Mã hóa đơn";
+            this.BallotNum.Name = "BallotNum";
+            // 
+            // ProductCode
+            // 
+            this.ProductCode.DataPropertyName = "ProductCode";
+            this.ProductCode.HeaderText = "Mã sản phẩm";
+            this.ProductCode.Name = "ProductCode";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Tên sản phẩm";
+            this.ProductName.Name = "ProductName";
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Đơn giá";
+            this.UnitPrice.Name = "UnitPrice";
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Số lượng";
+            this.Number.Name = "Number";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Thành tiền";
+            this.Total.Name = "Total";
+            // 
             // GUI_ManageBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,5 +289,11 @@
         private System.Windows.Forms.ToolStripMenuItem btnQLDM;
         private System.Windows.Forms.ToolStripMenuItem btnTKe;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BallotNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

@@ -11,35 +11,33 @@ namespace WindowsFormsApplication.ManageBill
 {
     public partial class GUI_UpdateBill : Form
     {
-        ValidationExtension1 v;
         public GUI_UpdateBill()
         {
-            v = new ValidationExtension1();
             InitializeComponent();
         }
 
         private void btnSaveUp_Click(object sender, EventArgs e)
         {
-            if (!v.Required(txtGuestMoneyUp))
-            {
-                MessageBox.Show("Tiền trả khách không được bỏ trống");
+            //if (!v.Required(txtGuestMoneyUp))
+            //{
+            //    MessageBox.Show("Tiền trả khách không được bỏ trống");
 
-            }
-            else if (!v.IsNumber(txtGuestMoneyUp))
-            {
-                MessageBox.Show("Tiền trả khách vui lòng nhập số ");
+            //}
+            //else if (!v.IsNumber(txtGuestMoneyUp))
+            //{
+            //    MessageBox.Show("Tiền trả khách vui lòng nhập số ");
 
-            }
-            if (!v.Required(txtPOSUp))
-            {
-                MessageBox.Show("POS không được bỏ trống");
+            //}
+            //if (!v.Required(txtPOSUp))
+            //{
+            //    MessageBox.Show("POS không được bỏ trống");
 
-            }
-            else if (!v.IsNumber(txtPOSUp))
-            {
-                MessageBox.Show("POS vui lòng nhập số ");
+            //}
+            //else if (!v.IsNumber(txtPOSUp))
+            //{
+            //    MessageBox.Show("POS vui lòng nhập số ");
 
-            }
+            //}
         }
 
         private void lblUpUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
