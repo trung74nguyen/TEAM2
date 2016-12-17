@@ -29,10 +29,39 @@ namespace WindowsFormsApplication.ManageBill
         }
         private void showManageBillDetailForm(List<usp_BillDetailSelectAll_Result> billdetail)
         {
-            lstManageBillDetail.DataSource = billdetail;
-            foreach (DataGridViewColumn column in lstManageBillDetail.Columns)
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            btnUpdate.Enabled = false;
+            //lstManageBillDetail.DataSource = billdetail;
+            //foreach (DataGridViewColumn column in lstManageBillDetail.Columns)
+            //    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //btnUpdate.Enabled = false;
+            //BindingSource bs = new BindingSource();
+            //bs.DataSource = billdetail;
+            //lstManageBillDetail.DataSource = bs;
+            //for (int i = 0; i < lstManageBillDetail.Rows.Count - 1; i++)
+            //{
+            //    for (int j = 0; j < lstManageBillDetail.Columns.Count; j++)
+            //    {
+            //        if (lstManageBillDetail.Rows[i].Cells[j].Value != null)
+            //        {
+            //            int sl = Convert.ToInt32(lstManageBillDetail.Rows[i].Cells["Number"].Value.ToString());
+            //            double dongia = Convert.ToDouble(lstManageBillDetail.Rows[i].Cells["UnitPrice"].Value.ToString());
+            //            double thanhtien = Convert.ToDouble(lstManageBillDetail.Rows[i].Cells["Total"].Value);
+            //            if (sl > 0 && dongia > 0)
+            //            {
+            //                thanhtien = (sl * dongia);
+            //            }
+            //            lstManageBillDetail.Rows.Add(billdetail[i].BallotNUm, billdetail[i].ProductCode, billdetail[i].ProductName, billdetail[i].UnitPrice, billdetail[i].Number, thanhtien);
+            //        }
+
+            //    }
+            //}
+
+            for (int i = 0; i < billdetail.Count; i++)
+            {
+                int sl = billdetail[i].Number;
+                double dongia = billdetail[i].UnitPrice;
+                double thanhtien = (double)(dongia * sl);
+                lstManageBillDetail.Rows.Add(billdetail[i].BallotNUm, billdetail[i].ProductCode, billdetail[i].ProductName, billdetail[i].UnitPrice, billdetail[i].Number, thanhtien);
+            }
         }
         private void showManageBillForm(object sender, EventArgs e)
         {
@@ -57,7 +86,7 @@ namespace WindowsFormsApplication.ManageBill
             var billDetailInfo = bus.getAllListBillDetail();
             showManageBillDetailForm(billDetailInfo);
         }
-
+        
         
     }
 }

@@ -41,10 +41,8 @@
             this.txtHourIn = new System.Windows.Forms.TextBox();
             this.lblHourIn = new System.Windows.Forms.Label();
             this.txtDayIn = new System.Windows.Forms.TextBox();
-            this.txtCodeIn = new System.Windows.Forms.TextBox();
             this.txtNameIn = new System.Windows.Forms.TextBox();
             this.lblDayIn = new System.Windows.Forms.Label();
-            this.lblCodeIn = new System.Windows.Forms.Label();
             this.lblNameIn = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblPos = new System.Windows.Forms.Label();
@@ -60,7 +58,7 @@
             this.btnSaveIn.TabIndex = 54;
             this.btnSaveIn.Text = "Lưu";
             this.btnSaveIn.UseVisualStyleBackColor = true;
-            this.btnSaveIn.Click += new System.EventHandler(this.btnSaveIn_Click);
+            this.btnSaveIn.Click += new System.EventHandler(this.clickSave);
             // 
             // btnCancelIn
             // 
@@ -70,11 +68,13 @@
             this.btnCancelIn.TabIndex = 53;
             this.btnCancelIn.Text = "Hủy";
             this.btnCancelIn.UseVisualStyleBackColor = true;
+            this.btnCancelIn.Click += new System.EventHandler(this.clickCancel);
             // 
             // txtExcessCashIn
             // 
             this.txtExcessCashIn.BackColor = System.Drawing.Color.White;
             this.txtExcessCashIn.Location = new System.Drawing.Point(471, 383);
+            this.txtExcessCashIn.Multiline = true;
             this.txtExcessCashIn.Name = "txtExcessCashIn";
             this.txtExcessCashIn.ReadOnly = true;
             this.txtExcessCashIn.Size = new System.Drawing.Size(129, 20);
@@ -148,8 +148,9 @@
             // 
             // txtHourIn
             // 
-            this.txtHourIn.Location = new System.Drawing.Point(484, 106);
+            this.txtHourIn.Location = new System.Drawing.Point(484, 99);
             this.txtHourIn.Name = "txtHourIn";
+            this.txtHourIn.ReadOnly = true;
             this.txtHourIn.Size = new System.Drawing.Size(66, 20);
             this.txtHourIn.TabIndex = 44;
             this.txtHourIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -157,7 +158,7 @@
             // lblHourIn
             // 
             this.lblHourIn.AutoSize = true;
-            this.lblHourIn.Location = new System.Drawing.Point(431, 113);
+            this.lblHourIn.Location = new System.Drawing.Point(431, 106);
             this.lblHourIn.Name = "lblHourIn";
             this.lblHourIn.Size = new System.Drawing.Size(47, 13);
             this.lblHourIn.TabIndex = 43;
@@ -165,25 +166,16 @@
             // 
             // txtDayIn
             // 
-            this.txtDayIn.Location = new System.Drawing.Point(330, 106);
+            this.txtDayIn.Location = new System.Drawing.Point(330, 99);
             this.txtDayIn.Name = "txtDayIn";
+            this.txtDayIn.ReadOnly = true;
             this.txtDayIn.Size = new System.Drawing.Size(95, 20);
             this.txtDayIn.TabIndex = 42;
             this.txtDayIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtCodeIn
-            // 
-            this.txtCodeIn.BackColor = System.Drawing.Color.White;
-            this.txtCodeIn.Location = new System.Drawing.Point(87, 106);
-            this.txtCodeIn.Name = "txtCodeIn";
-            this.txtCodeIn.ReadOnly = true;
-            this.txtCodeIn.Size = new System.Drawing.Size(158, 20);
-            this.txtCodeIn.TabIndex = 41;
-            this.txtCodeIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // txtNameIn
             // 
-            this.txtNameIn.Location = new System.Drawing.Point(87, 68);
+            this.txtNameIn.Location = new System.Drawing.Point(87, 99);
             this.txtNameIn.Name = "txtNameIn";
             this.txtNameIn.ReadOnly = true;
             this.txtNameIn.Size = new System.Drawing.Size(158, 20);
@@ -193,25 +185,16 @@
             // lblDayIn
             // 
             this.lblDayIn.AutoSize = true;
-            this.lblDayIn.Location = new System.Drawing.Point(268, 113);
+            this.lblDayIn.Location = new System.Drawing.Point(268, 106);
             this.lblDayIn.Name = "lblDayIn";
             this.lblDayIn.Size = new System.Drawing.Size(56, 13);
             this.lblDayIn.TabIndex = 39;
             this.lblDayIn.Text = "Ngày bán:";
             // 
-            // lblCodeIn
-            // 
-            this.lblCodeIn.AutoSize = true;
-            this.lblCodeIn.Location = new System.Drawing.Point(25, 113);
-            this.lblCodeIn.Name = "lblCodeIn";
-            this.lblCodeIn.Size = new System.Drawing.Size(52, 13);
-            this.lblCodeIn.TabIndex = 38;
-            this.lblCodeIn.Text = "Số phiếu:";
-            // 
             // lblNameIn
             // 
             this.lblNameIn.AutoSize = true;
-            this.lblNameIn.Location = new System.Drawing.Point(25, 75);
+            this.lblNameIn.Location = new System.Drawing.Point(25, 106);
             this.lblNameIn.Name = "lblNameIn";
             this.lblNameIn.Size = new System.Drawing.Size(56, 13);
             this.lblNameIn.TabIndex = 37;
@@ -231,7 +214,7 @@
             // lblPos
             // 
             this.lblPos.AutoSize = true;
-            this.lblPos.Location = new System.Drawing.Point(568, 113);
+            this.lblPos.Location = new System.Drawing.Point(568, 106);
             this.lblPos.Name = "lblPos";
             this.lblPos.Size = new System.Drawing.Size(32, 13);
             this.lblPos.TabIndex = 55;
@@ -239,7 +222,7 @@
             // 
             // txtPOS
             // 
-            this.txtPOS.Location = new System.Drawing.Point(606, 106);
+            this.txtPOS.Location = new System.Drawing.Point(610, 99);
             this.txtPOS.Name = "txtPOS";
             this.txtPOS.Size = new System.Drawing.Size(48, 20);
             this.txtPOS.TabIndex = 56;
@@ -265,14 +248,13 @@
             this.Controls.Add(this.txtHourIn);
             this.Controls.Add(this.lblHourIn);
             this.Controls.Add(this.txtDayIn);
-            this.Controls.Add(this.txtCodeIn);
             this.Controls.Add(this.txtNameIn);
             this.Controls.Add(this.lblDayIn);
-            this.Controls.Add(this.lblCodeIn);
             this.Controls.Add(this.lblNameIn);
             this.Controls.Add(this.lblTitle);
             this.Name = "GUI_InsertBill";
             this.Text = "GUI_InsertBill";
+            this.Load += new System.EventHandler(this.GUI_InsertBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillIn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,10 +276,8 @@
         private System.Windows.Forms.TextBox txtHourIn;
         private System.Windows.Forms.Label lblHourIn;
         private System.Windows.Forms.TextBox txtDayIn;
-        private System.Windows.Forms.TextBox txtCodeIn;
         private System.Windows.Forms.TextBox txtNameIn;
         private System.Windows.Forms.Label lblDayIn;
-        private System.Windows.Forms.Label lblCodeIn;
         private System.Windows.Forms.Label lblNameIn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblPos;

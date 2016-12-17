@@ -143,7 +143,6 @@
     <Compile Include="ManageBill\GUI_UpdateBill_Update.Designer.cs">
       <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBill\ValidationExtension1.cs" />
     <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
     <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
       <SubType>Form</SubType>

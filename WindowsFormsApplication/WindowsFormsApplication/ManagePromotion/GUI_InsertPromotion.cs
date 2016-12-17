@@ -18,6 +18,7 @@ namespace WindowsFormsApplication.ManagePromotion
             InitializeComponent();
             loadInsertPromotionForm();
             v = new ValidationExtension();
+          
         }
 
         ValidationExtension v;
@@ -89,12 +90,14 @@ namespace WindowsFormsApplication.ManagePromotion
                     MessageBox.Show("Thêm không thành công!");
             }
         }
-        private void btnCancle_Click(object sender, EventArgs e)
+        private void clickCacel(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
             }
         }
+
+       
     }
 }

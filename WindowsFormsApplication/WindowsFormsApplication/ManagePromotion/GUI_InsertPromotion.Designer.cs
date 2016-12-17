@@ -151,7 +151,7 @@
             this.btnCancle.TabIndex = 33;
             this.btnCancle.Text = "Hủy";
             this.btnCancle.UseVisualStyleBackColor = true;
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            this.btnCancle.Click += new System.EventHandler(this.clickCacel);
             // 
             // lblHinh
             // 
