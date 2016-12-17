@@ -45,6 +45,13 @@
             this.lstHeadquarterImportBallot = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lstHeadquarterImportBallotDetail = new System.Windows.Forms.DataGridView();
+            this.BallotCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InputPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EXP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IntoMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lstHeadquarterImportBallot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstHeadquarterImportBallotDetail)).BeginInit();
@@ -156,6 +163,7 @@
             this.btnInsert.TabIndex = 31;
             this.btnInsert.Text = "Thêm";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.clickInsert);
             // 
             // btnUpdate
             // 
@@ -166,6 +174,7 @@
             this.btnUpdate.TabIndex = 32;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
             // btnPrint
             // 
@@ -176,6 +185,7 @@
             this.btnPrint.TabIndex = 33;
             this.btnPrint.Text = "In";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.clickPrint);
             // 
             // lstHeadquarterImportBallot
             // 
@@ -184,8 +194,9 @@
             this.lstHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallot.Name = "lstHeadquarterImportBallot";
             this.lstHeadquarterImportBallot.RowTemplate.Height = 24;
-            this.lstHeadquarterImportBallot.Size = new System.Drawing.Size(210, 225);
+            this.lstHeadquarterImportBallot.Size = new System.Drawing.Size(224, 225);
             this.lstHeadquarterImportBallot.TabIndex = 34;
+            this.lstHeadquarterImportBallot.DoubleClick += new System.EventHandler(this.selectUpdateHeadquarterImportBallot);
             // 
             // txtSearch
             // 
@@ -199,12 +210,69 @@
             // lstHeadquarterImportBallotDetail
             // 
             this.lstHeadquarterImportBallotDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstHeadquarterImportBallotDetail.Location = new System.Drawing.Point(234, 143);
+            this.lstHeadquarterImportBallotDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BallotCode,
+            this.ProductCode,
+            this.Number,
+            this.InputPrice,
+            this.EXP,
+            this.State,
+            this.IntoMoney});
+            this.lstHeadquarterImportBallotDetail.Location = new System.Drawing.Point(253, 143);
             this.lstHeadquarterImportBallotDetail.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallotDetail.Name = "lstHeadquarterImportBallotDetail";
             this.lstHeadquarterImportBallotDetail.RowTemplate.Height = 24;
-            this.lstHeadquarterImportBallotDetail.Size = new System.Drawing.Size(430, 225);
+            this.lstHeadquarterImportBallotDetail.Size = new System.Drawing.Size(412, 225);
             this.lstHeadquarterImportBallotDetail.TabIndex = 36;
+            // 
+            // BallotCode
+            // 
+            this.BallotCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.BallotCode.HeaderText = "Số phiếu";
+            this.BallotCode.Name = "BallotCode";
+            this.BallotCode.Width = 74;
+            // 
+            // ProductCode
+            // 
+            this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ProductCode.HeaderText = "Mã SP";
+            this.ProductCode.Name = "ProductCode";
+            this.ProductCode.Width = 64;
+            // 
+            // Number
+            // 
+            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Number.HeaderText = "SL";
+            this.Number.Name = "Number";
+            this.Number.Width = 45;
+            // 
+            // InputPrice
+            // 
+            this.InputPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.InputPrice.HeaderText = "Giá";
+            this.InputPrice.Name = "InputPrice";
+            this.InputPrice.Width = 48;
+            // 
+            // EXP
+            // 
+            this.EXP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EXP.HeaderText = "Hạn sử dụng";
+            this.EXP.Name = "EXP";
+            this.EXP.Width = 93;
+            // 
+            // State
+            // 
+            this.State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.State.HeaderText = "Status";
+            this.State.Name = "State";
+            this.State.Width = 62;
+            // 
+            // IntoMoney
+            // 
+            this.IntoMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IntoMoney.HeaderText = "Thành tiền";
+            this.IntoMoney.Name = "IntoMoney";
+            this.IntoMoney.Width = 83;
             // 
             // GUI_HeadquarterImportBallot
             // 
@@ -254,6 +322,13 @@
         private System.Windows.Forms.DataGridView lstHeadquarterImportBallot;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView lstHeadquarterImportBallotDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BallotCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InputPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EXP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IntoMoney;
 
     }
 }

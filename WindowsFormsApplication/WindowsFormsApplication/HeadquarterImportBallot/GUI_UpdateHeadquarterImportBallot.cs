@@ -11,7 +11,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
 {
     public partial class GUI_UpdateHeadquarterImportBallot : Form
     {
-        public GUI_UpdateHeadquarterImportBallot()
+        public GUI_UpdateHeadquarterImportBallot(string ballotNum)
         {
             InitializeComponent();
         }
