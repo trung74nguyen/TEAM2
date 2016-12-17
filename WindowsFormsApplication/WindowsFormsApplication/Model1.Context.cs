@@ -1293,5 +1293,14 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistorySearch_Result>("usp_PriceHistorySearch", tEXTSEARCHParameter);
         }
+    
+        public virtual ObjectResult<usp_BillSearch_Result> usp_BillSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BillSearch_Result>("usp_BillSearch", tEXTSEARCHParameter);
+        }
     }
 }

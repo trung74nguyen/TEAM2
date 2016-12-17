@@ -17,10 +17,10 @@ namespace WindowsFormsApplication.ManageBill
             return db.Bills.ToList();
         }
         
-        public List<usp_BillDetailSelectAll_Result> getAllListBillDetail()
+        public List<usp_BillDetailSelectAll_Result> getAllListBillDetail(string ballotnum)
         {
             var db = new CMART2Entities1();
-            return db.usp_BillDetailSelectAll().ToList();
+            return db.usp_BillDetailSelectAll().Where(i =>i.BallotNUm == ballotnum).ToList();
         }
         public List<usp_BillSelectAll_Result> getAllListBill_()
         {
@@ -57,7 +57,7 @@ namespace WindowsFormsApplication.ManageBill
             return false;
         }
 
-        public bool insertNewBill(string billCode, DateTime daySales, float total, float guestMoney,float excessCash, int totalNum,int POS,string accountCode)
+        public bool insertNewBill(DateTime daySales, float total, float guestMoney,float excessCash, int totalNum,int POS,string accountCode)
         {
             try
             {
@@ -89,6 +89,10 @@ namespace WindowsFormsApplication.ManageBill
                 return false;
             }
         }
-
+        public List<usp_BillSearch_Result> searchAllListBill(string text)
+        {
+            var db = new CMART2Entities1();
+            return db.usp_BillSearch(text).ToList();
+        }
     }
 }

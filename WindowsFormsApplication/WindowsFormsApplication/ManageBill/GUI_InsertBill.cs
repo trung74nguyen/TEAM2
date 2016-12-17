@@ -67,26 +67,56 @@ namespace WindowsFormsApplication.ManageBill
             }
             return true;
         }
+        private void calCulate()
+        {
+            float total = float.Parse(txt_Total.Text.Trim());
+            float money = float.Parse(txtGuestMoneyIn.Text.Trim());
+            float remoney = float.Parse(txtExcessCashIn.Text.Trim());
+            int totalnum = int.Parse(txt_TotalNum.Text.Trim());
+            if (money > total)
+            {
+                remoney = money - total;
+            }
+            else
+            {
+                remoney = 0;
+            }
+        }
         private void clickSave(object sender, EventArgs e)
         {
-            string pos = txtPOS.Text.Trim();
-            string mon = txtExcessCashIn.Text.Trim();
+            string sPos = txtPOS.Text.Trim();
+           // string mon = txtExcessCashIn.Text.Trim();
             DateTime date = DateTime.Now;
-            string total = txtTotalIn.Text.ToString();
-            string money = txtGuestMoneyIn.Text.ToString();
-            string remoney = txtExcessCashIn.Text.ToString();
-            string name = txtNameIn.Text.ToString();
-            
+            string sTotal = txt_TotalNum.Text.ToString();
+            string sMoney = txtGuestMoneyIn.Text.ToString();
+            string sRemoney = txtExcessCashIn.Text.ToString();
+            string name = "TK000005";
+            name = txtNameIn.Text.ToString();
+            string sTotalnum = txt_TotalNum.Text.Trim();
+            var inputData = checkDataInput(sPos, sMoney);
+            if (inputData == true)
+            {
+                int pos = int.Parse(txtPOS.Text.Trim());
+                float total = float.Parse(txt_Total.Text.Trim());
+                float money = float.Parse(txtGuestMoneyIn.Text.Trim());
+                float remoney = float.Parse(txtExcessCashIn.Text.Trim());
+                int totalnum = int.Parse(txt_TotalNum.Text.Trim());
+                if (bus.insertNewBill(date, total, money, remoney, totalnum,pos,name))
+                {
+                    txtPOS.Text = txt_TotalNum.Text = txt_Total.Text =txtGuestMoneyIn.Text=txtExcessCashIn.Text= "";
+                    MessageBox.Show("Thêm thành công!");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Thêm không thành công!");
+            }
             
         }
 
-        private void lblUpIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            GUI_UpdateBill_Update gui = new GUI_UpdateBill_Update();
-            gui.ShowDialog();
-        }
+       
         private void GUI_InsertBill_Load(object sender, EventArgs e)
         {
+            
             string str = DateTime.Now.ToString().Trim();
             str = str.Substring(0, 10);
             txtDayIn.Text = str;
@@ -103,8 +133,7 @@ namespace WindowsFormsApplication.ManageBill
                 string str_ = hour + ":" + minute + ":" + second+" PM";
                 txtHourIn.Text = str_;
             }
-          
-
+            calCulate();
         }
 
         private void clickCancel(object sender, EventArgs e)

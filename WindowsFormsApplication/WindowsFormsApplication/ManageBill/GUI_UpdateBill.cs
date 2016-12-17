@@ -40,10 +40,6 @@ namespace WindowsFormsApplication.ManageBill
             //}
         }
 
-        private void lblUpUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            GUI_UpdateBill_Update gui = new GUI_UpdateBill_Update();
-            gui.ShowDialog();
-        }
+       
     }
 }

@@ -24,8 +24,14 @@ namespace WindowsFormsApplication.ManageBill
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             lstManageBill.Columns["BallotNum"].HeaderText = "Số phiếu";
             lstManageBill.Columns["FullName"].HeaderText = "Tên thu ngân";
+            btnUpdate.Enabled = false;
            
-           
+        }
+        private void showManageBillForm(object sender, EventArgs e)
+        {
+            var billInfo = bus.getAllListBill_();
+            showManageBillForm(billInfo);
+
         }
         private void showManageBillDetailForm(List<usp_BillDetailSelectAll_Result> billdetail)
         {
@@ -33,42 +39,50 @@ namespace WindowsFormsApplication.ManageBill
             //foreach (DataGridViewColumn column in lstManageBillDetail.Columns)
             //    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //btnUpdate.Enabled = false;
-            //BindingSource bs = new BindingSource();
-            //bs.DataSource = billdetail;
-            //lstManageBillDetail.DataSource = bs;
-            //for (int i = 0; i < lstManageBillDetail.Rows.Count - 1; i++)
-            //{
-            //    for (int j = 0; j < lstManageBillDetail.Columns.Count; j++)
-            //    {
-            //        if (lstManageBillDetail.Rows[i].Cells[j].Value != null)
-            //        {
-            //            int sl = Convert.ToInt32(lstManageBillDetail.Rows[i].Cells["Number"].Value.ToString());
-            //            double dongia = Convert.ToDouble(lstManageBillDetail.Rows[i].Cells["UnitPrice"].Value.ToString());
-            //            double thanhtien = Convert.ToDouble(lstManageBillDetail.Rows[i].Cells["Total"].Value);
-            //            if (sl > 0 && dongia > 0)
-            //            {
-            //                thanhtien = (sl * dongia);
-            //            }
-            //            lstManageBillDetail.Rows.Add(billdetail[i].BallotNUm, billdetail[i].ProductCode, billdetail[i].ProductName, billdetail[i].UnitPrice, billdetail[i].Number, thanhtien);
-            //        }
-
-            //    }
-            //}
-
             for (int i = 0; i < billdetail.Count; i++)
             {
                 int sl = billdetail[i].Number;
                 double dongia = billdetail[i].UnitPrice;
                 double thanhtien = (double)(dongia * sl);
-                lstManageBillDetail.Rows.Add(billdetail[i].BallotNUm, billdetail[i].ProductCode, billdetail[i].ProductName, billdetail[i].UnitPrice, billdetail[i].Number, thanhtien);
+                lstManageBillDetail.Rows.Add(
+                    billdetail[i].BallotNUm, 
+                    billdetail[i].ProductCode, 
+                    billdetail[i].ProductName, 
+                    billdetail[i].UnitPrice, 
+                    billdetail[i].Number, 
+                    thanhtien);
             }
         }
-        private void showManageBillForm(object sender, EventArgs e)
+        private void showManageBillDetail(object sender, EventArgs e, string ballotnum)
         {
-            var billInfo = bus.getAllListBill_();
-            showManageBillForm(billInfo);
-           
+            var billDetail = bus.getAllListBillDetail(ballotnum);
+            showManageBillDetailForm(billDetail);
+
         }
+        private string ballotNum = "";
+        private void selectBillToUpdate(object sender, EventArgs e)
+        {
+            lstManageBillDetail.DataMember = null;
+            if (lstManageBill.SelectedRows.Count == 1)
+            {
+                var ballot = lstManageBill.SelectedRows[0].Cells["BallotNum"].Value;
+                ballotNum = ballot.ToString();
+                showManageBillDetail(null, null, ballotNum);
+                btnUpdate.Enabled = true;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
         private void btnInsert_Click(object sender, EventArgs e)
         {
             GUI_InsertBill gui = new GUI_InsertBill();
@@ -80,11 +94,17 @@ namespace WindowsFormsApplication.ManageBill
             GUI_UpdateBill gui = new GUI_UpdateBill();
             gui.ShowDialog();
         }
+      
+       
 
-        private void lstManageBill_DoubleClick(object sender, EventArgs e)
+        private void clickSearch(object sender, EventArgs e)
         {
-            var billDetailInfo = bus.getAllListBillDetail();
-            showManageBillDetailForm(billDetailInfo);
+            lstManageBill.DataSource = bus.searchAllListBill(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
         }
         
         

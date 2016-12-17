@@ -522,6 +522,9 @@
           <Parameter Name="POS" Type="int" Mode="In" />
           <Parameter Name="AccountCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_BillSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_BillSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BallotNum" Type="varchar" Mode="In" />
         </Function>
@@ -1508,8 +1511,7 @@
             <Parameter Name="AccountCode" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillSelect" ReturnType="Collection(CMART2Model.usp_BillSelect_Result)">
-            <Parameter Name="BallotNum" Mode="In" Type="String" />
-            
+          <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
           
           <FunctionImport Name="usp_BillSelectAll" ReturnType="Collection(CMART2Model.usp_BillSelectAll_Result)" >
@@ -1752,6 +1754,9 @@
             <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PriceHistorySearch" ReturnType="Collection(CMART2Model.usp_PriceHistorySearch_Result)">
+          <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BillSearch" ReturnType="Collection(CMART2Model.usp_BillSearch_Result)">
             <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -2085,6 +2090,17 @@
           <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="20" />
           <Property Type="Double" Name="Price" Nullable="false" />
           <Property Type="DateTime" Name="EffectiveDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_BillSearch_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Double" Name="GuestMoney" Nullable="false" />
+          <Property Type="Double" Name="ExcessCash" Nullable="false" />
+          <Property Type="Int32" Name="TotalNum" Nullable="false" />
+          <Property Type="Int32" Name="POS" Nullable="false" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2821,6 +2837,21 @@
                 <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BillSearch" FunctionName="CMART2Model.Store.usp_BillSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BillSearch_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="GuestMoney" ColumnName="GuestMoney" />
+                <ScalarProperty Name="ExcessCash" ColumnName="ExcessCash" />
+                <ScalarProperty Name="TotalNum" ColumnName="TotalNum" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

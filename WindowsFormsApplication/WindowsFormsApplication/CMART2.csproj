@@ -137,12 +137,6 @@
     <Compile Include="ManageBill\GUI_UpdateBill.Designer.cs">
       <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBill\GUI_UpdateBill_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManageBill\GUI_UpdateBill_Update.Designer.cs">
-      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
     <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
       <SubType>Form</SubType>
@@ -283,6 +277,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_BillInsert_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_BillSearch_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_BillSelectAll_Result.cs">
@@ -449,9 +446,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBill\GUI_UpdateBill.resx">
       <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManageBill\GUI_UpdateBill_Update.resx">
-      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePromotion\GUI_InsertPromotion.resx">
       <DependentUpon>GUI_InsertPromotion.cs</DependentUpon>
