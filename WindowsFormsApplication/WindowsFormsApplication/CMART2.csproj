@@ -118,6 +118,19 @@
     <Compile Include="HeadquaterImportBallotDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Home\BUS_LogIn.cs" />
+    <Compile Include="Home\GUI_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\GUI_Home.Designer.cs">
+      <DependentUpon>GUI_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\GUI_LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\GUI_LogIn.Designer.cs">
+      <DependentUpon>GUI_LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageBill\BUS_ManageBill.cs" />
     <Compile Include="ManageBill\GUI_InsertBill.cs">
       <SubType>Form</SubType>
@@ -419,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeadquarterImportBallot\GUI_UpdateHeadquarterImportBallot.resx">
       <DependentUpon>GUI_UpdateHeadquarterImportBallot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\GUI_Home.resx">
+      <DependentUpon>GUI_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\GUI_LogIn.resx">
+      <DependentUpon>GUI_LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageProduct\GUI_InsertProduct.resx">
       <DependentUpon>GUI_InsertProduct.cs</DependentUpon>

@@ -7,6 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using WindowsFormsApplication.HeadquarterImportBallot;
+using WindowsFormsApplication.Home;
+using WindowsFormsApplication.ManageBill;
+using WindowsFormsApplication.ManagePriceHistory;
+using WindowsFormsApplication.ManageProduct;
+using WindowsFormsApplication.ManagePromotion;
+using WindowsFormsApplication.Statistics_and_Report;
 
 namespace WindowsFormsApplication.ManagePriceHistory
 {
@@ -102,5 +109,70 @@ namespace WindowsFormsApplication.ManagePriceHistory
         {
             lstPriceHistory.DataSource = Bus_manage.searchListPriceHistory(txtSearch.Text);
         }
+
+        private void btnQLSP_Click(object sender, EventArgs e)
+        {
+            GUI_ManageProduct manageproduct = new GUI_ManageProduct();
+            this.Visible = false;
+            manageproduct.ShowDialog();
+            this.Close();
+        }
+
+        private void btnQLLSG_Click(object sender, EventArgs e)
+        {
+            GUI_ManagePriceHistory managepricehistory = new GUI_ManagePriceHistory();
+            this.Visible = false;
+            managepricehistory.ShowDialog();
+            this.Close();
+        }
+
+        private void btnQLTTKM_Click(object sender, EventArgs e)
+        {
+            GUI_ManagePromotion managepromotion = new GUI_ManagePromotion();
+            this.Visible = false;
+            managepromotion.ShowDialog();
+            this.Close();
+        }
+
+        private void btnQLNHTS_Click(object sender, EventArgs e)
+        {
+            GUI_HeadquarterImportBallot headquarterimportbllot = new GUI_HeadquarterImportBallot();
+            this.Visible = false;
+            headquarterimportbllot.ShowDialog();
+            this.Close();
+        }
+
+        private void btnQLNHCN_Click(object sender, EventArgs e)
+        {
+            GUI_BranchImportBallot branchimportbllot = new GUI_BranchImportBallot();
+            this.Visible = false;
+            branchimportbllot.ShowDialog();
+            this.Close();
+        }
+
+        private void btnQLHD_Click(object sender, EventArgs e)
+        {
+            GUI_ManageBill managebill = new GUI_ManageBill();
+            this.Visible = false;
+            managebill.ShowDialog();
+            this.Close();
+        }
+
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+            GUI_ManageSalesStatistics managesalesstatistics = new GUI_ManageSalesStatistics();
+            this.Visible = false;
+            managesalesstatistics.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            GUI_LogIn login = new GUI_LogIn();
+            this.Visible = false;
+            login.ShowDialog();
+            this.Close();
+        }
+
     }
 }
