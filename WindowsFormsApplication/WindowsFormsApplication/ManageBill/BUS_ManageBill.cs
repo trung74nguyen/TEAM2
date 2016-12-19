@@ -16,7 +16,11 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.Bills.ToList();
         }
-        
+        public List<Account> getAllListAccount()
+        {
+            var db = new CMART2Entities1();
+            return db.Accounts.Where(i =>i.Authorities.Equals("Dương Thành Công Lý")).ToList();
+        }
         public List<usp_BillDetailSelectAll_Result> getAllListBillDetail(string ballotnum)
         {
             var db = new CMART2Entities1();
@@ -37,33 +41,60 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.Bills.Count(s => s.BallotNum.Equals(id)) == 1;
         }
-        public bool deleteBill(string id)
-        {
-            if (checkExistBill(id))
-                try
-                {
-                    var db = new CMART2Entities1();
-                    {
-                        var pro = db.Bills.Single(s => s.BallotNum.Equals(id));
-                        db.Bills.Remove(pro);
-                        db.SaveChanges();
-                        return true;
-                    }
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            return false;
-        }
-
-        public bool insertNewBill(DateTime daySales, float total, float guestMoney,float excessCash, int totalNum,int POS,string accountCode)
+        //public bool deleteBill(string id)
+        //{
+        //    if (checkExistBill(id))
+        //        try
+        //        {
+        //            var db = new CMART2Entities1();
+        //            {
+        //                var pro = db.Bills.Single(s => s.BallotNum.Equals(id));
+        //                db.Bills.Remove(pro);
+        //                db.SaveChanges();
+        //                return true;
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+        //            return false;
+        //        }
+        //    return false;
+        //}
+        public bool insertNewBillDetail(string productcode, float unitprice, int number)
         {
             try
             {
                 using (var db = new CMART2Entities1())
                 {
-                    ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
+                    //ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
+                    //db.SP_BILL_BALLOTNUM_AUTO(idoutput);
+                    //var id_auto = idoutput.Value.ToString();
+                    var billdetail = new BillDetail
+                    {
+                        BallotNum =id,
+                        ProductCode = productcode,
+                        UnitPrice = unitprice,
+                        Number = number
+                    };
+                    db.BillDetails.Add(billdetail);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        string id = "";
+        public bool insertNewBill(DateTime daySales, float total, float guestMoney,float excessCash, int totalNum,int POS,string accountCode)
+        {
+            
+            try
+            {
+                using (var db = new CMART2Entities1())
+                {
+                    ObjectParameter idoutput = new ObjectParameter("BALLOTNUM", typeof(String));
                     db.SP_BILL_BALLOTNUM_AUTO(idoutput);
                     var id_auto = idoutput.Value.ToString();
 
@@ -80,6 +111,7 @@ namespace WindowsFormsApplication.ManageBill
                     };
                     db.Bills.Add(bill);
                     db.SaveChanges();
+                    id = Convert.ToString(id_auto);
                     return true;
                 }
 
@@ -94,5 +126,6 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.usp_BillSearch(text).ToList();
         }
+
     }
 }

@@ -1757,7 +1757,7 @@
           <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BillSearch" ReturnType="Collection(CMART2Model.usp_BillSearch_Result)">
-            <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+          <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">

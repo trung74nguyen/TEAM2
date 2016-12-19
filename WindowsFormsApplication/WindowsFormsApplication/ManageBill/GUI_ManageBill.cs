@@ -106,6 +106,7 @@ namespace WindowsFormsApplication.ManageBill
         {
             txtSearch.Text = "";
         }
+       
         
         
     }

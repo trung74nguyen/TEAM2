@@ -37,6 +37,10 @@
             this.lblTotalNum = new System.Windows.Forms.Label();
             this.lblUpIn = new System.Windows.Forms.LinkLabel();
             this.lstManageBillIn = new System.Windows.Forms.DataGridView();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtHourIn = new System.Windows.Forms.TextBox();
             this.lblHourIn = new System.Windows.Forms.Label();
             this.txtDayIn = new System.Windows.Forms.TextBox();
@@ -50,11 +54,6 @@
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.lbl_Total = new System.Windows.Forms.Label();
             this.txtExcessCashIn = new System.Windows.Forms.TextBox();
-            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +139,6 @@
             this.lstManageBillIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstManageBillIn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductCode,
-            this.ProductName,
             this.UnitPrice,
             this.Number,
             this.Total});
@@ -148,6 +146,30 @@
             this.lstManageBillIn.Name = "lstManageBillIn";
             this.lstManageBillIn.Size = new System.Drawing.Size(572, 150);
             this.lstManageBillIn.TabIndex = 45;
+            // 
+            // ProductCode
+            // 
+            this.ProductCode.DataPropertyName = "ProductCode";
+            this.ProductCode.HeaderText = "Mã sản phẩm";
+            this.ProductCode.Name = "ProductCode";
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Đơn giá";
+            this.UnitPrice.Name = "UnitPrice";
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Số lượng ";
+            this.Number.Name = "Number";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Thành tiền";
+            this.Total.Name = "Total";
             // 
             // txtHourIn
             // 
@@ -183,6 +205,7 @@
             this.txtNameIn.ReadOnly = true;
             this.txtNameIn.Size = new System.Drawing.Size(158, 20);
             this.txtNameIn.TabIndex = 40;
+            this.txtNameIn.Text = "Dương Thành Công Lý";
             this.txtNameIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblDayIn
@@ -265,36 +288,6 @@
             this.txtExcessCashIn.TabIndex = 60;
             this.txtExcessCashIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // ProductCode
-            // 
-            this.ProductCode.DataPropertyName = "ProductCode";
-            this.ProductCode.HeaderText = "Mã sản phẩm";
-            this.ProductCode.Name = "ProductCode";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Tên sản phẩm";
-            this.ProductName.Name = "ProductName";
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "Đơn giá";
-            this.UnitPrice.Name = "UnitPrice";
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "Số lượng ";
-            this.Number.Name = "Number";
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Thành tiền";
-            this.Total.Name = "Total";
-            // 
             // GUI_InsertBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,7 +350,6 @@
         private System.Windows.Forms.Label lbl_Total;
         private System.Windows.Forms.TextBox txtExcessCashIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
