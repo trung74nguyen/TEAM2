@@ -33,21 +33,23 @@
             this.txtBillCode = new System.Windows.Forms.TextBox();
             this.rbMilestoneTime = new System.Windows.Forms.RadioButton();
             this.rbDay = new System.Windows.Forms.RadioButton();
-            this.rpMonth = new System.Windows.Forms.RadioButton();
-            this.rbYear = new System.Windows.Forms.RadioButton();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDayCreate = new System.Windows.Forms.TextBox();
             this.rbRangeTime = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpDayStart = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDayEnd = new System.Windows.Forms.DateTimePicker();
             this.lstProduct = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnStatistic = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,28 +103,6 @@
             this.rbDay.Text = "Ngày";
             this.rbDay.UseVisualStyleBackColor = true;
             // 
-            // rpMonth
-            // 
-            this.rpMonth.AutoSize = true;
-            this.rpMonth.Location = new System.Drawing.Point(58, 180);
-            this.rpMonth.Name = "rpMonth";
-            this.rpMonth.Size = new System.Drawing.Size(56, 17);
-            this.rpMonth.TabIndex = 5;
-            this.rpMonth.TabStop = true;
-            this.rpMonth.Text = "Tháng";
-            this.rpMonth.UseVisualStyleBackColor = true;
-            // 
-            // rbYear
-            // 
-            this.rbYear.AutoSize = true;
-            this.rbYear.Location = new System.Drawing.Point(58, 218);
-            this.rbYear.Name = "rbYear";
-            this.rbYear.Size = new System.Drawing.Size(47, 17);
-            this.rbYear.TabIndex = 6;
-            this.rbYear.TabStop = true;
-            this.rbYear.Text = "Năm";
-            this.rbYear.UseVisualStyleBackColor = true;
-            // 
             // dtpDate
             // 
             this.dtpDate.Location = new System.Drawing.Point(124, 146);
@@ -155,13 +135,13 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Ngày lập:";
             // 
-            // textBox1
+            // txtDayCreate
             // 
-            this.textBox1.Location = new System.Drawing.Point(509, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(208, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtDayCreate.Location = new System.Drawing.Point(509, 67);
+            this.txtDayCreate.Name = "txtDayCreate";
+            this.txtDayCreate.ReadOnly = true;
+            this.txtDayCreate.Size = new System.Drawing.Size(208, 20);
+            this.txtDayCreate.TabIndex = 11;
             // 
             // rbRangeTime
             // 
@@ -217,44 +197,80 @@
             this.lstProduct.Size = new System.Drawing.Size(774, 206);
             this.lstProduct.TabIndex = 17;
             // 
-            // btnSave
+            // btnStatistic
             // 
-            this.btnSave.Location = new System.Drawing.Point(630, 468);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnStatistic.Location = new System.Drawing.Point(616, 519);
+            this.btnStatistic.Name = "btnStatistic";
+            this.btnStatistic.Size = new System.Drawing.Size(75, 23);
+            this.btnStatistic.TabIndex = 18;
+            this.btnStatistic.Text = "Thống kê";
+            this.btnStatistic.UseVisualStyleBackColor = true;
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(711, 468);
+            this.btnIn.Location = new System.Drawing.Point(711, 519);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(75, 23);
             this.btnIn.TabIndex = 19;
             this.btnIn.Text = "In";
             this.btnIn.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(70, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Tháng";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(70, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Năm";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(528, 482);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Tổng tiền:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(589, 479);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(197, 20);
+            this.txtTotal.TabIndex = 23;
+            // 
             // GUI_InsertStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 510);
+            this.ClientSize = new System.Drawing.Size(798, 567);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIn);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnStatistic);
             this.Controls.Add(this.lstProduct);
             this.Controls.Add(this.dtpDayEnd);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDayStart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rbRangeTime);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDayCreate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboYear);
             this.Controls.Add(this.cboMonth);
             this.Controls.Add(this.dtpDate);
-            this.Controls.Add(this.rbYear);
-            this.Controls.Add(this.rpMonth);
             this.Controls.Add(this.rbDay);
             this.Controls.Add(this.rbMilestoneTime);
             this.Controls.Add(this.txtBillCode);
@@ -275,20 +291,22 @@
         private System.Windows.Forms.TextBox txtBillCode;
         private System.Windows.Forms.RadioButton rbMilestoneTime;
         private System.Windows.Forms.RadioButton rbDay;
-        private System.Windows.Forms.RadioButton rpMonth;
-        private System.Windows.Forms.RadioButton rbYear;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboYear;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDayCreate;
         private System.Windows.Forms.RadioButton rbRangeTime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDayStart;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDayEnd;
         private System.Windows.Forms.DataGridView lstProduct;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotal;
     }
 }

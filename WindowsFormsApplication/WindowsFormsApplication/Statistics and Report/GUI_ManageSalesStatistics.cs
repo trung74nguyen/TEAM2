@@ -12,6 +12,8 @@ namespace WindowsFormsApplication.Statistics_and_Report
     public partial class GUI_ManageSalesStatistics : Form
     {
         BUS_ManageSalesStatistic bus = new BUS_ManageSalesStatistic();
+       
+      
         public GUI_ManageSalesStatistics()
         {
             InitializeComponent();
@@ -29,14 +31,17 @@ namespace WindowsFormsApplication.Statistics_and_Report
         }
         private void showManagePriceHistoryForm(object sender, EventArgs e)
         {
-            var statistic = bus.loadAllListProduct();
-            showManagePriceHistoryForm(statistic);
+          //  var statistic = bus.loadAllListProduct();
+           // showManagePriceHistoryForm(statistic);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             GUI_InsertStatistic insert = new GUI_InsertStatistic();
+            
             insert.ShowDialog();
+          
+            
         }
        
     }
