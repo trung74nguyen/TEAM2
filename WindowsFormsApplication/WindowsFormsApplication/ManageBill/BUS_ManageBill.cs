@@ -16,6 +16,11 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.Bills.ToList();
         }
+        public Product getProduct(string id)
+        {
+            var db = new CMART2Entities1();
+            return db.Products.Find(id);
+        }
         public List<Account> getAllListAccount()
         {
             var db = new CMART2Entities1();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -167,7 +168,6 @@ namespace WindowsFormsApplication.ManageBill
                 string str_ = hour + ":" + minute + ":" + second+" PM";
                 txtHourIn.Text = str_;
             }
-           
            // calCulate();
         }
         private void GUI_InsertBillDetail_Load(object sender, EventArgs e,string ballotnum)
@@ -199,6 +199,59 @@ namespace WindowsFormsApplication.ManageBill
             }
         }
 
+        private void txtid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e != null && e.KeyChar == 13)
+            {
+                string pid = txtid.Text;
+                Product p = bus.getProduct(pid);
+                BillDetailWithTotal d = new BillDetailWithTotal();
+                //d.ProductCode = p.ProductCode;
+                d.ProductCode = p.ProductName;
+                d.UnitPrice = p.PriceHistories.Last().Price;
+                d.Number = int.Parse(nud_Number.Text);
+                d.Subtotal = d.Number * d.UnitPrice;
+                BillDetails.Add(d);
+                lstManageBillIn.DataSource = null;
+                lstManageBillIn.DataSource = BillDetails;
+                lstManageBillIn.Columns["Bill"].Visible = false;
+                lstManageBillIn.Columns["Product"].Visible = false;
+                lstManageBillIn.Columns["BallotNum"].Visible = false;
+                lstManageBillIn.Columns["ProductCode"].HeaderText = "Tên sản phẩm";
+                lstManageBillIn.Columns["UnitPrice"].HeaderText = "Đơn giá";
+                lstManageBillIn.Columns["Number"].HeaderText = "Số lượng";
+                lstManageBillIn.Columns["Subtotal"].HeaderText = "Thành tiền";
+                txtid.Text = "";
+                nud_Number.Text = "1";
+            }
+            //tính thành tiền
+            int sc = lstManageBillIn.Rows.Count;
+            double thanhtien = 0;
+            for (int i = 0; i < sc; i++)
+            {
+                thanhtien += double.Parse(lstManageBillIn.Rows[i].Cells["Subtotal"].Value.ToString());
+            }
+            txt_Total.Text = Convert.ToString(thanhtien) + " VNĐ";
+            //tính tổng số lượng
+            int numproduct = 0;
+            for (int j = 0; j < sc; j++)
+            {
+                numproduct += int.Parse(lstManageBillIn.Rows[j].Cells["Number"].Value.ToString());
+            }
+            txt_TotalNum.Text = Convert.ToString(numproduct);
+        }
+
+        private List<BillDetailWithTotal> BillDetails = new List<BillDetailWithTotal>();
+
+        private void txtquantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtid_KeyPress(sender, e);
+        }
+
       
+    }
+    public class BillDetailWithTotal : BillDetail
+    {
+        public double Subtotal { get; set; }
     }
 }
