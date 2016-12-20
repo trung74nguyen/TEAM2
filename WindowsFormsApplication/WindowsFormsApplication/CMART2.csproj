@@ -11,7 +11,8 @@
     <RootNamespace>WindowsFormsApplication</RootNamespace>
     <AssemblyName>WindowsFormsApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,15 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,6 +96,17 @@
     </Compile>
     <Compile Include="BranchImportBallot\GUI_UpdateBranchImportBallot.Designer.cs">
       <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cr_SalesStatistic.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cr_SalesStatistic.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ds_SalesStatistic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_SalesStatistic.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form0.cs">
       <SubType>Form</SubType>
@@ -255,28 +276,10 @@
     <Compile Include="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY1_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY2_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEONGAYS_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEONGAYTHANGNAM_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY_Result.cs">
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY5_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_THONGKEDOANHTHUTHEOTHANGNAM1_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_THONGKEDOANHTHUTHEOTHANGNAM_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Statistics and Report\BUS_ManageSalesStatistic.cs" />
@@ -291,6 +294,18 @@
     </Compile>
     <Compile Include="Statistics and Report\GUI_ManageSalesStatistics.Designer.cs">
       <DependentUpon>GUI_ManageSalesStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics and Report\GUI_Print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics and Report\GUI_Print.Designer.cs">
+      <DependentUpon>GUI_Print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics and Report\GUI_PrintRangeTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics and Report\GUI_PrintRangeTime.Designer.cs">
+      <DependentUpon>GUI_PrintRangeTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -457,6 +472,10 @@
     <EmbeddedResource Include="BranchImportBallot\GUI_UpdateBranchImportBallot.resx">
       <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cr_SalesStatistic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cr_SalesStatistic.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form0.resx">
       <DependentUpon>Form0.cs</DependentUpon>
     </EmbeddedResource>
@@ -519,6 +538,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Statistics and Report\GUI_InsertStatistic.resx">
       <DependentUpon>GUI_InsertStatistic.cs</DependentUpon>
@@ -526,11 +546,28 @@
     <EmbeddedResource Include="Statistics and Report\GUI_ManageSalesStatistics.resx">
       <DependentUpon>GUI_ManageSalesStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Statistics and Report\GUI_Print.resx">
+      <DependentUpon>GUI_Print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics and Report\GUI_PrintRangeTime.resx">
+      <DependentUpon>GUI_PrintRangeTime.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Ds_SalesStatistic.xsc">
+      <DependentUpon>Ds_SalesStatistic.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_SalesStatistic.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_SalesStatistic.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Ds_SalesStatistic.xss">
+      <DependentUpon>Ds_SalesStatistic.xsd</DependentUpon>
+    </None>
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -557,6 +594,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

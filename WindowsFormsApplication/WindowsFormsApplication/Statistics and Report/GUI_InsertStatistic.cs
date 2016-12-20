@@ -107,5 +107,19 @@ namespace WindowsFormsApplication.Statistics_and_Report
             }
             txtTotal.Text = string.Format("{0:#,##0.##}", tongTien);
         }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (rbMilestoneTime.Checked)
+            {
+                GUI_Print f = new GUI_Print(int.Parse(this.cboMonth.Text), int.Parse(this.cboYear.Text));
+                f.ShowDialog();
+            }
+            if (rbRangeTime.Checked)
+            {
+                GUI_PrintRangeTime a = new GUI_PrintRangeTime(DateTime.Parse(dtpDayStart.Text), DateTime.Parse(dtpDayEnd.Text));
+                a.ShowDialog();
+            }
+        }
     }
 }

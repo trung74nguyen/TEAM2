@@ -11,12 +11,12 @@ namespace WindowsFormsApplication
 {
     using System;
     
-    public partial class SP_THONGKEDOANHTHUTHEONGAY_Result
+    public partial class SP_THONGKEDOANHTHUTHEONGAY5_Result
     {
         public string ProductName { get; set; }
         public System.DateTime Date { get; set; }
         public int Number { get; set; }
         public double UnitPrice { get; set; }
-        public Nullable<double> AMOUNT { get; set; }
+        public double AMOUNT { get; set; }
     }
 }
