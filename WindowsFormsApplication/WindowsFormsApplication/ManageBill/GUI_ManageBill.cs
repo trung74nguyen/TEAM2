@@ -90,13 +90,14 @@ namespace WindowsFormsApplication.ManageBill
 
 
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void clickInsert(object sender, EventArgs e)
         {
             GUI_InsertBill gui = new GUI_InsertBill();
             gui.ShowDialog();
+            showManageBillForm(null, null);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void clickUpdate(object sender, EventArgs e)
         {
             GUI_UpdateBill gui = new GUI_UpdateBill();
             gui.ShowDialog();

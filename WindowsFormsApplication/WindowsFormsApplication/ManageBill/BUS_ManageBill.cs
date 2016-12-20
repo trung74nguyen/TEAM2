@@ -16,6 +16,16 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.Bills.ToList();
         }
+        public bool checkExistProduct(string id)
+        {
+            var db = new CMART2Entities1();
+            return db.Products.Count(s => s.ProductCode.Equals(id)) == 1;
+        }
+        public Product getProduct(string id)
+        {
+            var db = new CMART2Entities1();
+            return db.Products.Find(id);
+        }
         public List<Account> getAllListAccount()
         {
             var db = new CMART2Entities1();
@@ -31,63 +41,15 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.usp_BillSelectAll().ToList();
         }
-        //private bool checkExistBill(string id)
-        //{
-        //    var db = new CMART2Entities1();
-        //    return db.usp_BillSelectAll().Count(s => s.BallotNUm.Equals(id)) == 1;
-        //}
+       
         private bool checkExistBill(string id)
         {
             var db = new CMART2Entities1();
             return db.Bills.Count(s => s.BallotNum.Equals(id)) == 1;
         }
-        //public bool deleteBill(string id)
-        //{
-        //    if (checkExistBill(id))
-        //        try
-        //        {
-        //            var db = new CMART2Entities1();
-        //            {
-        //                var pro = db.Bills.Single(s => s.BallotNum.Equals(id));
-        //                db.Bills.Remove(pro);
-        //                db.SaveChanges();
-        //                return true;
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            return false;
-        //        }
-        //    return false;
-        //}
-        public bool insertNewBillDetail(string productcode, float unitprice, int number)
-        {
-            try
-            {
-                using (var db = new CMART2Entities1())
-                {
-                    //ObjectParameter idoutput = new ObjectParameter("Code", typeof(String));
-                    //db.SP_BILL_BALLOTNUM_AUTO(idoutput);
-                    //var id_auto = idoutput.Value.ToString();
-                    var billdetail = new BillDetail
-                    {
-                        BallotNum =id,
-                        ProductCode = productcode,
-                        UnitPrice = unitprice,
-                        Number = number
-                    };
-                    db.BillDetails.Add(billdetail);
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+        
         string id = "";
-        public bool insertNewBill(DateTime daySales, float total, float guestMoney,float excessCash, int totalNum,int POS,string accountCode)
+        public bool insertNewBill(DateTime daySales, double total, double guestMoney,double excessCash, int totalNum,int POS,string accountCode)
         {
             
             try
@@ -115,6 +77,29 @@ namespace WindowsFormsApplication.ManageBill
                     return true;
                 }
 
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool insertNewBillDetail(string productcode, double unitprice, int number)
+        {
+            try
+            {
+                using (var db = new CMART2Entities1())
+                {
+                    var billdetail = new BillDetail
+                    {
+                        BallotNum = id,
+                        ProductCode = productcode,
+                        UnitPrice = unitprice,
+                        Number = number
+                    };
+                    db.BillDetails.Add(billdetail);
+                    db.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception)
             {
