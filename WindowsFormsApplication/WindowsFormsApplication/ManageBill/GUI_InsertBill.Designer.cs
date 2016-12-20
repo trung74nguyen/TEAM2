@@ -52,6 +52,9 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.lblProductCode = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblVND = new System.Windows.Forms.Label();
+            this.lblVND2 = new System.Windows.Forms.Label();
+            this.lblVND3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +97,7 @@
             this.txtGuestMoneyIn.Size = new System.Drawing.Size(129, 22);
             this.txtGuestMoneyIn.TabIndex = 50;
             this.txtGuestMoneyIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtGuestMoneyIn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGuestMoneyIn_KeyPress);
             // 
             // txt_TotalNum
             // 
@@ -281,11 +285,44 @@
             this.lblQuantity.TabIndex = 64;
             this.lblQuantity.Text = "Số lượng:";
             // 
+            // lblVND
+            // 
+            this.lblVND.AutoSize = true;
+            this.lblVND.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVND.Location = new System.Drawing.Point(251, 356);
+            this.lblVND.Name = "lblVND";
+            this.lblVND.Size = new System.Drawing.Size(34, 15);
+            this.lblVND.TabIndex = 65;
+            this.lblVND.Text = "VNĐ";
+            // 
+            // lblVND2
+            // 
+            this.lblVND2.AutoSize = true;
+            this.lblVND2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVND2.Location = new System.Drawing.Point(606, 322);
+            this.lblVND2.Name = "lblVND2";
+            this.lblVND2.Size = new System.Drawing.Size(34, 15);
+            this.lblVND2.TabIndex = 66;
+            this.lblVND2.Text = "VNĐ";
+            // 
+            // lblVND3
+            // 
+            this.lblVND3.AutoSize = true;
+            this.lblVND3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVND3.Location = new System.Drawing.Point(606, 360);
+            this.lblVND3.Name = "lblVND3";
+            this.lblVND3.Size = new System.Drawing.Size(34, 15);
+            this.lblVND3.TabIndex = 67;
+            this.lblVND3.Text = "VNĐ";
+            // 
             // GUI_InsertBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 458);
+            this.Controls.Add(this.lblVND3);
+            this.Controls.Add(this.lblVND2);
+            this.Controls.Add(this.lblVND);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.lblProductCode);
             this.Controls.Add(this.txtid);
@@ -346,5 +383,8 @@
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label lblProductCode;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Label lblVND;
+        private System.Windows.Forms.Label lblVND2;
+        private System.Windows.Forms.Label lblVND3;
     }
 }
