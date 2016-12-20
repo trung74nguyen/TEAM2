@@ -83,6 +83,15 @@ namespace WindowsFormsApplication.ManageProduct
             }
         }
 
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            openFileDialogImage.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
+            if (openFileDialogImage.ShowDialog() == DialogResult.OK)
+            {
+                txtImage.Text = openFileDialogImage.SafeFileName;
+            }
+        }
+
 
     }
 }

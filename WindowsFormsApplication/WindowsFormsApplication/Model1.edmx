@@ -1537,7 +1537,11 @@
           <FunctionImport Name="usp_BillSelect" ReturnType="Collection(CMART2Model.usp_BillSelect_Result)">
           <Parameter Name="BallotNum" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_BillSelectAll" ReturnType="Collection(CMART2Model.usp_BillSelectAll_Result)" />
+          
+          <FunctionImport Name="usp_BillSelectAll" ReturnType="Collection(CMART2Model.usp_BillSelectAll_Result)" >
+
+          </FunctionImport>
+          
           <FunctionImport Name="usp_BillUpdate" ReturnType="Collection(CMART2Model.usp_BillUpdate_Result)">
             <Parameter Name="BallotNum" Mode="In" Type="String" />
             <Parameter Name="Date" Mode="In" Type="DateTime" />
@@ -1817,7 +1821,7 @@
           <FunctionImport Name="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result)">
             <Parameter Name="NGAYBATDAU" Mode="In" Type="DateTime" />
             <Parameter Name="NGAYKETTHUC" Mode="In" Type="DateTime" />
-          </FunctionImport>
+          </FunctionImport>     
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -3060,7 +3064,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

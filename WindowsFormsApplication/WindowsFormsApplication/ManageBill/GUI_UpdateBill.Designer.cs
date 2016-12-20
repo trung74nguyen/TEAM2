@@ -49,7 +49,9 @@
             this.lblHourUp = new System.Windows.Forms.Label();
             this.txtDayUp = new System.Windows.Forms.TextBox();
             this.lblDayUp = new System.Windows.Forms.Label();
+            this.nud_Number = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveUp
@@ -136,7 +138,6 @@
             this.lblUpUp.TabIndex = 65;
             this.lblUpUp.TabStop = true;
             this.lblUpUp.Text = "Sửa";
-            this.lblUpUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblUpUp_LinkClicked);
             // 
             // lstManageBillUp
             // 
@@ -215,6 +216,7 @@
             // 
             this.txtHourUp.Location = new System.Drawing.Point(490, 106);
             this.txtHourUp.Name = "txtHourUp";
+            this.txtHourUp.ReadOnly = true;
             this.txtHourUp.Size = new System.Drawing.Size(66, 20);
             this.txtHourUp.TabIndex = 77;
             this.txtHourUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -232,6 +234,7 @@
             // 
             this.txtDayUp.Location = new System.Drawing.Point(339, 106);
             this.txtDayUp.Name = "txtDayUp";
+            this.txtDayUp.ReadOnly = true;
             this.txtDayUp.Size = new System.Drawing.Size(95, 20);
             this.txtDayUp.TabIndex = 75;
             this.txtDayUp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -245,11 +248,19 @@
             this.lblDayUp.TabIndex = 74;
             this.lblDayUp.Text = "Ngày bán:";
             // 
+            // nud_Number
+            // 
+            this.nud_Number.Location = new System.Drawing.Point(612, 179);
+            this.nud_Number.Name = "nud_Number";
+            this.nud_Number.Size = new System.Drawing.Size(48, 20);
+            this.nud_Number.TabIndex = 80;
+            // 
             // GUI_UpdateBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 458);
+            this.Controls.Add(this.nud_Number);
             this.Controls.Add(this.txtPOSUp);
             this.Controls.Add(this.lblPosUp);
             this.Controls.Add(this.txtHourUp);
@@ -274,6 +285,7 @@
             this.Name = "GUI_UpdateBill";
             this.Text = "GUI_UpdateBill";
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,5 +314,6 @@
         private System.Windows.Forms.Label lblHourUp;
         private System.Windows.Forms.TextBox txtDayUp;
         private System.Windows.Forms.Label lblDayUp;
+        private System.Windows.Forms.NumericUpDown nud_Number;
     }
 }

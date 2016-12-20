@@ -1372,7 +1372,7 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOTHANGNAM1_Result>("SP_THONGKEDOANHTHUTHEOTHANGNAM1", tHANGParameter, nAMParameter);
         }
-    
+
         public virtual ObjectResult<usp_BillSearch_Result> usp_BillSearch(string tEXTSEARCH)
         {
             var tEXTSEARCHParameter = tEXTSEARCH != null ?

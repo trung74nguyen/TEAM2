@@ -118,6 +118,19 @@
     <Compile Include="HeadquaterImportBallotDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Home\BUS_LogIn.cs" />
+    <Compile Include="Home\GUI_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\GUI_Home.Designer.cs">
+      <DependentUpon>GUI_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\GUI_LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\GUI_LogIn.Designer.cs">
+      <DependentUpon>GUI_LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageBill\BUS_ManageBill.cs" />
     <Compile Include="ManageBill\GUI_InsertBill.cs">
       <SubType>Form</SubType>
@@ -137,13 +150,6 @@
     <Compile Include="ManageBill\GUI_UpdateBill.Designer.cs">
       <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBill\GUI_UpdateBill_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManageBill\GUI_UpdateBill_Update.Designer.cs">
-      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ManageBill\ValidationExtension1.cs" />
     <Compile Include="ManagePriceHistory\BUS_ManagePriceHistory.cs" />
     <Compile Include="ManagePriceHistory\GUI_InsertPriceHistory.cs">
       <SubType>Form</SubType>
@@ -460,6 +466,12 @@
     <EmbeddedResource Include="HeadquarterImportBallot\GUI_UpdateHeadquarterImportBallot.resx">
       <DependentUpon>GUI_UpdateHeadquarterImportBallot.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\GUI_Home.resx">
+      <DependentUpon>GUI_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\GUI_LogIn.resx">
+      <DependentUpon>GUI_LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageProduct\GUI_InsertProduct.resx">
       <DependentUpon>GUI_InsertProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,9 +498,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBill\GUI_UpdateBill.resx">
       <DependentUpon>GUI_UpdateBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManageBill\GUI_UpdateBill_Update.resx">
-      <DependentUpon>GUI_UpdateBill_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePromotion\GUI_InsertPromotion.resx">
       <DependentUpon>GUI_InsertPromotion.cs</DependentUpon>
