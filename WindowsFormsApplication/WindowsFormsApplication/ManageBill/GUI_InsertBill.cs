@@ -68,84 +68,73 @@ namespace WindowsFormsApplication.ManageBill
             }
             return true;
         }
-        ////Tính toán tổng tiền
-        //private void calCulate()
-        //{
-        //    float total = float.Parse(txt_Total.Text.Trim());
-        //    float money = float.Parse(txtGuestMoneyIn.Text.Trim());
-        //    float remoney = float.Parse(txtExcessCashIn.Text.Trim());
-        //    int totalnum = int.Parse(txt_TotalNum.Text.Trim());
-        //    if (money > total)
-        //    {
-        //        remoney = money - total;
-        //    }
-        //    else
-        //    {
-        //        remoney = 0;
-        //    }
-        //}
-
-
+        private bool checkDataInputGuestMoneyIn( string money)
+        {
+            if ((money ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Tiền khách đưa là bắt buộc");
+                return false;
+            }
+            if ((money ?? "").Trim().Length > 0)
+            {
+                try
+                {
+                    float n = float.Parse(money);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Tiền khách đưa phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Tiền khách đưa phải là số!");
+                    return false;
+                }
+            }
+            return true;
+        }
         private void clickSave(object sender, EventArgs e)
         {
             string sPos = txtPOS.Text.Trim();
             DateTime date = DateTime.Now;
-            //string sTotal = txt_TotalNum.Text.ToString();
+            string sTotal = txt_Total.Text.ToString();
             string sMoney = txtGuestMoneyIn.Text.ToString();
             string sRemoney = txtExcessCashIn.Text.ToString();
             string name = "TK000005";
-            //name = txtNameIn.Text.ToString();
             string sTotalnum = txt_TotalNum.Text.Trim();
-           // var name = bus.getAllListAccount();
             
-            
-
-
-            //Lấy dữ liệu từ datagrid
-            int CurrentIndex = lstManageBillIn.CurrentCell.RowIndex;
-            string productcode = Convert.ToString(lstManageBillIn.Rows[CurrentIndex].Cells[0].Value.ToString());
-            string unitprice = Convert.ToString(lstManageBillIn.Rows[CurrentIndex].Cells[1].Value.ToString());
-            string number = Convert.ToString(lstManageBillIn.Rows[CurrentIndex].Cells[2].Value.ToString());
-            string total_ = Convert.ToString(lstManageBillIn.Rows[CurrentIndex].Cells[3].Value.ToString());
-
-
-
-
             var inputData = checkDataInput(sPos, sMoney);
             if (inputData == true)
             {
-                int sc = lstManageBillIn.Rows.Count;
-                float thanhtien=0;
-                for (int i = 0; i < sc - 1; i++)
+              
+                int pos = int.Parse(sPos);
+                double total = double.Parse(sTotal);
+                double money = double.Parse(sMoney);
+                double remoney = double.Parse(sRemoney);
+                int totalnum = int.Parse(sTotalnum);
+
+                if (bus.insertNewBill(date, total, money, remoney,totalnum, pos, name))
                 {
-                    thanhtien += float.Parse(lstManageBillIn.Rows[i].Cells["Total"].Value.ToString());
-                }
-                int numproduct = 0;
-                for (int j = 0; j < sc - 1; j++)
-                {
-                    numproduct += int.Parse(lstManageBillIn.Rows[j].Cells["Number"].Value.ToString());
-                }
-                
-                int pos = int.Parse(txtPOS.Text.Trim());
-                //float total = float.Parse(txt_Total.Text.Trim());
-                //total = thanhtien;
-                float money = float.Parse(txtGuestMoneyIn.Text.Trim());
-               // float remoney = float.Parse(txtExcessCashIn.Text.Trim());
-                float remoney = money - thanhtien;
-                //int totalnum = int.Parse(txt_TotalNum.Text.Trim());
-                float unitprice_ = float.Parse(unitprice);
-                int num_ = int.Parse(number);
-                num_ = numproduct;
-                if (bus.insertNewBill(date, thanhtien, money, remoney, numproduct,pos,name) && bus.insertNewBillDetail(productcode,unitprice_,num_))
-                {
-                    txtPOS.Text = txt_TotalNum.Text = txt_Total.Text =txtGuestMoneyIn.Text=txtExcessCashIn.Text= "";
+                    for (int i = 0; i < lstManageBillIn.Rows.Count; i++)
+                    {
+                        string sProductCode = lstManageBillIn.Rows[i].Cells["ProductCode"].Value.ToString();
+                        string sUnitPrice = lstManageBillIn.Rows[i].Cells["UnitPrice"].Value.ToString();
+                        string sNumber = lstManageBillIn.Rows[i].Cells["Number"].Value.ToString();
+                        string sTotal_ = lstManageBillIn.Rows[i].Cells["Subtotal"].Value.ToString();
+
+                        double unitprice = double.Parse(sUnitPrice);
+                        int num = int.Parse(sNumber);
+                        bus.insertNewBillDetail(sProductCode, unitprice, num);
+                    }
+                    txtPOS.Text = txt_TotalNum.Text = txt_Total.Text = txtGuestMoneyIn.Text = txtExcessCashIn.Text = "";
                     MessageBox.Show("Thêm thành công!");
                     this.Close();
                 }
                 else
                     MessageBox.Show("Thêm không thành công!");
             }
-            
+
         }
 
        
@@ -168,61 +157,39 @@ namespace WindowsFormsApplication.ManageBill
                 string str_ = hour + ":" + minute + ":" + second+" PM";
                 txtHourIn.Text = str_;
             }
-           // calCulate();
         }
-        private void GUI_InsertBillDetail_Load(object sender, EventArgs e,string ballotnum)
-        {
-            var billDetail = bus.getAllListBillDetail(ballotnum);
-            showInsertBillDetailForm(billDetail);
-            
-        }
-        private void showInsertBillDetailForm(List<usp_BillDetailSelectAll_Result> billdetail)
-        {
-            for (int i = 0; i < billdetail.Count; i++)
-            {
-                int sl = billdetail[i].Number;
-                double dongia = billdetail[i].UnitPrice;
-                double thanhtien = (double)(dongia * sl);
-                lstManageBillIn.Rows.Add(
-                    billdetail[i].ProductCode,
-                    billdetail[i].ProductName,
-                    billdetail[i].UnitPrice,
-                    billdetail[i].Number,
-                    thanhtien);
-            }
-        }
-        private void clickCancel(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void txtid_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e != null && e.KeyChar == 13)
             {
                 string pid = txtid.Text;
-                Product p = bus.getProduct(pid);
-                BillDetailWithTotal d = new BillDetailWithTotal();
-                //d.ProductCode = p.ProductCode;
-                d.ProductCode = p.ProductName;
-                d.UnitPrice = p.PriceHistories.Last().Price;
-                d.Number = int.Parse(nud_Number.Text);
-                d.Subtotal = d.Number * d.UnitPrice;
-                BillDetails.Add(d);
-                lstManageBillIn.DataSource = null;
-                lstManageBillIn.DataSource = BillDetails;
-                lstManageBillIn.Columns["Bill"].Visible = false;
-                lstManageBillIn.Columns["Product"].Visible = false;
-                lstManageBillIn.Columns["BallotNum"].Visible = false;
-                lstManageBillIn.Columns["ProductCode"].HeaderText = "Tên sản phẩm";
-                lstManageBillIn.Columns["UnitPrice"].HeaderText = "Đơn giá";
-                lstManageBillIn.Columns["Number"].HeaderText = "Số lượng";
-                lstManageBillIn.Columns["Subtotal"].HeaderText = "Thành tiền";
-                txtid.Text = "";
-                nud_Number.Text = "1";
+                if (bus.checkExistProduct(pid) == true)
+                {
+                    Product p = bus.getProduct(pid);
+                    BillDetailWithTotal d = new BillDetailWithTotal();
+                    d.ProductCode = p.ProductCode;
+                    //d.ProductCode = p.ProductName;
+                    d.UnitPrice = p.PriceHistories.Last().Price;
+                    d.Number = int.Parse(nud_Number.Text);
+                    d.Subtotal = d.Number * d.UnitPrice;
+                    BillDetails.Add(d);
+                    lstManageBillIn.DataSource = null;
+                    lstManageBillIn.DataSource = BillDetails;
+                    lstManageBillIn.Columns["Bill"].Visible = false;
+                    lstManageBillIn.Columns["Product"].Visible = false;
+                    lstManageBillIn.Columns["BallotNum"].Visible = false;
+                    lstManageBillIn.Columns["ProductCode"].HeaderText = "Tên sản phẩm";
+                    lstManageBillIn.Columns["UnitPrice"].HeaderText = "Đơn giá";
+                    lstManageBillIn.Columns["Number"].HeaderText = "Số lượng";
+                    lstManageBillIn.Columns["Subtotal"].HeaderText = "Thành tiền";
+                    lstManageBillIn.Columns["Subtotal"].DisplayIndex = 4;
+                    txtid.Text = "";
+                    nud_Number.Text = "1";
+                }else
+                {
+                    MessageBox.Show("Vui lòng nhập đúng mã sản phẩm");
+                }
+               
             }
             //tính thành tiền
             int sc = lstManageBillIn.Rows.Count;
@@ -231,7 +198,7 @@ namespace WindowsFormsApplication.ManageBill
             {
                 thanhtien += double.Parse(lstManageBillIn.Rows[i].Cells["Subtotal"].Value.ToString());
             }
-            txt_Total.Text = Convert.ToString(thanhtien) + " VNĐ";
+            txt_Total.Text = Convert.ToString(thanhtien);
             //tính tổng số lượng
             int numproduct = 0;
             for (int j = 0; j < sc; j++)
@@ -247,8 +214,42 @@ namespace WindowsFormsApplication.ManageBill
         {
             txtid_KeyPress(sender, e);
         }
+        
+        private void clickCancel(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        // Xử lý khi nhập tiền khách đưa nhấn enter sẽ xuất ra tiền thừa
+        private void txtGuestMoneyIn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (e != null && e.KeyChar == 13)
+            {
+                string mon = txtGuestMoneyIn.Text;
+                var inputData = checkDataInputGuestMoneyIn(mon);
+                if (inputData == true)
+                {
+                    double money = double.Parse(mon);
+                    double subtotal = double.Parse(txt_Total.Text.Trim());
 
-      
+                    if (money > subtotal)
+                    {
+                        double remoney = money - subtotal;
+                        txtExcessCashIn.Text = Convert.ToString(remoney);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Miễn thiếu nha cưng. ");
+                    }
+                }
+                
+            }
+            
+        }
+
     }
     public class BillDetailWithTotal : BillDetail
     {
