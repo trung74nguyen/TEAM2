@@ -94,7 +94,7 @@
             // btnInsert
             // 
             this.btnInsert.Location = new System.Drawing.Point(9, 111);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(64, 28);
             this.btnInsert.TabIndex = 31;
@@ -105,7 +105,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(88, 111);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(64, 28);
             this.btnUpdate.TabIndex = 32;
@@ -116,7 +116,7 @@
             // btnPrint
             // 
             this.btnPrint.Location = new System.Drawing.Point(171, 111);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(64, 28);
             this.btnPrint.TabIndex = 33;
@@ -128,7 +128,7 @@
             // 
             this.lstHeadquarterImportBallot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstHeadquarterImportBallot.Location = new System.Drawing.Point(11, 143);
-            this.lstHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallot.Name = "lstHeadquarterImportBallot";
             this.lstHeadquarterImportBallot.RowTemplate.Height = 24;
             this.lstHeadquarterImportBallot.Size = new System.Drawing.Size(224, 225);
@@ -138,11 +138,13 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(453, 116);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(211, 20);
             this.txtSearch.TabIndex = 35;
             this.txtSearch.Text = "Tìm kiếm...";
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.clickSearch);
             // 
             // lstHeadquarterImportBallotDetail
             // 
@@ -156,7 +158,7 @@
             this.State,
             this.IntoMoney});
             this.lstHeadquarterImportBallotDetail.Location = new System.Drawing.Point(253, 143);
-            this.lstHeadquarterImportBallotDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHeadquarterImportBallotDetail.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallotDetail.Name = "lstHeadquarterImportBallotDetail";
             this.lstHeadquarterImportBallotDetail.RowTemplate.Height = 24;
             this.lstHeadquarterImportBallotDetail.Size = new System.Drawing.Size(412, 225);
@@ -319,7 +321,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI_HeadquarterImportBallot";
             this.Text = "GUI_HeadquarterImportBallot";
             this.Load += new System.EventHandler(this.showHeadquarterImportBallot);

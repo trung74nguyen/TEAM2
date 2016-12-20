@@ -168,5 +168,15 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             this.Close();
         }
 
+        private void clickSearch(object sender, EventArgs e)
+        {
+            lstHeadquarterImportBallot.DataSource = bus.searchAllListBallot(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
+        }
+
     }
 }

@@ -1425,5 +1425,14 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result>("SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1", nGAYBATDAUParameter, nGAYKETTHUCParameter);
         }
+    
+        public virtual ObjectResult<usp_HeadquaterImportBallotSearch_Result> usp_HeadquaterImportBallotSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_HeadquaterImportBallotSearch_Result>("usp_HeadquaterImportBallotSearch", tEXTSEARCHParameter);
+        }
     }
 }

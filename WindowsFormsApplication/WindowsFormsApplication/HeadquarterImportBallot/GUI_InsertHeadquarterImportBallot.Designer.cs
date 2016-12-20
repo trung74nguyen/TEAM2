@@ -32,7 +32,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.EXP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IntoMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDate = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstProductImport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(445, 111);
+            this.txtTotal.Location = new System.Drawing.Point(444, 114);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -90,19 +90,10 @@
             this.txtName.Size = new System.Drawing.Size(159, 20);
             this.txtName.TabIndex = 45;
             // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(118, 111);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(159, 20);
-            this.txtDate.TabIndex = 44;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 114);
+            this.label5.Location = new System.Drawing.Point(385, 117);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
@@ -112,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(364, 80);
+            this.label4.Location = new System.Drawing.Point(376, 80);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
@@ -207,6 +198,7 @@
             this.InputPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InputPrice.HeaderText = "Giá nhập";
             this.InputPrice.Name = "InputPrice";
+            this.InputPrice.ReadOnly = true;
             this.InputPrice.Width = 75;
             // 
             // EXP
@@ -237,6 +229,15 @@
             this.IntoMoney.Name = "IntoMoney";
             this.IntoMoney.ReadOnly = true;
             this.IntoMoney.Width = 83;
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(118, 114);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.ReadOnly = true;
+            this.txtDate.Size = new System.Drawing.Size(159, 20);
+            this.txtDate.TabIndex = 44;
             // 
             // GUI_InsertHeadquarterImportBallot
             // 
@@ -272,7 +273,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -281,6 +281,7 @@
         private System.Windows.Forms.ComboBox cboProposeNum;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.DataGridView lstProductImport;
+        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn InputPrice;

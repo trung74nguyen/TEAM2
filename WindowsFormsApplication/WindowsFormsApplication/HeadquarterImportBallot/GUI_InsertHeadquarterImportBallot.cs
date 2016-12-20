@@ -24,6 +24,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             this.cboProposeNum.DataSource = db.ProposeBallots.ToList();
             this.cboProposeNum.ValueMember = "BallotNum"; // set the value member
             this.cboProposeNum.DisplayMember = "BallotNum"; // set the display member
+            btnSave.Enabled = false;
         }
         private void loadProductImport(string proposeNum)
         {
@@ -39,7 +40,8 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 usp_PriceHistoryLastest_Result lastestPrice 
                     = listPrice.Single(s => s.ProductCode == productCode);
                 double inputPrice = lastestPrice.Price;
-                DateTime exp = DateTime.Now;
+                //DateTime exp = DateTime.Now;
+                string exp = "";
                 string status = "Đủ";
                 double subTotal = (double)(inputPrice*number);
                 total += subTotal;
@@ -52,20 +54,69 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                     lstProductImport.Rows[i].Cells[4].Value = status,
                     lstProductImport.Rows[i].Cells[5].Value = subTotal
                     );
-                //lstProductImport.Enabled = false;
-                //lstProductImport.Enabled = true;
                 i++;
             }
             txtTotal.Text = total.ToString();
         }
-        private List<HeadquaterImportBallotDetailWithTotal> ImpotDetail = new List<HeadquaterImportBallotDetailWithTotal>();
         private void clickFind(object sender, EventArgs e)
         {
-            lstProductImport.DataMember = null; //Reset DataGridView   
-            loadProductImport(cboProposeNum.Text.ToString());
+            string proposeNum = cboProposeNum.Text.ToString();
+            if (!bus.checkExistHeadquarterImportBallot(proposeNum))
+            {
+                lstProductImport.DataMember = null; //Reset DataGridView
+                btnSave.Enabled = true;
+                loadProductImport(proposeNum);
+            }
+            else
+            {
+                MessageBox.Show("Phiếu nhập hàng đã tồn tại, vui lòng chọn phiếu khác!");
+                lstProductImport.DataMember = null; //Reset DataGridView
+                btnSave.Enabled = false;
+            }
+
         }
         private void clickSave(object sender, EventArgs e)
         {
+            string proposeNum = cboProposeNum.SelectedValue.ToString();
+            DateTime date = DateTime.Now;
+            double total = double.Parse(txtTotal.Text);   
+            string accountCode = "TK000004";
+  
+            if (bus.insertHeadquarterImportBallot(proposeNum, date, total, accountCode))
+            {
+                for (int i = 0; i < lstProductImport.Rows.Count; i++)
+                {
+                    string productCode = lstProductImport.Rows[i].Cells[0].Value.ToString();
+                    string sNumber = lstProductImport.Rows[i].Cells[1].Value.ToString();
+                    string sInputPrice = lstProductImport.Rows[i].Cells[2].Value.ToString();
+                    string sExp = lstProductImport.Rows[i].Cells[3].Value.ToString();
+                    string status = lstProductImport.Rows[i].Cells[4].Value.ToString();
+
+                    int number = int.Parse(sNumber);
+                    double inputPrice = double.Parse(sInputPrice);
+
+                    var inputData = checkDataInput(sExp);
+                    if (inputData == true)
+                    {
+                        DateTime exp = Convert.ToDateTime(sExp);
+                        bus.insertHeadquarterImportBallotDetail(productCode, number, inputPrice, exp, status);
+                    }
+                    else
+                    {
+                        DateTime exp = DateTime.Now;
+                        bus.insertHeadquarterImportBallotDetail(productCode, number, inputPrice, exp, status);
+                    }
+                } // end for
+                txtTotal.Text = "";
+                MessageBox.Show("Thêm thành công!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Thêm không thành công!");
+                lstProductImport.DataMember = null; //Reset DataGridView
+                btnSave.Enabled = false;
+            }
 
         }
         private void clickCancel(object sender, EventArgs e)
@@ -75,10 +126,22 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 this.Close();
             }
         }
-
-    }
-    public class HeadquaterImportBallotDetailWithTotal : HeadquaterImportBallotDetail
-    {
-        public double Subtotal { get; set; }
+        private bool checkDataInput(string exp)
+        {
+            if ((exp ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("HSD là bắt buộc, vui lòng cập nhật lại sau!");
+                return false;
+            }
+            
+            DateTime value;
+            if (!DateTime.TryParse(exp, out value))
+            {
+                //startDateTextox.Text = DateTime.Today.ToShortDateString();
+                MessageBox.Show("HSD chưa đúng định dạng MM/dd/yyyy, vui lòng cập nhật lại sau!");
+                return false;
+            }
+            return true;
+        }
     }
 }
