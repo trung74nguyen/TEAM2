@@ -38,7 +38,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             lstHeadquarterImportBallot.Columns["ProposeBallot"].Visible = false;
             lstHeadquarterImportBallot.Columns["HeadquaterImportBallotDetails"].Visible = false;
             lstHeadquarterImportBallot.Columns["AccountCode"].Visible = false;
-            lstHeadquarterImportBallot.Columns["ProposeBallotNum"].Visible = false;
+            //lstHeadquarterImportBallot.Columns["ProposeBallotNum"].Visible = false;
             btnUpdate.Enabled = false;
         }
         private void showHeadquarterImportBallot(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
 
         private void clickInsert(object sender, EventArgs e)
         {
-            GUI_InsertHeadquarterImportBallot gui_Insert = new GUI_InsertHeadquarterImportBallot();
+            GUI_InsertHeadquarterImportBallot gui_Insert = new GUI_InsertHeadquarterImportBallot(lblName.Text);
             gui_Insert.ShowDialog();
             showHeadquarterImportBallot(null, null);
         }
