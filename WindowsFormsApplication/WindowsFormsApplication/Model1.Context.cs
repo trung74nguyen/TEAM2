@@ -1372,7 +1372,7 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOTHANGNAM1_Result>("SP_THONGKEDOANHTHUTHEOTHANGNAM1", tHANGParameter, nAMParameter);
         }
-
+    
         public virtual ObjectResult<usp_BillSearch_Result> usp_BillSearch(string tEXTSEARCH)
         {
             var tEXTSEARCHParameter = tEXTSEARCH != null ?
@@ -1424,6 +1424,42 @@ namespace WindowsFormsApplication
                 new ObjectParameter("NGAYKETTHUC", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result>("SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1", nGAYBATDAUParameter, nGAYKETTHUCParameter);
+        }
+    
+        public virtual ObjectResult<SP_THONGKEDOANHTHUTHEONGAY21_Result> SP_THONGKEDOANHTHUTHEONGAY21(Nullable<System.DateTime> nGAY)
+        {
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEONGAY21_Result>("SP_THONGKEDOANHTHUTHEONGAY21", nGAYParameter);
+        }
+    
+        public virtual ObjectResult<SP_THONGKEDOANHTHUTHEONGAY3_Result> SP_THONGKEDOANHTHUTHEONGAY3(Nullable<System.DateTime> nGAY)
+        {
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEONGAY3_Result>("SP_THONGKEDOANHTHUTHEONGAY3", nGAYParameter);
+        }
+    
+        public virtual ObjectResult<SP_THONGKEDOANHTHUTHEONGAY4_Result> SP_THONGKEDOANHTHUTHEONGAY4(Nullable<System.DateTime> nGAY)
+        {
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEONGAY4_Result>("SP_THONGKEDOANHTHUTHEONGAY4", nGAYParameter);
+        }
+    
+        public virtual ObjectResult<SP_THONGKEDOANHTHUTHEONGAY5_Result> SP_THONGKEDOANHTHUTHEONGAY5(Nullable<System.DateTime> nGAY)
+        {
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEONGAY5_Result>("SP_THONGKEDOANHTHUTHEONGAY5", nGAYParameter);
         }
     }
 }

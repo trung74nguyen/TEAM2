@@ -475,6 +475,18 @@
         <Function Name="SP_THONGKEDOANHTHUTHEONGAY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NGAY" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="SP_THONGKEDOANHTHUTHEONGAY2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAY" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_THONGKEDOANHTHUTHEONGAY3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAY" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_THONGKEDOANHTHUTHEONGAY4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAY" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_THONGKEDOANHTHUTHEONGAY5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAY" Type="date" Mode="In" />
+        </Function>
         <Function Name="SP_THONGKEDOANHTHUTHEONGAYS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NGAY" Type="datetime" Mode="In" />
         </Function>
@@ -1821,6 +1833,18 @@
           <FunctionImport Name="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result)">
             <Parameter Name="NGAYBATDAU" Mode="In" Type="DateTime" />
             <Parameter Name="NGAYKETTHUC" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY21" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY21_Result)">
+          <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY3" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY3_Result)">
+          <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY4" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY4_Result)">
+          <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY5" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY5_Result)">
+            <Parameter Name="NGAY" Mode="In" Type="DateTime" />
           </FunctionImport>     
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -2232,6 +2256,34 @@
           <Property Type="Double" Name="AMOUNT" Nullable="true" />
         </ComplexType>
         <ComplexType Name="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Double" Name="AMOUNT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_THONGKEDOANHTHUTHEONGAY21_Result">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Double" Name="AMOUNT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_THONGKEDOANHTHUTHEONGAY3_Result">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Double" Name="AMOUNT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_THONGKEDOANHTHUTHEONGAY4_Result">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+          <Property Type="Double" Name="UnitPrice" Nullable="false" />
+          <Property Type="Double" Name="AMOUNT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_THONGKEDOANHTHUTHEONGAY5_Result">
           <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
           <Property Type="Int32" Name="Number" Nullable="false" />
@@ -3056,6 +3108,50 @@
           <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY21" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY21_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY3" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY3_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY4" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY4_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY5" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY5">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY5_Result">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
