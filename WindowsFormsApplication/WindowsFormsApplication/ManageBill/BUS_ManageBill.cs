@@ -41,7 +41,11 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.usp_BillSelectAll().ToList();
         }
-       
+        public List<BillDetail> getAllBillDetail(string ballotnum)
+        {
+            var db = new CMART2Entities1();
+            return db.BillDetails.Where(i =>i.BallotNum == ballotnum).ToList();
+        }
         private bool checkExistBill(string id)
         {
             var db = new CMART2Entities1();
@@ -106,11 +110,79 @@ namespace WindowsFormsApplication.ManageBill
                 return false;
             }
         }
+        private bool checkExistBill(DateTime date ,double total , double guestmoney,double excesscash ,int totalnum ,int pos , string account)
+        {
+            using (var db = new CMART2Entities1())
+            {
+                if (db.Bills.Count(s => s.Date == date
+                                                    && s.Total == total
+                                                    && s.GuestMoney == guestmoney
+                                                    && s.ExcessCash == excesscash
+                                                    && s.Total == totalnum
+                                                    && s.POS == pos
+                                                    && s.AccountCode == account) > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        
+        public bool updateBill(string ballotNum, DateTime date, double total, double guestMoney, double excessCash, int totalNum,int pos, string accountCode)
+        {
+            if (!checkExistBill(date,total,guestMoney,excessCash,totalNum,pos,accountCode))
+                try
+                {
+                    using (var db = new CMART2Entities1())
+                    {
+                        var bill = db.Bills.Single(s => s.BallotNum == ballotNum);
+                        bill.Date = date;
+                        bill.Total = total;
+                        bill.GuestMoney = guestMoney;
+                        bill.ExcessCash = excessCash;
+                        bill.TotalNum = totalNum;
+                        bill.POS = pos;
+                        bill.AccountCode = accountCode;
+                        db.Entry(bill).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            return false;
+        }
+        public bool updateBillDetail(string ballotNum , string productcode, double unitprice, int number)
+        {
+            try
+            {
+                using (var db = new CMART2Entities1())
+                {
+                    var billdetail  = db.BillDetails.Single(s =>s.BallotNum == ballotNum);
+                    {
+                        billdetail.ProductCode = productcode;
+                        billdetail.UnitPrice= unitprice;
+                        billdetail.Number = number;
+                        db.Entry(billdetail).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public List<usp_BillSearch_Result> searchAllListBill(string text)
         {
             var db = new CMART2Entities1();
             return db.usp_BillSearch(text).ToList();
         }
 
+
+        
     }
 }

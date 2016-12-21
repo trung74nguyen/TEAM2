@@ -1294,6 +1294,7 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistorySearch_Result>("usp_PriceHistorySearch", tEXTSEARCHParameter);
         }
     
+
       
     
        
@@ -1302,6 +1303,8 @@ namespace WindowsFormsApplication
     
        
     
+
+
         public virtual ObjectResult<SP_LASTESTPRICE_SELECT_Result> SP_LASTESTPRICE_SELECT(string productCode)
         {
             var productCodeParameter = productCode != null ?
@@ -1311,8 +1314,11 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LASTESTPRICE_SELECT_Result>("SP_LASTESTPRICE_SELECT", productCodeParameter);
         }
     
+
      
     
+
+
         public virtual ObjectResult<SP_THONGKEDOANHTHUTHEOTHANGNAM1_Result> SP_THONGKEDOANHTHUTHEOTHANGNAM1(Nullable<int> tHANG, Nullable<int> nAM)
         {
             var tHANGParameter = tHANG.HasValue ?
@@ -1344,10 +1350,13 @@ namespace WindowsFormsApplication
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PriceHistoryLastest_Result>("usp_PriceHistoryLastest", productCodeParameter);
         }
     
+
        
     
        
     
+
+
         public virtual ObjectResult<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result> SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1(Nullable<System.DateTime> nGAYBATDAU, Nullable<System.DateTime> nGAYKETTHUC)
         {
             var nGAYBATDAUParameter = nGAYBATDAU.HasValue ?
@@ -1360,6 +1369,7 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result>("SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1", nGAYBATDAUParameter, nGAYKETTHUCParameter);
         }
+
     
        
     
@@ -1367,6 +1377,19 @@ namespace WindowsFormsApplication
     
      
     
+
+
+
+        public virtual ObjectResult<usp_HeadquaterImportBallotSearch_Result> usp_HeadquaterImportBallotSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_HeadquaterImportBallotSearch_Result>("usp_HeadquaterImportBallotSearch", tEXTSEARCHParameter);
+        }
+       
+
         public virtual ObjectResult<SP_THONGKEDOANHTHUTHEONGAY5_Result> SP_THONGKEDOANHTHUTHEONGAY5(Nullable<System.DateTime> nGAY)
         {
             var nGAYParameter = nGAY.HasValue ?
@@ -1374,6 +1397,11 @@ namespace WindowsFormsApplication
                 new ObjectParameter("NGAY", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEONGAY5_Result>("SP_THONGKEDOANHTHUTHEONGAY5", nGAYParameter);
+        }
+
+        internal bool updateBill(string p, string date, string total, double sMoney, double sRemoney, int sTotalnum, int sPos, string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

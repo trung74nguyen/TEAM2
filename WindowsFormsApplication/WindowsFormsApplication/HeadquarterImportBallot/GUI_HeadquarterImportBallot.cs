@@ -38,7 +38,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             lstHeadquarterImportBallot.Columns["ProposeBallot"].Visible = false;
             lstHeadquarterImportBallot.Columns["HeadquaterImportBallotDetails"].Visible = false;
             lstHeadquarterImportBallot.Columns["AccountCode"].Visible = false;
-            lstHeadquarterImportBallot.Columns["ProposeBallotNum"].Visible = false;
+            //lstHeadquarterImportBallot.Columns["ProposeBallotNum"].Visible = false;
             btnUpdate.Enabled = false;
         }
         private void showHeadquarterImportBallot(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                     ballotDetail[i].ProductCode, 
                     ballotDetail[i].Number,
                     ballotDetail[i].InputPrice,
-                    ballotDetail[i].EXP,
+                    ballotDetail[i].EXP.ToShortDateString(),
                     ballotDetail[i].State,
                     thanhTien);
             }
@@ -94,7 +94,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
 
         private void clickInsert(object sender, EventArgs e)
         {
-            GUI_InsertHeadquarterImportBallot gui_Insert = new GUI_InsertHeadquarterImportBallot();
+            GUI_InsertHeadquarterImportBallot gui_Insert = new GUI_InsertHeadquarterImportBallot(lblName.Text);
             gui_Insert.ShowDialog();
             showHeadquarterImportBallot(null, null);
         }
@@ -166,6 +166,16 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             this.Visible = false;
             login.ShowDialog();
             this.Close();
+        }
+
+        private void clickSearch(object sender, EventArgs e)
+        {
+            lstHeadquarterImportBallot.DataSource = bus.searchAllListBallot(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
         }
 
     }

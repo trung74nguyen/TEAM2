@@ -229,6 +229,7 @@
             0,
             0,
             0});
+            this.nud_Number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nud_Number_KeyPress);
             // 
             // txt_Total
             // 

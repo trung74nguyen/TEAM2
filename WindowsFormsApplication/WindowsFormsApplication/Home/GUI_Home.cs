@@ -137,12 +137,19 @@ namespace WindowsFormsApplication.Home
 
         private void Close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc muốn thoát không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            
         }
 
         private void Close_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc muốn thoát không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

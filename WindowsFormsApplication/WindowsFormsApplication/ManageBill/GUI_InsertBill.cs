@@ -128,6 +128,7 @@ namespace WindowsFormsApplication.ManageBill
                         bus.insertNewBillDetail(sProductCode, unitprice, num);
                     }
                     txtPOS.Text = txt_TotalNum.Text = txt_Total.Text = txtGuestMoneyIn.Text = txtExcessCashIn.Text = "";
+            
                     MessageBox.Show("Thêm thành công!");
                     this.Close();
                 }
@@ -144,19 +145,9 @@ namespace WindowsFormsApplication.ManageBill
             string str = DateTime.Now.ToString().Trim();
             str = str.Substring(0, 10);
             txtDayIn.Text = str;
-            string hour = DateTime.Now.Hour.ToString().Trim();
-            string minute = DateTime.Now.Minute.ToString().Trim();
-            string second = DateTime.Now.Second.ToString().Trim();
-            if (int.Parse(hour) <= 12)
-            {
-                string str_ = hour + ":" + minute + ":" + second+" AM";
-                txtHourIn.Text = str_;
-            }
-            else
-            {
-                string str_ = hour + ":" + minute + ":" + second+" PM";
-                txtHourIn.Text = str_;
-            }
+            string hour = DateTime.Now.ToString().Trim();
+            hour = hour.Substring(11);
+            txtHourIn.Text = hour;
         }
         private void txtid_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -209,12 +200,10 @@ namespace WindowsFormsApplication.ManageBill
         }
 
         private List<BillDetailWithTotal> BillDetails = new List<BillDetailWithTotal>();
-
-        private void txtquantity_KeyPress(object sender, KeyPressEventArgs e)
+        private void nud_Number_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtid_KeyPress(sender, e);
         }
-        
         private void clickCancel(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -249,6 +238,10 @@ namespace WindowsFormsApplication.ManageBill
             }
             
         }
+
+        
+
+      
 
     }
     public class BillDetailWithTotal : BillDetail
