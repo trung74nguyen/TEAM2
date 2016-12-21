@@ -165,7 +165,7 @@
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(224, 23);
             this.lblPosition.TabIndex = 19;
-            this.lblPosition.Text = "TK000005";
+            this.lblPosition.Text = "Nhân viên bán hàng: Dương Thành Công Lý";
             this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTitle

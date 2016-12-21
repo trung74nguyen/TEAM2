@@ -66,7 +66,13 @@ namespace WindowsFormsApplication.ManageBill
             showManageBillDetailForm(billDetail);
 
         }
-        private string ballotNum = "";
+        private void clickInsert(object sender, EventArgs e)
+        {
+            GUI_InsertBill gui = new GUI_InsertBill();
+            gui.ShowDialog();
+            showManageBillForm(null, null);
+        }
+         private string ballotNum = "";
         private void selectBillToUpdate(object sender, EventArgs e)
         {
             lstManageBillDetail.DataMember = null;
@@ -82,25 +88,13 @@ namespace WindowsFormsApplication.ManageBill
         }
 
 
-
-
-
-
-
-
-
-
-        private void clickInsert(object sender, EventArgs e)
-        {
-            GUI_InsertBill gui = new GUI_InsertBill();
-            gui.ShowDialog();
-            showManageBillForm(null, null);
-        }
-
         private void clickUpdate(object sender, EventArgs e)
         {
-            GUI_UpdateBill gui = new GUI_UpdateBill();
+            GUI_UpdateBill gui = new GUI_UpdateBill(ballotNum);
             gui.ShowDialog();
+            var index = lstManageBill.SelectedRows[0].Index;
+            lstManageBill.Rows[index].Selected = true;
+            showManageBillForm(null, null);
         }
       
        

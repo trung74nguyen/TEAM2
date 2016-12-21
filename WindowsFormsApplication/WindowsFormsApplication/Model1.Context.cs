@@ -1425,5 +1425,10 @@ namespace WindowsFormsApplication
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result>("SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1", nGAYBATDAUParameter, nGAYKETTHUCParameter);
         }
+
+        internal bool updateBill(string p, string date, string total, double sMoney, double sRemoney, int sTotalnum, int sPos, string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

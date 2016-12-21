@@ -128,6 +128,7 @@ namespace WindowsFormsApplication.ManageBill
                         bus.insertNewBillDetail(sProductCode, unitprice, num);
                     }
                     txtPOS.Text = txt_TotalNum.Text = txt_Total.Text = txtGuestMoneyIn.Text = txtExcessCashIn.Text = "";
+            
                     MessageBox.Show("Thêm thành công!");
                     this.Close();
                 }
@@ -209,12 +210,10 @@ namespace WindowsFormsApplication.ManageBill
         }
 
         private List<BillDetailWithTotal> BillDetails = new List<BillDetailWithTotal>();
-
-        private void txtquantity_KeyPress(object sender, KeyPressEventArgs e)
+        private void nud_Number_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtid_KeyPress(sender, e);
         }
-        
         private void clickCancel(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -249,6 +248,10 @@ namespace WindowsFormsApplication.ManageBill
             }
             
         }
+
+        
+
+      
 
     }
     public class BillDetailWithTotal : BillDetail
