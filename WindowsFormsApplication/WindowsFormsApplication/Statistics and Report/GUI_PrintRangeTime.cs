@@ -30,7 +30,7 @@ namespace WindowsFormsApplication.Statistics_and_Report
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = bus.StatisticRange(i_daystart, i_dayend);
-            cr_SalesStatistic rp = new cr_SalesStatistic();
+            cr_StatisticRangeTime rp = new cr_StatisticRangeTime();
             rp.SetDataSource(bs);
             crv_Range.ReportSource = rp;
             crv_Range.RefreshReport(); 
