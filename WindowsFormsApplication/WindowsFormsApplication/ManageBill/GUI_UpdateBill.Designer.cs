@@ -31,13 +31,11 @@
             this.lblVND3 = new System.Windows.Forms.Label();
             this.lblVND2 = new System.Windows.Forms.Label();
             this.lblVND = new System.Windows.Forms.Label();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.lblProductCode = new System.Windows.Forms.Label();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.lblBallotNum = new System.Windows.Forms.Label();
+            this.txtBallotNum = new System.Windows.Forms.TextBox();
             this.txtExcessCashUp = new System.Windows.Forms.TextBox();
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.lbl_Total = new System.Windows.Forms.Label();
-            this.nud_Number = new System.Windows.Forms.NumericUpDown();
             this.txtPOS = new System.Windows.Forms.TextBox();
             this.lblPos = new System.Windows.Forms.Label();
             this.btnSaveUp = new System.Windows.Forms.Button();
@@ -48,6 +46,10 @@
             this.lblGuestMoneyIn = new System.Windows.Forms.Label();
             this.lblTotalNum = new System.Windows.Forms.Label();
             this.lstManageBillUp = new System.Windows.Forms.DataGridView();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtHourUp = new System.Windows.Forms.TextBox();
             this.lblHourIn = new System.Windows.Forms.Label();
             this.txtDayUp = new System.Windows.Forms.TextBox();
@@ -55,7 +57,6 @@
             this.lblDayIn = new System.Windows.Forms.Label();
             this.lblNameIn = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillUp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,31 +90,23 @@
             this.lblVND.TabIndex = 92;
             this.lblVND.Text = "VNĐ";
             // 
-            // lblQuantity
+            // lblBallotNum
             // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(292, 124);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(52, 13);
-            this.lblQuantity.TabIndex = 91;
-            this.lblQuantity.Text = "Số lượng:";
+            this.lblBallotNum.AutoSize = true;
+            this.lblBallotNum.Location = new System.Drawing.Point(27, 117);
+            this.lblBallotNum.Name = "lblBallotNum";
+            this.lblBallotNum.Size = new System.Drawing.Size(68, 13);
+            this.lblBallotNum.TabIndex = 90;
+            this.lblBallotNum.Text = "Mã hóa đơn:";
             // 
-            // lblProductCode
+            // txtBallotNum
             // 
-            this.lblProductCode.AutoSize = true;
-            this.lblProductCode.Location = new System.Drawing.Point(29, 124);
-            this.lblProductCode.Name = "lblProductCode";
-            this.lblProductCode.Size = new System.Drawing.Size(74, 13);
-            this.lblProductCode.TabIndex = 90;
-            this.lblProductCode.Text = "Mã sản phẩm:";
-            // 
-            // txtid
-            // 
-            this.txtid.Location = new System.Drawing.Point(119, 117);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(129, 20);
-            this.txtid.TabIndex = 89;
-            this.txtid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtid_KeyPress);
+            this.txtBallotNum.Location = new System.Drawing.Point(119, 110);
+            this.txtBallotNum.Name = "txtBallotNum";
+            this.txtBallotNum.ReadOnly = true;
+            this.txtBallotNum.Size = new System.Drawing.Size(129, 20);
+            this.txtBallotNum.TabIndex = 89;
+            this.txtBallotNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtExcessCashUp
             // 
@@ -144,23 +137,11 @@
             this.lbl_Total.TabIndex = 86;
             this.lbl_Total.Text = "Tổng tiền:";
             // 
-            // nud_Number
-            // 
-            this.nud_Number.Location = new System.Drawing.Point(350, 117);
-            this.nud_Number.Name = "nud_Number";
-            this.nud_Number.Size = new System.Drawing.Size(78, 20);
-            this.nud_Number.TabIndex = 85;
-            this.nud_Number.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nud_Number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nud_Number_KeyPress);
-            // 
             // txtPOS
             // 
-            this.txtPOS.Location = new System.Drawing.Point(525, 117);
+            this.txtPOS.Location = new System.Drawing.Point(525, 107);
             this.txtPOS.Name = "txtPOS";
+            this.txtPOS.ReadOnly = true;
             this.txtPOS.Size = new System.Drawing.Size(78, 20);
             this.txtPOS.TabIndex = 84;
             this.txtPOS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -168,7 +149,7 @@
             // lblPos
             // 
             this.lblPos.AutoSize = true;
-            this.lblPos.Location = new System.Drawing.Point(487, 124);
+            this.lblPos.Location = new System.Drawing.Point(487, 110);
             this.lblPos.Name = "lblPos";
             this.lblPos.Size = new System.Drawing.Size(32, 13);
             this.lblPos.TabIndex = 83;
@@ -182,6 +163,7 @@
             this.btnSaveUp.TabIndex = 82;
             this.btnSaveUp.Text = "Lưu";
             this.btnSaveUp.UseVisualStyleBackColor = true;
+            this.btnSaveUp.Click += new System.EventHandler(this.clickUpdate);
             // 
             // btnCancelUp
             // 
@@ -244,10 +226,47 @@
             // lstManageBillUp
             // 
             this.lstManageBillUp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstManageBillUp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductCode,
+            this.Number,
+            this.UnitPrice,
+            this.Subtotal});
             this.lstManageBillUp.Location = new System.Drawing.Point(31, 143);
             this.lstManageBillUp.Name = "lstManageBillUp";
             this.lstManageBillUp.Size = new System.Drawing.Size(572, 150);
             this.lstManageBillUp.TabIndex = 75;
+            this.lstManageBillUp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstManageBillUp_KeyPress);
+            // 
+            // ProductCode
+            // 
+            this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductCode.DataPropertyName = "ProductCode";
+            this.ProductCode.HeaderText = "Mã sản phẩm";
+            this.ProductCode.Name = "ProductCode";
+            this.ProductCode.ReadOnly = true;
+            // 
+            // Number
+            // 
+            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Số lượng";
+            this.Number.Name = "Number";
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Đơn giá";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Subtotal.DataPropertyName = "Subtotal";
+            this.Subtotal.HeaderText = "Thành tiền";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
             // 
             // txtHourUp
             // 
@@ -323,13 +342,11 @@
             this.Controls.Add(this.lblVND3);
             this.Controls.Add(this.lblVND2);
             this.Controls.Add(this.lblVND);
-            this.Controls.Add(this.lblQuantity);
-            this.Controls.Add(this.lblProductCode);
-            this.Controls.Add(this.txtid);
+            this.Controls.Add(this.lblBallotNum);
+            this.Controls.Add(this.txtBallotNum);
             this.Controls.Add(this.txtExcessCashUp);
             this.Controls.Add(this.txt_Total);
             this.Controls.Add(this.lbl_Total);
-            this.Controls.Add(this.nud_Number);
             this.Controls.Add(this.txtPOS);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.btnSaveUp);
@@ -350,7 +367,6 @@
             this.Name = "GUI_UpdateBill";
             this.Text = "GUI_UpdateBill";
             this.Load += new System.EventHandler(this.loadDataBillToForm);
-            ((System.ComponentModel.ISupportInitialize)(this.nud_Number)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstManageBillUp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -362,13 +378,11 @@
         private System.Windows.Forms.Label lblVND3;
         private System.Windows.Forms.Label lblVND2;
         private System.Windows.Forms.Label lblVND;
-        private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.Label lblProductCode;
-        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Label lblBallotNum;
+        private System.Windows.Forms.TextBox txtBallotNum;
         private System.Windows.Forms.TextBox txtExcessCashUp;
         private System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Label lbl_Total;
-        private System.Windows.Forms.NumericUpDown nud_Number;
         private System.Windows.Forms.TextBox txtPOS;
         private System.Windows.Forms.Label lblPos;
         private System.Windows.Forms.Button btnSaveUp;
@@ -386,6 +400,10 @@
         private System.Windows.Forms.Label lblDayIn;
         private System.Windows.Forms.Label lblNameIn;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
 
     }
 }

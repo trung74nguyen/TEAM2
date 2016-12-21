@@ -145,19 +145,9 @@ namespace WindowsFormsApplication.ManageBill
             string str = DateTime.Now.ToString().Trim();
             str = str.Substring(0, 10);
             txtDayIn.Text = str;
-            string hour = DateTime.Now.Hour.ToString().Trim();
-            string minute = DateTime.Now.Minute.ToString().Trim();
-            string second = DateTime.Now.Second.ToString().Trim();
-            if (int.Parse(hour) <= 12)
-            {
-                string str_ = hour + ":" + minute + ":" + second+" AM";
-                txtHourIn.Text = str_;
-            }
-            else
-            {
-                string str_ = hour + ":" + minute + ":" + second+" PM";
-                txtHourIn.Text = str_;
-            }
+            string hour = DateTime.Now.ToString().Trim();
+            hour = hour.Substring(11);
+            txtHourIn.Text = hour;
         }
         private void txtid_KeyPress(object sender, KeyPressEventArgs e)
         {
