@@ -83,8 +83,6 @@ namespace WindowsFormsApplication.ManageBill
                 showManageBillDetail(null, null, ballotNum);
                 btnUpdate.Enabled = true;
             }
-
-
         }
 
 

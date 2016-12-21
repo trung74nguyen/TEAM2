@@ -11,7 +11,7 @@ namespace WindowsFormsApplication
 {
     using System;
     
-    public partial class SP_THONGKEDOANHTHUTHEONGAY_Result
+    public partial class SP_THONGKEDOANHTHUTHEONGAY5_Result
     {
         public string ProductName { get; set; }
         public System.DateTime Date { get; set; }

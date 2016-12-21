@@ -13,10 +13,10 @@ namespace WindowsFormsApplication.Statistics_and_Report
             
             return db.SP_THONGKEDOANHTHUTHEOTHANGNAM1(thang,nam).ToList();
         }
-        public List<SP_THONGKEDOANHTHUTHEONGAYS_Result> StatisticDate(DateTime date)
+        public List<SP_THONGKEDOANHTHUTHEONGAY5_Result> StatisticDate(DateTime date)
         {
 
-            return db.SP_THONGKEDOANHTHUTHEONGAYS(date).ToList();
+            return db.SP_THONGKEDOANHTHUTHEONGAY5(date).ToList();
         }
         public List<SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result> StatisticRange(DateTime datestart, DateTime dateend)
         {
