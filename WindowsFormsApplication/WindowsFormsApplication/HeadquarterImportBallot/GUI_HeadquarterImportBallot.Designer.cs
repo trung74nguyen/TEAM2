@@ -126,10 +126,13 @@
             // 
             // lstHeadquarterImportBallot
             // 
+            this.lstHeadquarterImportBallot.AllowUserToAddRows = false;
+            this.lstHeadquarterImportBallot.AllowUserToDeleteRows = false;
             this.lstHeadquarterImportBallot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstHeadquarterImportBallot.Location = new System.Drawing.Point(11, 143);
             this.lstHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallot.Name = "lstHeadquarterImportBallot";
+            this.lstHeadquarterImportBallot.ReadOnly = true;
             this.lstHeadquarterImportBallot.RowTemplate.Height = 24;
             this.lstHeadquarterImportBallot.Size = new System.Drawing.Size(224, 225);
             this.lstHeadquarterImportBallot.TabIndex = 34;
@@ -148,6 +151,8 @@
             // 
             // lstHeadquarterImportBallotDetail
             // 
+            this.lstHeadquarterImportBallotDetail.AllowUserToAddRows = false;
+            this.lstHeadquarterImportBallotDetail.AllowUserToDeleteRows = false;
             this.lstHeadquarterImportBallotDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstHeadquarterImportBallotDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BallotCode,
@@ -160,6 +165,7 @@
             this.lstHeadquarterImportBallotDetail.Location = new System.Drawing.Point(253, 143);
             this.lstHeadquarterImportBallotDetail.Margin = new System.Windows.Forms.Padding(2);
             this.lstHeadquarterImportBallotDetail.Name = "lstHeadquarterImportBallotDetail";
+            this.lstHeadquarterImportBallotDetail.ReadOnly = true;
             this.lstHeadquarterImportBallotDetail.RowTemplate.Height = 24;
             this.lstHeadquarterImportBallotDetail.Size = new System.Drawing.Size(412, 225);
             this.lstHeadquarterImportBallotDetail.TabIndex = 36;
@@ -169,6 +175,7 @@
             this.BallotCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.BallotCode.HeaderText = "Số phiếu";
             this.BallotCode.Name = "BallotCode";
+            this.BallotCode.ReadOnly = true;
             this.BallotCode.Width = 74;
             // 
             // ProductCode
@@ -176,6 +183,7 @@
             this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ProductCode.HeaderText = "Mã SP";
             this.ProductCode.Name = "ProductCode";
+            this.ProductCode.ReadOnly = true;
             this.ProductCode.Width = 64;
             // 
             // Number
@@ -183,6 +191,7 @@
             this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Number.HeaderText = "SL";
             this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
             this.Number.Width = 45;
             // 
             // InputPrice
@@ -190,6 +199,7 @@
             this.InputPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InputPrice.HeaderText = "Giá";
             this.InputPrice.Name = "InputPrice";
+            this.InputPrice.ReadOnly = true;
             this.InputPrice.Width = 48;
             // 
             // EXP
@@ -197,6 +207,7 @@
             this.EXP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.EXP.HeaderText = "Hạn sử dụng";
             this.EXP.Name = "EXP";
+            this.EXP.ReadOnly = true;
             this.EXP.Width = 93;
             // 
             // State
@@ -204,6 +215,7 @@
             this.State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.State.HeaderText = "Status";
             this.State.Name = "State";
+            this.State.ReadOnly = true;
             this.State.Width = 62;
             // 
             // IntoMoney
@@ -211,6 +223,7 @@
             this.IntoMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.IntoMoney.HeaderText = "Thành tiền";
             this.IntoMoney.Name = "IntoMoney";
+            this.IntoMoney.ReadOnly = true;
             this.IntoMoney.Width = 83;
             // 
             // menuStrip1

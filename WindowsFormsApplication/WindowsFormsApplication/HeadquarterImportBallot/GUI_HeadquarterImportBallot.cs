@@ -58,7 +58,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                     ballotDetail[i].ProductCode, 
                     ballotDetail[i].Number,
                     ballotDetail[i].InputPrice,
-                    ballotDetail[i].EXP,
+                    ballotDetail[i].EXP.ToShortDateString(),
                     ballotDetail[i].State,
                     thanhTien);
             }

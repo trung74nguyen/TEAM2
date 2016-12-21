@@ -162,6 +162,7 @@
             // 
             // lstProductImport
             // 
+            this.lstProductImport.AllowUserToDeleteRows = false;
             this.lstProductImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstProductImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,
@@ -182,7 +183,6 @@
             this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Product.HeaderText = "Sản phẩm";
             this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
             this.Product.Width = 80;
             // 
             // Number
@@ -190,7 +190,6 @@
             this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Number.HeaderText = "SL";
             this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
             this.Number.Width = 45;
             // 
             // InputPrice
@@ -198,7 +197,6 @@
             this.InputPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InputPrice.HeaderText = "Giá nhập";
             this.InputPrice.Name = "InputPrice";
-            this.InputPrice.ReadOnly = true;
             this.InputPrice.Width = 75;
             // 
             // EXP
@@ -227,7 +225,6 @@
             this.IntoMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.IntoMoney.HeaderText = "Thành tiền";
             this.IntoMoney.Name = "IntoMoney";
-            this.IntoMoney.ReadOnly = true;
             this.IntoMoney.Width = 83;
             // 
             // txtDate

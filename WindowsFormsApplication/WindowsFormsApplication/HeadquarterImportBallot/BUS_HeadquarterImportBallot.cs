@@ -96,10 +96,50 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 return false;
             }
         }
+        
+        /*===UPDATE CONTROLLER===*/
+        public bool updateHeadquarterImportBallotDetail(string ballotNum, string productCode, int number, double inputPrice, DateTime exp, string status)
+        {
+            if (!checkExistHeadquarterImportBallot(exp, status))
+                try
+                {
+                    using (var db = new CMART2Entities1())
+                    {
+                        var importBallotDetail = db.HeadquaterImportBallotDetails.Single
+                            (p => p.BallotNum == ballotNum && p.ProductCode == productCode);
+                        importBallotDetail.EXP = exp;
+                        importBallotDetail.State = status;
+                        db.Entry(importBallotDetail).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            return false;
+        }
+
+        private bool checkExistHeadquarterImportBallot(DateTime exp, string status)
+        {
+            using (var db = new CMART2Entities1())
+            {
+                if (db.HeadquaterImportBallotDetails.Count(s => s.EXP == exp && s.State == status) > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+        
+        /*===SEARCH CONTROLLER===*/
         public List<usp_HeadquaterImportBallotSearch_Result> searchAllListBallot(string text)
         {
             var db = new CMART2Entities1();
             return db.usp_HeadquaterImportBallotSearch(text).ToList();
         }
+
+
     }
 }

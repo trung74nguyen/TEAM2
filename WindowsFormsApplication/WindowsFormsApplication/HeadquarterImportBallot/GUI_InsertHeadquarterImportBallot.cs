@@ -57,6 +57,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 i++;
             }
             txtTotal.Text = total.ToString();
+            lstProductImport.AllowUserToAddRows = false;
         }
         private void clickFind(object sender, EventArgs e)
         {
@@ -103,7 +104,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                     }
                     else
                     {
-                        DateTime exp = DateTime.Now;
+                        DateTime exp = DateTime.Now; //Set default value if inputData = false
                         bus.insertHeadquarterImportBallotDetail(productCode, number, inputPrice, exp, status);
                     }
                 } // end for
