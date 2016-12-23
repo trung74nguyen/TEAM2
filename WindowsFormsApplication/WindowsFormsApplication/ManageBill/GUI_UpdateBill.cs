@@ -130,42 +130,42 @@ namespace WindowsFormsApplication.ManageBill
             }
             return true;
         }
-        private void lstManageBillUp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-             //tính thành tiền
-                int sc = lstManageBillUp.Rows.Count;
-                double thanhtien = 0;
-                for (int c = 0; c < sc; c++)
-                {
-                    thanhtien += double.Parse(lstManageBillUp.Rows[c].Cells["Subtotal"].Value.ToString());
-                }
-                txt_Total.Text = Convert.ToString(thanhtien);
-             //tính tổng số lượng
-                int numproduct = 0;
-                for (int j = 0; j < sc; j++)
-                {
-                    numproduct += int.Parse(lstManageBillUp.Rows[j].Cells["Number"].Value.ToString());
-                }
-                txt_TotalNum.Text = Convert.ToString(numproduct);
-                //for (int i = 0; i < lstManageBillUp.Rows.Count; i++)
-                //{
-                //    string sProductCode = lstManageBillUp.Rows[i].Cells["ProductCode"].Value.ToString();
-                //    string sUnitPrice = lstManageBillUp.Rows[i].Cells["UnitPrice"].Value.ToString();
-                //    string sNumber = lstManageBillUp.Rows[i].Cells["Number"].Value.ToString();
-                //    string sTotal_ = lstManageBillUp.Rows[i].Cells["Subtotal"].Value.ToString();
-                //    double inputPrice = double.Parse(sUnitPrice);
-                //    int number = int.Parse(sNumber);
-                //    double subTotal = (double)(inputPrice * number);
-                //   lstManageBillUp.Rows.Add(
-                //   lstManageBillUp.Rows[i].Cells[0].Value = sProductCode,
-                //   lstManageBillUp.Rows[i].Cells[1].Value = number,
-                //   lstManageBillUp.Rows[i].Cells[2].Value = sUnitPrice,
-                //   lstManageBillUp.Rows[i].Cells[3].Value = subTotal
-                //   );
+        //private void lstManageBillUp_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //     //tính thành tiền
+        //        int sc = lstManageBillUp.Rows.Count;
+        //        double thanhtien = 0;
+        //        for (int c = 0; c < sc; c++)
+        //        {
+        //            thanhtien += double.Parse(lstManageBillUp.Rows[c].Cells["Subtotal"].Value.ToString());
+        //        }
+        //        txt_Total.Text = Convert.ToString(thanhtien);
+        //     //tính tổng số lượng
+        //        int numproduct = 0;
+        //        for (int j = 0; j < sc; j++)
+        //        {
+        //            numproduct += int.Parse(lstManageBillUp.Rows[j].Cells["Number"].Value.ToString());
+        //        }
+        //        txt_TotalNum.Text = Convert.ToString(numproduct);
+        //        //for (int i = 0; i < lstManageBillUp.Rows.Count; i++)
+        //        //{
+        //        //    string sProductCode = lstManageBillUp.Rows[i].Cells["ProductCode"].Value.ToString();
+        //        //    string sUnitPrice = lstManageBillUp.Rows[i].Cells["UnitPrice"].Value.ToString();
+        //        //    string sNumber = lstManageBillUp.Rows[i].Cells["Number"].Value.ToString();
+        //        //    string sTotal_ = lstManageBillUp.Rows[i].Cells["Subtotal"].Value.ToString();
+        //        //    double inputPrice = double.Parse(sUnitPrice);
+        //        //    int number = int.Parse(sNumber);
+        //        //    double subTotal = (double)(inputPrice * number);
+        //        //   lstManageBillUp.Rows.Add(
+        //        //   lstManageBillUp.Rows[i].Cells[0].Value = sProductCode,
+        //        //   lstManageBillUp.Rows[i].Cells[1].Value = number,
+        //        //   lstManageBillUp.Rows[i].Cells[2].Value = sUnitPrice,
+        //        //   lstManageBillUp.Rows[i].Cells[3].Value = subTotal
+        //        //   );
                    
-                //}
+        //        //}
 
-        }
+        //}
         private void btnCancelUp_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -240,6 +240,37 @@ namespace WindowsFormsApplication.ManageBill
                     MessageBox.Show("Cập nhật không thành công!");
             }
 
+        }
+
+        private void lstManageBillUp_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //tính thành tiền
+            int sc = lstManageBillUp.Rows.Count;
+            double thanhtien = 0;
+            for (int c = 0; c < sc; c++)
+            {
+                thanhtien += double.Parse(lstManageBillUp.Rows[c].Cells["Subtotal"].Value.ToString());
+            }
+            txt_Total.Text = Convert.ToString(thanhtien);
+            //tính tổng số lượng
+            int numproduct = 0;
+            for (int j = 0; j < sc; j++)
+            {
+                numproduct += int.Parse(lstManageBillUp.Rows[j].Cells["Number"].Value.ToString());
+            }
+            txt_TotalNum.Text = Convert.ToString(numproduct);
+            for (int i = 0; i < lstManageBillUp.Rows.Count; i++)
+            {
+                string sProductCode = lstManageBillUp.Rows[i].Cells["ProductCode"].Value.ToString();
+                string sUnitPrice = lstManageBillUp.Rows[i].Cells["UnitPrice"].Value.ToString();
+                string sNumber = lstManageBillUp.Rows[i].Cells["Number"].Value.ToString();
+                string sTotal_ = lstManageBillUp.Rows[i].Cells["Subtotal"].Value.ToString();
+                double inputPrice = double.Parse(sUnitPrice);
+                int number = int.Parse(sNumber);
+                double subTotal = (double)(inputPrice * number);
+                lstManageBillUp.Rows[i].Cells[3].Value = subTotal;
+            
+            }
         }
     }
  

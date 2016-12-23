@@ -282,10 +282,40 @@
     <Compile Include="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEOKHOANGTHOIGIAN_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY21_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY3_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY4_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_THONGKEDOANHTHUTHEONGAY5_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAYS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAYTHANGNAM_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEONGAY_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_THONGKEDOANHTHUTHEOTHANGNAM1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_THONGKEDOANHTHUTHEOTHANGNAM_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Statistics and Report\BUS_ManageSalesStatistic.cs" />

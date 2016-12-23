@@ -405,6 +405,9 @@
         <Function Name="SP_BILL_BALLOTNUM_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BALLOTNUM" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="SP_BILL_ID_AUTO_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="SP_BILL_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_BRANCHIMPORTBALLOT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BRACHBALLOT" Type="varchar" Mode="InOut" />
@@ -422,6 +425,9 @@
         </Function>
         <Function Name="SP_HEADQUATERIMPORTBALLOT_BALLOTNUM_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BALLOTNUM" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="InOut" />
         </Function>
         <Function Name="SP_HEADQUATERIMPORTBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -464,23 +470,8 @@
           <Parameter Name="NGAYBATDAU" Type="datetime" Mode="In" />
           <Parameter Name="NGAYKETTHUC" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="SP_THONGKEDOANHTHUTHEONGAY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NGAY" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="SP_THONGKEDOANHTHUTHEONGAY2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NGAY" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="SP_THONGKEDOANHTHUTHEONGAY3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NGAY" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="SP_THONGKEDOANHTHUTHEONGAY4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NGAY" Type="datetime" Mode="In" />
-        </Function>
         <Function Name="SP_THONGKEDOANHTHUTHEONGAY5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NGAY" Type="date" Mode="In" />
-        </Function>
-        <Function Name="SP_THONGKEDOANHTHUTHEONGAYS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="NGAY" Type="datetime" Mode="In" />
         </Function>
         <Function Name="SP_THONGKEDOANHTHUTHEOTHANGNAM1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="THANG" Type="int" Mode="In" />
@@ -1830,7 +1821,7 @@
             <Parameter Name="NGAYKETTHUC" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_HeadquaterImportBallotSearch" ReturnType="Collection(CMART2Model.usp_HeadquaterImportBallotSearch_Result)">
-            <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
+          <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY21" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY21_Result)">
           <Parameter Name="NGAY" Mode="In" Type="DateTime" />
@@ -1842,7 +1833,13 @@
           <Parameter Name="NGAY" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="SP_THONGKEDOANHTHUTHEONGAY5" ReturnType="Collection(CMART2Model.SP_THONGKEDOANHTHUTHEONGAY5_Result)">
-            <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+          <Parameter Name="NGAY" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BILL_ID_AUTO_Test">
+          <Parameter Name="ID" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test">
+            <Parameter Name="ID" Mode="InOut" Type="String" />
           </FunctionImport>     
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -3099,39 +3096,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY21" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY2">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY21_Result">
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY3" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY3">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY3_Result">
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY4" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY4">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY4_Result">
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_THONGKEDOANHTHUTHEONGAY5" FunctionName="CMART2Model.Store.SP_THONGKEDOANHTHUTHEONGAY5">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CMART2Model.SP_THONGKEDOANHTHUTHEONGAY5_Result">
@@ -3143,6 +3107,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_BILL_ID_AUTO_Test" FunctionName="CMART2Model.Store.SP_BILL_ID_AUTO_Test" />
+          <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

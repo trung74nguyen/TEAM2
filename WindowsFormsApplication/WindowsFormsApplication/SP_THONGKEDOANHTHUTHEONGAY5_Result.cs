@@ -17,6 +17,6 @@ namespace WindowsFormsApplication
         public System.DateTime Date { get; set; }
         public int Number { get; set; }
         public double UnitPrice { get; set; }
-        public double AMOUNT { get; set; }
+        public Nullable<double> AMOUNT { get; set; }
     }
 }

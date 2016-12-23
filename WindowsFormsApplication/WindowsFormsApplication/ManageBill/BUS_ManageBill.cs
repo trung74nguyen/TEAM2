@@ -26,11 +26,11 @@ namespace WindowsFormsApplication.ManageBill
             var db = new CMART2Entities1();
             return db.Products.Find(id);
         }
-        public List<Account> getAllListAccount()
-        {
-            var db = new CMART2Entities1();
-            return db.Accounts.Where(i =>i.Authorities.Equals("Dương Thành Công Lý")).ToList();
-        }
+        //public List<Account> getAllListAccount()
+        //{
+        //    var db = new CMART2Entities1();
+        //    return db.Accounts.Where(i =>i.Authorities.Equals("Dương Thành Công Lý")).ToList();
+        //}
         public List<usp_BillDetailSelectAll_Result> getAllListBillDetail(string ballotnum)
         {
             var db = new CMART2Entities1();
@@ -60,10 +60,9 @@ namespace WindowsFormsApplication.ManageBill
             {
                 using (var db = new CMART2Entities1())
                 {
-                    ObjectParameter idoutput = new ObjectParameter("BALLOTNUM", typeof(String));
-                    db.SP_BILL_BALLOTNUM_AUTO(idoutput);
+                    ObjectParameter idoutput = new ObjectParameter("ID", typeof(String));
+                    db.SP_BILL_ID_AUTO_Test(idoutput);
                     var id_auto = idoutput.Value.ToString();
-
                     var bill = new Bill
                     {
                         BallotNum = id_auto,

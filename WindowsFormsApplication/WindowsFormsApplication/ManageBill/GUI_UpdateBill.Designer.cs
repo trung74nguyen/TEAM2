@@ -235,7 +235,8 @@
             this.lstManageBillUp.Name = "lstManageBillUp";
             this.lstManageBillUp.Size = new System.Drawing.Size(572, 150);
             this.lstManageBillUp.TabIndex = 75;
-            this.lstManageBillUp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstManageBillUp_KeyPress);
+            this.lstManageBillUp.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.lstManageBillUp_CellEnter);
+            //this.lstManageBillUp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstManageBillUp_KeyPress);
             // 
             // ProductCode
             // 
