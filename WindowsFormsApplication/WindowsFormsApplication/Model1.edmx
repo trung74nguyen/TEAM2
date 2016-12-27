@@ -412,6 +412,9 @@
         <Function Name="SP_BRANCHIMPORTBALLOT_ID_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BRACHBALLOT" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="SP_BRANCHIMPORTBALLOT_ID_AUTO_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="SP_BRANCHIMPORTBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -427,6 +430,9 @@
           <Parameter Name="BALLOTNUM" Type="varchar" Mode="InOut" />
         </Function>
         <Function Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="varchar" Mode="InOut" />
         </Function>
         <Function Name="SP_HEADQUATERIMPORTBALLOT_INSERT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1839,6 +1845,12 @@
           <Parameter Name="ID" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test">
+          <Parameter Name="ID" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2">
+          <Parameter Name="ID" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BRANCHIMPORTBALLOT_ID_AUTO_V2">
             <Parameter Name="ID" Mode="InOut" Type="String" />
           </FunctionImport>     
         </EntityContainer>
@@ -3109,6 +3121,8 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_BILL_ID_AUTO_Test" FunctionName="CMART2Model.Store.SP_BILL_ID_AUTO_Test" />
           <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" />
+          <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2" />
+          <FunctionImportMapping FunctionImportName="SP_BRANCHIMPORTBALLOT_ID_AUTO_V2" FunctionName="CMART2Model.Store.SP_BRANCHIMPORTBALLOT_ID_AUTO_V2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

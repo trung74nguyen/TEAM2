@@ -1480,5 +1480,15 @@ namespace WindowsFormsApplication
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test", iD);
         }
+    
+        public virtual int SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2(ObjectParameter iD)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2", iD);
+        }
+    
+        public virtual int SP_BRANCHIMPORTBALLOT_ID_AUTO_V2(ObjectParameter iD)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_BRANCHIMPORTBALLOT_ID_AUTO_V2", iD);
+        }
     }
 }

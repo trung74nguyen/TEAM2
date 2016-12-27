@@ -48,7 +48,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 using (var db = new CMART2Entities1())
                 {
                     ObjectParameter idoutput = new ObjectParameter("ID", typeof(String));
-                    db.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test(idoutput);
+                    db.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2(idoutput);
                     var id_auto = idoutput.Value.ToString();
 
                     var headquarterImportBallot = new HeadquaterImportBallot

@@ -224,7 +224,7 @@ namespace WindowsFormsApplication.ManageBill
                     double money = double.Parse(mon);
                     double subtotal = double.Parse(txt_Total.Text.Trim());
 
-                    if (money > subtotal)
+                    if (money >= subtotal)
                     {
                         double remoney = money - subtotal;
                         txtExcessCashIn.Text = Convert.ToString(remoney);
