@@ -59,7 +59,7 @@
           <Property Name="BallotNum" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ProductCode" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
-          <Property Name="State" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="HeadquaterImportBallot">
           <Key>
@@ -591,6 +591,9 @@
           <Parameter Name="Branch" Type="nvarchar" Mode="In" />
           <Parameter Name="AccountCode" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_BranchImportBallotSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTSEARCH" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_BranchImportBallotSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BallotNum" Type="varchar" Mode="In" />
         </Function>
@@ -957,7 +960,7 @@
           <Property Name="BallotNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProductCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Number" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BranchImportBallot" Relationship="Self.FK_BranchImportBallotDetail_BranchImportBallot" FromRole="BranchImportBallotDetail" ToRole="BranchImportBallot" />
           <NavigationProperty Name="Product" Relationship="Self.FK_BranchImportBallotDetail_Product" FromRole="BranchImportBallotDetail" ToRole="Product" />
         </EntityType>
@@ -1851,7 +1854,10 @@
           <Parameter Name="ID" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_BRANCHIMPORTBALLOT_ID_AUTO_V2">
-            <Parameter Name="ID" Mode="InOut" Type="String" />
+          <Parameter Name="ID" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BranchImportBallotSearch" ReturnType="Collection(CMART2Model.usp_BranchImportBallotSearch_Result)">
+          <Parameter Name="TEXTSEARCH" Mode="In" Type="String" />
           </FunctionImport>     
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -2304,6 +2310,13 @@
           <Property Type="Int32" Name="Number" Nullable="false" />
           <Property Type="Double" Name="UnitPrice" Nullable="false" />
           <Property Type="Double" Name="AMOUNT" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_BranchImportBallotSearch_Result">
+          <Property Type="String" Name="BallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="HeadquaterBallotNum" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="InputDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Branch" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AccountCode" Nullable="false" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3123,6 +3136,17 @@
           <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_Test" />
           <FunctionImportMapping FunctionImportName="SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2" FunctionName="CMART2Model.Store.SP_HEADQUATERIMPORTBALLOT_ID_AUTO_V2" />
           <FunctionImportMapping FunctionImportName="SP_BRANCHIMPORTBALLOT_ID_AUTO_V2" FunctionName="CMART2Model.Store.SP_BRANCHIMPORTBALLOT_ID_AUTO_V2" />
+          <FunctionImportMapping FunctionImportName="usp_BranchImportBallotSearch" FunctionName="CMART2Model.Store.usp_BranchImportBallotSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CMART2Model.usp_BranchImportBallotSearch_Result">
+                <ScalarProperty Name="BallotNum" ColumnName="BallotNum" />
+                <ScalarProperty Name="HeadquaterBallotNum" ColumnName="HeadquaterBallotNum" />
+                <ScalarProperty Name="InputDate" ColumnName="InputDate" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

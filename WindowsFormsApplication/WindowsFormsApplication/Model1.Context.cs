@@ -1490,5 +1490,14 @@ namespace WindowsFormsApplication
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_BRANCHIMPORTBALLOT_ID_AUTO_V2", iD);
         }
+    
+        public virtual ObjectResult<usp_BranchImportBallotSearch_Result> usp_BranchImportBallotSearch(string tEXTSEARCH)
+        {
+            var tEXTSEARCHParameter = tEXTSEARCH != null ?
+                new ObjectParameter("TEXTSEARCH", tEXTSEARCH) :
+                new ObjectParameter("TEXTSEARCH", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BranchImportBallotSearch_Result>("usp_BranchImportBallotSearch", tEXTSEARCHParameter);
+        }
     }
 }

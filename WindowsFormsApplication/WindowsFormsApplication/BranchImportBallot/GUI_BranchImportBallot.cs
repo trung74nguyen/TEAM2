@@ -21,25 +21,96 @@ namespace WindowsFormsApplication
         public GUI_BranchImportBallot()
         {
             InitializeComponent();
+            this.btnQLSP.Click += new EventHandler(btnQLSP_Click);
+            this.btnQLLSG.Click += new EventHandler(btnQLLSG_Click);
+            this.btnQLTTKM.Click += new EventHandler(btnQLTTKM_Click);
+            this.btnQLNHTS.Click += new EventHandler(btnQLNHTS_Click);
+            this.btnQLNHCN.Click += new EventHandler(btnQLNHCN_Click);
+            this.btnQLHD.Click += new EventHandler(btnQLHD_Click);
+            this.btnTKe.Click += new EventHandler(btnTKe_Click);
+            this.btnLogOut.Click += new EventHandler(btnLogOut_Click);            
         }
         BUS_BranchImportBallot bus = new BUS_BranchImportBallot();
-        private void showBranchImportBallot(List<BranchImportBallot> branchimportballot)
+        private void showBranchImportBallot(List<BranchImportBallot> ballot)
         {
-            lstBranchImportBallot.DataSource = branchimportballot;
-            foreach (DataGridViewColumn column in lstBranchImportBallot.Columns)
+            lstBallot.DataSource = ballot;
+            foreach (DataGridViewColumn column in lstBallot.Columns)
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            lstBranchImportBallot.Columns["BallotNum"].HeaderText = "Số phiếu";
-            lstBranchImportBallot.Columns["HeadquaterBallotNum"].HeaderText = "Số phiếu nhập hàng trụ sở";
-            lstBranchImportBallot.Columns["InputDate"].HeaderText = "Ngày nhập";
-            lstBranchImportBallot.Columns["Branch"].HeaderText = "Chi nhánh";
-            lstBranchImportBallot.Columns["AccountCode"].HeaderText = "Mã tài khoản";
-            lstBranchImportBallot.Columns["Account"].Visible = false;
-            lstBranchImportBallot.Columns["HeadquaterImportBallot"].Visible = false;
+            lstBallot.Columns["BallotNum"].HeaderText = "Số phiếu";
+            lstBallot.Columns["HeadquaterBallotNum"].HeaderText = "Số phiếu NHTS";
+            lstBallot.Columns["InputDate"].HeaderText = "Ngày nhập";
+            lstBallot.Columns["Branch"].HeaderText = "Chi nhánh";
+            lstBallot.Columns["AccountCode"].HeaderText = "Mã tài khoản";
+            lstBallot.Columns["Account"].Visible = false;
+            lstBallot.Columns["HeadquaterImportBallot"].Visible = false;
+            lstBallot.Columns["BranchImportBallotDetails"].Visible = false;
+            btnUpdate.Enabled = false;
         }
         private void showBranchImportBallot(object sender, EventArgs e)
         {
             var branchImportBallotForm = bus.getAllListBranchImportBallot();
             showBranchImportBallot(branchImportBallotForm);
+        }
+        private void showBranchImportBallot(List<BranchImportBallotDetail> ballotDetail)
+        {
+            for (int i = 0; i < ballotDetail.Count; i++)
+            {
+                int soLuong = ballotDetail[i].Number;
+                lstBallotDetail.Rows.Add(
+                    ballotDetail[i].BallotNum,
+                    ballotDetail[i].ProductCode,
+                    ballotDetail[i].Number,
+                    ballotDetail[i].State);
+            }
+            btnUpdate.Enabled = false;
+        }
+        private void showBranchImportBallotDetail(object sender, EventArgs e, string ballotNum)
+        {
+            var ballotDetail = bus.getAllListBranchImportBallotDetail(ballotNum);
+            showBranchImportBallot(ballotDetail);
+        }
+
+        private string ballotNum = "";
+        private void selectUpdateBranchImportBallot(object sender, EventArgs e)
+        {
+            lstBallotDetail.DataMember = null;
+            if (lstBallot.SelectedRows.Count == 1)
+            {
+                var ballot = lstBallot.SelectedRows[0].DataBoundItem as BranchImportBallot;
+                ballotNum = ballot.BallotNum;
+                showBranchImportBallotDetail(null, null, ballotNum);
+                btnUpdate.Enabled = true;
+            }
+        }
+        private void clickUpdate(object sender, EventArgs e)
+        {
+            GUI_UpdateBranchImportBallot gui_Update = new GUI_UpdateBranchImportBallot(ballotNum);
+            gui_Update.ShowDialog();
+            var index = lstBallot.SelectedRows[0].Index;
+            lstBallot.Rows[index].Selected = true;
+            showBranchImportBallot(null, null);
+        }
+
+        private void clickInsert(object sender, EventArgs e)
+        {
+            GUI_InsertBranchImportBallot gui_Insert = new GUI_InsertBranchImportBallot(lblName.Text);
+            gui_Insert.ShowDialog();
+            showBranchImportBallot(null, null);
+        }
+
+        private void clickPrint(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            lstBallot.DataSource = bus.searchAllListBallot(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
         }
 
         private void btnQLSP_Click(object sender, EventArgs e)
