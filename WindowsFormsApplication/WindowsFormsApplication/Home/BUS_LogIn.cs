@@ -7,30 +7,19 @@ namespace WindowsFormsApplication.Home
 {
     class BUS_LogIn
     {
-        CMART2Entities1 db = new CMART2Entities1();
-        public BUS_LogIn() 
+        private bool checkExistAccount(string username, string password)
         {
-            var db = new CMART2Entities1();
+            using (var db = new CMART2Entities1())
+                return db.Accounts.Count(s => s.Account1 == username
+                                            && s.Password == password) > 0;
         }
-        public bool LoginUser(string username, string passwork) 
+
+        public bool getInputData(string username, string password)
         {
-            Account account;
-            try 
-            {
-                account = db.Accounts.Single(a => a.Account1.Equals(username));
-                if (account.Account1.Equals(username) && account.Password.Equals(passwork))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch 
-            {
+            if (checkExistAccount(username, password))
+                return true;
+            else
                 return false;
-            }
         }
     }
 }

@@ -23,6 +23,8 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             InitializeComponent();
         }
         BUS_HeadquarterImportBallot bus = new BUS_HeadquarterImportBallot();
+        
+        /*===SHOW MANAGE FORM===*/
         private void showHeadquarterImportBallotForm(List<HeadquaterImportBallot> ballot)
         {
             lstHeadquarterImportBallot.DataSource = ballot;
@@ -41,11 +43,13 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             //lstHeadquarterImportBallot.Columns["ProposeBallotNum"].Visible = false;
             btnUpdate.Enabled = false;
         }
+
         private void showHeadquarterImportBallot(object sender, EventArgs e)
         {
             var ballot = bus.getAllListHeadquarterImportBallot();
             showHeadquarterImportBallotForm(ballot);
         }
+
         private void showHeadquarterImportBallotForm(List<HeadquaterImportBallotDetail> ballotDetail)
         {
             for (int i = 0; i < ballotDetail.Count; i++)
@@ -64,12 +68,14 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             }
             btnUpdate.Enabled = false;
         }
+
         private void showHeadquarterImportBallotDetail(object sender, EventArgs e, string ballotNum)
         {
             var ballotDetail = bus.getAllListHeadquarterImportBallotDetail(ballotNum);
             showHeadquarterImportBallotForm(ballotDetail);
         }
 
+        /*===CALL UPDATE FUNCTION===*/
         private string ballotNum = "";
         private void selectUpdateHeadquarterImportBallot(object sender, EventArgs e)
         {
@@ -92,6 +98,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             showHeadquarterImportBallot(null, null);
         }
 
+        /*===CALL INSERT FUNCTION===*/
         private void clickInsert(object sender, EventArgs e)
         {
             GUI_InsertHeadquarterImportBallot gui_Insert = new GUI_InsertHeadquarterImportBallot(lblName.Text);
@@ -99,11 +106,24 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             showHeadquarterImportBallot(null, null);
         }
 
+        /*===CALL SEARCH FUNCTION===*/
+        private void clickSearch(object sender, EventArgs e)
+        {
+            lstHeadquarterImportBallot.DataSource = bus.searchAllListHeadquarterImportBallot(txtSearch.Text);
+        }
+
+        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtSearch.Text = "";
+        }
+
+        /*===CALL PRINT FUNCTION===*/
         private void clickPrint(object sender, EventArgs e)
         {
 
         }
 
+        /*===CALL OTHER FEATURES===*/
         private void btnQLSP_Click(object sender, EventArgs e)
         {
             GUI_ManageProduct manageproduct = new GUI_ManageProduct();
@@ -167,16 +187,5 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             login.ShowDialog();
             this.Close();
         }
-
-        private void clickSearch(object sender, EventArgs e)
-        {
-            lstHeadquarterImportBallot.DataSource = bus.searchAllListBallot(txtSearch.Text);
-        }
-
-        private void txtSearch_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtSearch.Text = "";
-        }
-
     }
 }

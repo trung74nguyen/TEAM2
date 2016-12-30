@@ -11,46 +11,68 @@ namespace WindowsFormsApplication.Home
 {
     public partial class GUI_LogIn : Form
     {
-        BUS_LogIn buslogin = null;
         public GUI_LogIn()
         {
             InitializeComponent();
         }
 
-        private void btnLogIn_Click(object sender, EventArgs e)
+        BUS_LogIn buslogin = null;
+
+        private void showLoginForm(object sender, EventArgs e)
         {
-            GUI_Home guihome = new GUI_Home();
+            buslogin = new BUS_LogIn();
+        }
+
+        private bool validateInputData(string username, string password)
+        {
+            if ((username ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Tài khoản là bắt buộc!");
+                return false;
+            }
+            if (username.Length > 50)
+            {
+                MessageBox.Show("Tài khoản có độ dài ký tự từ 1 đến 50");
+                return false;
+            }
+            if ((password ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Mật khẩu là bắt buộc!");
+                return false;
+            }
+            if (password.Length > 50)
+            {
+                MessageBox.Show("Mật khẩu có độ dài ký tự từ 1 đến 50");
+                return false;
+            }
+            return true;
+        }
+
+        private void clickLogin(object sender, EventArgs e)
+        {
             string username = txtUser.Text;
             string password = txtPassword.Text;
-            if (txtUser.Text == "" || txtPassword.Text == "")
+            var inputData = validateInputData(username, password);
+            if(inputData)
             {
-                MessageBox.Show("Please provide UserName and Password");
-                txtUser.Text = "";
-                txtPassword.Text = "";
-                txtUser.Focus();
-            }
-            else
-            {
-                if (buslogin.LoginUser(username, password) == true)
+                if (buslogin.getInputData(username, password))
                 {
+                    GUI_Home guihome = new GUI_Home();
                     this.Hide();
                     guihome.ShowDialog();
-                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Login Failed!");
-                    txtUser.Text = "";
-                    txtPassword.Text = "";
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!");
+                    txtUser.Text = txtPassword.Text = "";
                     txtUser.Focus();
                 }
             }
-            
-        }
-
-        private void GUI_LogIn_Load(object sender, EventArgs e)
-        {
-            buslogin = new BUS_LogIn();
+            else
+            {
+                txtUser.Text = txtPassword.Text = "";
+                txtUser.Focus();
+            }
         }
     }
 }

@@ -11,16 +11,20 @@ namespace WindowsFormsApplication.ManagePromotion
 {
     class BUS_ManagePromotion
     {
+        /*===MANAGE CONTROLLER===*/
         public List<PromotionInformation> getAllListPromotion()
         {
             var db = new CMART2Entities1();
             return db.PromotionInformations.ToList();
         }
+
+        /*===DELETE CONTROLLER===*/
         private bool checkExistPromotion(string id)
         {
             var db = new CMART2Entities1();
                 return db.PromotionInformations.Count(s => s.PromotionCode.Equals(id)) == 1;
         }
+
         public bool deletePromotion(string id)
         {
             if (checkExistPromotion(id))
@@ -40,6 +44,8 @@ namespace WindowsFormsApplication.ManagePromotion
                 }
             return false;
         }
+
+        /*===INSERT CONTROLLER===*/
         public bool insertNewPromotion(string productCode, float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
         {
             try
@@ -64,7 +70,6 @@ namespace WindowsFormsApplication.ManagePromotion
                     db.SaveChanges();
                     return true;
                 }
-
             }
             catch (Exception)
             {
@@ -72,6 +77,7 @@ namespace WindowsFormsApplication.ManagePromotion
             }
         }
 
+        /*===UPDATE CONTROLLER===*/
         private bool checkExistPromotion(float promotionPrice, DateTime startTime, DateTime endTime, string promotionContent, string promotionImage)
         {
             using (var db = new CMART2Entities1())
@@ -114,6 +120,7 @@ namespace WindowsFormsApplication.ManagePromotion
             return false;
         }
 
+        /*===SEARCH CONTROLLER===*/
         public List<usp_PromotionInformationSearch_Result> searchAllListPromotion(string text)
         {
             var db = new CMART2Entities1();

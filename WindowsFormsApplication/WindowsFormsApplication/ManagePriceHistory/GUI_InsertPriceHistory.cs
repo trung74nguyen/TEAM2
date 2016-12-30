@@ -36,7 +36,6 @@ namespace WindowsFormsApplication.ManagePriceHistory
                 MessageBox.Show("Giá bán là bắt buộc!");
                 return false;
             }
-
             if ((sPrice ?? "").Trim().Length > 0)
             {
                 try
@@ -79,10 +78,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
     }
 }

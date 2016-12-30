@@ -22,9 +22,8 @@ namespace WindowsFormsApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form0());
-            //Application.Run(new GUI_LogIn());
-            Application.Run(new GUI_Home());
+            Application.Run(new GUI_LogIn());
+            //Application.Run(new GUI_Home());
             //Application.Run(new GUI_BranchImportBallot());
             //Application.Run(new GUI_HeadquarterImportBallot());
             //Application.Run(new GUI_ManageBill());

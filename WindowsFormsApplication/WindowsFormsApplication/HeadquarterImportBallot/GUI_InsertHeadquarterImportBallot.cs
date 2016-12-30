@@ -16,8 +16,10 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             InitializeComponent();
             txtName.Text = name;
         }
+
         BUS_HeadquarterImportBallot bus = new BUS_HeadquarterImportBallot();
         CMART2Entities1 db = new CMART2Entities1();
+
         private void showInsertHeadquarterImportForm(object sender, EventArgs e)
         {
             txtDate.Text = DateTime.Now.ToString().Trim();
@@ -26,9 +28,9 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             this.cboProposeNum.DisplayMember = "BallotNum"; // set the display member
             btnSave.Enabled = false;
         }
+
         private void loadProductImport(string proposeNum)
         {
-            //MessageBox.Show(proposeNum);
             var product = bus.getListProposeBallotDetail(proposeNum);
             int i = 0;
             double total = 0;
@@ -40,7 +42,6 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 usp_PriceHistoryLastest_Result lastestPrice 
                     = listPrice.Single(s => s.ProductCode == productCode);
                 double inputPrice = lastestPrice.Price;
-                //DateTime exp = DateTime.Now;
                 string exp = "";
                 string status = "Đủ";
                 double subTotal = (double)(inputPrice*number);
@@ -59,6 +60,25 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             txtTotal.Text = total.ToString();
             lstProductImport.AllowUserToAddRows = false;
         }
+
+        private bool checkDataInput(string exp)
+        {
+            if ((exp ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("HSD là bắt buộc, vui lòng cập nhật lại sau!");
+                return false;
+            }
+
+            DateTime value;
+            if (!DateTime.TryParse(exp, out value))
+            {
+                //startDateTextox.Text = DateTime.Today.ToShortDateString();
+                MessageBox.Show("HSD chưa đúng định dạng MM/dd/yyyy, vui lòng cập nhật lại sau!");
+                return false;
+            }
+            return true;
+        }
+
         private void clickFind(object sender, EventArgs e)
         {
             string proposeNum = cboProposeNum.Text.ToString();
@@ -70,12 +90,12 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             }
             else
             {
-                MessageBox.Show("Phiếu nhập hàng đã tồn tại, vui lòng chọn phiếu khác!");
+                MessageBox.Show("Phiếu nhập hàng cho phiếu đề xuất này đã tồn tại!");
                 lstProductImport.DataMember = null; //Reset DataGridView
                 btnSave.Enabled = false;
             }
-
         }
+
         private void clickSave(object sender, EventArgs e)
         {
             string proposeNum = cboProposeNum.SelectedValue.ToString();
@@ -118,31 +138,11 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                 lstProductImport.DataMember = null; //Reset DataGridView
                 btnSave.Enabled = false;
             }
-
         }
+
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-        private bool checkDataInput(string exp)
-        {
-            if ((exp ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("HSD là bắt buộc, vui lòng cập nhật lại sau!");
-                return false;
-            }
-            
-            DateTime value;
-            if (!DateTime.TryParse(exp, out value))
-            {
-                //startDateTextox.Text = DateTime.Today.ToShortDateString();
-                MessageBox.Show("HSD chưa đúng định dạng MM/dd/yyyy, vui lòng cập nhật lại sau!");
-                return false;
-            }
-            return true;
+            this.Close();
         }
     }
 }

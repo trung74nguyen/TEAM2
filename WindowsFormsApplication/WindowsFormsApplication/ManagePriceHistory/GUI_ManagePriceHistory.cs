@@ -30,6 +30,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
 
         BUS_ManagePriceHistory Bus_manage = new BUS_ManagePriceHistory();
 
+        /*===SHOW MANAGE FORM===*/
         private void showManagePriceHistoryForm(List<PriceHistory> suppliers)
         {
             lstPriceHistory.DataSource = suppliers;
@@ -47,7 +48,8 @@ namespace WindowsFormsApplication.ManagePriceHistory
             var priceHistory = Bus_manage.loadAllListPriceHistory();
             showManagePriceHistoryForm(priceHistory);
         }
-       
+
+        /*===CALL INSERT FUNCTION===*/
         private void clickInsert(object sender, EventArgs e)
         {
             GUI_InsertPriceHistory insert = new GUI_InsertPriceHistory();
@@ -55,27 +57,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
             this.showManagePriceHistoryForm(null, null);
         }
 
-        private bool checkSelectingPriceHistory()
-        {
-            return lstPriceHistory.SelectedRows.Count == 1;
-        }
-
-        private void clickDelete(object sender, EventArgs e)
-        {
-            if (checkSelectingPriceHistory())
-                if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    var priceHistory = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
-                    if (Bus_manage.deletePriceHistory(priceHistory.ProductCode, priceHistory.Price, priceHistory.EffectiveDate))
-                    {
-                        showManagePriceHistoryForm(null, null);
-                        MessageBox.Show("Xóa thành công!");
-                    }
-                    else
-                        MessageBox.Show("Xóa không thành công!");
-                }
-        }
-
+        /*===CALL UPDATE FUNCTION===*/
         private string productCode = "";
         private double price = 0;
         private DateTime effectiveDate = new DateTime();
@@ -97,9 +79,31 @@ namespace WindowsFormsApplication.ManagePriceHistory
             GUI_UpdatePriceHistory update = new GUI_UpdatePriceHistory(productCode, price, effectiveDate);
             update.ShowDialog();
             this.showManagePriceHistoryForm(null, null);
-
         }
 
+        /*===CALL DELETE FUNCTION===*/
+        private bool checkSelectingPriceHistory()
+        {
+            return lstPriceHistory.SelectedRows.Count == 1;
+        }
+
+        private void clickDelete(object sender, EventArgs e)
+        {
+            if (checkSelectingPriceHistory())
+                if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var priceHistory = lstPriceHistory.SelectedRows[0].DataBoundItem as PriceHistory;
+                    if (Bus_manage.deletePriceHistory(priceHistory.ProductCode, priceHistory.Price, priceHistory.EffectiveDate))
+                    {
+                        showManagePriceHistoryForm(null, null);
+                        MessageBox.Show("Xóa thành công!");
+                    }
+                    else
+                        MessageBox.Show("Xóa không thành công!");
+                }
+        }
+
+        /*===CALL SEARCH FUNCTION===*/
         private void txtSearch_MouseClick(object sender, MouseEventArgs e)
         {
             txtSearch.Text = "";
@@ -110,6 +114,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
             lstPriceHistory.DataSource = Bus_manage.searchListPriceHistory(txtSearch.Text);
         }
 
+        /*===CALL OTHER FEATURES===*/
         private void btnQLSP_Click(object sender, EventArgs e)
         {
             GUI_ManageProduct manageproduct = new GUI_ManageProduct();

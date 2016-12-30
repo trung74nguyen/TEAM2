@@ -30,7 +30,6 @@ namespace WindowsFormsApplication
 
         private void loadProductImport(string headquarterBallotNum)
         {
-            MessageBox.Show(headquarterBallotNum);
             var product = bus.getListHeadquarterImportBallotDetail(headquarterBallotNum);
             int i = 0;
             foreach (var p in product)
@@ -59,7 +58,7 @@ namespace WindowsFormsApplication
             }
             else
             {
-                MessageBox.Show("Phiếu nhập hàng đã tồn tại, vui lòng chọn phiếu khác!");
+                MessageBox.Show("Phiếu nhập hàng chi nhánh cho phiếu này đã tồn tại!");
                 lstBallotDetail.DataMember = null; //Reset DataGridView
                 btnSave.Enabled = false;
             }
@@ -69,12 +68,12 @@ namespace WindowsFormsApplication
         {
             string headquarterBallotNum = cboHeadquarterBallotNum.SelectedValue.ToString();
             DateTime inputDate = DateTime.Now;
-            string branch = txtBranch.Text;
+            string branch = cboBranch.Text;
             string accountCode = "TK000002";
 
-            var inputData = checkDataInput(branch);
-            if (inputData)
-            {
+            //var inputData = checkDataInput(branch);
+            //if (inputData)
+            //{
                 if (bus.insertBranchImportBallot(headquarterBallotNum, inputDate, branch, accountCode))
                 {
                     for (int i = 0; i < lstBallotDetail.Rows.Count; i++)
@@ -97,25 +96,22 @@ namespace WindowsFormsApplication
                     lstBallotDetail.DataMember = null; //Reset DataGridView
                     btnSave.Enabled = false;
                 }
-            }
+            //}
         }
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
-        private bool checkDataInput(string branch)
-        {
-            if ((branch ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("Chi nhánh là bắt buộc, vui lòng cập nhật lại sau!");
-                return false;
-            }
-            return true;
-        }
+        //private bool checkDataInput(string branch)
+        //{
+        //    if ((branch ?? "").Trim().Length == 0)
+        //    {
+        //        MessageBox.Show("Chi nhánh là bắt buộc, vui lòng cập nhật lại sau!");
+        //        return false;
+        //    }
+        //    return true;
+        //}
     }
 }

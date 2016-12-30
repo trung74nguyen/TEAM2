@@ -46,7 +46,6 @@ namespace WindowsFormsApplication.ManagePriceHistory
                 MessageBox.Show("Giá bán mới là bắt buộc!");
                 return false;
             }
-
             if ((sNewPrice ?? "").Trim().Length > 0)
             {
                 try
@@ -69,9 +68,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
 
         private void clickUpdate(object sender, EventArgs e)
         {
-            //string productCode = txtProductIDPriceHistory.Text.Trim();
             string sNewPrice= txtNewPrice.Text.Trim();
-            //DateTime date = DateTime.Parse(dtpDate.Text);
             var inputData = checkInputData(sNewPrice);
             if (inputData == true)
             {
@@ -89,13 +86,7 @@ namespace WindowsFormsApplication.ManagePriceHistory
         
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
-
-
-       
     }
 }

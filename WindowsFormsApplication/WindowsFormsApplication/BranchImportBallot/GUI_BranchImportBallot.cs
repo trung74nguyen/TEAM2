@@ -31,6 +31,8 @@ namespace WindowsFormsApplication
             this.btnLogOut.Click += new EventHandler(btnLogOut_Click);            
         }
         BUS_BranchImportBallot bus = new BUS_BranchImportBallot();
+        
+        /*===SHOW MANAGE FORM===*/
         private void showBranchImportBallot(List<BranchImportBallot> ballot)
         {
             lstBallot.DataSource = ballot;
@@ -42,6 +44,7 @@ namespace WindowsFormsApplication
             lstBallot.Columns["Branch"].HeaderText = "Chi nhánh";
             lstBallot.Columns["AccountCode"].HeaderText = "Mã tài khoản";
             lstBallot.Columns["Account"].Visible = false;
+            lstBallot.Columns["AccountCode"].Visible = false;
             lstBallot.Columns["HeadquaterImportBallot"].Visible = false;
             lstBallot.Columns["BranchImportBallotDetails"].Visible = false;
             btnUpdate.Enabled = false;
@@ -70,6 +73,7 @@ namespace WindowsFormsApplication
             showBranchImportBallot(ballotDetail);
         }
 
+        /*===CALL UPDATE FUNCTION===*/
         private string ballotNum = "";
         private void selectUpdateBranchImportBallot(object sender, EventArgs e)
         {
@@ -91,6 +95,7 @@ namespace WindowsFormsApplication
             showBranchImportBallot(null, null);
         }
 
+        /*===CALL INSERT FUNCTION===*/
         private void clickInsert(object sender, EventArgs e)
         {
             GUI_InsertBranchImportBallot gui_Insert = new GUI_InsertBranchImportBallot(lblName.Text);
@@ -98,12 +103,8 @@ namespace WindowsFormsApplication
             showBranchImportBallot(null, null);
         }
 
-        private void clickPrint(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        /*===CALL SEARCH FUNCTION===*/
+        private void inputSearchText(object sender, EventArgs e)
         {
             lstBallot.DataSource = bus.searchAllListBallot(txtSearch.Text);
         }
@@ -112,7 +113,15 @@ namespace WindowsFormsApplication
         {
             txtSearch.Text = "";
         }
+        
+        /*===CALL PRINT FUNCTION===*/
+        private void clickPrint(object sender, EventArgs e)
+        {
 
+        }
+
+       
+        /*===CALL OTHER FEATURES===*/
         private void btnQLSP_Click(object sender, EventArgs e)
         {
             GUI_ManageProduct manageproduct = new GUI_ManageProduct();

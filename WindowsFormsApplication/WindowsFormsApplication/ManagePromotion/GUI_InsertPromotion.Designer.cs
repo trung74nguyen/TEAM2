@@ -49,56 +49,56 @@
             // dtpEndDay
             // 
             this.dtpEndDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDay.Location = new System.Drawing.Point(351, 183);
+            this.dtpEndDay.Location = new System.Drawing.Point(99, 206);
             this.dtpEndDay.Name = "dtpEndDay";
-            this.dtpEndDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpEndDay.Size = new System.Drawing.Size(160, 20);
             this.dtpEndDay.TabIndex = 30;
             // 
             // dtpStartDay
             // 
             this.dtpStartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDay.Location = new System.Drawing.Point(351, 109);
+            this.dtpStartDay.Location = new System.Drawing.Point(99, 171);
             this.dtpStartDay.Name = "dtpStartDay";
-            this.dtpStartDay.Size = new System.Drawing.Size(200, 20);
+            this.dtpStartDay.Size = new System.Drawing.Size(160, 20);
             this.dtpStartDay.TabIndex = 29;
             // 
             // txtPromotionContent
             // 
-            this.txtPromotionContent.Location = new System.Drawing.Point(33, 212);
+            this.txtPromotionContent.Location = new System.Drawing.Point(285, 66);
             this.txtPromotionContent.Multiline = true;
             this.txtPromotionContent.Name = "txtPromotionContent";
-            this.txtPromotionContent.Size = new System.Drawing.Size(249, 40);
+            this.txtPromotionContent.Size = new System.Drawing.Size(187, 141);
             this.txtPromotionContent.TabIndex = 28;
             // 
             // txtPromotionPrice
             // 
-            this.txtPromotionPrice.Location = new System.Drawing.Point(124, 149);
+            this.txtPromotionPrice.Location = new System.Drawing.Point(99, 136);
             this.txtPromotionPrice.Name = "txtPromotionPrice";
-            this.txtPromotionPrice.Size = new System.Drawing.Size(158, 20);
+            this.txtPromotionPrice.Size = new System.Drawing.Size(160, 20);
             this.txtPromotionPrice.TabIndex = 27;
             // 
             // lblEnDay
             // 
             this.lblEnDay.AutoSize = true;
-            this.lblEnDay.Location = new System.Drawing.Point(348, 149);
+            this.lblEnDay.Location = new System.Drawing.Point(16, 208);
             this.lblEnDay.Name = "lblEnDay";
-            this.lblEnDay.Size = new System.Drawing.Size(96, 13);
+            this.lblEnDay.Size = new System.Drawing.Size(77, 13);
             this.lblEnDay.TabIndex = 24;
-            this.lblEnDay.Text = "Thời gian kết thúc:";
+            this.lblEnDay.Text = "Ngày kết thúc:";
             // 
             // lblStartDay
             // 
             this.lblStartDay.AutoSize = true;
-            this.lblStartDay.Location = new System.Drawing.Point(348, 74);
+            this.lblStartDay.Location = new System.Drawing.Point(18, 173);
             this.lblStartDay.Name = "lblStartDay";
-            this.lblStartDay.Size = new System.Drawing.Size(94, 13);
+            this.lblStartDay.Size = new System.Drawing.Size(75, 13);
             this.lblStartDay.TabIndex = 23;
-            this.lblStartDay.Text = "Thời gian bắt đầu:";
+            this.lblStartDay.Text = "Ngày bắt đầu:";
             // 
             // lblProContent
             // 
             this.lblProContent.AutoSize = true;
-            this.lblProContent.Location = new System.Drawing.Point(30, 190);
+            this.lblProContent.Location = new System.Drawing.Point(325, 50);
             this.lblProContent.Name = "lblProContent";
             this.lblProContent.Size = new System.Drawing.Size(110, 13);
             this.lblProContent.TabIndex = 22;
@@ -107,7 +107,7 @@
             // lblProPrice
             // 
             this.lblProPrice.AutoSize = true;
-            this.lblProPrice.Location = new System.Drawing.Point(30, 156);
+            this.lblProPrice.Location = new System.Drawing.Point(10, 139);
             this.lblProPrice.Name = "lblProPrice";
             this.lblProPrice.Size = new System.Drawing.Size(83, 13);
             this.lblProPrice.TabIndex = 21;
@@ -116,7 +116,7 @@
             // lblProductCode
             // 
             this.lblProductCode.AutoSize = true;
-            this.lblProductCode.Location = new System.Drawing.Point(30, 74);
+            this.lblProductCode.Location = new System.Drawing.Point(19, 69);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(74, 13);
             this.lblProductCode.TabIndex = 20;
@@ -126,18 +126,18 @@
             // 
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(131, 17);
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(45, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(336, 31);
+            this.lblTitle.Size = new System.Drawing.Size(392, 26);
             this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "Thêm thông tin khuyến mãi";
+            this.lblTitle.Text = "THÊM THÔNG TIN KHUYẾN MÃI";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(475, 223);
+            this.btnSave.Location = new System.Drawing.Point(312, 221);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(76, 29);
+            this.btnSave.Size = new System.Drawing.Size(64, 28);
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -145,9 +145,9 @@
             // 
             // btnCancle
             // 
-            this.btnCancle.Location = new System.Drawing.Point(392, 224);
+            this.btnCancle.Location = new System.Drawing.Point(382, 221);
             this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(77, 28);
+            this.btnCancle.Size = new System.Drawing.Size(64, 28);
             this.btnCancle.TabIndex = 33;
             this.btnCancle.Text = "Hủy";
             this.btnCancle.UseVisualStyleBackColor = true;
@@ -156,41 +156,42 @@
             // lblHinh
             // 
             this.lblHinh.AutoSize = true;
-            this.lblHinh.Location = new System.Drawing.Point(30, 115);
+            this.lblHinh.Location = new System.Drawing.Point(7, 104);
             this.lblHinh.Name = "lblHinh";
-            this.lblHinh.Size = new System.Drawing.Size(32, 13);
+            this.lblHinh.Size = new System.Drawing.Size(86, 13);
             this.lblHinh.TabIndex = 34;
-            this.lblHinh.Text = "Hình:";
+            this.lblHinh.Text = "Ảnh khuyến mãi:";
             // 
             // txtPromotionImage
             // 
-            this.txtPromotionImage.Location = new System.Drawing.Point(124, 109);
+            this.txtPromotionImage.Location = new System.Drawing.Point(99, 101);
             this.txtPromotionImage.Name = "txtPromotionImage";
-            this.txtPromotionImage.Size = new System.Drawing.Size(104, 20);
+            this.txtPromotionImage.Size = new System.Drawing.Size(120, 20);
             this.txtPromotionImage.TabIndex = 35;
             // 
             // btnChoose
             // 
-            this.btnChoose.Location = new System.Drawing.Point(227, 107);
+            this.btnChoose.Location = new System.Drawing.Point(219, 100);
             this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(55, 23);
+            this.btnChoose.Size = new System.Drawing.Size(40, 22);
             this.btnChoose.TabIndex = 36;
             this.btnChoose.Text = "Chọn";
             this.btnChoose.UseVisualStyleBackColor = true;
             // 
             // cboProductCode
             // 
+            this.cboProductCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductCode.FormattingEnabled = true;
-            this.cboProductCode.Location = new System.Drawing.Point(124, 71);
+            this.cboProductCode.Location = new System.Drawing.Point(99, 66);
             this.cboProductCode.Name = "cboProductCode";
-            this.cboProductCode.Size = new System.Drawing.Size(158, 21);
+            this.cboProductCode.Size = new System.Drawing.Size(160, 21);
             this.cboProductCode.TabIndex = 37;
             // 
             // GUI_InsertPromotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 264);
+            this.ClientSize = new System.Drawing.Size(484, 261);
             this.Controls.Add(this.cboProductCode);
             this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.txtPromotionImage);
@@ -207,8 +208,11 @@
             this.Controls.Add(this.lblProPrice);
             this.Controls.Add(this.lblProductCode);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI_InsertPromotion";
-            this.Text = "GUI_InsertPromotion";
+            this.Text = "THÊM THÔNG TIN KHUYẾN MÃI";
             this.ResumeLayout(false);
             this.PerformLayout();
 

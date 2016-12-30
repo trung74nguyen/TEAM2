@@ -43,34 +43,34 @@
             // 
             // txtNewPrice
             // 
-            this.txtNewPrice.Location = new System.Drawing.Point(93, 163);
+            this.txtNewPrice.Location = new System.Drawing.Point(99, 119);
             this.txtNewPrice.Name = "txtNewPrice";
-            this.txtNewPrice.Size = new System.Drawing.Size(210, 20);
+            this.txtNewPrice.Size = new System.Drawing.Size(160, 20);
             this.txtNewPrice.TabIndex = 36;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 166);
+            this.label6.Location = new System.Drawing.Point(26, 122);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Giá bán mới: ";
+            this.label6.Text = "Giá bán mới:";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(228, 247);
+            this.btnCancel.Location = new System.Drawing.Point(195, 191);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(64, 28);
             this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(135, 247);
+            this.btnSave.Location = new System.Drawing.Point(125, 191);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(64, 28);
             this.btnSave.TabIndex = 33;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -78,33 +78,33 @@
             // dtpDate
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(93, 194);
+            this.dtpDate.Location = new System.Drawing.Point(99, 155);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(210, 20);
+            this.dtpDate.Size = new System.Drawing.Size(160, 20);
             this.dtpDate.TabIndex = 32;
             // 
             // txtPriceHistory
             // 
             this.txtPriceHistory.Enabled = false;
-            this.txtPriceHistory.Location = new System.Drawing.Point(93, 127);
+            this.txtPriceHistory.Location = new System.Drawing.Point(99, 83);
             this.txtPriceHistory.Name = "txtPriceHistory";
             this.txtPriceHistory.ReadOnly = true;
-            this.txtPriceHistory.Size = new System.Drawing.Size(210, 20);
+            this.txtPriceHistory.Size = new System.Drawing.Size(160, 20);
             this.txtPriceHistory.TabIndex = 31;
             // 
             // txtProductIDPriceHistory
             // 
             this.txtProductIDPriceHistory.Enabled = false;
-            this.txtProductIDPriceHistory.Location = new System.Drawing.Point(93, 88);
+            this.txtProductIDPriceHistory.Location = new System.Drawing.Point(99, 47);
             this.txtProductIDPriceHistory.Name = "txtProductIDPriceHistory";
             this.txtProductIDPriceHistory.ReadOnly = true;
-            this.txtProductIDPriceHistory.Size = new System.Drawing.Size(210, 20);
+            this.txtProductIDPriceHistory.Size = new System.Drawing.Size(160, 20);
             this.txtProductIDPriceHistory.TabIndex = 29;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 200);
+            this.label5.Location = new System.Drawing.Point(17, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 28;
@@ -113,16 +113,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 130);
+            this.label4.Location = new System.Drawing.Point(30, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Giá bán cũ :";
+            this.label4.Text = "Giá bán cũ:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(18, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 25;
@@ -131,10 +131,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 35);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-2, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 24);
+            this.label1.Size = new System.Drawing.Size(289, 26);
             this.label1.TabIndex = 24;
             this.label1.Text = "CẬP NHẬT LỊCH SỬ GIÁ";
             // 
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 306);
+            this.ClientSize = new System.Drawing.Size(284, 231);
             this.Controls.Add(this.txtNewPrice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancel);
@@ -154,6 +154,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI_UpdatePriceHistory";
             this.Text = "CẬP NHẬT LỊCH SỬ GIÁ";
             this.ResumeLayout(false);

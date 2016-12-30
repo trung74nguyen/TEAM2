@@ -33,8 +33,13 @@ namespace WindowsFormsApplication.ManagePromotion
             txtPromotionContent.Text = promotion.Cont;
             txtPromotionImage.Text = promotion.Image;
         }
-        private bool checkDataInput(string sPromotionPrice, string promotionContent)
+        private bool checkDataInput(string promotionImage, string sPromotionPrice, string promotionContent)
         {
+            if (promotionImage.Length > 20)
+            {
+                MessageBox.Show("Tên hình ảnh có độ dài ký tự từ 1 đến 20");
+                return false;
+            }
             if ((sPromotionPrice ?? "").Trim().Length == 0)
             {
                 MessageBox.Show("Giá khuyến mãi là bắt buộc!");
@@ -62,6 +67,11 @@ namespace WindowsFormsApplication.ManagePromotion
                 MessageBox.Show("Nội dung khuyến mãi là bắt buộc!");
                 return false;
             }
+            if (promotionContent.Length > 50)
+            {
+                MessageBox.Show("Nội dung khuyến mãi có độ dài ký tự từ 1 đến 50");
+                return false;
+            }
             return true;
         }
 
@@ -75,7 +85,7 @@ namespace WindowsFormsApplication.ManagePromotion
             string promotionContent = txtPromotionContent.Text.Trim();
             string promotionImage = txtPromotionImage.Text.Trim();
 
-            var inputData = checkDataInput(sPromotionPrice, promotionContent);
+            var inputData = checkDataInput(promotionImage, sPromotionPrice, promotionContent);
             if (inputData == true)
             {
                 float promotionPrice = float.Parse(txtPromotionPrice.Text.Trim());
@@ -90,12 +100,9 @@ namespace WindowsFormsApplication.ManagePromotion
             }
         }
 
-        private void btnCancle_Click(object sender, EventArgs e)
+        private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
     }
 }

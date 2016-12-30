@@ -26,6 +26,7 @@ namespace WindowsFormsApplication.ManagePromotion
 
         BUS_ManagePromotion bus = new BUS_ManagePromotion();
 
+        /*===SHOW MANAGE FORM===*/
         private void showManagePromotionForm(List<PromotionInformation> promotions)
         {
             lstManagePromotion.DataSource = promotions;
@@ -36,8 +37,8 @@ namespace WindowsFormsApplication.ManagePromotion
             lstManagePromotion.Columns["PricePromotion"].HeaderText = "Giá khuyến mãi";
             lstManagePromotion.Columns["StartTime"].HeaderText = "Thời gian bắt đầu";
             lstManagePromotion.Columns["EndTime"].HeaderText = "Thời gian kết thúc";
-            lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung";
-            lstManagePromotion.Columns["Image"].HeaderText = "Hình";
+            lstManagePromotion.Columns["Cont"].HeaderText = "Nội dung khuyến mãi";
+            lstManagePromotion.Columns["Image"].HeaderText = "Ảnh khuyến mãi";
             lstManagePromotion.Columns["Product"].Visible = false;
             btnUpdate.Enabled = false;
         }
@@ -48,6 +49,7 @@ namespace WindowsFormsApplication.ManagePromotion
             showManagePromotionForm(promotioninfo);
         }
 
+        /*===CALL DELETE FUNCTION===*/
         private bool checkSelectingPromotion()
         {
             return lstManagePromotion.SelectedRows.Count == 1;
@@ -69,6 +71,7 @@ namespace WindowsFormsApplication.ManagePromotion
                 }
         }
 
+        /*===CALL INSERT FUNCTION===*/
         private void clickInsert(object sender, EventArgs e)
         {
             GUI_InsertPromotion gui_Insert = new GUI_InsertPromotion();
@@ -76,7 +79,8 @@ namespace WindowsFormsApplication.ManagePromotion
             showManagePromotionForm(null, null);
         }
 
-        private void clickSearch(object sender, EventArgs e)
+        /*===CALL SEARCH FUNCTION===*/
+        private void inputSearchText(object sender, EventArgs e)
         {
             lstManagePromotion.DataSource = bus.searchAllListPromotion(txtSearch.Text);
         }
@@ -85,6 +89,7 @@ namespace WindowsFormsApplication.ManagePromotion
             txtSearch.Text = "";
         }
 
+        /*===CALL UPDATE FUNCTION===*/
         private string promotionCode = "";
 
         private void selectPromotionToUpdate(object sender, EventArgs e)
@@ -106,6 +111,7 @@ namespace WindowsFormsApplication.ManagePromotion
             showManagePromotionForm(null, null);
         }
 
+        /*===CALL OTHER FEATURES===*/
         private void btnQLSP_Click(object sender, EventArgs e)
         {
             GUI_ManageProduct manageproduct = new GUI_ManageProduct();

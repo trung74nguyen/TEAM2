@@ -16,8 +16,20 @@ namespace WindowsFormsApplication.ManageBill
         {
             InitializeComponent();
         }
+
         CMART2Entities1 db = new CMART2Entities1();
         BUS_ManageBill bus = new BUS_ManageBill();
+
+        private void loadFormInsert(object sender, EventArgs e)
+        {
+            string str = DateTime.Now.ToString().Trim();
+            str = str.Substring(0, 10);
+            txtDayIn.Text = str;
+            string hour = DateTime.Now.ToString().Trim();
+            hour = hour.Substring(11);
+            txtHourIn.Text = hour;
+        }
+
         private bool checkDataInput(string Pos, string money)
         {
             if ((Pos ?? "").Trim().Length == 0)
@@ -25,7 +37,6 @@ namespace WindowsFormsApplication.ManageBill
                 MessageBox.Show("Pos là bắt buộc!");
                 return false;
             }
-
             if ((Pos ?? "").Trim().Length > 0)
             {
                 try
@@ -43,57 +54,31 @@ namespace WindowsFormsApplication.ManageBill
                     return false;
                 }
             }
+            if ((money ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Tiền khách đưa là bắt buộc");
+                return false;
+            }
+            if ((money ?? "").Trim().Length > 0)
+            {
+                try
+                {
+                    float n = float.Parse(money);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Tiền khách đưa phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Tiền khách đưa phải là số!");
+                    return false;
+                }
+            }
+            return true;
+        }
 
-            if ((money ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("Tiền khách đưa là bắt buộc");
-                return false;
-            }
-            if ((money ?? "").Trim().Length > 0)
-            {
-                try
-                {
-                    float n = float.Parse(money);
-                    if (n <= 0)
-                    {
-                        MessageBox.Show("Tiền khách đưa phải lớn hơn 0!");
-                        return false;
-                    }
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Tiền khách đưa phải là số!");
-                    return false;
-                }
-            }
-            return true;
-        }
-        private bool checkDataInputGuestMoneyIn( string money)
-        {
-            if ((money ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("Tiền khách đưa là bắt buộc");
-                return false;
-            }
-            if ((money ?? "").Trim().Length > 0)
-            {
-                try
-                {
-                    float n = float.Parse(money);
-                    if (n <= 0)
-                    {
-                        MessageBox.Show("Tiền khách đưa phải lớn hơn 0!");
-                        return false;
-                    }
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Tiền khách đưa phải là số!");
-                    return false;
-                }
-            }
-            return true;
-        }
         private void clickSave(object sender, EventArgs e)
         {
             string sPos = txtPOS.Text.Trim();
@@ -107,7 +92,6 @@ namespace WindowsFormsApplication.ManageBill
             var inputData = checkDataInput(sPos, sMoney);
             if (inputData == true)
             {
-              
                 int pos = int.Parse(sPos);
                 double total = double.Parse(sTotal);
                 double money = double.Parse(sMoney);
@@ -138,17 +122,6 @@ namespace WindowsFormsApplication.ManageBill
 
         }
 
-       
-        private void GUI_InsertBill_Load(object sender, EventArgs e)
-        {
-            
-            string str = DateTime.Now.ToString().Trim();
-            str = str.Substring(0, 10);
-            txtDayIn.Text = str;
-            string hour = DateTime.Now.ToString().Trim();
-            hour = hour.Substring(11);
-            txtHourIn.Text = hour;
-        }
         private void txtid_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e != null && e.KeyChar == 13)
@@ -180,7 +153,6 @@ namespace WindowsFormsApplication.ManageBill
                 {
                     MessageBox.Show("Vui lòng nhập đúng mã sản phẩm");
                 }
-               
             }
             //tính thành tiền
             int sc = lstManageBillIn.Rows.Count;
@@ -199,22 +171,41 @@ namespace WindowsFormsApplication.ManageBill
             txt_TotalNum.Text = Convert.ToString(numproduct);
         }
 
-        private List<BillDetailWithTotal> BillDetails = new List<BillDetailWithTotal>();
         private void nud_Number_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtid_KeyPress(sender, e);
         }
-        private void clickCancel(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
+
         // Xử lý khi nhập tiền khách đưa nhấn enter sẽ xuất ra tiền thừa
+        private bool checkDataInputGuestMoneyIn(string money)
+        {
+            if ((money ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("Tiền khách đưa là bắt buộc");
+                return false;
+            }
+            if ((money ?? "").Trim().Length > 0)
+            {
+                try
+                {
+                    float n = float.Parse(money);
+                    if (n <= 0)
+                    {
+                        MessageBox.Show("Tiền khách đưa phải lớn hơn 0!");
+                        return false;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Tiền khách đưa phải là số!");
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void txtGuestMoneyIn_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
             if (e != null && e.KeyChar == 13)
             {
                 string mon = txtGuestMoneyIn.Text;
@@ -231,18 +222,23 @@ namespace WindowsFormsApplication.ManageBill
                     }
                     else
                     {
-                        MessageBox.Show("Miễn thiếu nha cưng. ");
+                        MessageBox.Show("Khách hàng đưa thiếu tiền!");
                     }
                 }
-                
+
             }
-            
+
         }
 
-        
+        private List<BillDetailWithTotal> BillDetails = new List<BillDetailWithTotal>();
 
-      
-
+        private void clickCancel(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
     public class BillDetailWithTotal : BillDetail
     {

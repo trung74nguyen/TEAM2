@@ -40,19 +40,19 @@
             this.cboProposeNum = new System.Windows.Forms.ComboBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.lstProductImport = new System.Windows.Forms.DataGridView();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InputPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EXP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IntoMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDate = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstProductImport)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(452, 356);
+            this.btnSave.Location = new System.Drawing.Point(384, 306);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 28);
@@ -63,7 +63,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(539, 356);
+            this.btnCancel.Location = new System.Drawing.Point(452, 306);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 28);
@@ -74,26 +74,26 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(444, 114);
+            this.txtTotal.Location = new System.Drawing.Point(356, 80);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(159, 20);
+            this.txtTotal.Size = new System.Drawing.Size(160, 20);
             this.txtTotal.TabIndex = 46;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(445, 77);
+            this.txtName.Location = new System.Drawing.Point(356, 47);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(159, 20);
+            this.txtName.Size = new System.Drawing.Size(160, 20);
             this.txtName.TabIndex = 45;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(385, 117);
+            this.label5.Location = new System.Drawing.Point(297, 83);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
@@ -103,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(376, 80);
+            this.label4.Location = new System.Drawing.Point(287, 50);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
@@ -113,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 114);
+            this.label3.Location = new System.Drawing.Point(41, 83);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
@@ -123,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 80);
+            this.label2.Location = new System.Drawing.Point(11, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
@@ -134,27 +134,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(151, 21);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 31);
+            this.label1.Size = new System.Drawing.Size(410, 26);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Thêm phiếu nhập hàng trụ sở";
+            this.label1.Text = "THÊM PHIẾU NHẬP HÀNG TRỤ SỞ";
             // 
             // cboProposeNum
             // 
+            this.cboProposeNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProposeNum.FormattingEnabled = true;
-            this.cboProposeNum.Location = new System.Drawing.Point(118, 76);
+            this.cboProposeNum.Location = new System.Drawing.Point(107, 47);
             this.cboProposeNum.Name = "cboProposeNum";
-            this.cboProposeNum.Size = new System.Drawing.Size(124, 21);
+            this.cboProposeNum.Size = new System.Drawing.Size(120, 21);
             this.cboProposeNum.TabIndex = 50;
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(241, 74);
+            this.btnFind.Location = new System.Drawing.Point(227, 46);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(36, 23);
+            this.btnFind.Size = new System.Drawing.Size(40, 23);
             this.btnFind.TabIndex = 51;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -163,6 +164,7 @@
             // lstProductImport
             // 
             this.lstProductImport.AllowUserToDeleteRows = false;
+            this.lstProductImport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.lstProductImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstProductImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,
@@ -171,18 +173,28 @@
             this.EXP,
             this.Status,
             this.IntoMoney});
-            this.lstProductImport.Location = new System.Drawing.Point(25, 148);
+            this.lstProductImport.Location = new System.Drawing.Point(11, 114);
             this.lstProductImport.Margin = new System.Windows.Forms.Padding(2);
             this.lstProductImport.Name = "lstProductImport";
             this.lstProductImport.RowTemplate.Height = 24;
-            this.lstProductImport.Size = new System.Drawing.Size(579, 188);
+            this.lstProductImport.Size = new System.Drawing.Size(505, 188);
             this.lstProductImport.TabIndex = 52;
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(107, 80);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.ReadOnly = true;
+            this.txtDate.Size = new System.Drawing.Size(160, 20);
+            this.txtDate.TabIndex = 44;
             // 
             // Product
             // 
             this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Product.HeaderText = "Sản phẩm";
             this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
             this.Product.Width = 80;
             // 
             // Number
@@ -190,6 +202,7 @@
             this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Number.HeaderText = "SL";
             this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
             this.Number.Width = 45;
             // 
             // InputPrice
@@ -197,6 +210,7 @@
             this.InputPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InputPrice.HeaderText = "Giá nhập";
             this.InputPrice.Name = "InputPrice";
+            this.InputPrice.ReadOnly = true;
             this.InputPrice.Width = 75;
             // 
             // EXP
@@ -222,25 +236,16 @@
             // 
             // IntoMoney
             // 
-            this.IntoMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IntoMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.IntoMoney.HeaderText = "Thành tiền";
             this.IntoMoney.Name = "IntoMoney";
-            this.IntoMoney.Width = 83;
-            // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(118, 114);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(159, 20);
-            this.txtDate.TabIndex = 44;
+            this.IntoMoney.ReadOnly = true;
             // 
             // GUI_InsertHeadquarterImportBallot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 405);
+            this.ClientSize = new System.Drawing.Size(524, 341);
             this.Controls.Add(this.lstProductImport);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.cboProposeNum);
@@ -254,9 +259,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI_InsertHeadquarterImportBallot";
-            this.Text = "GUI_InsertHeadquarterImportBallot";
+            this.Text = "THÊM PHIẾU NHẬP HÀNG TRỤ SỞ";
             this.Load += new System.EventHandler(this.showInsertHeadquarterImportForm);
             ((System.ComponentModel.ISupportInitialize)(this.lstProductImport)).EndInit();
             this.ResumeLayout(false);

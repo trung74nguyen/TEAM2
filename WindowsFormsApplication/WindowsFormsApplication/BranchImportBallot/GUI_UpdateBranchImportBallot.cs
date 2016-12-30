@@ -24,7 +24,7 @@ namespace WindowsFormsApplication
 
         private void showUpdateBranchImportBallotForm(object sender, EventArgs e)
         {
-            MessageBox.Show(importBallot.BallotNum);
+            //MessageBox.Show(importBallot.BallotNum);
             this.txtHeadquarterBallotNum.Text = importBallot.HeadquaterBallotNum;
             this.txtName.Text = importBallot.Account.FullName;
             this.txtDate.Text = Convert.ToString(importBallot.InputDate);
@@ -47,15 +47,15 @@ namespace WindowsFormsApplication
             lstBallotDetail.AllowUserToAddRows = false;
         }
 
-        private bool checkDataInput()
-        {
-            //if ((branch ?? "").Trim().Length == 0)
-            //{
-            //    MessageBox.Show("Chi nhánh là bắt buộc, vui lòng cập nhật lại sau!");
-            //    return false;
-            //}
-            return true;
-        }
+        //private bool checkDataInput()
+        //{
+        //    if ((branch ?? "").Trim().Length == 0)
+        //    {
+        //        MessageBox.Show("Chi nhánh là bắt buộc, vui lòng cập nhật lại sau!");
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         private void clickSave(object sender, EventArgs e)
         {
@@ -67,9 +67,9 @@ namespace WindowsFormsApplication
 
                 int number = int.Parse(sNumber);
 
-                var inputData = checkDataInput();
-                if (inputData == true)
-                {
+                //var inputData = checkDataInput();
+                //if (inputData == true)
+                //{
                     if (bus.updateBranchImportBallotDetail(importBallot.BallotNum, productCode, number, status))
                     {
                         MessageBox.Show("Cập nhật thành công!");
@@ -77,16 +77,13 @@ namespace WindowsFormsApplication
                     }
                     else
                         MessageBox.Show("Cập nhật không thành công!");
-                }  
+                //}  
             } // end for
         }
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
     }
 }

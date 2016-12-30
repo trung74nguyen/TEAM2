@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ManageProduct.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picManageProduct.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBxQNDxAPDxIQERIOEQ8SDxAOEBINDg8QFBUaFxURFRUY
         HCggGBonGxUVITUkJSkrLi4vFx8zRDMtNygtOjD/2wBDAQoKCg4NDhoQEBsrJSAlLS8vNS0tMCstLzUv
@@ -237,7 +237,7 @@
         /9k=
 </value>
   </data>
-  <data name="ManagePriceHistory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picManagePriceHistory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOAAAADhCAMAAADmr0l2AAAABGdBTUEAALGPC/xhBQAAAI1QTFRF////
         Ix8gAAAAIBwdHRgZTElKBgAA29rbJiMkamlpsrGyGBMVJyIiMS0ur62tCwAA5eTkEQoM+fn5wsHBvLu7
@@ -288,7 +288,7 @@
         DAaDwWAwGAwGw/eB0P8AaAKPeno7QU4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ManagegPromotion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picManagePromotion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAMAAAAt85rTAAAABGdBTUEAALGPC/xhBQAAAMlQTFRF////
         /wAA/+oA/+wA/+4A//AA//EA//MA/8cA//UA/+MA/+cA/7kA//z8/+EA//Pz/4AA/+jo/7UA/80A/9YA
@@ -382,7 +382,7 @@
         NWrUqFGjRo0aNWqsGf77739XM4SVWFzQIAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="Close.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAd0SU1FB9oM
         Ego7F/JnCNUAACqHSURBVHhe7Z0HdFTV9sYVUanSkQ6hJRCIiUAAaQEiTUFFUB8IdkSxi72LWECfFcHy
@@ -569,7 +569,7 @@
         XInLjyC8Wa2wTv0jY+nHCuOHsYQwrhhfjDPGG+Oughc86i+55P8BwhmdR1jCIVkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="BranchImportBallot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picBranchImportBallot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4QCqRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAZKG
         AAcAAAB0AAAALAAAAABDAFIARQBBAFQATwBSADoAIABnAGQALQBqAHAAZQBnACAAdgAxAC4AMAAgACgA
@@ -760,7 +760,7 @@
         /npUNO8w1Hu9hQB//9k=
 </value>
   </data>
-  <data name="HeadquarterImportBallot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picHeadquarterImportBallot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4QCqRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAZKG
         AAcAAAB0AAAALAAAAABDAFIARQBBAFQATwBSADoAIABnAGQALQBqAHAAZQBnACAAdgAxAC4AMAAgACgA
@@ -951,7 +951,7 @@
         /npUNO8w1Hu9hQB//9k=
 </value>
   </data>
-  <data name="ManageBill.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picManageBill.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBxISEhUSEhIVFRUSFRcVEhUVFRYSEhYXFhUWFxUVFRUY
         HSgsGBomGxUVITEhJSkrLi4uFx8zODMuNygtLiv/2wBDAQoKCg4NDhoQDxUtJR8eLSsrNzctNzEtKy4t
@@ -1032,7 +1032,7 @@
         9paiIP/Z
 </value>
   </data>
-  <data name="ManageSalesStatustic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picStatistic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBxESERUTEhIVExUWFhUVEBUWFxkVFxgVFhUWFxkYFRUZ
         HTQgGB0lGxUVITEhJi4rLi4uFyAzOTMtNygtLiv/2wBDAQoKCg4NDhsQEBsrJR8mLjItKysrLS4tLS0t

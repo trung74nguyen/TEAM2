@@ -33,13 +33,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtBranch = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtHeadquarterBallotNum = new System.Windows.Forms.TextBox();
+            this.cboBranch = new System.Windows.Forms.ComboBox();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -49,31 +49,32 @@
             // lstBallotDetail
             // 
             this.lstBallotDetail.AllowUserToDeleteRows = false;
+            this.lstBallotDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.lstBallotDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstBallotDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,
             this.Number,
             this.Status});
-            this.lstBallotDetail.Location = new System.Drawing.Point(23, 150);
+            this.lstBallotDetail.Location = new System.Drawing.Point(14, 113);
             this.lstBallotDetail.Margin = new System.Windows.Forms.Padding(2);
             this.lstBallotDetail.Name = "lstBallotDetail";
             this.lstBallotDetail.RowTemplate.Height = 24;
-            this.lstBallotDetail.Size = new System.Drawing.Size(579, 188);
+            this.lstBallotDetail.Size = new System.Drawing.Size(500, 188);
             this.lstBallotDetail.TabIndex = 66;
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(112, 113);
+            this.txtDate.Location = new System.Drawing.Point(100, 78);
             this.txtDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(159, 20);
+            this.txtDate.Size = new System.Drawing.Size(160, 20);
             this.txtDate.TabIndex = 64;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 116);
+            this.label3.Location = new System.Drawing.Point(34, 81);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
@@ -82,7 +83,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(451, 353);
+            this.btnSave.Location = new System.Drawing.Point(382, 305);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 28);
@@ -93,7 +94,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(538, 353);
+            this.btnCancel.Location = new System.Drawing.Point(450, 305);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 28);
@@ -102,27 +103,19 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.clickCancel);
             // 
-            // txtBranch
-            // 
-            this.txtBranch.Location = new System.Drawing.Point(444, 113);
-            this.txtBranch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBranch.Name = "txtBranch";
-            this.txtBranch.Size = new System.Drawing.Size(159, 20);
-            this.txtBranch.TabIndex = 59;
-            // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(444, 79);
+            this.txtName.Location = new System.Drawing.Point(354, 47);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(159, 20);
+            this.txtName.Size = new System.Drawing.Size(160, 20);
             this.txtName.TabIndex = 58;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(363, 116);
+            this.label5.Location = new System.Drawing.Point(291, 81);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
@@ -132,7 +125,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(363, 82);
+            this.label4.Location = new System.Drawing.Point(285, 50);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
@@ -142,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 82);
+            this.label2.Location = new System.Drawing.Point(11, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
@@ -153,41 +146,54 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(130, 24);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(455, 31);
+            this.label1.Size = new System.Drawing.Size(512, 26);
             this.label1.TabIndex = 54;
-            this.label1.Text = "Cập nhật phiếu nhập hàng chi nhánh";
+            this.label1.Text = "CẬP NHẬT PHIẾU NHẬP HÀNG CHI NHÁNH";
             // 
             // txtHeadquarterBallotNum
             // 
-            this.txtHeadquarterBallotNum.Location = new System.Drawing.Point(112, 79);
+            this.txtHeadquarterBallotNum.Location = new System.Drawing.Point(100, 47);
             this.txtHeadquarterBallotNum.Margin = new System.Windows.Forms.Padding(2);
             this.txtHeadquarterBallotNum.Name = "txtHeadquarterBallotNum";
             this.txtHeadquarterBallotNum.ReadOnly = true;
-            this.txtHeadquarterBallotNum.Size = new System.Drawing.Size(159, 20);
+            this.txtHeadquarterBallotNum.Size = new System.Drawing.Size(160, 20);
             this.txtHeadquarterBallotNum.TabIndex = 67;
+            // 
+            // cboBranch
+            // 
+            this.cboBranch.DisplayMember = "Quận 1, Quận 5";
+            this.cboBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBranch.FormattingEnabled = true;
+            this.cboBranch.Items.AddRange(new object[] {
+            "Quận 1",
+            "Quận 5"});
+            this.cboBranch.Location = new System.Drawing.Point(354, 78);
+            this.cboBranch.Name = "cboBranch";
+            this.cboBranch.Size = new System.Drawing.Size(161, 21);
+            this.cboBranch.TabIndex = 68;
+            this.cboBranch.ValueMember = "Quận 1, Quận 5";
             // 
             // Product
             // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Product.HeaderText = "Sản phẩm";
             this.Product.Name = "Product";
             this.Product.ReadOnly = true;
-            this.Product.Width = 80;
             // 
             // Number
             // 
-            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Number.HeaderText = "SL";
             this.Number.Name = "Number";
-            this.Number.Width = 45;
+            this.Number.ReadOnly = true;
             // 
             // Status
             // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Status.HeaderText = "Tình trạng";
             this.Status.Items.AddRange(new object[] {
             "Đủ",
@@ -197,28 +203,30 @@
             this.Status.Name = "Status";
             this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Status.Width = 80;
             // 
             // GUI_UpdateBranchImportBallot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 405);
+            this.ClientSize = new System.Drawing.Size(524, 341);
+            this.Controls.Add(this.cboBranch);
             this.Controls.Add(this.txtHeadquarterBallotNum);
             this.Controls.Add(this.lstBallotDetail);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.txtBranch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI_UpdateBranchImportBallot";
-            this.Text = "GUI_UpdateBranchImportBallot";
+            this.Text = "CẬP NHẬT PHIẾU NHẬP HÀNG CHI NHÁNH";
             this.Load += new System.EventHandler(this.showUpdateBranchImportBallotForm);
             ((System.ComponentModel.ISupportInitialize)(this.lstBallotDetail)).EndInit();
             this.ResumeLayout(false);
@@ -233,13 +241,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtBranch;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtHeadquarterBallotNum;
+        private System.Windows.Forms.ComboBox cboBranch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewComboBoxColumn Status;

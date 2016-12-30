@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cboSupplierCode = new System.Windows.Forms.ComboBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -45,89 +45,81 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(263, 261);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(192, 187);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
+            this.btnCancel.Size = new System.Drawing.Size(64, 28);
             this.btnCancel.TabIndex = 60;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.clickCancel);
             // 
-            // btnUpdate
+            // btnSave
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(152, 261);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 28);
-            this.btnUpdate.TabIndex = 59;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
+            this.btnSave.Location = new System.Drawing.Point(122, 187);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(64, 28);
+            this.btnSave.TabIndex = 59;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.clickUpdate);
             // 
             // cboSupplierCode
             // 
+            this.cboSupplierCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSupplierCode.FormattingEnabled = true;
-            this.cboSupplierCode.Location = new System.Drawing.Point(152, 217);
-            this.cboSupplierCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboSupplierCode.Location = new System.Drawing.Point(96, 152);
             this.cboSupplierCode.Name = "cboSupplierCode";
-            this.cboSupplierCode.Size = new System.Drawing.Size(209, 24);
+            this.cboSupplierCode.Size = new System.Drawing.Size(160, 21);
             this.cboSupplierCode.TabIndex = 58;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(308, 124);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelect.Location = new System.Drawing.Point(216, 81);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(55, 28);
+            this.btnSelect.Size = new System.Drawing.Size(40, 22);
             this.btnSelect.TabIndex = 57;
             this.btnSelect.Text = "Chọn";
             this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnSelect.Click += new System.EventHandler(this.clickSelect);
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(152, 85);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProductName.Location = new System.Drawing.Point(96, 47);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(209, 22);
+            this.txtProductName.Size = new System.Drawing.Size(160, 20);
             this.txtProductName.TabIndex = 56;
             // 
             // txtImage
             // 
-            this.txtImage.Location = new System.Drawing.Point(152, 127);
-            this.txtImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImage.Location = new System.Drawing.Point(96, 82);
             this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(147, 22);
+            this.txtImage.Size = new System.Drawing.Size(120, 20);
             this.txtImage.TabIndex = 55;
             // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Location = new System.Drawing.Point(27, 220);
-            this.lblSupplier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSupplier.Location = new System.Drawing.Point(11, 155);
             this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(100, 17);
+            this.lblSupplier.Size = new System.Drawing.Size(78, 13);
             this.lblSupplier.TabIndex = 53;
             this.lblSupplier.Text = "Nhà cung cấp:";
             // 
             // lblImage
             // 
             this.lblImage.AutoSize = true;
-            this.lblImage.Location = new System.Drawing.Point(27, 130);
-            this.lblImage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImage.Location = new System.Drawing.Point(37, 86);
             this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(69, 17);
+            this.lblImage.Size = new System.Drawing.Size(53, 13);
             this.lblImage.TabIndex = 52;
             this.lblImage.Text = "Hình ảnh:";
             // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(27, 89);
-            this.lblProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProductName.Location = new System.Drawing.Point(12, 50);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(103, 17);
+            this.lblProductName.Size = new System.Drawing.Size(78, 13);
             this.lblProductName.TabIndex = 51;
             this.lblProductName.Text = "Tên sản phẩm:";
             // 
@@ -135,30 +127,28 @@
             // 
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(25, 26);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(3, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(304, 38);
+            this.lblTitle.Size = new System.Drawing.Size(267, 26);
             this.lblTitle.TabIndex = 49;
-            this.lblTitle.Text = "Cập nhật sản phẩm";
+            this.lblTitle.Text = "CẬP NHẬT SẢN PHẨM";
             // 
             // cboTypeCode
             // 
+            this.cboTypeCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTypeCode.FormattingEnabled = true;
-            this.cboTypeCode.Location = new System.Drawing.Point(152, 171);
-            this.cboTypeCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboTypeCode.Location = new System.Drawing.Point(96, 117);
             this.cboTypeCode.Name = "cboTypeCode";
-            this.cboTypeCode.Size = new System.Drawing.Size(209, 24);
+            this.cboTypeCode.Size = new System.Drawing.Size(160, 21);
             this.cboTypeCode.TabIndex = 62;
             // 
             // lblTypeCode
             // 
             this.lblTypeCode.AutoSize = true;
-            this.lblTypeCode.Location = new System.Drawing.Point(27, 175);
-            this.lblTypeCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTypeCode.Location = new System.Drawing.Point(11, 120);
             this.lblTypeCode.Name = "lblTypeCode";
-            this.lblTypeCode.Size = new System.Drawing.Size(105, 17);
+            this.lblTypeCode.Size = new System.Drawing.Size(79, 13);
             this.lblTypeCode.TabIndex = 61;
             this.lblTypeCode.Text = "Loại sản phẩm:";
             // 
@@ -168,13 +158,13 @@
             // 
             // GUI_UpdateProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 299);
+            this.ClientSize = new System.Drawing.Size(274, 229);
             this.Controls.Add(this.cboTypeCode);
             this.Controls.Add(this.lblTypeCode);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboSupplierCode);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtProductName);
@@ -183,9 +173,11 @@
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GUI_UpdateProduct";
-            this.Text = "GUI_UpdateProduct";
+            this.Text = "CẬP NHẬT SẢN PHẨM";
             this.Load += new System.EventHandler(this.showUpdateProductForm);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,7 +187,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cboSupplierCode;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.TextBox txtProductName;

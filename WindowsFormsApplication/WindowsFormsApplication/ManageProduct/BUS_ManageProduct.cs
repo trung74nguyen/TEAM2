@@ -9,14 +9,14 @@ namespace WindowsFormsApplication.ManageProduct
 {
     class BUS_ManageProduct
     {
-        CMART2Entities1 db = new CMART2Entities1();
-
+        /*===MANAGE CONTROLLER===*/
         public List<Product> loadAllListProduct()
         {
             var db = new CMART2Entities1();
             return db.Products.ToList();
         }
 
+        /*===INSERT CONTROLLER===*/
         private bool checkExistProduct(string productName)
         {
             using (var db = new CMART2Entities1())
@@ -30,7 +30,6 @@ namespace WindowsFormsApplication.ManageProduct
                 {
                     using (var db = new CMART2Entities1())
                     {
-          
                         ObjectParameter Output = new ObjectParameter("CODE", typeof(String));
                         db.SP_PRODUCT_ID_AUTO(Output);
                         var id_auto = Output.Value.ToString();
@@ -55,6 +54,7 @@ namespace WindowsFormsApplication.ManageProduct
             return false;
         }
 
+        /*===UPDATE CONTROLLER===*/
         private bool checkExistProduct(string productName, string image, string typeCode, string supplierCode)
         {
             using (var db = new CMART2Entities1())
@@ -95,6 +95,7 @@ namespace WindowsFormsApplication.ManageProduct
             return false;
         }
 
+        /*===UPDATE CONTROLLER===*/
         private bool checkExistProductCode(string productCode)
         {
             using (var db = new CMART2Entities1())
@@ -121,10 +122,11 @@ namespace WindowsFormsApplication.ManageProduct
             return false;
         }
 
-        public List<usp_ProductSearch_Result> searchListProduct(string text)
+        /*===SEARCH CONTROLLER===*/
+        public List<usp_ProductSearch_Result> searchListProduct(string searchText)
         {
             var db = new CMART2Entities1();
-            return db.usp_ProductSearch(text).ToList();
+            return db.usp_ProductSearch(searchText).ToList();
         }
     }
 }

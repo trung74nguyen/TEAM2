@@ -29,239 +29,280 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Home));
-            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.ManageProduct = new System.Windows.Forms.PictureBox();
-            this.ManagePriceHistory = new System.Windows.Forms.PictureBox();
-            this.ManagegPromotion = new System.Windows.Forms.PictureBox();
-            this.Close = new System.Windows.Forms.PictureBox();
-            this.BranchImportBallot = new System.Windows.Forms.PictureBox();
-            this.HeadquarterImportBallot = new System.Windows.Forms.PictureBox();
-            this.ManageBill = new System.Windows.Forms.PictureBox();
-            this.ManageSalesStatustic = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ManageProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManagePriceHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManagegPromotion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BranchImportBallot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HeadquarterImportBallot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManageBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManageSalesStatustic)).BeginInit();
+            this.linkExit = new System.Windows.Forms.LinkLabel();
+            this.linkStatistic = new System.Windows.Forms.LinkLabel();
+            this.linkManageBill = new System.Windows.Forms.LinkLabel();
+            this.linkBranchImportBallot = new System.Windows.Forms.LinkLabel();
+            this.linkHeadquarterImportBallot = new System.Windows.Forms.LinkLabel();
+            this.linkManagePromotion = new System.Windows.Forms.LinkLabel();
+            this.linkManagePriceHistory = new System.Windows.Forms.LinkLabel();
+            this.linkManageProduct = new System.Windows.Forms.LinkLabel();
+            this.picManageProduct = new System.Windows.Forms.PictureBox();
+            this.picManagePriceHistory = new System.Windows.Forms.PictureBox();
+            this.picManagePromotion = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
+            this.picBranchImportBallot = new System.Windows.Forms.PictureBox();
+            this.picHeadquarterImportBallot = new System.Windows.Forms.PictureBox();
+            this.picManageBill = new System.Windows.Forms.PictureBox();
+            this.picStatistic = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManagePriceHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManagePromotion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBranchImportBallot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeadquarterImportBallot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStatistic)).BeginInit();
             this.SuspendLayout();
             // 
-            // linkLabel8
+            // linkExit
             // 
-            this.linkLabel8.AutoSize = true;
-            this.linkLabel8.Location = new System.Drawing.Point(719, 439);
-            this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(45, 17);
-            this.linkLabel8.TabIndex = 32;
-            this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "Thoát";
-            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Close_LinkClicked);
+            this.linkExit.AutoSize = true;
+            this.linkExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkExit.Location = new System.Drawing.Point(614, 383);
+            this.linkExit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkExit.Name = "linkExit";
+            this.linkExit.Size = new System.Drawing.Size(43, 16);
+            this.linkExit.TabIndex = 32;
+            this.linkExit.TabStop = true;
+            this.linkExit.Text = "Thoát";
+            this.linkExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Close_LinkClicked);
             // 
-            // linkLabel7
+            // linkStatistic
             // 
-            this.linkLabel7.AutoSize = true;
-            this.linkLabel7.Location = new System.Drawing.Point(456, 439);
-            this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(142, 17);
-            this.linkLabel7.TabIndex = 31;
-            this.linkLabel7.TabStop = true;
-            this.linkLabel7.Text = "Thống kê và báo cáo";
-            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageSalesStatistics_LinkClicked);
+            this.linkStatistic.AutoSize = true;
+            this.linkStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkStatistic.Location = new System.Drawing.Point(384, 383);
+            this.linkStatistic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkStatistic.Name = "linkStatistic";
+            this.linkStatistic.Size = new System.Drawing.Size(136, 16);
+            this.linkStatistic.TabIndex = 31;
+            this.linkStatistic.TabStop = true;
+            this.linkStatistic.Text = "Thống kê và báo cáo";
+            this.linkStatistic.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageSalesStatistics_LinkClicked);
             // 
-            // linkLabel6
+            // linkManageBill
             // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Location = new System.Drawing.Point(253, 439);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(113, 17);
-            this.linkLabel6.TabIndex = 30;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "Quản lý hóa đơn";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageBill_LinkClicked);
+            this.linkManageBill.AutoSize = true;
+            this.linkManageBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkManageBill.Location = new System.Drawing.Point(584, 194);
+            this.linkManageBill.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkManageBill.Name = "linkManageBill";
+            this.linkManageBill.Size = new System.Drawing.Size(105, 16);
+            this.linkManageBill.TabIndex = 30;
+            this.linkManageBill.TabStop = true;
+            this.linkManageBill.Text = "Quản lý hóa đơn";
+            this.linkManageBill.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageBill_LinkClicked);
             // 
-            // linkLabel5
+            // linkBranchImportBallot
             // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(12, 439);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(195, 17);
-            this.linkLabel5.TabIndex = 29;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Quản lý nhập hàng chi nhánh";
-            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BranchImportBallot_LinkClicked);
+            this.linkBranchImportBallot.AutoSize = true;
+            this.linkBranchImportBallot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkBranchImportBallot.Location = new System.Drawing.Point(186, 383);
+            this.linkBranchImportBallot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkBranchImportBallot.Name = "linkBranchImportBallot";
+            this.linkBranchImportBallot.Size = new System.Drawing.Size(178, 16);
+            this.linkBranchImportBallot.TabIndex = 29;
+            this.linkBranchImportBallot.TabStop = true;
+            this.linkBranchImportBallot.Text = "Quản lý nhập hàng chi nhánh";
+            this.linkBranchImportBallot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BranchImportBallot_LinkClicked);
             // 
-            // linkLabel4
+            // linkHeadquarterImportBallot
             // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(659, 209);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(169, 17);
-            this.linkLabel4.TabIndex = 28;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Quản lý nhập hàng trụ sở";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HeadquarterImportBallot_LinkClicked);
+            this.linkHeadquarterImportBallot.AutoSize = true;
+            this.linkHeadquarterImportBallot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkHeadquarterImportBallot.Location = new System.Drawing.Point(14, 383);
+            this.linkHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkHeadquarterImportBallot.Name = "linkHeadquarterImportBallot";
+            this.linkHeadquarterImportBallot.Size = new System.Drawing.Size(154, 16);
+            this.linkHeadquarterImportBallot.TabIndex = 28;
+            this.linkHeadquarterImportBallot.TabStop = true;
+            this.linkHeadquarterImportBallot.Text = "Quản lý nhập hàng trụ sở";
+            this.linkHeadquarterImportBallot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.HeadquarterImportBallot_LinkClicked);
             // 
-            // linkLabel3
+            // linkManagePromotion
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(427, 209);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(192, 17);
-            this.linkLabel3.TabIndex = 27;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Quản lý thông tin khuyến mãi";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManagePromotion_LinkClicked);
+            this.linkManagePromotion.AutoSize = true;
+            this.linkManagePromotion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkManagePromotion.Location = new System.Drawing.Point(369, 194);
+            this.linkManagePromotion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkManagePromotion.Name = "linkManagePromotion";
+            this.linkManagePromotion.Size = new System.Drawing.Size(176, 16);
+            this.linkManagePromotion.TabIndex = 27;
+            this.linkManagePromotion.TabStop = true;
+            this.linkManagePromotion.Text = "Quản lý thông tin khuyến mãi";
+            this.linkManagePromotion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManagePromotion_LinkClicked);
             // 
-            // linkLabel2
+            // linkManagePriceHistory
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(250, 209);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(124, 17);
-            this.linkLabel2.TabIndex = 26;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Quản lý lịch sử giá";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManagePriceHistory_LinkClicked);
+            this.linkManagePriceHistory.AutoSize = true;
+            this.linkManagePriceHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkManagePriceHistory.Location = new System.Drawing.Point(217, 194);
+            this.linkManagePriceHistory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkManagePriceHistory.Name = "linkManagePriceHistory";
+            this.linkManagePriceHistory.Size = new System.Drawing.Size(115, 16);
+            this.linkManagePriceHistory.TabIndex = 26;
+            this.linkManagePriceHistory.TabStop = true;
+            this.linkManagePriceHistory.Text = "Quản lý lịch sử giá";
+            this.linkManagePriceHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManagePriceHistory_LinkClicked);
             // 
-            // linkLabel1
+            // linkManageProduct
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(43, 209);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(123, 17);
-            this.linkLabel1.TabIndex = 25;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Quản lý sản phẩm";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageProduct_LinkClicked);
+            this.linkManageProduct.AutoSize = true;
+            this.linkManageProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkManageProduct.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(239)))));
+            this.linkManageProduct.Location = new System.Drawing.Point(35, 194);
+            this.linkManageProduct.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkManageProduct.Name = "linkManageProduct";
+            this.linkManageProduct.Size = new System.Drawing.Size(115, 16);
+            this.linkManageProduct.TabIndex = 25;
+            this.linkManageProduct.TabStop = true;
+            this.linkManageProduct.Text = "Quản lý sản phẩm";
+            this.linkManageProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ManageProduct_LinkClicked);
             // 
-            // ManageProduct
+            // picManageProduct
             // 
-            this.ManageProduct.Image = ((System.Drawing.Image)(resources.GetObject("ManageProduct.Image")));
-            this.ManageProduct.Location = new System.Drawing.Point(29, 22);
-            this.ManageProduct.Name = "ManageProduct";
-            this.ManageProduct.Size = new System.Drawing.Size(152, 173);
-            this.ManageProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ManageProduct.TabIndex = 24;
-            this.ManageProduct.TabStop = false;
-            this.ManageProduct.Click += new System.EventHandler(this.ManageProduct_Click);
+            this.picManageProduct.Image = ((System.Drawing.Image)(resources.GetObject("picManageProduct.Image")));
+            this.picManageProduct.Location = new System.Drawing.Point(38, 52);
+            this.picManageProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.picManageProduct.Name = "picManageProduct";
+            this.picManageProduct.Size = new System.Drawing.Size(110, 140);
+            this.picManageProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageProduct.TabIndex = 24;
+            this.picManageProduct.TabStop = false;
+            this.picManageProduct.Click += new System.EventHandler(this.ManageProduct_Click);
             // 
-            // ManagePriceHistory
+            // picManagePriceHistory
             // 
-            this.ManagePriceHistory.Image = ((System.Drawing.Image)(resources.GetObject("ManagePriceHistory.Image")));
-            this.ManagePriceHistory.Location = new System.Drawing.Point(235, 22);
-            this.ManagePriceHistory.Name = "ManagePriceHistory";
-            this.ManagePriceHistory.Size = new System.Drawing.Size(152, 173);
-            this.ManagePriceHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ManagePriceHistory.TabIndex = 23;
-            this.ManagePriceHistory.TabStop = false;
-            this.ManagePriceHistory.Click += new System.EventHandler(this.ManagePriceHistory_Click);
+            this.picManagePriceHistory.Image = ((System.Drawing.Image)(resources.GetObject("picManagePriceHistory.Image")));
+            this.picManagePriceHistory.Location = new System.Drawing.Point(220, 52);
+            this.picManagePriceHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.picManagePriceHistory.Name = "picManagePriceHistory";
+            this.picManagePriceHistory.Size = new System.Drawing.Size(110, 140);
+            this.picManagePriceHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManagePriceHistory.TabIndex = 23;
+            this.picManagePriceHistory.TabStop = false;
+            this.picManagePriceHistory.Click += new System.EventHandler(this.ManagePriceHistory_Click);
             // 
-            // ManagegPromotion
+            // picManagePromotion
             // 
-            this.ManagegPromotion.Image = ((System.Drawing.Image)(resources.GetObject("ManagegPromotion.Image")));
-            this.ManagegPromotion.Location = new System.Drawing.Point(446, 22);
-            this.ManagegPromotion.Name = "ManagegPromotion";
-            this.ManagegPromotion.Size = new System.Drawing.Size(152, 173);
-            this.ManagegPromotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ManagegPromotion.TabIndex = 22;
-            this.ManagegPromotion.TabStop = false;
-            this.ManagegPromotion.Click += new System.EventHandler(this.ManagegPromotion_Click);
+            this.picManagePromotion.Image = ((System.Drawing.Image)(resources.GetObject("picManagePromotion.Image")));
+            this.picManagePromotion.Location = new System.Drawing.Point(400, 52);
+            this.picManagePromotion.Margin = new System.Windows.Forms.Padding(2);
+            this.picManagePromotion.Name = "picManagePromotion";
+            this.picManagePromotion.Size = new System.Drawing.Size(110, 140);
+            this.picManagePromotion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManagePromotion.TabIndex = 22;
+            this.picManagePromotion.TabStop = false;
+            this.picManagePromotion.Click += new System.EventHandler(this.ManagegPromotion_Click);
             // 
-            // Close
+            // picExit
             // 
-            this.Close.Image = ((System.Drawing.Image)(resources.GetObject("Close.Image")));
-            this.Close.Location = new System.Drawing.Point(662, 257);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(152, 170);
-            this.Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.Close.TabIndex = 21;
-            this.Close.TabStop = false;
-            this.Close.Click += new System.EventHandler(this.Close_Click);
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(579, 241);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(110, 140);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picExit.TabIndex = 21;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.Close_Click);
             // 
-            // BranchImportBallot
+            // picBranchImportBallot
             // 
-            this.BranchImportBallot.Image = ((System.Drawing.Image)(resources.GetObject("BranchImportBallot.Image")));
-            this.BranchImportBallot.Location = new System.Drawing.Point(29, 257);
-            this.BranchImportBallot.Name = "BranchImportBallot";
-            this.BranchImportBallot.Size = new System.Drawing.Size(152, 170);
-            this.BranchImportBallot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BranchImportBallot.TabIndex = 20;
-            this.BranchImportBallot.TabStop = false;
-            this.BranchImportBallot.Click += new System.EventHandler(this.BranchImportBallot_Click);
+            this.picBranchImportBallot.Image = ((System.Drawing.Image)(resources.GetObject("picBranchImportBallot.Image")));
+            this.picBranchImportBallot.Location = new System.Drawing.Point(220, 241);
+            this.picBranchImportBallot.Margin = new System.Windows.Forms.Padding(2);
+            this.picBranchImportBallot.Name = "picBranchImportBallot";
+            this.picBranchImportBallot.Size = new System.Drawing.Size(110, 140);
+            this.picBranchImportBallot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBranchImportBallot.TabIndex = 20;
+            this.picBranchImportBallot.TabStop = false;
+            this.picBranchImportBallot.Click += new System.EventHandler(this.BranchImportBallot_Click);
             // 
-            // HeadquarterImportBallot
+            // picHeadquarterImportBallot
             // 
-            this.HeadquarterImportBallot.Image = ((System.Drawing.Image)(resources.GetObject("HeadquarterImportBallot.Image")));
-            this.HeadquarterImportBallot.Location = new System.Drawing.Point(662, 22);
-            this.HeadquarterImportBallot.Name = "HeadquarterImportBallot";
-            this.HeadquarterImportBallot.Size = new System.Drawing.Size(152, 173);
-            this.HeadquarterImportBallot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.HeadquarterImportBallot.TabIndex = 19;
-            this.HeadquarterImportBallot.TabStop = false;
-            this.HeadquarterImportBallot.Click += new System.EventHandler(this.HeadquarterImportBallot_Click);
+            this.picHeadquarterImportBallot.Image = ((System.Drawing.Image)(resources.GetObject("picHeadquarterImportBallot.Image")));
+            this.picHeadquarterImportBallot.Location = new System.Drawing.Point(38, 241);
+            this.picHeadquarterImportBallot.Margin = new System.Windows.Forms.Padding(2);
+            this.picHeadquarterImportBallot.Name = "picHeadquarterImportBallot";
+            this.picHeadquarterImportBallot.Size = new System.Drawing.Size(110, 140);
+            this.picHeadquarterImportBallot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHeadquarterImportBallot.TabIndex = 19;
+            this.picHeadquarterImportBallot.TabStop = false;
+            this.picHeadquarterImportBallot.Click += new System.EventHandler(this.HeadquarterImportBallot_Click);
             // 
-            // ManageBill
+            // picManageBill
             // 
-            this.ManageBill.Image = ((System.Drawing.Image)(resources.GetObject("ManageBill.Image")));
-            this.ManageBill.Location = new System.Drawing.Point(235, 257);
-            this.ManageBill.Name = "ManageBill";
-            this.ManageBill.Size = new System.Drawing.Size(152, 170);
-            this.ManageBill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ManageBill.TabIndex = 18;
-            this.ManageBill.TabStop = false;
-            this.ManageBill.Click += new System.EventHandler(this.ManageBill_Click);
+            this.picManageBill.Image = ((System.Drawing.Image)(resources.GetObject("picManageBill.Image")));
+            this.picManageBill.Location = new System.Drawing.Point(579, 52);
+            this.picManageBill.Margin = new System.Windows.Forms.Padding(2);
+            this.picManageBill.Name = "picManageBill";
+            this.picManageBill.Size = new System.Drawing.Size(110, 140);
+            this.picManageBill.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageBill.TabIndex = 18;
+            this.picManageBill.TabStop = false;
+            this.picManageBill.Click += new System.EventHandler(this.ManageBill_Click);
             // 
-            // ManageSalesStatustic
+            // picStatistic
             // 
-            this.ManageSalesStatustic.Image = ((System.Drawing.Image)(resources.GetObject("ManageSalesStatustic.Image")));
-            this.ManageSalesStatustic.Location = new System.Drawing.Point(454, 257);
-            this.ManageSalesStatustic.Name = "ManageSalesStatustic";
-            this.ManageSalesStatustic.Size = new System.Drawing.Size(152, 170);
-            this.ManageSalesStatustic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ManageSalesStatustic.TabIndex = 17;
-            this.ManageSalesStatustic.TabStop = false;
-            this.ManageSalesStatustic.Click += new System.EventHandler(this.ManageSalesStatustic_Click);
+            this.picStatistic.Image = ((System.Drawing.Image)(resources.GetObject("picStatistic.Image")));
+            this.picStatistic.Location = new System.Drawing.Point(400, 241);
+            this.picStatistic.Margin = new System.Windows.Forms.Padding(2);
+            this.picStatistic.Name = "picStatistic";
+            this.picStatistic.Size = new System.Drawing.Size(110, 140);
+            this.picStatistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStatistic.TabIndex = 17;
+            this.picStatistic.TabStop = false;
+            this.picStatistic.Click += new System.EventHandler(this.ManageSalesStatustic_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(713, 31);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "PHẦN MỀM QUẢN LÝ DOANH THU CÔNG TY CMART";
             // 
             // GUI_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 483);
-            this.Controls.Add(this.linkLabel8);
-            this.Controls.Add(this.linkLabel7);
-            this.Controls.Add(this.linkLabel6);
-            this.Controls.Add(this.linkLabel5);
-            this.Controls.Add(this.linkLabel4);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.ManageProduct);
-            this.Controls.Add(this.ManagePriceHistory);
-            this.Controls.Add(this.ManagegPromotion);
-            this.Controls.Add(this.Close);
-            this.Controls.Add(this.BranchImportBallot);
-            this.Controls.Add(this.HeadquarterImportBallot);
-            this.Controls.Add(this.ManageBill);
-            this.Controls.Add(this.ManageSalesStatustic);
+            this.ClientSize = new System.Drawing.Size(734, 411);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.linkExit);
+            this.Controls.Add(this.linkStatistic);
+            this.Controls.Add(this.linkManageBill);
+            this.Controls.Add(this.linkBranchImportBallot);
+            this.Controls.Add(this.linkHeadquarterImportBallot);
+            this.Controls.Add(this.linkManagePromotion);
+            this.Controls.Add(this.linkManagePriceHistory);
+            this.Controls.Add(this.linkManageProduct);
+            this.Controls.Add(this.picManageProduct);
+            this.Controls.Add(this.picManagePriceHistory);
+            this.Controls.Add(this.picManagePromotion);
+            this.Controls.Add(this.picExit);
+            this.Controls.Add(this.picBranchImportBallot);
+            this.Controls.Add(this.picHeadquarterImportBallot);
+            this.Controls.Add(this.picManageBill);
+            this.Controls.Add(this.picStatistic);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "GUI_Home";
-            this.Text = "GUI_Home";
-            ((System.ComponentModel.ISupportInitialize)(this.ManageProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManagePriceHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManagegPromotion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BranchImportBallot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HeadquarterImportBallot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManageBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ManageSalesStatustic)).EndInit();
+            this.Text = "PHẦN MỀM QUẢN LÝ DOANH THU CÔNG TY CMART";
+            ((System.ComponentModel.ISupportInitialize)(this.picManageProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManagePriceHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManagePromotion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBranchImportBallot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHeadquarterImportBallot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picStatistic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,21 +310,22 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel linkLabel8;
-        private System.Windows.Forms.LinkLabel linkLabel7;
-        private System.Windows.Forms.LinkLabel linkLabel6;
-        private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.PictureBox ManageProduct;
-        private System.Windows.Forms.PictureBox ManagePriceHistory;
-        private System.Windows.Forms.PictureBox ManagegPromotion;
-        private System.Windows.Forms.PictureBox Close;
-        private System.Windows.Forms.PictureBox BranchImportBallot;
-        private System.Windows.Forms.PictureBox HeadquarterImportBallot;
-        private System.Windows.Forms.PictureBox ManageBill;
-        private System.Windows.Forms.PictureBox ManageSalesStatustic;
+        private System.Windows.Forms.LinkLabel linkExit;
+        private System.Windows.Forms.LinkLabel linkStatistic;
+        private System.Windows.Forms.LinkLabel linkManageBill;
+        private System.Windows.Forms.LinkLabel linkBranchImportBallot;
+        private System.Windows.Forms.LinkLabel linkHeadquarterImportBallot;
+        private System.Windows.Forms.LinkLabel linkManagePromotion;
+        private System.Windows.Forms.LinkLabel linkManagePriceHistory;
+        private System.Windows.Forms.LinkLabel linkManageProduct;
+        private System.Windows.Forms.PictureBox picManageProduct;
+        private System.Windows.Forms.PictureBox picManagePriceHistory;
+        private System.Windows.Forms.PictureBox picManagePromotion;
+        private System.Windows.Forms.PictureBox picExit;
+        private System.Windows.Forms.PictureBox picBranchImportBallot;
+        private System.Windows.Forms.PictureBox picHeadquarterImportBallot;
+        private System.Windows.Forms.PictureBox picManageBill;
+        private System.Windows.Forms.PictureBox picStatistic;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

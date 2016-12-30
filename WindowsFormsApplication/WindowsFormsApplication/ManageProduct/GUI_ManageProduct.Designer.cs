@@ -38,16 +38,17 @@
             this.btnQLNHCN = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQLHD = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTKe = new System.Windows.Forms.ToolStripMenuItem();
-            this.lstManageProduct = new System.Windows.Forms.DataGridView();
+            this.lstProduct = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblPosition = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lstManageProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -60,8 +61,7 @@
             this.btnTKe});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(905, 39);
+            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,27 +72,27 @@
             this.btnQLLSG,
             this.btnQLTTKM});
             this.btnQLDM.Name = "btnQLDM";
-            this.btnQLDM.Size = new System.Drawing.Size(212, 35);
+            this.btnQLDM.Size = new System.Drawing.Size(117, 20);
             this.btnQLDM.Text = "Quản lý danh mục";
             // 
             // btnQLSP
             // 
             this.btnQLSP.Name = "btnQLSP";
-            this.btnQLSP.Size = new System.Drawing.Size(395, 36);
+            this.btnQLSP.Size = new System.Drawing.Size(232, 22);
             this.btnQLSP.Text = "Quản lý sản phẩm";
             this.btnQLSP.Click += new System.EventHandler(this.btnQLSP_Click);
             // 
             // btnQLLSG
             // 
             this.btnQLLSG.Name = "btnQLLSG";
-            this.btnQLLSG.Size = new System.Drawing.Size(395, 36);
+            this.btnQLLSG.Size = new System.Drawing.Size(232, 22);
             this.btnQLLSG.Text = "Quản lý lịch sử giá";
             this.btnQLLSG.Click += new System.EventHandler(this.btnQLLSG_Click);
             // 
             // btnQLTTKM
             // 
             this.btnQLTTKM.Name = "btnQLTTKM";
-            this.btnQLTTKM.Size = new System.Drawing.Size(395, 36);
+            this.btnQLTTKM.Size = new System.Drawing.Size(232, 22);
             this.btnQLTTKM.Text = "Quản lý thông tin khuyến mãi";
             this.btnQLTTKM.Click += new System.EventHandler(this.btnQLTTKM_Click);
             // 
@@ -102,89 +102,90 @@
             this.btnQLNHTS,
             this.btnQLNHCN});
             this.btnQLNH.Name = "btnQLNH";
-            this.btnQLNH.Size = new System.Drawing.Size(220, 35);
+            this.btnQLNH.Size = new System.Drawing.Size(120, 20);
             this.btnQLNH.Text = "Quản lý nhập hàng";
             // 
             // btnQLNHTS
             // 
             this.btnQLNHTS.Name = "btnQLNHTS";
-            this.btnQLNHTS.Size = new System.Drawing.Size(394, 36);
+            this.btnQLNHTS.Size = new System.Drawing.Size(231, 22);
             this.btnQLNHTS.Text = "Quản lý nhập hàng trụ sở";
             this.btnQLNHTS.Click += new System.EventHandler(this.btnQLNHTS_Click);
             // 
             // btnQLNHCN
             // 
             this.btnQLNHCN.Name = "btnQLNHCN";
-            this.btnQLNHCN.Size = new System.Drawing.Size(394, 36);
+            this.btnQLNHCN.Size = new System.Drawing.Size(231, 22);
             this.btnQLNHCN.Text = "Quản lý nhập hàng chi nhánh";
             this.btnQLNHCN.Click += new System.EventHandler(this.btnQLNHCN_Click);
             // 
             // btnQLHD
             // 
             this.btnQLHD.Name = "btnQLHD";
-            this.btnQLHD.Size = new System.Drawing.Size(195, 35);
+            this.btnQLHD.Size = new System.Drawing.Size(107, 20);
             this.btnQLHD.Text = "Quản lý hóa đơn";
             this.btnQLHD.Click += new System.EventHandler(this.btnQLHD_Click);
             // 
             // btnTKe
             // 
             this.btnTKe.Name = "btnTKe";
-            this.btnTKe.Size = new System.Drawing.Size(120, 35);
+            this.btnTKe.Size = new System.Drawing.Size(69, 20);
             this.btnTKe.Text = "Thống kê";
             this.btnTKe.Click += new System.EventHandler(this.btnTKe_Click);
             // 
-            // lstManageProduct
+            // lstProduct
             // 
-            this.lstManageProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstManageProduct.Location = new System.Drawing.Point(16, 167);
-            this.lstManageProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.lstManageProduct.Name = "lstManageProduct";
-            this.lstManageProduct.Size = new System.Drawing.Size(871, 293);
-            this.lstManageProduct.TabIndex = 27;
-            this.lstManageProduct.DoubleClick += new System.EventHandler(this.selectProductToUpdate);
+            this.lstProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.lstProduct.Location = new System.Drawing.Point(14, 149);
+            this.lstProduct.Name = "lstProduct";
+            this.lstProduct.Size = new System.Drawing.Size(708, 250);
+            this.lstProduct.TabIndex = 27;
+            this.lstProduct.DoubleClick += new System.EventHandler(this.selectProductToUpdate);
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(648, 124);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Multiline = true;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSearch.Location = new System.Drawing.Point(522, 117);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(240, 29);
+            this.txtSearch.Size = new System.Drawing.Size(200, 26);
             this.txtSearch.TabIndex = 26;
             this.txtSearch.Text = "Tìm kiếm...";
             this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.TextChanged += new System.EventHandler(this.inputSearchText);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(263, 114);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(215, 106);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 46);
+            this.btnDelete.Size = new System.Drawing.Size(85, 35);
             this.btnDelete.TabIndex = 25;
+            this.btnDelete.Tag = "";
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.clickDelete);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(140, 114);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(114, 106);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(115, 46);
+            this.btnUpdate.Size = new System.Drawing.Size(85, 35);
             this.btnUpdate.TabIndex = 24;
+            this.btnUpdate.Tag = "";
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(16, 114);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.Location = new System.Drawing.Point(14, 106);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(116, 46);
+            this.btnInsert.Size = new System.Drawing.Size(85, 35);
             this.btnInsert.TabIndex = 23;
+            this.btnInsert.Tag = "";
             this.btnInsert.Text = "Thêm";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.clickInsert);
@@ -194,55 +195,65 @@
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(320, 60);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(235, 50);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(284, 38);
+            this.lblTitle.Size = new System.Drawing.Size(289, 31);
             this.lblTitle.TabIndex = 22;
-            this.lblTitle.Text = "Quản lý sản phẩm";
+            this.lblTitle.Text = "QUẢN LÝ SẢN PHẨM";
             // 
-            // lblPosition
+            // lblFullName
             // 
-            this.lblPosition.Location = new System.Drawing.Point(588, 32);
-            this.lblPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(299, 28);
-            this.lblPosition.TabIndex = 21;
-            this.lblPosition.Text = "Giám đốc: ABC";
-            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Location = new System.Drawing.Point(618, 27);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(104, 13);
+            this.lblFullName.TabIndex = 21;
+            this.lblFullName.Text = "Nguyễn Quốc Trung";
+            this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(787, 3);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Location = new System.Drawing.Point(647, 1);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(100, 28);
+            this.btnLogOut.Size = new System.Drawing.Size(75, 23);
             this.btnLogOut.TabIndex = 29;
             this.btnLogOut.Text = "Đăng xuất";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(556, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Giám đốc:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // GUI_ManageProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 475);
+            this.ClientSize = new System.Drawing.Size(734, 411);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.lstManageProduct);
+            this.Controls.Add(this.lstProduct);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblPosition);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Controls.Add(this.lblFullName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "GUI_ManageProduct";
-            this.Text = "GUI_ManageProduct";
+            this.Text = "QUẢN LÝ SẢN PHẨM";
             this.Load += new System.EventHandler(this.showManageProductForm);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lstManageProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,15 +269,16 @@
         private System.Windows.Forms.ToolStripMenuItem btnQLNH;
         private System.Windows.Forms.ToolStripMenuItem btnQLHD;
         private System.Windows.Forms.ToolStripMenuItem btnTKe;
-        private System.Windows.Forms.DataGridView lstManageProduct;
+        private System.Windows.Forms.DataGridView lstProduct;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblPosition;
+        private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.ToolStripMenuItem btnQLNHTS;
         private System.Windows.Forms.ToolStripMenuItem btnQLNHCN;
+        private System.Windows.Forms.Label label1;
     }
 }

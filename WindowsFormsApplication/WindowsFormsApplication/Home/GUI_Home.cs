@@ -141,7 +141,6 @@ namespace WindowsFormsApplication.Home
             {
                 this.Close();
             }
-            
         }
 
         private void Close_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

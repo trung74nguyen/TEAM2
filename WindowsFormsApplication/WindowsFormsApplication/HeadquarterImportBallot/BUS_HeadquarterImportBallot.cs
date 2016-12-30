@@ -16,6 +16,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             var db = new CMART2Entities1();
             return db.HeadquaterImportBallots.ToList();
         }
+
         public List<HeadquaterImportBallotDetail> getAllListHeadquarterImportBallotDetail(string ballotNum)
         {
             var db = new CMART2Entities1();
@@ -28,6 +29,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             var db = new CMART2Entities1();
             return db.ProposeBallotDetails.Where(s => s.BallotNum == proposeBallotNumber).ToList();
         }
+
         public List<usp_PriceHistoryLastest_Result> getLastestPrice(string productCode)
         {
             var db = new CMART2Entities1();
@@ -98,6 +100,18 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
         }
         
         /*===UPDATE CONTROLLER===*/
+        private bool checkExistHeadquarterImportBallot(DateTime exp, string status)
+        {
+            using (var db = new CMART2Entities1())
+            {
+                if (db.HeadquaterImportBallotDetails.Count(s => s.EXP == exp && s.State == status) > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
         public bool updateHeadquarterImportBallotDetail(string ballotNum, string productCode, int number, double inputPrice, DateTime exp, string status)
         {
             if (!checkExistHeadquarterImportBallot(exp, status))
@@ -121,20 +135,8 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             return false;
         }
 
-        private bool checkExistHeadquarterImportBallot(DateTime exp, string status)
-        {
-            using (var db = new CMART2Entities1())
-            {
-                if (db.HeadquaterImportBallotDetails.Count(s => s.EXP == exp && s.State == status) > 0)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
-        
         /*===SEARCH CONTROLLER===*/
-        public List<usp_HeadquaterImportBallotSearch_Result> searchAllListBallot(string text)
+        public List<usp_HeadquaterImportBallotSearch_Result> searchAllListHeadquarterImportBallot(string text)
         {
             var db = new CMART2Entities1();
             return db.usp_HeadquaterImportBallotSearch(text).ToList();

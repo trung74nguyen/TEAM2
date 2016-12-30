@@ -114,12 +114,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ds_SalesStatistic.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form0.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form0.Designer.cs">
-      <DependentUpon>Form0.cs</DependentUpon>
-    </Compile>
     <Compile Include="HeadquarterImportBallot\BUS_HeadquarterImportBallot.cs" />
     <Compile Include="HeadquarterImportBallot\GUI_HeadquarterImportBallot.cs">
       <SubType>Form</SubType>
@@ -234,7 +228,6 @@
     <Compile Include="ManagePromotion\GUI_UpdatePromotion.Designer.cs">
       <DependentUpon>GUI_UpdatePromotion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagePromotion\ValidationExtension.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -518,9 +511,6 @@
     <EmbeddedResource Include="cr_StatisticRangeTime.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cr_StatisticRangeTime.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form0.resx">
-      <DependentUpon>Form0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HeadquarterImportBallot\GUI_HeadquarterImportBallot.resx">
       <DependentUpon>GUI_HeadquarterImportBallot.cs</DependentUpon>

@@ -11,51 +11,23 @@ namespace WindowsFormsApplication.ManageBill
 {
     class BUS_ManageBill
     {
-        public List<Bill> getAllListBill()
-        {
-            var db = new CMART2Entities1();
-            return db.Bills.ToList();
-        }
-        public bool checkExistProduct(string id)
-        {
-            var db = new CMART2Entities1();
-            return db.Products.Count(s => s.ProductCode.Equals(id)) == 1;
-        }
-        public Product getProduct(string id)
-        {
-            var db = new CMART2Entities1();
-            return db.Products.Find(id);
-        }
-        //public List<Account> getAllListAccount()
-        //{
-        //    var db = new CMART2Entities1();
-        //    return db.Accounts.Where(i =>i.Authorities.Equals("Dương Thành Công Lý")).ToList();
-        //}
-        public List<usp_BillDetailSelectAll_Result> getAllListBillDetail(string ballotnum)
-        {
-            var db = new CMART2Entities1();
-            return db.usp_BillDetailSelectAll().Where(i =>i.BallotNUm == ballotnum).ToList();
-        }
+        /*===MANAGE CONTROLLER===*/
         public List<usp_BillSelectAll_Result> getAllListBill_()
         {
             var db = new CMART2Entities1();
             return db.usp_BillSelectAll().ToList();
         }
-        public List<BillDetail> getAllBillDetail(string ballotnum)
+
+        public List<usp_BillDetailSelectAll_Result> getAllListBillDetail(string ballotnum)
         {
             var db = new CMART2Entities1();
-            return db.BillDetails.Where(i =>i.BallotNum == ballotnum).ToList();
+            return db.usp_BillDetailSelectAll().Where(i => i.BallotNUm == ballotnum).ToList();
         }
-        private bool checkExistBill(string id)
-        {
-            var db = new CMART2Entities1();
-            return db.Bills.Count(s => s.BallotNum.Equals(id)) == 1;
-        }
-        
+
+        /*===INSERT CONTROLLER===*/
         string id = "";
-        public bool insertNewBill(DateTime daySales, double total, double guestMoney,double excessCash, int totalNum,int POS,string accountCode)
+        public bool insertNewBill(DateTime daySales, double total, double guestMoney, double excessCash, int totalNum, int POS, string accountCode)
         {
-            
             try
             {
                 using (var db = new CMART2Entities1())
@@ -66,7 +38,7 @@ namespace WindowsFormsApplication.ManageBill
                     var bill = new Bill
                     {
                         BallotNum = id_auto,
-                        Date =daySales,
+                        Date = daySales,
                         Total = total,
                         GuestMoney = guestMoney,
                         ExcessCash = excessCash,
@@ -79,13 +51,13 @@ namespace WindowsFormsApplication.ManageBill
                     id = Convert.ToString(id_auto);
                     return true;
                 }
-
             }
             catch (Exception)
             {
                 return false;
             }
         }
+
         public bool insertNewBillDetail(string productcode, double unitprice, int number)
         {
             try
@@ -109,6 +81,26 @@ namespace WindowsFormsApplication.ManageBill
                 return false;
             }
         }
+
+        public bool checkExistProduct(string id)
+        {
+            var db = new CMART2Entities1();
+            return db.Products.Count(s => s.ProductCode.Equals(id)) == 1;
+        }
+
+        public Product getProduct(string id)
+        {
+            var db = new CMART2Entities1();
+            return db.Products.Find(id);
+        }
+
+        /*===UPDATE CONTROLLER===*/
+        public List<BillDetail> getAllBillDetail(string ballotnum)
+        {
+            var db = new CMART2Entities1();
+            return db.BillDetails.Where(i =>i.BallotNum == ballotnum).ToList();
+        }      
+
         private bool checkExistBill(DateTime date ,double total , double guestmoney,double excesscash ,int totalnum ,int pos , string account)
         {
             using (var db = new CMART2Entities1())
@@ -153,6 +145,7 @@ namespace WindowsFormsApplication.ManageBill
                 }
             return false;
         }
+        
         public bool updateBillDetail(string ballotNum , string productcode, double unitprice, int number)
         {
             try
@@ -175,13 +168,12 @@ namespace WindowsFormsApplication.ManageBill
                 return false;
             }
         }
+
+        /*===SEARCH CONTROLLER===*/
         public List<usp_BillSearch_Result> searchAllListBill(string text)
         {
             var db = new CMART2Entities1();
             return db.usp_BillSearch(text).ToList();
         }
-
-
-        
     }
 }

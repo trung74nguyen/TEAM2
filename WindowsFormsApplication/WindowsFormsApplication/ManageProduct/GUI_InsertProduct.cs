@@ -29,11 +29,16 @@ namespace WindowsFormsApplication.ManageProduct
             this.cboSupplierCode.DisplayMember = "SupplierName"; // set the display member
         }
 
-        private bool checkDataInput(string name, string image, string type, string supplier)
+        private bool checkDataInput(string name, string image)
         {
             if ((name ?? "").Trim().Length == 0)
             {
                 MessageBox.Show("Tên sản phẩm là bắt buộc!");
+                return false;
+            }
+            if (name.Length > 50)
+            {
+                MessageBox.Show("Tên sản phẩm có độ dài ký tự từ 1 đến 50");
                 return false;
             }
             if ((image ?? "").Trim().Length == 0)
@@ -41,14 +46,9 @@ namespace WindowsFormsApplication.ManageProduct
                 MessageBox.Show("Hình ảnh là bắt buộc!");
                 return false;
             }
-            if ((type ?? "").Trim().Length == 0)
+            if (image.Length > 20)
             {
-                MessageBox.Show("Loại sản phẩm là bắt buộc!");
-                return false;
-            }
-            if ((supplier ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("Nhà cung cấp là bắt buộc!");
+                MessageBox.Show("Tên hình ảnh có độ dài ký tự từ 1 đến 20");
                 return false;
             }
             return true;
@@ -60,8 +60,7 @@ namespace WindowsFormsApplication.ManageProduct
             var image = txtImage.Text.Trim();
             var typeCode = cboTypeCode.SelectedValue.ToString();
             var supplierCode = cboSupplierCode.SelectedValue.ToString();
-
-            var inputData = checkDataInput(productName, image, typeCode, supplierCode);
+            var inputData = checkDataInput(productName, image);
             if (inputData == true)
             {
                 if (bus.insertNewProduct(productName, image, typeCode, supplierCode))
@@ -77,13 +76,10 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void clickSelect(object sender, EventArgs e)
         {
             openFileDialogImage.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
             if (openFileDialogImage.ShowDialog() == DialogResult.OK)
@@ -91,7 +87,5 @@ namespace WindowsFormsApplication.ManageProduct
                 txtImage.Text = openFileDialogImage.SafeFileName;
             }
         }
-
-
     }
 }

@@ -15,22 +15,21 @@ namespace WindowsFormsApplication.ManageProduct
         {
             InitializeComponent();
             db = new CMART2Entities1();
-            product = db.Products.Single(p => p.ProductCode == productCode); //load product object that matches the id
+            product = db.Products.Single(p => p.ProductCode == productCode);
         }
 
         CMART2Entities1 db;
         private Product product;
-
         BUS_ManageProduct bus = new BUS_ManageProduct();
 
         private void showUpdateProductForm(object sender, EventArgs e)
         {
             this.cboTypeCode.DataSource = db.ProductCategories.ToList();
-            this.cboTypeCode.ValueMember = "TypeCode"; // set the value member
-            this.cboTypeCode.DisplayMember = "TypeName"; // set the display member   
+            this.cboTypeCode.ValueMember = "TypeCode";
+            this.cboTypeCode.DisplayMember = "TypeName";   
             this.cboSupplierCode.DataSource = db.Suppliers.ToList();
-            this.cboSupplierCode.ValueMember = "SupplierCode"; // set the value member
-            this.cboSupplierCode.DisplayMember = "SupplierName"; // set the display member
+            this.cboSupplierCode.ValueMember = "SupplierCode";
+            this.cboSupplierCode.DisplayMember = "SupplierName";
             this.loadDataProduct();
         }
 
@@ -49,19 +48,19 @@ namespace WindowsFormsApplication.ManageProduct
                 MessageBox.Show("Tên sản phẩm là bắt buộc!");
                 return false;
             }
+            if (name.Length > 50)
+            {
+                MessageBox.Show("Tên sản phẩm có độ dài ký tự từ 1 đến 50");
+                return false;
+            }
             if ((image ?? "").Trim().Length == 0)
             {
                 MessageBox.Show("Hình ảnh là bắt buộc!");
                 return false;
             }
-            if ((type ?? "").Trim().Length == 0)
+            if (image.Length > 20)
             {
-                MessageBox.Show("Loại sản phẩm là bắt buộc!");
-                return false;
-            }
-            if ((supplier ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("Nhà cung cấp là bắt buộc!");
+                MessageBox.Show("Tên hình ảnh có độ dài ký tự từ 1 đến 20");
                 return false;
             }
             return true;
@@ -88,13 +87,10 @@ namespace WindowsFormsApplication.ManageProduct
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void clickSelect(object sender, EventArgs e)
         {
             openFileDialogImage.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
             if (openFileDialogImage.ShowDialog() == DialogResult.OK)
@@ -102,7 +98,5 @@ namespace WindowsFormsApplication.ManageProduct
                 txtImage.Text = openFileDialogImage.SafeFileName;
             }
         }
-
-
     }
 }

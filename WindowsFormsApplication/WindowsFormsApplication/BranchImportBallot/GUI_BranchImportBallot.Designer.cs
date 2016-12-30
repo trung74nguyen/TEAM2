@@ -40,10 +40,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnTKe = new System.Windows.Forms.ToolStripMenuItem();
             this.lstBallotDetail = new System.Windows.Forms.DataGridView();
-            this.BallotCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lstBallot = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -52,6 +48,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.BallotCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lstBallotDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstBallot)).BeginInit();
@@ -59,7 +59,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(588, 1);
+            this.btnLogOut.Location = new System.Drawing.Point(647, 1);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(75, 23);
             this.btnLogOut.TabIndex = 49;
@@ -131,7 +131,7 @@
             this.btnTKe});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(674, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
             this.menuStrip1.TabIndex = 48;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -145,19 +145,115 @@
             // 
             this.lstBallotDetail.AllowUserToAddRows = false;
             this.lstBallotDetail.AllowUserToDeleteRows = false;
+            this.lstBallotDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.lstBallotDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstBallotDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BallotCode,
             this.ProductCode,
             this.Number,
             this.State});
-            this.lstBallotDetail.Location = new System.Drawing.Point(373, 142);
+            this.lstBallotDetail.Location = new System.Drawing.Point(415, 150);
             this.lstBallotDetail.Margin = new System.Windows.Forms.Padding(2);
             this.lstBallotDetail.Name = "lstBallotDetail";
             this.lstBallotDetail.ReadOnly = true;
             this.lstBallotDetail.RowTemplate.Height = 24;
-            this.lstBallotDetail.Size = new System.Drawing.Size(290, 225);
+            this.lstBallotDetail.Size = new System.Drawing.Size(308, 250);
             this.lstBallotDetail.TabIndex = 47;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSearch.Location = new System.Drawing.Point(523, 120);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(200, 26);
+            this.txtSearch.TabIndex = 46;
+            this.txtSearch.Text = "Tìm kiếm...";
+            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.inputSearchText);
+            // 
+            // lstBallot
+            // 
+            this.lstBallot.AllowUserToAddRows = false;
+            this.lstBallot.AllowUserToDeleteRows = false;
+            this.lstBallot.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.lstBallot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstBallot.Location = new System.Drawing.Point(11, 150);
+            this.lstBallot.Margin = new System.Windows.Forms.Padding(2);
+            this.lstBallot.Name = "lstBallot";
+            this.lstBallot.ReadOnly = true;
+            this.lstBallot.RowTemplate.Height = 24;
+            this.lstBallot.Size = new System.Drawing.Size(400, 250);
+            this.lstBallot.TabIndex = 45;
+            this.lstBallot.DoubleClick += new System.EventHandler(this.selectUpdateBranchImportBallot);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(213, 111);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(85, 35);
+            this.btnPrint.TabIndex = 44;
+            this.btnPrint.Text = "In";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.clickPrint);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(112, 111);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(85, 35);
+            this.btnUpdate.TabIndex = 43;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.Location = new System.Drawing.Point(11, 111);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(85, 35);
+            this.btnInsert.TabIndex = 42;
+            this.btnInsert.Text = "Thêm";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.clickInsert);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(83, 50);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(569, 31);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "QUẢN LÝ PHIẾU NHẬP HÀNG CHI NHÁNH";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(635, 30);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(89, 13);
+            this.lblName.TabIndex = 40;
+            this.lblName.Text = "Nguyễn Cao Lâm";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(537, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Quản lý chi nhánh:";
             // 
             // BallotCode
             // 
@@ -185,106 +281,16 @@
             // 
             // State
             // 
-            this.State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.State.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.State.HeaderText = "Status";
             this.State.Name = "State";
             this.State.ReadOnly = true;
-            this.State.Width = 62;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(451, 115);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(211, 20);
-            this.txtSearch.TabIndex = 46;
-            this.txtSearch.Text = "Tìm kiếm...";
-            this.txtSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtSearch_MouseClick);
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // lstBallot
-            // 
-            this.lstBallot.AllowUserToAddRows = false;
-            this.lstBallot.AllowUserToDeleteRows = false;
-            this.lstBallot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lstBallot.Location = new System.Drawing.Point(9, 142);
-            this.lstBallot.Margin = new System.Windows.Forms.Padding(2);
-            this.lstBallot.Name = "lstBallot";
-            this.lstBallot.ReadOnly = true;
-            this.lstBallot.RowTemplate.Height = 24;
-            this.lstBallot.Size = new System.Drawing.Size(360, 225);
-            this.lstBallot.TabIndex = 45;
-            this.lstBallot.DoubleClick += new System.EventHandler(this.selectUpdateBranchImportBallot);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(169, 110);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(64, 28);
-            this.btnPrint.TabIndex = 44;
-            this.btnPrint.Text = "In";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.clickPrint);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(86, 110);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(64, 28);
-            this.btnUpdate.TabIndex = 43;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.clickUpdate);
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(7, 110);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(64, 28);
-            this.btnInsert.TabIndex = 42;
-            this.btnInsert.Text = "Thêm";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.clickInsert);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(103, 53);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(513, 44);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Quản lý nhập hàng chi nhánh";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(576, 30);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(89, 13);
-            this.lblName.TabIndex = 40;
-            this.lblName.Text = "Nguyễn Cao Lâm";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(478, 30);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Quản lý chi nhánh:";
             // 
             // GUI_BranchImportBallot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 378);
+            this.ClientSize = new System.Drawing.Size(734, 411);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lstBallotDetail);
@@ -296,9 +302,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "GUI_BranchImportBallot";
-            this.Text = "GUI_BranchImportBallot";
+            this.Text = "QUẢN LÝ PHIẾU NHẬP HÀNG CHI NHÁNH";
             this.Load += new System.EventHandler(this.showBranchImportBallot);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

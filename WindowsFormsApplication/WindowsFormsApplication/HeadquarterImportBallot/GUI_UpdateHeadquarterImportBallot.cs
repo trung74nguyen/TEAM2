@@ -24,7 +24,6 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
 
         private void showHeadquarterImportBallotForm(object sender, EventArgs e)
         {
-            MessageBox.Show(importBallot.BallotNum);
             this.txtProposeNum.Text = importBallot.ProposeBallotNum;
             this.txtName.Text = importBallot.Account.FullName;
             this.txtTotal.Text = Convert.ToString(importBallot.Total);
@@ -113,12 +112,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
 
         private void clickCancel(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc muốn hủy thao tác không?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+             this.Close();
         }
-
-
     }
 }
