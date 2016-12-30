@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication {
+namespace WindowsFormsApplication.Statistics_and_Report {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApplication.cr_StatisticRangeTime.rpt";
+                return "WindowsFormsApplication.Statistics and Report.cr_StatisticRangeTime.rpt";
             }
             set {
                 // Do nothing

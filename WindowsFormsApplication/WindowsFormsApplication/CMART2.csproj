@@ -103,7 +103,7 @@
       <DependentUpon>cr_SalesStatistic.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="cr_StatisticRangeTime.cs">
+    <Compile Include="Statistics and Report\cr_StatisticRangeTime.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>cr_StatisticRangeTime.rpt</DependentUpon>
@@ -508,7 +508,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cr_SalesStatistic.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="cr_StatisticRangeTime.rpt">
+    <EmbeddedResource Include="Statistics and Report\cr_StatisticRangeTime.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cr_StatisticRangeTime.cs</LastGenOutput>
     </EmbeddedResource>

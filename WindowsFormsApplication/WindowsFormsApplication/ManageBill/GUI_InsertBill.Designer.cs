@@ -61,7 +61,7 @@
             // 
             // btnSaveIn
             // 
-            this.btnSaveIn.Location = new System.Drawing.Point(333, 347);
+            this.btnSaveIn.Location = new System.Drawing.Point(354, 347);
             this.btnSaveIn.Name = "btnSaveIn";
             this.btnSaveIn.Size = new System.Drawing.Size(64, 28);
             this.btnSaveIn.TabIndex = 54;
@@ -71,7 +71,7 @@
             // 
             // btnCancelIn
             // 
-            this.btnCancelIn.Location = new System.Drawing.Point(414, 347);
+            this.btnCancelIn.Location = new System.Drawing.Point(424, 347);
             this.btnCancelIn.Name = "btnCancelIn";
             this.btnCancelIn.Size = new System.Drawing.Size(64, 28);
             this.btnCancelIn.TabIndex = 53;
@@ -129,10 +129,13 @@
             // 
             // lstManageBillIn
             // 
+            this.lstManageBillIn.AllowUserToAddRows = false;
+            this.lstManageBillIn.AllowUserToDeleteRows = false;
             this.lstManageBillIn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.lstManageBillIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lstManageBillIn.Location = new System.Drawing.Point(12, 108);
             this.lstManageBillIn.Name = "lstManageBillIn";
+            this.lstManageBillIn.ReadOnly = true;
             this.lstManageBillIn.Size = new System.Drawing.Size(478, 188);
             this.lstManageBillIn.TabIndex = 45;
             // 
