@@ -39,7 +39,7 @@
             this.crv_Range.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crv_Range.Location = new System.Drawing.Point(0, 0);
             this.crv_Range.Name = "crv_Range";
-            this.crv_Range.Size = new System.Drawing.Size(903, 624);
+            this.crv_Range.Size = new System.Drawing.Size(941, 646);
             this.crv_Range.TabIndex = 0;
             this.crv_Range.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crv_Range.Load += new System.EventHandler(this.crv_Range_Load);
@@ -48,7 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 624);
+            this.ClientSize = new System.Drawing.Size(941, 646);
             this.Controls.Add(this.crv_Range);
             this.Name = "GUI_PrintRangeTime";
             this.Text = "GUI_PrintRangeTime";

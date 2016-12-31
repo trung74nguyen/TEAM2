@@ -97,10 +97,16 @@
     <Compile Include="BranchImportBallot\GUI_UpdateBranchImportBallot.Designer.cs">
       <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
     </Compile>
-    <Compile Include="cr_SalesStatistic.cs">
+    <Compile Include="cr_StatisticMonth.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>cr_SalesStatistic.rpt</DependentUpon>
+      <DependentUpon>cr_StatisticMonth.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cr_StatisticDay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cr_StatisticDay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="cr_StatisticRangeTime.cs">
@@ -330,6 +336,12 @@
     <Compile Include="Statistics and Report\GUI_Print.Designer.cs">
       <DependentUpon>GUI_Print.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statistics and Report\GUI_PrintDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics and Report\GUI_PrintDay.Designer.cs">
+      <DependentUpon>GUI_PrintDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statistics and Report\GUI_PrintRangeTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -504,9 +516,13 @@
     <EmbeddedResource Include="BranchImportBallot\GUI_UpdateBranchImportBallot.resx">
       <DependentUpon>GUI_UpdateBranchImportBallot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cr_SalesStatistic.rpt">
+    <EmbeddedResource Include="cr_StatisticMonth.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>cr_SalesStatistic.cs</LastGenOutput>
+      <LastGenOutput>cr_StatisticMonth.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr_StatisticDay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cr_StatisticDay.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="cr_StatisticRangeTime.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -581,6 +597,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics and Report\GUI_Print.resx">
       <DependentUpon>GUI_Print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics and Report\GUI_PrintDay.resx">
+      <DependentUpon>GUI_PrintDay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics and Report\GUI_PrintRangeTime.resx">
       <DependentUpon>GUI_PrintRangeTime.cs</DependentUpon>

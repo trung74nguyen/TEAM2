@@ -88,7 +88,8 @@ namespace WindowsFormsApplication.Statistics_and_Report
             }
             if (rbDay.Checked)
             {
-                lstProduct.DataSource = busTK.StatisticDate(DateTime.Parse(dtpDate.Text));
+                dtpDate.Text.ToString().Trim();
+                lstProduct.DataSource = busTK.StatisticDate(DateTime.Parse(dtpDate.Text.ToString().Trim()));
                 TotalMoney();
             }
             if (rbRangeTime.Checked)
@@ -118,6 +119,11 @@ namespace WindowsFormsApplication.Statistics_and_Report
             if (rbRangeTime.Checked)
             {
                 GUI_PrintRangeTime a = new GUI_PrintRangeTime(DateTime.Parse(dtpDayStart.Text), DateTime.Parse(dtpDayEnd.Text));
+                a.ShowDialog();
+            }
+            if (rbDay.Checked)
+            {
+                GUI_PrintDay a = new GUI_PrintDay(DateTime.Parse(dtpDate.Text));
                 a.ShowDialog();
             }
         }

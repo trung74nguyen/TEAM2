@@ -16,14 +16,14 @@ namespace WindowsFormsApplication {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class cr_SalesStatistic : ReportClass {
+    public class cr_StatisticMonth : ReportClass {
         
-        public cr_SalesStatistic() {
+        public cr_StatisticMonth() {
         }
         
         public override string ResourceName {
             get {
-                return "cr_SalesStatistic.rpt";
+                return "cr_StatisticMonth.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication {
         
         public override string FullResourceName {
             get {
-                return "WindowsFormsApplication.cr_SalesStatistic.rpt";
+                return "WindowsFormsApplication.cr_StatisticMonth.rpt";
             }
             set {
                 // Do nothing
@@ -82,17 +82,25 @@ namespace WindowsFormsApplication {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[5];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedcr_SalesStatistic : Component, ICachedReport {
+    public class Cachedcr_StatisticMonth : Component, ICachedReport {
         
-        public Cachedcr_SalesStatistic() {
+        public Cachedcr_StatisticMonth() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace WindowsFormsApplication {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            cr_SalesStatistic rpt = new cr_SalesStatistic();
+            cr_StatisticMonth rpt = new cr_StatisticMonth();
             rpt.Site = this.Site;
             return rpt;
         }

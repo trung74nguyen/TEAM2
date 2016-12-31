@@ -46,7 +46,7 @@ namespace WindowsFormsApplication.Statistics_and_Report
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = bus.loadAllListProduct(i_thang, i_nam);
-            cr_SalesStatistic rp = new cr_SalesStatistic();
+            cr_StatisticMonth rp = new cr_StatisticMonth();
             rp.SetDataSource(bs);
             crv_Product.ReportSource = rp;
             crv_Product.RefreshReport(); 
