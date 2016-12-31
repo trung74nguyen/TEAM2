@@ -156,7 +156,7 @@
             // 
             // btnSaveUp
             // 
-            this.btnSaveUp.Location = new System.Drawing.Point(333, 347);
+            this.btnSaveUp.Location = new System.Drawing.Point(354, 347);
             this.btnSaveUp.Name = "btnSaveUp";
             this.btnSaveUp.Size = new System.Drawing.Size(64, 28);
             this.btnSaveUp.TabIndex = 82;
@@ -166,7 +166,7 @@
             // 
             // btnCancelUp
             // 
-            this.btnCancelUp.Location = new System.Drawing.Point(403, 347);
+            this.btnCancelUp.Location = new System.Drawing.Point(424, 347);
             this.btnCancelUp.Name = "btnCancelUp";
             this.btnCancelUp.Size = new System.Drawing.Size(64, 28);
             this.btnCancelUp.TabIndex = 81;
