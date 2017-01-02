@@ -53,16 +53,40 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             lstProductImport.AllowUserToAddRows = false;
         }
 
+        private bool checkDataInput(string exp)
+        {
+            if ((exp ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show("HSD là bắt buộc, vui lòng cập nhật lại sau!");
+                return false;
+            }
+            DateTime value;
+            if (!DateTime.TryParse(exp, out value))
+            {
+                //startDateTextox.Text = DateTime.Today.ToShortDateString();
+                MessageBox.Show("HSD chưa đúng định dạng MM/dd/yyyy, vui lòng cập nhật lại sau!");
+                return false;
+            }
+            return true;
+        }
+
         private void clickSave(object sender, EventArgs e)
         {
             for (int i = 0; i < lstProductImport.Rows.Count; i++)
             {
+                string sExp = "";
                 string productCode = lstProductImport.Rows[i].Cells[0].Value.ToString();
                 string sNumber = lstProductImport.Rows[i].Cells[1].Value.ToString();
                 string sInputPrice = lstProductImport.Rows[i].Cells[2].Value.ToString();
-                string sExp = lstProductImport.Rows[i].Cells[3].Value.ToString();
                 string status = lstProductImport.Rows[i].Cells[4].Value.ToString();
-
+                if (lstProductImport.Rows[i].Cells[3].Value == null)
+                {
+                    sExp = "";
+                }
+                else
+                {
+                    sExp = lstProductImport.Rows[i].Cells[3].Value.ToString();
+                }
                 int number = int.Parse(sNumber);
                 double inputPrice = double.Parse(sInputPrice);
 
@@ -90,24 +114,6 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
                         MessageBox.Show("Cập nhật không thành công!");
                 }
             } // end for
-        }
-
-        private bool checkDataInput(string exp)
-        {
-            if ((exp ?? "").Trim().Length == 0)
-            {
-                MessageBox.Show("HSD là bắt buộc, vui lòng cập nhật lại sau!");
-                return false;
-            }
-
-            DateTime value;
-            if (!DateTime.TryParse(exp, out value))
-            {
-                //startDateTextox.Text = DateTime.Today.ToShortDateString();
-                MessageBox.Show("HSD chưa đúng định dạng MM/dd/yyyy, vui lòng cập nhật lại sau!");
-                return false;
-            }
-            return true;
         }
 
         private void clickCancel(object sender, EventArgs e)
