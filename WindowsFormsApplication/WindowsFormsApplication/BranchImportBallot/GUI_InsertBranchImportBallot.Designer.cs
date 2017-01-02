@@ -40,10 +40,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.lstBallotDetail = new System.Windows.Forms.DataGridView();
-            this.cboBranch = new System.Windows.Forms.ComboBox();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cboBranch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstBallotDetail)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,18 +174,6 @@
             this.lstBallotDetail.Size = new System.Drawing.Size(495, 188);
             this.lstBallotDetail.TabIndex = 53;
             // 
-            // cboBranch
-            // 
-            this.cboBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBranch.FormattingEnabled = true;
-            this.cboBranch.Items.AddRange(new object[] {
-            "Quận 1",
-            "Quận 5"});
-            this.cboBranch.Location = new System.Drawing.Point(348, 78);
-            this.cboBranch.Name = "cboBranch";
-            this.cboBranch.Size = new System.Drawing.Size(161, 21);
-            this.cboBranch.TabIndex = 69;
-            // 
             // Product
             // 
             this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -212,6 +200,19 @@
             this.Status.Name = "Status";
             this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // cboBranch
+            // 
+            this.cboBranch.BackColor = System.Drawing.Color.Silver;
+            this.cboBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBranch.FormattingEnabled = true;
+            this.cboBranch.Items.AddRange(new object[] {
+            "Quận 1",
+            "Quận 5"});
+            this.cboBranch.Location = new System.Drawing.Point(348, 78);
+            this.cboBranch.Name = "cboBranch";
+            this.cboBranch.Size = new System.Drawing.Size(161, 21);
+            this.cboBranch.TabIndex = 69;
             // 
             // GUI_InsertBranchImportBallot
             // 

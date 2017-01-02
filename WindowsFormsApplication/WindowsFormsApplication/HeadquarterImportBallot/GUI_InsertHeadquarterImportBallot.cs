@@ -78,7 +78,7 @@ namespace WindowsFormsApplication.HeadquarterImportBallot
             }
             return true;
         }
-
+       
         private void clickFind(object sender, EventArgs e)
         {
             string proposeNum = cboProposeNum.Text.ToString();

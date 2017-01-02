@@ -46,7 +46,16 @@ namespace WindowsFormsApplication
             }
             lstBallotDetail.AllowUserToAddRows = false;
         }
+        private bool checkDataInput(string branch)
+        {
+            if ((branch ?? "").Trim().Length == 0)
+            {
+                MessageBox.Show(" Chi nhánh là bắt buộc");
+                return false;
+            }
 
+            return true;
+        }
         private void clickFind(object sender, EventArgs e)
         {
             string headquarterBallotNum = cboHeadquarterBallotNum.Text.ToString();
@@ -71,9 +80,9 @@ namespace WindowsFormsApplication
             string branch = cboBranch.Text;
             string accountCode = "TK000002";
 
-            //var inputData = checkDataInput(branch);
-            //if (inputData)
-            //{
+            var inputData = checkDataInput(branch);
+            if (inputData)
+            {
                 if (bus.insertBranchImportBallot(headquarterBallotNum, inputDate, branch, accountCode))
                 {
                     for (int i = 0; i < lstBallotDetail.Rows.Count; i++)
@@ -96,22 +105,12 @@ namespace WindowsFormsApplication
                     lstBallotDetail.DataMember = null; //Reset DataGridView
                     btnSave.Enabled = false;
                 }
-            //}
+            }
         }
 
         private void clickCancel(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        //private bool checkDataInput(string branch)
-        //{
-        //    if ((branch ?? "").Trim().Length == 0)
-        //    {
-        //        MessageBox.Show("Chi nhánh là bắt buộc, vui lòng cập nhật lại sau!");
-        //        return false;
-        //    }
-        //    return true;
-        //}
     }
 }
