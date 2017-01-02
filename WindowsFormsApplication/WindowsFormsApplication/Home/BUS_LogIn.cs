@@ -7,6 +7,7 @@ namespace WindowsFormsApplication.Home
 {
     class BUS_LogIn
     {
+        //HOME CONTROLLER
         private bool checkExistAccount(string username, string password)
         {
             using (var db = new CMART2Entities1())
