@@ -23,7 +23,7 @@ namespace WindowsFormsApplication.ManageBill
         private void loadFormInsert(object sender, EventArgs e)
         {
             string str = DateTime.Now.ToString().Trim();
-            str = str.Substring(0, 10);
+            str = str.Substring(0,10);
             txtDayIn.Text = str;
             string hour = DateTime.Now.ToString().Trim();
             hour = hour.Substring(11);
